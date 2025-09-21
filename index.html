@@ -67,6 +67,17 @@
             color:#eef3ff;
         }
         #settings:hover #settingsPanel{ opacity:1; transform:translateY(0) scale(1); pointer-events:auto; }
+        #settings.open #settingsPanel{
+            opacity:1;
+            transform:translateY(0) scale(1);
+            pointer-events:auto;
+        }
+        #settings.open #cogButton{
+            transform:translateY(-2px) scale(1.02) rotate(20deg);
+            box-shadow:0 8px 24px rgba(120,170,255,.25),0 0 0 1px rgba(120,170,255,.35) inset;
+            border-color:rgba(120,170,255,.8);
+            background:rgba(24,24,30,.98);
+        }
         .section{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:10px; margin-bottom:8px; }
         .section-title{ font:700 13px/1.2 system-ui; color:#b8cfff; margin-bottom:8px; }
         #modeTip{ font:12px/1.35 system-ui; color:#eaf0ff; background:rgba(16,20,30,.95); border:1px solid rgba(120,160,220,.35); padding:8px 10px; border-radius:10px; }
@@ -283,6 +294,40 @@
     const map = document.getElementById('map');
     const overlay = document.getElementById('overlay');
     const gridCanvas = document.getElementById('gridLayer');
+
+    const settingsRoot  = document.getElementById('settings');
+    const cogButton     = document.getElementById('cogButton');
+    const settingsPanel = document.getElementById('settingsPanel');
+
+    if (settingsRoot && cogButton && settingsPanel) {
+        cogButton.setAttribute('role','button');
+        cogButton.setAttribute('tabindex','0');
+        cogButton.setAttribute('aria-haspopup','true');
+        cogButton.setAttribute('aria-expanded','false');
+
+        function setSettingsOpen(open){
+            settingsRoot.classList.toggle('open', open);
+            cogButton.classList.toggle('active', open);
+            cogButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        cogButton.addEventListener('click', (e)=>{
+            e.stopPropagation();
+            setSettingsOpen(!settingsRoot.classList.contains('open'));
+        });
+
+        cogButton.addEventListener('keydown', (e)=>{
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                cogButton.click();
+            }
+        });
+
+        document.addEventListener('click', (e)=>{
+            if (!e.target.closest('#settings')) setSettingsOpen(false);
+        });
+    }
+
 
     const distGroup = document.createElementNS('http://www.w3.org/2000/svg','g');
     overlay.appendChild(distGroup);
