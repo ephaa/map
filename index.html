@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>The Map</title>
+    <style>
+        html, body { margin:0; height:100%; background:#000; overflow:hidden; cursor:none; }
+
+        #container, #overlay, #viewerCanvas { touch-action:none; }
+
+        
+        #container { width:100%; height:100%; position:relative; }
+        #map { transform-origin:0 0; user-select:none; pointer-events:none; display:block; }
+        #gridLayer { position:absolute; top:0; left:0; pointer-events:none; z-index:8; }
+
+        
+        #overlay   { position:absolute; top:0; left:0; z-index:10; pointer-events:auto; }
+        #cursorLayer{position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:30;}
+
+        
+        #map, #gridLayer, #cursorLayer { cursor: none !important; }
+        #settings, #settings * , #viewer, #viewer * , #searchUI, #searchUI * { cursor:auto !important; }
+        .show-native-cursor * { cursor: auto !important; }
+
+        
+        .cell{
+            fill:rgba(255,255,255,0.001);
+            stroke:rgba(255,255,255,0.25);
+            stroke-width:1;
+            transition:stroke .2s, stroke-width .2s, fill .2s, filter .2s, transform .2s;
+            pointer-events:auto;
+        }
+        g:hover .cell{ stroke:rgba(255,255,255,.8); stroke-width:2; }
+        g.path-selected .cell{ fill:rgba(0,0,0,.35); stroke:#fff; stroke-width:3; filter:drop-shadow(0 0 6px rgba(255,255,255,.9));}
+        g.select-selected .cell{ fill: rgba(255,0,0,0.25); stroke:#f33; stroke-width:2; filter: drop-shadow(0 0 10px rgba(255,80,80,.65)); }
+        g.select-selected{ transform: scale(1.08); transform-origin:center; animation: bob 2.4s ease-in-out infinite; }
+        @keyframes bob{ 0%{ transform: scale(1.08) translateY(0);} 50%{ transform: scale(1.08) translateY(-2px);} 100%{ transform: scale(1.08) translateY(0);} }
+        @keyframes deny { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
+        .deny { animation: deny .22s ease; }
+
+        .label{ font:800 15px/1 system-ui,-apple-system,Segoe UI,Roboto,Arial; fill:#fff; text-anchor:middle; dominant-baseline:middle; pointer-events:none; opacity:0; transition:opacity .15s, font-size .15s; }
+        g.path-selected .label, g.select-selected .label{opacity:1; font-size:18px;}
+
+        
+        #searchUI{ position:absolute; left:12px; top:12px; z-index:50; width:340px; max-width:82vw; color:#eef3ff; }
+        #searchBox{ width:100%; box-sizing:border-box; padding:10px 36px 10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.18); background:rgba(16,16,22,.9); color:#fff; font:600 14px system-ui; outline:none; }
+        #searchBox::placeholder{ color:#a9b8ff; }
+        #searchIcon{ position:absolute; right:10px; top:10px; width:24px; height:24px; display:grid; place-items:center; pointer-events:none; color:#a9b8ff; }
+        #results{ margin-top:6px; background:rgba(12,12,18,.96); border:1px solid rgba(255,255,255,.12); border-radius:10px; overflow:hidden; display:none; max-height:320px; overflow-y:auto; box-shadow:0 10px 24px rgba(0,0,0,.45); }
+        .res-item{ padding:8px 10px; border-bottom:1px solid rgba(255,255,255,.08); cursor:pointer; display:flex; gap:8px; align-items:center; }
+        .res-item:last-child{ border-bottom:none; }
+        .res-item:hover, .res-item.active{ background:rgba(80,140,255,.18); }
+        .res-badge{ font:700 10px system-ui; padding:2px 6px; border-radius:999px; background:rgba(120,170,255,.25); color:#d9e7ff; border:1px solid rgba(120,170,255,.5); }
+        .res-main{ font:600 13px system-ui; }
+        .res-sub{ font:12px system-ui; color:#b5c0ff; }
+
+        
+        #settings{ position:absolute; bottom:10px; left:10px; z-index:40; user-select:none; }
+        #cogButton{ width:44px; height:44px; border-radius:50%; display:grid; place-items:center; background:rgba(20,20,24,.92); border:1px solid rgba(120,120,150,.5); color:#cfe1ff; font-size:21px; transition:transform .18s, box-shadow .22s, border-color .22s, background .18s; position:relative; }
+        #cogButton::before{ content:"⚙️"; }
+        #settings:hover #cogButton{ transform:translateY(-2px) scale(1.02) rotate(20deg); box-shadow:0 8px 24px rgba(120,170,255,.25),0 0 0 1px rgba(120,170,255,.35) inset; border-color:rgba(120,170,255,.8); background:rgba(24,24,30,.98);}
+        #hoverBridge{ position:absolute; left:0; bottom:44px; width:336px; height:16px; pointer-events:auto; background:transparent;}
+        #settingsPanel{ position:absolute; left:0; bottom:58px; width:336px; max-width:72vw; background:rgba(16,16,22,.98); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:10px; opacity:0; transform:translateY(6px) scale(.992); transition:opacity .16s, transform .16s; pointer-events:none; box-shadow:0 6px 18px rgba(0,0,0,.45); color:#eef3ff; }
+        #settings:hover #settingsPanel{ opacity:1; transform:translateY(0) scale(1); pointer-events:auto; }
+        .section{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:10px; margin-bottom:8px; }
+        .section-title{ font:700 13px/1.2 system-ui; color:#b8cfff; margin-bottom:8px; }
+        #modeTip{ font:11px system-ui; color:#b8cfff; background:rgba(16,20,30,.95); border:1px solid rgba(120,160,220,.35); padding:6px 8px; border-radius:8px; margin-bottom:8px;}
+        .mode-row{ display:flex; gap:6px; flex-wrap:wrap; }
+        .mode-item{ padding:8px 12px; border-radius:10px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); cursor:pointer !important; transition:background .14s,border-color .14s,box-shadow .14s,transform .1s;}
+        .mode-item:hover{ background:rgba(80,140,255,.18); border-color:rgba(120,170,255,.6); box-shadow:0 0 10px rgba(120,170,255,.35) inset; transform:translateY(-1px);}
+        .mode-item.active{ background:rgba(120,170,255,.25); border-color:rgba(120,170,255,.9); box-shadow:0 0 12px rgba(120,170,255,.6) inset;}
+        .cursor-controls{ display:grid; gap:8px; }
+        .swatches{ display:flex; gap:6px; flex-wrap:wrap; }
+        .swatch{ width:24px; height:24px; border-radius:6px; border:1px solid rgba(255,255,255,.25); cursor:pointer !important; }
+        .reset-btn{ padding:6px 10px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.06); color:#fff; font:600 12px system-ui; cursor:pointer !important; }
+
+        
+        #viewer{
+            position:absolute; right:12px; top:12px; z-index:60;
+            width:720px; height:520px;
+            background:rgba(12,12,18,.96);
+            border:1px solid rgba(255,255,255,.12); border-radius:12px; box-shadow:0 10px 28px rgba(0,0,0,.5);
+            display:none; padding:10px 10px 18px 10px; gap:8px;
+            resize: both; overflow: hidden;
+        }
+        #viewerHeader{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+        #viewerTitle{ font:700 14px system-ui; color:#fff; }
+        #viewerActions{ display:flex; gap:8px; align-items:center; }
+        .pill{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.2); color:#fff; border-radius:999px; padding:6px 10px; font:600 12px system-ui; cursor:pointer; }
+        .pill.active{ background:rgba(100,180,255,.25); border-color:rgba(120,170,255,.9); }
+        #viewerClose{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.2); color:#fff; border-radius:8px; padding:6px 10px; }
+        #viewerWrap{ position:relative; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,.08); width:100%; height:calc(100% - 66px); }
+        #viewerCanvas{ width:100%; height:100%; display:block; background:#000; }
+        #viewerLS{ position:absolute; inset:0; z-index:5; display:none; pointer-events:none; mix-blend-mode: screen; }
+
+        
+        #planetInfo{
+            position:absolute; z-index:65; display:none; background:rgba(12,12,18,.98);
+            color:#eef3ff; border:1px solid rgba(255,255,255,.12); border-radius:10px; box-shadow:0 8px 22px rgba(0,0,0,.5);
+            min-width:240px; max-width:360px; padding:10px 10px 12px 10px;
+        }
+        #planetInfo h4{ margin:0 0 6px 0; font:700 14px/1.2 system-ui; padding-right:60px; }
+        #planetInfo table{ width:100%; border-collapse:collapse; font:12px system-ui; }
+        #planetInfo td{ padding:3px 4px; vertical-align:top; }
+        #planetInfo td:first-child{ color:#b8cfff; width:36%; }
+        #planetInfoClose, #planetInfoSearch{
+            position:absolute; top:8px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.2);
+            color:#fff; border-radius:7px; padding:3px 7px; font:600 12px system-ui; cursor:pointer;
+        }
+        #planetInfoClose{ right:8px; }
+        #planetInfoSearch{ right:38px; }
+        #planetInfoSearch:disabled{ opacity:.45; cursor:not-allowed; }
+
+        
+        .dist-main-line  { stroke:#ff59d8; stroke-width:6; opacity:.9; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+        .dist-main-point { fill:#1ee3ff; stroke:#93f1ff; stroke-width:2; filter:drop-shadow(0 0 6px rgba(80,200,255,.8)); }
+        .dist-main-label { fill:#fff; font:700 14px system-ui; paint-order:stroke; stroke:#000; stroke-width:4; }
+
+        
+        #pathHUD {
+            position:absolute; left:50%; bottom:-120px; transform:translateX(-50%);
+            z-index:55; width:min(560px, 94vw);
+            display:flex; flex-direction:column; align-items:center; gap:10px;
+            transition: bottom .25s ease, opacity .25s ease;
+            opacity:0; pointer-events:none;
+        }
+        #pathHUD.show { bottom:24px; opacity:1; pointer-events:auto; }
+        .path-title { color:#fff; font:800 14px system-ui; letter-spacing:.5px; text-transform:uppercase; }
+        .path-divider { width:100%; height:1px; background:#fff; opacity:.85; }
+        .path-buttons { display:flex; gap:10px; }
+        .path-btn {
+            padding:10px 14px; border-radius:10px; font:700 12px system-ui; cursor:pointer;
+            border:1px solid rgba(255,255,255,.2); color:#fff; background:rgba(255,255,255,.08);
+            backdrop-filter: blur(6px);
+        }
+        .path-btn.primary { border-color:rgba(120,170,255,.6); background:rgba(120,170,255,.25); }
+
+        
+        #speedHUD{ position:absolute; right:12px; bottom:12px; z-index:25; background:rgba(18,18,24,.85); border:1px solid rgba(120,120,150,.5); color:#dfe7ff; font:12px system-ui; padding:6px 8px; border-radius:6px; pointer-events:none; white-space:nowrap; }
+        #speedHUD b{ color:#9cf; }
+
+        @media (max-width: 640px) {
+            #pathHUD {
+                bottom: 18px;
+                padding-bottom: env(safe-area-inset-bottom, 0px);
+                opacity: 1;
+            }
+            .path-title { font-size: 13px; letter-spacing: .4px; }
+            .path-btn { padding: 12px 16px; font: 800 13px system-ui; }
+            .path-btn.primary { box-shadow: 0 6px 18px rgba(120,170,255,.25); }
+
+            .pill, #viewerClose { padding: 10px 14px; font-size: 13px; }
+
+            #viewer {
+                width: 94vw; height: 56vh; right: 3vw; top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <img id="map" src="galaxy.jpg" alt="Galaxy Map">
+    <canvas id="gridLayer"></canvas>
+    <svg id="overlay"></svg>
+    <canvas id="cursorLayer"></canvas>
+
+    <!-- TOP-LEFT SEARCH -->
+    <div id="searchUI">
+        <div style="position:relative">
+            <input id="searchBox" type="search" placeholder="Search object or sector…" autocomplete="off" />
+            <div id="searchIcon">🔎︎</div>
+        </div>
+        <div id="results" role="listbox" aria-label="Search results"></div>
+    </div>
+
+    <!-- Viewer -->
+    <div id="viewer" aria-label="Cell viewer">
+        <div id="viewerHeader">
+            <div>
+                <div id="viewerTitle">Cell -</div>
+                <div id="viewerHint" style="font:12px system-ui;color:#b9c6ff;">drag to pan · wheel/pinch to zoom · double-tap/click to reset · hotkeys 1/2/3</div>
+            </div>
+            <div id="viewerActions">
+                <button id="viewerDistanceToggle" class="pill" title="Drop points and measure distances">Distance (~)</button>
+                <button id="viewerClose">Close</button>
+            </div>
+        </div>
+        <div id="viewerWrap">
+            <canvas id="viewerLS"></canvas>
+            <canvas id="viewerCanvas" width="1200" height="1200"></canvas>
+        </div>
+
+        <!-- Planet info card -->
+        <div id="planetInfo" role="dialog" aria-modal="false">
+            <button id="planetInfoClose" aria-label="Close planet info">✕</button>
+            <button id="planetInfoSearch" title="Search on Wookieepedia" aria-label="Search on Wookieepedia">🔎︎</button>
+            <h4 id="planetInfoTitle">Planet</h4>
+            <table><tbody id="planetInfoBody"></tbody></table>
+        </div>
+    </div>
+
+    <!-- Settings -->
+    <div id="settings">
+        <div id="cogButton" title="Settings"></div>
+        <div id="hoverBridge" aria-hidden="true"></div>
+        <div id="settingsPanel">
+            <div id="modeTip">Path: click one cell to start, then only orthogonally adjacent cells. Use Complete to open a combined map. (1/2/3 switch modes)</div>
+            <div class="section">
+                <div class="section-title">Mode</div>
+                <div class="mode-row" role="tablist" aria-label="Interaction mode">
+                    <div class="mode-item active" data-mode="path" role="tab" aria-selected="true" tabindex="0">Path (1)</div>
+                    <div class="mode-item" data-mode="select" role="tab" aria-selected="false" tabindex="0">Select (2)</div>
+                    <div class="mode-item" data-mode="distance" role="tab" aria-selected="false" tabindex="0">Distance (3)</div>
+                </div>
+
+                <div id="pathActions" style="display:none">
+                    <button id="pathComplete" title="Open a combined map for selected adjacent cells">Complete</button>
+                    <button id="pathClear" title="Clear selected cells">Clear</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Extras</div>
+                <label style="display:flex; gap:8px; align-items:center; font:600 12px system-ui;">
+                    <input id="toggleLightspeed" type="checkbox" />
+                    Lightspeed jump on search (viewer only)
+                </label>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Cursor</div>
+                <div class="cursor-controls">
+                    <input type="color" id="cursorColorPicker" value="#78aaff" aria-label="Cursor color" />
+                    <div class="swatches" aria-label="Preset colors">
+                        <div class="swatch" data-color="#78aaff" style="background:#78aaff" title="Default"></div>
+                        <div class="swatch" data-color="#00ffff" style="background:#00ffff" title="Cyan"></div>
+                        <div class="swatch" data-color="#ff7b7b" style="background:#ff7b7b" title="Coral"></div>
+                        <div class="swatch" data-color="#7bff88" style="background:#7bff88" title="Mint"></div>
+                        <div class="swatch" data-color="#ffda6b" style="background:#ffda6b" title="Gold"></div>
+                        <div class="swatch" data-color="#d3b3ff" style="background:#d3b3ff" title="Lavender"></div>
+                    </div>
+                    <button class="reset-btn" id="cursorReset">Reset to default</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom-center Path HUD -->
+    <div id="pathHUD" aria-hidden="true">
+        <div class="path-title">Path Mode</div>
+        <div class="path-divider"></div>
+        <div class="path-buttons">
+            <button id="pathHUDComplete" class="path-btn primary">Complete</button>
+            <button id="pathHUDClear" class="path-btn">Clear</button>
+        </div>
+    </div>
+
+    <div id="speedHUD"><b>Speed</b> · 0 px/s · 0 thousand light-years per second</div>
+</div>
+
+<script>
+    
+    const UI_MULT   = 3.5;
+    const SHRINK_A  = 0.85;
+    const WORLD_W   = 5000;
+    const WORLD_H   = 5000;
+    const SECTOR_PAD = 220;
+    const SECTOR_SMOOTH_ITERS = 3;
+    let NO_SECTOR_OVERLAP_ITERS = 260;
+
+    const STAR_MIN_PX = 1.5, STAR_MAX_PX = 9;
+    const FONT_MIN_PX = 9,   FONT_MAX_PX = 22;
+    const SHOW_MAIN_FINE_GRID = false;
+
+    
+    const container = document.getElementById('container');
+    const map = document.getElementById('map');
+    const overlay = document.getElementById('overlay');
+    const gridCanvas = document.getElementById('gridLayer');
+
+    const distGroup = document.createElementNS('http://www.w3.org/2000/svg','g');
+    overlay.appendChild(distGroup);
+
+    const searchBox = document.getElementById('searchBox');
+    const resultsEl = document.getElementById('results');
+
+    const viewer = document.getElementById('viewer');
+    const viewerWrap = document.getElementById('viewerWrap');
+    const viewerCanvas = document.getElementById('viewerCanvas');
+    const vctx = viewerCanvas.getContext('2d', {alpha:false});
+    vctx.imageSmoothingEnabled = false;
+    const viewerTitle = document.getElementById('viewerTitle');
+    document.getElementById('viewerClose').onclick = ()=> { viewer.style.display='none'; };
+
+    const viewerLS = document.getElementById('viewerLS');
+    const lsctx = viewerLS.getContext('2d');
+
+    const planetInfo = document.getElementById('planetInfo');
+    const planetInfoTitle = document.getElementById('planetInfoTitle');
+    const planetInfoBody  = document.getElementById('planetInfoBody');
+    const planetInfoSearch = document.getElementById('planetInfoSearch');
+    document.getElementById('planetInfoClose').onclick = () => { selectedIdx = null; planetInfo.style.display='none'; };
+    let selectedIdx = null;
+
+    const viewerDistanceToggle = document.getElementById('viewerDistanceToggle');
+    let viewerDistanceMode = false;
+    let viewerDistPts = [];
+    viewerDistanceToggle.addEventListener('click', () => {
+        viewerDistanceMode = !viewerDistanceMode;
+        viewerDistanceToggle.classList.toggle('active', viewerDistanceMode);
+        if (viewerDistanceMode){ selectedIdx = null; planetInfo.style.display = 'none'; }
+    });
+
+    
+    const GRID_LEFT=619, GRID_TOP=760;
+    const CELL_W=145.5, CELL_H=145.5, COLS=19, ROWS=21;
+    const COL_LETTERS='CDEFGHIJKLMNOPQRSTU'.split('');
+    const LY_PER_CELL=5000;
+    const LY_PER_PX = LY_PER_CELL/145.5;
+
+    
+    let CURRENT_WORLD_W = WORLD_W, CURRENT_WORLD_H = WORLD_H;
+    let CURRENT_CELL_RECTS = []; 
+
+    
+    let scale=1, originX=0, originY=0;
+    let isDragging=false, startX=0, startY=0, dragMoved=false, downX=0, downY=0;
+    const IS_TOUCH = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    const MIN_SCALE = 0.35;
+    const MAX_SCALE = IS_TOUCH ? 4 : 12;    
+    const ZOOM_STEP = 0.12;
+    const DRAG_THRESHOLD = 5;
+
+    function applyTransform(){
+        const t=`translate(${originX}px, ${originY}px) scale(${scale})`;
+        [map, overlay, gridCanvas].forEach(el=>{ el.style.transform=t; el.style.transformOrigin='0 0'; });
+    }
+    function hitsUI(e){ return !!e.target.closest('#settings, #viewer, #searchUI'); }
+
+  
+    const ptrs = new Map();
+    function pointersArray(){ return Array.from(ptrs.values()); }
+    function mid(a,b){ return {x:(a.x+b.x)/2, y:(a.y+b.y)/2}; }
+    function dist2(a,b){ return Math.hypot(a.x-b.x, a.y-b.y); }
+
+    function clientToWorld(cx, cy){
+        const rect = container.getBoundingClientRect();
+        const mx = cx - rect.left, my = cy - rect.top;
+        return { wx: (mx - originX) / scale, wy: (my - originY) / scale, mx, my };
+    }
+
+    container.addEventListener('pointerdown', (e)=>{
+        if (hitsUI(e)) return;
+        ptrs.set(e.pointerId, {x:e.clientX, y:e.clientY});
+        if (pointersArray().length === 1){
+            isDragging = true;
+            startX = e.clientX; startY = e.clientY; downX = originX; downY = originY; dragMoved = false;
+            if (mode === 'distance'){ addDistancePointFromClient(e.clientX, e.clientY); }
+        }
+        e.preventDefault();
+    });
+
+    container.addEventListener('pointermove', (e)=>{
+        if (!ptrs.has(e.pointerId)) return;
+        ptrs.set(e.pointerId, {x:e.clientX, y:e.clientY});
+        const ps = pointersArray();
+
+      
+        if (ps.length === 2 && !hitsUI(e)){
+            const [p0,p1] = ps;
+            if (!container._pinch){
+                container._pinch = { start:{p0, p1, d:dist2(p0,p1), m:mid(p0,p1)}, originX, originY, scale };
+            } else {
+                const dNow = dist2(p0,p1);
+                const mNow = mid(p0,p1);
+                const factor = dNow / Math.max(10, container._pinch.start.d);
+                const prevScale = container._pinch.scale;
+                const newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, prevScale * factor));
+                const { wx, wy } = clientToWorld(mNow.x, mNow.y);
+                scale = newScale;
+                originX = mNow.x - wx * scale;
+                originY = mNow.y - wy * scale;
+                applyTransform();
+            }
+            e.preventDefault();
+            return;
+        } else {
+            container._pinch = null;
+        }
+
+      
+        if (isDragging && ps.length === 1 && !hitsUI(e)){
+            const dx = e.clientX - startX, dy = e.clientY - startY;
+
+            if (!dragMoved && (Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD)) {
+                dragMoved = true;
+                try { container.setPointerCapture(e.pointerId); } catch {}
+            }
+
+            originX = downX + dx; originY = downY + dy; applyTransform();
+            e.preventDefault();
+        }
+    });
+
+    container.addEventListener('pointerup', (e)=>{
+        ptrs.delete(e.pointerId);
+        if (pointersArray().length < 2) container._pinch = null;
+        try { container.releasePointerCapture(e.pointerId); } catch {}
+        isDragging=false; setTimeout(()=>{dragMoved=false;},0);
+    });
+    container.addEventListener('pointercancel', (e)=>{
+        ptrs.delete(e.pointerId); container._pinch = null; isDragging=false; dragMoved=false;
+    });
+
+  
+    container.addEventListener('wheel', (e)=>{
+        if (hitsUI(e)) return;
+        e.preventDefault();
+        const rect = container.getBoundingClientRect();
+        const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+        const prevScale = scale;
+        const factor = (e.deltaY < 0) ? (1 + ZOOM_STEP) : (1 / (1 + ZOOM_STEP));
+        const newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, prevScale * factor));
+        if (newScale === prevScale) return;
+        const wx = (mx - originX) / prevScale, wy = (my - originY) / prevScale;
+        scale = newScale; originX = mx - wx * scale; originY = my - wy * scale; applyTransform();
+    }, { passive:false });
+
+    container.addEventListener('dblclick', (e)=>{ if (!hitsUI(e) && mode!=='distance'){ scale=1; originX=0; originY=0; applyTransform(); } });
+    container.addEventListener('contextmenu', (e)=>{ if (mode==='distance' && !hitsUI(e)){ e.preventDefault(); clearMainDistance(); } });
+
+    
+    function buildGrid(){
+        overlay.innerHTML=''; overlay.appendChild(distGroup);
+        const w=map.naturalWidth,h=map.naturalHeight;
+        overlay.setAttribute('viewBox',`0 0 ${w} ${h}`); overlay.setAttribute('width',w); overlay.setAttribute('height',h);
+
+        let y=GRID_TOP;
+        for(let r=0;r<ROWS;r++){
+            let x=GRID_LEFT;
+            for(let c=0;c<COLS;c++){
+                const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+                const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+                rect.setAttribute('x',x); rect.setAttribute('y',y);
+                rect.setAttribute('width',CELL_W); rect.setAttribute('height',CELL_H);
+                rect.setAttribute('class','cell');
+                const cellId = `${COL_LETTERS[c]}${r+1}`;
+                rect.dataset.cell = cellId;
+                const label=document.createElementNS('http://www.w3.org/2000/svg','text');
+                label.setAttribute('x',x+CELL_W/2); label.setAttribute('y',y+CELL_H/2);
+                label.setAttribute('class','label'); label.textContent=cellId;
+
+                rect.addEventListener('click', (ev)=>{
+                    if(dragMoved) return;
+                    if(mode==='path'){
+                        handlePathClick(g, cellId);
+                    }else if(mode==='select'){
+                        overlay.querySelectorAll('g.select-selected').forEach(el=>el.classList.remove('select-selected'));
+                        g.classList.add('select-selected');
+                        openCellViewer([cellId]); // single cell
+                    }
+                });
+
+                g.appendChild(rect); g.appendChild(label); overlay.appendChild(g);
+                x+=CELL_W;
+            }
+            y+=CELL_H;
+        }
+        drawFineGrid(); applyTransform();
+    }
+    map.onload=()=>buildGrid();
+    function drawFineGrid(){
+        const w = map.naturalWidth, h = map.naturalHeight;
+        gridCanvas.width = w; gridCanvas.height = h;
+        const ctx = gridCanvas.getContext('2d');
+        ctx.clearRect(0,0,w,h);
+    }
+
+    
+    const MODE_TIPS={
+        path:'Path: click one cell to start, then only orthogonally adjacent cells. Use Complete to open a combined map.',
+        select:'Select: click a cell to open its standalone map.',
+        distance:'Distance: left-click/tap to drop points; right-click to clear; Esc clears. Measures total polyline distance.'
+    };
+
+    let mode='path';
+
+    const pathHUD = document.getElementById('pathHUD');
+    const pathHUDComplete = document.getElementById('pathHUDComplete');
+    const pathHUDClear = document.getElementById('pathHUDClear');
+    const pathCompleteBtn = document.getElementById('pathComplete');
+    const pathClearBtn = document.getElementById('pathClear');
+
+    pathHUDComplete.onclick = () => pathCompleteBtn?.click();
+    pathHUDClear.onclick = () => pathClearBtn?.click();
+    pathHUD.classList.toggle('show', mode === 'path');
+
+    function setMode(newMode){
+        const changed = (newMode !== mode);
+        const wasSelect = (mode === 'select');
+        mode = newMode;
+
+        pathHUD.classList.toggle('show', mode === 'path');
+
+        if (changed && wasSelect && newMode !== 'select'){
+            viewer.style.display = 'none';
+            selectedIdx = null; planetInfo.style.display = 'none';
+            overlay.querySelectorAll('g.select-selected').forEach(el=>el.classList.remove('select-selected'));
+        }
+
+        document.getElementById('modeTip').textContent = MODE_TIPS[mode] || '';
+        document.querySelectorAll('.mode-item').forEach(mi=>{
+            const active = mi.dataset.mode===mode;
+            mi.classList.toggle('active', active);
+            mi.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        if (mode === 'select') overlay.querySelectorAll('g.path-selected').forEach(g => g.classList.remove('path-selected'));
+        if (mode !== 'distance') clearMainDistance();
+    }
+    document.getElementById('settings').addEventListener('click', e=>{
+        const it=e.target.closest('.mode-item'); if(!it) return; setMode(it.dataset.mode); e.stopPropagation();
+    });
+    document.addEventListener('keydown', e=>{
+        if(e.key==='1') setMode('path');
+        else if(e.key==='2') setMode('select');
+        else if(e.key==='3') setMode('distance');
+        else if(e.key==='Escape' && mode==='distance') clearMainDistance();
+    });
+
+    
+    function idxFromCell(cell){
+        const m = /^([A-Z]+)(\d+)$/.exec(cell);
+        const c = COL_LETTERS.indexOf(m[1]);
+        const r = (+m[2])-1;
+        return {c, r};
+    }
+    function cellToCR(cellId){
+        const m = /^([A-Z]+)(\d+)$/.exec(cellId);
+        return { c: COL_LETTERS.indexOf(m[1]), r: (+m[2])-1 };
+    }
+    function neighborsOf(cell){
+        const {c,r} = idxFromCell(cell);
+        const out=[];
+        [[c+1,r],[c-1,r],[c,r+1],[c,r-1]].forEach(([cc,rr])=>{
+            if (cc>=0 && cc<COLS && rr>=0 && rr<ROWS) out.push(`${COL_LETTERS[cc]}${rr+1}`);
+        });
+        return out;
+    }
+    function selectedPathCells(){
+        return Array.from(overlay.querySelectorAll('g.path-selected rect')).map(r=>r.dataset.cell);
+    }
+    function handlePathClick(groupEl, cellId){
+        const isSel = groupEl.classList.contains('path-selected');
+        if (isSel){
+            groupEl.classList.remove('path-selected');
+            return;
+        }
+        const sel = selectedPathCells();
+        if (sel.length === 0){
+            groupEl.classList.add('path-selected'); return;
+        }
+        const allowed = sel.some(s => neighborsOf(s).includes(cellId));
+        if (allowed){ groupEl.classList.add('path-selected'); }
+        else { const tip = document.getElementById('modeTip'); tip.classList.add('deny'); setTimeout(()=>tip.classList.remove('deny'), 240); }
+    }
+    document.getElementById('pathClear').addEventListener('click', ()=>{
+        overlay.querySelectorAll('g.path-selected').forEach(g=>g.classList.remove('path-selected'));
+    });
+    document.getElementById('pathComplete').addEventListener('click', async ()=>{
+        const cells = selectedPathCells();
+        if (!cells.length){ const tip=document.getElementById('modeTip'); tip.classList.add('deny'); setTimeout(()=>tip.classList.remove('deny'), 240); return; }
+        await openCellViewer(cells);
+    });
+
+    
+    let mainDistPts = [];
+    function clientToMapXY(cx, cy){ const rect=container.getBoundingClientRect(); return { x:(cx - rect.left - originX)/scale, y:(cy - rect.top - originY)/scale }; }
+    function clearMainDistance(){ mainDistPts = []; while (distGroup.firstChild) distGroup.removeChild(distGroup.firstChild); }
+    function addDistancePointFromClient(cx, cy){ const p = clientToMapXY(cx, cy); mainDistPts.push(p); drawMainDistance(); }
+    function drawMainDistance(){
+        while (distGroup.firstChild) distGroup.removeChild(distGroup.firstChild);
+        if (mainDistPts.length === 0) return;
+        const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        let d = ''; mainDistPts.forEach((pt, i)=>{ d += (i===0?`M${pt.x},${pt.y}`:`L${pt.x},${pt.y}`); });
+        path.setAttribute('d', d); path.setAttribute('class','dist-main-line'); distGroup.appendChild(path);
+        let total = 0;
+        for (let i=0;i<mainDistPts.length;i++){
+            const pt = mainDistPts[i];
+            const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+            c.setAttribute('cx', pt.x); c.setAttribute('cy', pt.y); c.setAttribute('r', 6); c.setAttribute('class','dist-main-point');
+            distGroup.appendChild(c);
+            if (i > 0){
+                const a = mainDistPts[i-1], b = mainDistPts[i];
+                const segLy = Math.hypot(b.x-a.x, b.y-a.y) * LY_PER_PX; total += segLy;
+                const midx = (a.x + b.x)/2, midy = (a.y + b.y)/2;
+                const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+                t.setAttribute('x', midx + 6); t.setAttribute('y', midy - 6); t.setAttribute('class','dist-main-label');
+                t.textContent = `${Math.round(segLy).toLocaleString()} ly`; distGroup.appendChild(t);
+            }
+        }
+        const last = mainDistPts[mainDistPts.length-1];
+        const tot = document.createElementNS('http://www.w3.org/2000/svg','text');
+        tot.setAttribute('x', last.x + 10); tot.setAttribute('y', last.y - 12); tot.setAttribute('class','dist-main-label');
+        tot.textContent = `Total: ${Math.round(total).toLocaleString()} ly (${(total/1000).toFixed(2)} kly)`; distGroup.appendChild(tot);
+    }
+
+    
+    let OBJECT_ROWS=null;
+    async function ensureObjectsLoaded(){
+        if(OBJECT_ROWS) return;
+        const res = await fetch('objects.csv');
+        const txt = await res.text();
+        OBJECT_ROWS = parseCSVSmart(txt);
+        buildSearchIndex();
+    }
+    function parseCSVSmart(text){
+        const out = [];
+        const lines = text.replace(/\r\n?/g, '\n').split('\n').filter(l=>l.length>0);
+        if (!lines.length) return out;
+        const header = splitCSVLine(lines[0]);
+        for (let i=1;i<lines.length;i++){
+            const cols = splitCSVLine(lines[i]);
+            const row = {}; for (let j=0;j<header.length;j++){ row[header[j]] = (cols[j] ?? '').trim(); }
+            out.push(row);
+        }
+        return out;
+    }
+    function splitCSVLine(line){
+        const cells = []; let cur = '', inQ = false;
+        for (let i=0;i<line.length;i++){
+            const ch = line[i];
+            if (inQ){
+                if (ch === '"'){ if (line[i+1] === '"'){ cur += '"'; i++; } else { inQ = false; } }
+                else { cur += ch; }
+            } else {
+                if (ch === '"'){ inQ = true; }
+                else if (ch === ','){ cells.push(cur.trim()); cur=''; }
+                else { cur += ch; }
+            }
+        }
+        cells.push(cur.trim()); return cells;
+    }
+    function normCellId(s){
+        const m = /^([A-Z]+)\s*-?\s*(\d+)$/.exec(String(s||'').trim().toUpperCase());
+        if(!m) return null; const col=m[1], r=+m[2];
+        if(!COL_LETTERS.includes(col) || r<1 || r>ROWS) return null;
+        return col+r;
+    }
+    const pick = (obj, keys) => { for (const k of keys) { const v = (obj[k] ?? '').toString().trim(); if (v) return v; } return ''; };
+
+    
+    let vScale=1, vMax=(('ontouchstart' in window) || (navigator.maxTouchPoints > 0)) ? 16 : 40, vX=0, vY=0;
+    const vc = viewerCanvas;
+    function fitScale(){ return Math.min(vc.width/CURRENT_WORLD_W, vc.height/CURRENT_WORLD_H); }
+    function resetViewerTransform(){ vScale = fitScale(); vX = (vc.width  - vScale*CURRENT_WORLD_W)/2; vY = (vc.height - vScale*CURRENT_WORLD_H)/2; }
+    function W2S(x,y){ return { x: vScale*x + vX, y: vScale*y + vY }; }
+
+    vc.style.cursor = 'grab';
+    let dragging = false, startPX=0, startPY=0, startVX=0, startVY=0;
+
+    function clientToCanvas(x, y){
+        const rect = vc.getBoundingClientRect(); const scaleX = vc.width  / rect.width; const scaleY = vc.height / rect.height;
+        return { sx: (x - rect.left) * scaleX, sy: (y - rect.top)  * scaleY, scaleX, scaleY };
+    }
+    function openWookieeSearch(name){
+        if (!name) return;
+        const url = `https://starwars.fandom.com/wiki/Special:Search?query=${encodeURIComponent(name)}&scope=internal&navigationSearch=true`;
+        window.open(url, '_blank', 'noopener');
+    }
+    function setInfoContent(p){
+        planetInfoTitle.textContent = p.name || 'Planet';
+        planetInfoBody.innerHTML = `
+<tr><td>Sector</td><td>${p.sectorLabel || p.sector || '?'}</td></tr>
+<tr><td>Affiliation</td><td>${p.affiliation}</td></tr>
+<tr><td>Suns</td><td>${p.suns}</td></tr>
+<tr><td>Moons</td><td>${p.moons}</td></tr>
+<tr><td>Population</td><td>${p.population}</td></tr>
+<tr><td>Climate</td><td>${p.climate}</td></tr>
+<tr><td>Terrain</td><td>${p.terrain}</td></tr>`;
+        planetInfoSearch.disabled = !p.name;
+        planetInfoSearch.setAttribute('aria-label', p.name ? `Search Wookieepedia for ${p.name}` : 'Search on Wookieepedia');
+        planetInfoSearch.onclick = () => openWookieeSearch(p.name);
+    }
+    function placeInfoAt(sx, sy){
+        const pad = 10;
+        const vw = viewer.clientWidth, vh = viewer.clientHeight;
+        const wasHidden = (planetInfo.style.display === 'none' || getComputedStyle(planetInfo).display === 'none');
+        if (wasHidden){ planetInfo.style.visibility = 'hidden'; planetInfo.style.display = 'block'; }
+        const card = planetInfo.getBoundingClientRect();
+        const cw = card.width || 280, ch = card.height || 200;
+        if (wasHidden){ planetInfo.style.display = 'none'; planetInfo.style.visibility = ''; }
+
+        const rect = vc.getBoundingClientRect();
+        const cssX = rect.left + sx * (rect.width / vc.width) - rect.left;
+        const cssY = rect.top  + sy * (rect.height/ vc.height) - rect.top;
+
+        let x = cssX + 14, y = cssY + 14;
+        x = Math.max(pad, Math.min(vw - cw - pad, x));
+        y = Math.max(pad, Math.min(vh - ch - pad, y));
+        planetInfo.style.left = x + 'px'; planetInfo.style.top  = y + 'px';
+    }
+    function updateInfoPosition(){
+        if (selectedIdx == null) return;
+        const p = CURRENT_POINTS[selectedIdx];
+        const {x:sx, y:sy} = W2S(p.x, p.y);
+        placeInfoAt(sx, sy);
+    }
+    function handleViewerClick(clientX, clientY){
+        if (viewerDistanceMode) return;
+        if (!CURRENT_POINTS || !CURRENT_POINTS.length) return;
+        const { sx, sy } = clientToCanvas(clientX, clientY);
+        const wx = (sx - vX) / vScale, wy = (sy - vY) / vScale;
+
+        const U = uiSizes();
+        const HIT_R_WORLD = Math.max(12 / vScale, (U.starR + 6) / vScale);
+
+        let bestIdx = -1, bestD2 = Infinity;
+        for (let i = 0; i < CURRENT_POINTS.length; i++){
+            const p = CURRENT_POINTS[i];
+            const dx = p.x - wx, dy = p.y - wy;
+            const d2 = dx*dx + dy*dy;
+            if (d2 <= HIT_R_WORLD * HIT_R_WORLD && d2 < bestD2){ bestIdx = i; bestD2 = d2; }
+        }
+        if (bestIdx >= 0){
+            selectedIdx = bestIdx;
+            const p = CURRENT_POINTS[selectedIdx];
+            setInfoContent(p);
+            planetInfo.style.display = 'block';
+            const sp = W2S(p.x, p.y);
+            placeInfoAt(sp.x, sp.y);
+        } else { selectedIdx = null; planetInfo.style.display = 'none'; }
+    }
+
+    viewerCanvas.addEventListener('pointerdown', e=>{
+        const { sx, sy } = clientToCanvas(e.clientX, e.clientY);
+        const isRight = e.button === 2;
+
+        if (viewerDistanceMode){
+            if (isRight){ viewerDistPts = []; drawViewer(); return; }
+            if (e.button === 0){
+                const wx = (sx - vX)/vScale, wy = (sy - vY)/vScale;
+                viewerDistPts.push({x: wx, y: wy});
+                drawViewer();
+            }
+            return;
+        }
+
+        dragging = true; startPX = sx; startPY = sy; startVX = vX; startVY = vY;
+        viewerCanvas.setPointerCapture(e.pointerId); viewerCanvas.style.cursor = 'grabbing';
+    });
+    viewerCanvas.addEventListener('pointermove', e=>{
+        if(!dragging) return;
+        const { sx, sy } = clientToCanvas(e.clientX, e.clientY);
+        vX = startVX + (sx - startPX); vY = startVY + (sy - startPY); drawViewer();
+    });
+    viewerCanvas.addEventListener('pointerup', e=>{
+        const { sx, sy } = clientToCanvas(e.clientX, e.clientY);
+        const moved = Math.hypot(sx - startPX, sy - startPY);
+        viewerCanvas.releasePointerCapture(e.pointerId);
+        viewerCanvas.style.cursor = 'grab';
+        if (!viewerDistanceMode){ dragging = false; if (moved < 5){ handleViewerClick(e.clientX, e.clientY); } }
+    });
+    viewerCanvas.addEventListener('wheel', e=>{
+        e.preventDefault();
+        const { sx, sy } = clientToCanvas(e.clientX, e.clientY);
+        const preX = (sx - vX)/vScale, preY = (sy - vY)/vScale;
+        const step = 1 + (e.deltaY < 0 ? 0.10 : -0.10) * Math.max(0.3, Math.min(1.0, 1/Math.sqrt(vScale)));
+        const newScale = Math.max(fitScale()*0.2, Math.min(vMax, vScale*step));
+        vScale = newScale; vX = sx - preX * vScale; vY = sy - preY * vScale; drawViewer();
+    },{passive:false});
+    viewerCanvas.addEventListener('dblclick', ()=>{ resetViewerTransform(); drawViewer(); });
+    viewerCanvas.addEventListener('contextmenu', (e)=>{ if (viewerDistanceMode){ e.preventDefault(); viewerDistPts = []; drawViewer(); } });
+    document.addEventListener('keydown', e=>{ if (e.key === 'Escape'){ selectedIdx = null; planetInfo.style.display = 'none'; } });
+
+    
+    const vPtrs = new Map();
+    let vPinchStart = null;
+    viewerCanvas.addEventListener('pointerdown', e => { vPtrs.set(e.pointerId, {x:e.clientX, y:e.clientY}); });
+    viewerCanvas.addEventListener('pointermove', e => {
+        if (!vPtrs.has(e.pointerId)) return;
+        vPtrs.set(e.pointerId, {x:e.clientX, y:e.clientY});
+        const ps = Array.from(vPtrs.values());
+        if (ps.length === 2){
+            const [a,b] = ps;
+            if (!vPinchStart){
+                vPinchStart = {a, b, d: Math.hypot(a.x-b.x, a.y-b.y), mid:{x:(a.x+b.x)/2,y:(a.y+b.y)/2}, vScale, vX, vY};
+            } else {
+                const dNow = Math.hypot(a.x-b.x, a.y-b.y);
+                const raw = dNow / Math.max(10, container._pinch.start.d);
+                const factor = Math.pow(raw, IS_TOUCH ? 0.85 : 1);
+                const rect = viewerCanvas.getBoundingClientRect();
+                const sx = vPinchStart.mid.x - rect.left, sy = vPinchStart.mid.y - rect.top;
+                const preX = (sx - vX)/vScale, preY = (sy - vY)/vScale;
+                vScale = Math.max(fitScale()*0.2, Math.min(vMax, vPinchStart.vScale * factor));
+                vX = sx - preX * vScale; vY = sy - preY * vScale;
+                drawViewer();
+            }
+            e.preventDefault();
+        }
+    });
+    function clearVPinch(){ vPinchStart = null; }
+    viewerCanvas.addEventListener('pointerup', e=>{ vPtrs.delete(e.pointerId); if (vPtrs.size < 2) clearVPinch(); });
+    viewerCanvas.addEventListener('pointercancel', e=>{ vPtrs.delete(e.pointerId); clearVPinch(); });
+
+    
+    function clamp(v, lo, hi){ return Math.max(lo, Math.min(hi, v)); }
+    function posSeed(keyA,keyB){ const s = Array.from(String(keyA)+'|'+String(keyB)).reduce((a,ch)=> (a*131 + ch.charCodeAt(0))>>>0, 0); const u = (s & 0xffff)/0xffff, v = ((s>>>16)&0xffff)/0xffff; return [0.15+0.70*u, 0.15+0.70*v]; }
+    function colorFromName(name){ let h=0; for(let i=0;i<name.length;i++) h=(h*31 + name.charCodeAt(i))%360; return {stroke:`hsl(${h} 70% 60%)`, fill:`hsla(${h} 70% 60% / .18)`}; }
+    function clampPointToHome(p, pad=6){ p.x = Math.max(p.homeX0 + pad, Math.min(p.homeX1 - pad, p.x)); p.y = Math.max(p.homeY0 + pad, Math.min(p.homeY1 - pad, p.y));}
+    function uiSizes(){
+        const f = UI_MULT; const k = Math.pow(Math.max(vScale, 1e-6), SHRINK_A);
+        return {
+            starR: clamp(6 * f * k, STAR_MIN_PX, STAR_MAX_PX),
+            fontObj: Math.round(clamp(18 * f * k,     FONT_MIN_PX, FONT_MAX_PX)),
+            labelPad: Math.max(3, Math.round(8 * f * k)),
+            objStroke: Math.max(1, Math.round(2 * f * k)),
+            leaderW:   Math.max(1, Math.round(2 * f * k)),
+            sectorStroke: Math.max(1, Math.round(2 * f * k)),
+            k
+        };
+    }
+
+    
+    function hashRng(key){
+        let h = 2166136261 >>> 0;
+        for (let i=0;i<key.length;i++){ h ^= key.charCodeAt(i); h = Math.imul(h, 16777619); }
+        return () => ((h = Math.imul(h ^ (h>>>16), 2246822507) ^ Math.imul((h = Math.imul(h ^ (h>>>13), 3266489909)) ^ (h>>>16), 2246822507)) >>> 0) / 0xffffffff;
+    }
+    
+    function gauss01(r){
+        let u=0,v=0; while(u===0) u=r(); while(v===0) v=r();
+        return Math.sqrt(-2*Math.log(u)) * Math.cos(2*Math.PI*v);
+    }
+
+    
+    function pointInPoly(poly, x, y){
+        let inside = false;
+        for (let i=0, j=poly.length-1; i<poly.length; j=i++){
+            const xi = poly[i][0], yi = poly[i][1];
+            const xj = poly[j][0], yj = poly[j][1];
+            const intersect = ((yi>y)!==(yj>y)) && (x < (xj-xi)*(y-yi)/(yj-yi+1e-9) + xi);
+            if (intersect) inside = !inside;
+        }
+        return inside;
+    }
+    function nudgeIntoPoly(p, poly){
+        if (!poly || !poly.length) return;
+        let [cx, cy] = centroid(poly);
+        if (!isFinite(cx) || !isFinite(cy)) return;
+        if (pointInPoly(poly, p.x, p.y)) return;
+        let ax=p.x, ay=p.y, bx=cx, by=cy;
+        for(let k=0;k<28;k++){
+            const mx = (ax+bx)/2, my = (ay+by)/2;
+            if (pointInPoly(poly, mx, my)){ bx=mx; by=my; } else { ax=mx; ay=my; }
+        }
+        p.x = bx; p.y = by;
+    }
+    function randomPointOutsideSectors(cellRect, polysMap, margin=60){
+        const x0 = cellRect.x0 + margin, x1 = cellRect.x1 - margin;
+        const y0 = cellRect.y0 + margin, y1 = cellRect.y1 - margin;
+        for (let tries=0; tries<200; tries++){
+            const x = x0 + Math.random()*(x1-x0);
+            const y = y0 + Math.random()*(y1-y0);
+            let ok = true;
+            for (const poly of polysMap.values()){ if (poly && poly.length>=3 && pointInPoly(poly, x, y)){ ok=false; break; } }
+            if (ok) return {x,y};
+        }
+        return { x:(x0+x1)/2, y:(y0+y1)/2 };
+    }
+    function jitteredGridOutsideSectors(cellRect, polysMap, count, margin=60){
+        const w = cellRect.x1 - cellRect.x0 - 2*margin;
+        const h = cellRect.y1 - cellRect.y0 - 2*margin;
+        const cols = Math.max(1, Math.round(Math.sqrt(count * (w/h)))); const rows = Math.max(1, Math.ceil(count / cols));
+        const gx = w / cols, gy = h / rows;
+        const pts = [];
+        for (let r=0; r<rows; r++){
+            for (let c=0; c<cols; c++){
+                if (pts.length >= count) break;
+                const cx = cellRect.x0 + margin + c*gx + (Math.random()-0.5)*gx*0.3;
+                const cy = cellRect.y0 + margin + r*gy + (Math.random()-0.5)*gy*0.3;
+                let inside = false;
+                for (const poly of polysMap.values()){ if (poly && poly.length>=3 && pointInPoly(poly, cx, cy)){ inside = true; break; } }
+                if (!inside) pts.push({x:cx, y:cy});
+            }
+        }
+        while (pts.length < count){ pts.push(randomPointOutsideSectors(cellRect, polysMap, margin)); }
+        return pts;
+    }
+    function makeSectorClusters(sectorKey, cellRect, k){
+        const r = hashRng(sectorKey);
+        const {x0,y0,x1,y1} = cellRect;
+        const padX = (x1-x0)*0.12, padY = (y1-y0)*0.12;
+        const cx0 = x0 + padX, cy0 = y0 + padY, cw = (x1-x0) - 2*padX, ch = (y1-y0) - 2*padY;
+        const out=[];
+        for (let i=0;i<k;i++){
+            const ax = 0.15 + 0.70*r();
+            const ay = 0.15 + 0.70*r();
+            out.push({ x: cx0 + ax*cw, y: cy0 + ay*ch });
+        }
+        return out;
+    }
+    function sampleAroundCluster(cluster, cellRect, r, spread){
+        const g1 = gauss01(r), g2 = gauss01(r);
+        const x = cluster.x + g1 * spread.x;
+        const theY = cluster.y + g2 * spread.y;
+        const pad = 8;
+        return {
+            x: Math.max(cellRect.x0+pad, Math.min(cellRect.x1-pad, x)),
+            y: Math.max(cellRect.y0+pad, Math.min(cellRect.y1-pad, theY))
+        };
+    }
+    function pointInConvex(poly, x, y){
+        let sign = 0;
+        for (let i=0;i<poly.length;i++){
+            const a = poly[i], b = poly[(i+1)%poly.length];
+            const cross = (b[0]-a[0])*(y-a[1]) - (b[1]-a[1])*(x-a[0]);
+            if (cross === 0) continue;
+            const s = Math.sign(cross);
+            if (!sign) sign = s;
+            else if (s !== sign) return false;
+        }
+        return true;
+    }
+    function relaxAndShape(pts, W, H){
+        const MIN_SEP = 140, GLOBAL_EDGE = Math.min(W,H)*0.08, SECTOR_PULL = 0.035;
+
+        const anchors = new Map();
+        for (const p of pts){
+            const key = p.sectorKey || '__none__';
+            if (!anchors.has(key)){
+                const [ax, ay] = posSeed(key, 'anchor');
+                const fx = 0.15 + 0.70*ax;
+                const fy = 0.15 + 0.70*ay;
+                anchors.set(key, {
+                    x: p.homeX0 + fx * (p.homeX1 - p.homeX0),
+                    y: p.homeY0 + fy * (p.homeY1 - p.homeY0)
+                });
+            }
+        }
+
+        for(let iter=0; iter<260; iter++){
+            let moved=false;
+
+          
+            for(let i=0;i<pts.length;i++){
+                const pi = pts[i], keyI = `${pi.homeX0}|${pi.homeY0}`;
+                for(let j=i+1;j<pts.length;j++){
+                    const pj = pts[j];
+                    if (keyI !== `${pj.homeX0}|${pj.homeY0}`) continue;
+                    let dx = pj.x - pi.x, dy = pj.y - pi.y, d  = Math.hypot(dx,dy);
+                    if(d < 1e-6){ const a=Math.random()*Math.PI*2; dx=Math.cos(a)*1e-3; dy=Math.sin(a)*1e-3; d=1e-3; }
+                    if(d < MIN_SEP){
+                        const ux = dx / d, uy = dy / d, push=(MIN_SEP-d)*0.55;
+                        pi.x-=ux*push; pi.y-=uy*push; pj.x+=ux*push; pj.y+=uy*push; moved=true;
+                    }
+                }
+            }
+
+          
+            for (const p of pts){
+                const a = anchors.get(p.sectorKey || '__none__');
+                p.x += (a.x - p.x) * SECTOR_PULL;
+                p.y += (a.y - p.y) * SECTOR_PULL;
+            }
+
+          
+            for(const p of pts){
+                if (p.x < GLOBAL_EDGE) p.x += (GLOBAL_EDGE - p.x) * 0.2;
+                if (p.x > W - GLOBAL_EDGE) p.x -= (p.x - (W - GLOBAL_EDGE)) * 0.2;
+                if (p.y < GLOBAL_EDGE) p.y += (GLOBAL_EDGE - p.y) * 0.2;
+                if (p.y > H - GLOBAL_EDGE) p.y -= (p.y - (H - GLOBAL_EDGE)) * 0.2;
+                clampPointToHome(p, 6);
+            }
+
+            if(!moved) break;
+        }
+    }
+    function convexHull(points){
+        const P = points.slice().sort((a,b)=> a[0]-b[0] || a[1]-b[1]);
+        if(P.length<=2) return P;
+        const cross=(o,a,b)=>(a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0]);
+        const lo=[]; for(const p of P){ while(lo.length>=2&&cross(lo.at(-2),lo.at(-1),p)<=0) lo.pop(); lo.push(p); }
+        const up=[]; for(const p of P.slice().reverse()){ while(up.length>=2&&cross(up.at(-2),up.at(-1),p)<=0) up.pop(); up.push(p); }
+        return lo.slice(0,-1).concat(up.slice(0,-1));
+    }
+    function centroid(poly){ const n=poly.length; let x=0,y=0; for(const [px,py] of poly){ x+=px; y+=py; } return [x/n,y/n]; }
+    function inflate(poly, pad){ const [cx,cy]=centroid(poly); return poly.map(([x,y])=>{ const dx=x-cx, dy=y-cy, m=Math.hypot(dx,dy)||1; return [x + pad*dx/m, y + pad*dy/m]; }); }
+    function deflate(poly, pad){ const [cx,cy] = centroid(poly); return poly.map(([x,y])=>{ const dx = x - cx, dy = y - cy, m = Math.hypot(dx,dy) || 1; return [x - pad*dx/m, y - pad*dy/m]; }); }
+
+    function projectOntoAxis(poly, ax, ay){
+        let min=Infinity, max=-Infinity;
+        for(const [x,y] of poly){ const p = x*ax + y*ay; if(p<min) min=p; if(p>max) max=p; }
+        return {min,max};
+    }
+    function penetrationVector(A,B){
+        let minOverlap = Infinity, sepX=0, sepY=0;
+        function testAxes(poly){
+            for(let i=0;i<poly.length;i++){
+                const p0=poly[i], p1=poly[(i+1)%poly.length];
+                let ax = p1[1]-p0[1], ay = -(p1[0]-p0[0]);
+                const len = Math.hypot(ax,ay)||1; ax/=len; ay/=len;
+                const PA = projectOntoAxis(A,ax,ay), PB = projectOntoAxis(B,ax,ay);
+                const overlap = Math.min(PA.max-PB.min, PB.max-PA.min);
+                if (overlap <= 0) return {separate:true};
+                if (overlap < minOverlap){ minOverlap = overlap; sepX=ax; sepY=ay; }
+            }
+            return {separate:false};
+        }
+        if (testAxes(A).separate || testAxes(B).separate) return null;
+        return {x: sepX*minOverlap, y: sepY*minOverlap};
+    }
+    function resolveSectorOverlaps(polysMap, sectorPointsMap){
+        const cellKey = new Map();
+        for (const [sec, pts] of sectorPointsMap){
+            const p = pts?.[0];
+            cellKey.set(sec, p ? `${p.homeX0}|${p.homeY0}` : null);
+        }
+
+        const entries = [...polysMap.entries()].map(([sec,poly])=>({sec,poly}));
+
+      
+        for (let iter = 0; iter < NO_SECTOR_OVERLAP_ITERS; iter++){
+            let touched = false;
+            for (let i=0;i<entries.length;i++){
+                for (let j=i+1;j<entries.length;j++){
+                    const A = entries[i], B = entries[j];
+                    if (A.poly.length < 3 || B.poly.length < 3) continue;
+                    if (cellKey.get(A.sec) !== cellKey.get(B.sec)) continue;
+
+                    const pen = penetrationVector(A.poly, B.poly);
+                    if (!pen) continue;
+
+                    const halfX = pen.x * 0.53, halfY = pen.y * 0.53;
+
+                    for (const v of A.poly){ v[0]-=halfX; v[1]-=halfY; }
+                    for (const v of B.poly){ v[0]+=halfX; v[1]+=halfY; }
+
+                    for (const pt of (sectorPointsMap.get(A.sec) || [])){ pt.x -= halfX; pt.y -= halfY; }
+                    for (const pt of (sectorPointsMap.get(B.sec) || [])){ pt.x += halfX; pt.y += halfY; }
+
+                    touched = true;
+                }
+            }
+            if (!touched) break;
+        }
+
+      
+        for (const [sec, poly] of polysMap){
+            if (poly.length >= 3) polysMap.set(sec, deflate(poly, 10));
+        }
+
+      
+        const PAD = 8;
+        for (const [sec, pts] of sectorPointsMap){
+            if (!pts || !pts.length) continue;
+            const {homeX0, homeY0, homeX1, homeY1} = pts[0];
+
+            for (const p of pts){
+                p.x = Math.max(homeX0+PAD, Math.min(homeX1-PAD, p.x));
+                p.y = Math.max(homeY0+PAD, Math.min(homeY1-PAD, p.y));
+            }
+
+            const poly = polysMap.get(sec);
+            if (poly){
+                for (const v of poly){
+                    v[0] = Math.max(homeX0+PAD, Math.min(homeX1-PAD, v[0]));
+                    v[1] = Math.max(homeY0+PAD, Math.min(homeY1-PAD, v[1]));
+                }
+            }
+        }
+    }
+
+    
+    function repelWithin(fnAllowed, pts, minSep=120, iters=40){
+        for (let iter=0; iter<iters; iter++){
+            let moved = false;
+            for (let i=0;i<pts.length;i++){
+                for (let j=i+1;j<pts.length;j++){
+                    const a=pts[i], b=pts[j];
+                    let dx=b.x-a.x, dy=b.y-a.y, d=Math.hypot(dx,dy)||1e-6;
+                    if (d < minSep){
+                        const push = (minSep - d) * 0.55;
+                        const ux = dx / d,  uy = dy / d;
+                        const ax = a.x - ux*push, ay = a.y - uy*push;
+                        const bx = b.x + ux*push, by = b.y + uy*push;
+                        if (fnAllowed(ax,ay,i)) { a.x=ax; a.y=ay; moved = true; }
+                        if (fnAllowed(bx,by,j)) { b.x=bx; b.y=by; moved = true; }
+                    }
+                }
+            }
+            if (!moved) break;
+        }
+    }
+
+    
+    function drawWorldGrid(){
+        vctx.save(); vctx.setTransform(vScale,0,0,vScale, vX, vY);
+        vctx.lineWidth = 1 / vScale; vctx.strokeStyle = 'rgba(255,255,255,0.25)';
+        for(let i=250;i<CURRENT_WORLD_W;i+=250){ vctx.beginPath(); vctx.moveTo(i,0); vctx.lineTo(i,CURRENT_WORLD_H); vctx.stroke(); }
+        for(let j=250;j<CURRENT_WORLD_H;j+=250){ vctx.beginPath(); vctx.moveTo(0,j); vctx.lineTo(CURRENT_WORLD_W,j); vctx.stroke(); }
+        vctx.lineWidth = 2 / vScale; vctx.strokeStyle = 'rgba(255,255,255,0.45)';
+        vctx.beginPath(); vctx.moveTo(CURRENT_WORLD_W/2,0); vctx.lineTo(CURRENT_WORLD_W/2,CURRENT_WORLD_H); vctx.stroke();
+        vctx.beginPath(); vctx.moveTo(0,CURRENT_WORLD_H/2); vctx.lineTo(CURRENT_WORLD_W,CURRENT_WORLD_H/2); vctx.stroke();
+        vctx.restore();
+    }
+    function smoothClosed(poly, iters){
+        let pts=poly.slice();
+        for(let k=0;k<iters;k++){
+            const out=[];
+            for(let i=0;i<pts.length;i++){
+                const a=pts[i], b=pts[(i+1)%pts.length];
+                const q=[ a[0]*0.75 + b[0]*0.25, a[1]*0.75 + b[1]*0.25 ];
+                const r=[ a[0]*0.25 + b[0]*0.75, a[1]*0.25 + b[1]*0.75 ];
+                out.push(q,r);
+            }
+            pts=out;
+        }
+        return pts;
+    }
+    function drawSectorsWorld(polysBySec){
+        const U = uiSizes(); vctx.save(); vctx.setTransform(vScale,0,0,vScale, vX, vY);
+        polysBySec.forEach((poly, sec)=>{
+            const { stroke, fill } = colorFromName(sec);
+            vctx.fillStyle = fill; vctx.strokeStyle = stroke; vctx.lineWidth = U.sectorStroke / vScale;
+            if (poly.length >= 3){
+                vctx.beginPath();
+                for (let i=0;i<poly.length;i++){
+                    const p=poly[i], n=poly[(i+1)%poly.length];
+                    const mx = (p[0]+n[0])/2, my=(p[1]+n[1])/2;
+                    if (i===0) vctx.moveTo(mx,my); vctx.quadraticCurveTo(p[0],p[1], mx,my);
+                }
+                vctx.closePath(); vctx.fill(); vctx.stroke();
+            } else if (poly.length === 2){
+                const [a,b] = poly, dx=b[0]-a[0], dy=b[1]-a[1], ang=Math.atan2(dy,dx), r=14; const L = Math.hypot(dx,dy);
+                vctx.save(); vctx.translate(a[0],a[1]); vctx.rotate(ang);
+                vctx.beginPath(); vctx.moveTo(0,-r); vctx.lineTo(L,-r); vctx.arc(L,0,r,-Math.PI/2,Math.PI/2); vctx.lineTo(0,r); vctx.arc(0,0,r,Math.PI/2,-Math.PI/2); vctx.closePath();
+                vctx.restore(); vctx.fill(); vctx.stroke();
+            } else if (poly.length === 1){ vctx.beginPath(); vctx.arc(poly[0][0], poly[0][1], 18, 0, Math.PI*2); vctx.fill(); vctx.stroke(); }
+        });
+        vctx.restore();
+    }
+    function drawSectorLabelsWorld(polysBySec){
+        if (vScale < 0.25) return;
+
+        vctx.save();
+        vctx.setTransform(1, 0, 0, 1, 0, 0);
+
+        for (const [secKey, poly] of polysBySec){
+            if (!poly || !poly.length) continue;
+
+          
+            const sectorName = String(secKey).split(' · ')[0];
+
+          
+            let cx, cy;
+            if (poly.length >= 3){
+                [cx, cy] = centroid(poly);
+            } else if (poly.length === 2){
+                cx = (poly[0][0] + poly[1][0]) / 2;
+                cy = (poly[0][1] + poly[1][1]) / 2;
+            } else {
+                cx = poly[0][0]; cy = poly[0][1];
+            }
+
+          
+            const sx = vScale*cx + vX, sy = vScale*cy + vY;
+
+          
+            const base = Math.pow(Math.max(vScale, 1e-6), SHRINK_A);
+            const fontPx = Math.round(Math.min(Math.max(14*UI_MULT*base, 11), 26));
+            vctx.font = `700 ${fontPx}px system-ui,-apple-system,Segoe UI,Roboto,Arial`;
+
+          
+            const padX = 8, padY = 4;
+            const text = sectorName;
+            const w = vctx.measureText(text).width;
+            const rectX = sx - w/2 - padX;
+            const rectY = sy - fontPx + padY - 4;
+            const rectW = w + padX*2;
+            const rectH = fontPx + padY*2;
+
+          
+            vctx.fillStyle = 'rgba(0,0,0,.72)';
+            vctx.fillRect(rectX, rectY, rectW, rectH);
+            vctx.strokeStyle = 'rgba(255,255,255,.15)';
+            vctx.lineWidth = 1;
+            vctx.strokeRect(rectX + 0.5, rectY + 0.5, rectW - 1, rectH - 1);
+
+          
+            vctx.lineWidth = 4;
+            vctx.strokeStyle = 'rgba(0,0,0,.85)';
+            vctx.strokeText(text, sx - w/2, sy + 5);
+            vctx.fillStyle = '#fff';
+            vctx.fillText(text, sx - w/2, sy + 5);
+        }
+
+        vctx.restore();
+    }
+
+
+    
+    let CURRENT_POINTS=[]; let CURRENT_SECTOR_POLYS=new Map();
+    function drawViewer(){
+        vctx.setTransform(1,0,0,1,0,0);
+        vctx.fillStyle='#000'; vctx.fillRect(0,0,viewerCanvas.width, viewerCanvas.height);
+
+        
+        vctx.save();
+        vctx.setTransform(vScale,0,0,vScale, vX, vY);
+        vctx.beginPath();
+        if (CURRENT_CELL_RECTS.length){
+            for (const r of CURRENT_CELL_RECTS){ vctx.rect(r.x0, r.y0, r.x1 - r.x0, r.y1 - r.y0); }
+        } else { vctx.rect(0, 0, CURRENT_WORLD_W, CURRENT_WORLD_H); }
+        vctx.clip();
+
+        drawWorldGrid();
+        drawSectorsWorld(CURRENT_SECTOR_POLYS);
+        drawSectorLabelsWorld(CURRENT_SECTOR_POLYS);
+        vctx.restore();
+
+        const ptsScreen = CURRENT_POINTS.map((p,i)=>({ idx:i, ...p, ...W2S(p.x,p.y) }));
+        let thin = 1; if (vScale < 0.6) thin = 3; if (vScale < 0.4) thin = 6; if (vScale < 0.28) thin = Infinity;
+        const ptsForLabels = thin === Infinity ? [] : ptsScreen.filter(ps=> ps.idx % thin === 0);
+        const placed = layoutLabelsScreen(vctx, ptsForLabels);
+        const U = uiSizes();
+
+        vctx.save(); vctx.strokeStyle='#000'; vctx.lineWidth=U.objStroke; vctx.fillStyle='#00e0ff';
+        for(const ps of ptsScreen){ vctx.beginPath(); vctx.arc(ps.x, ps.y, U.starR, 0, Math.PI*2); vctx.fill(); vctx.stroke(); }
+        vctx.restore();
+
+        if (placed.length){
+            vctx.save(); vctx.font=`600 ${U.fontObj}px system-ui,-apple-system,Segoe UI,Roboto,Arial`; vctx.textBaseline='alphabetic';
+            for(const item of placed){
+                const {rect, p} = item;
+                vctx.fillStyle='rgba(0,0,0,.78)'; vctx.fillRect(rect.x, rect.y, rect.w, rect.h);
+                vctx.fillStyle='#fff'; vctx.fillText(p.name, rect.x + 4 * UI_MULT * U.k, rect.y + U.fontObj*0.72);
+                const cx = Math.max(rect.x, Math.min(p.x, rect.x+rect.w));
+                const cy = Math.max(rect.y, Math.min(p.y, rect.y+rect.h));
+                if (Math.hypot(p.x-cx,p.y-cy) > U.starR + 1){
+                    vctx.strokeStyle='rgba(255,255,255,.7)'; vctx.lineWidth=U.leaderW; vctx.beginPath(); vctx.moveTo(p.x,p.y); vctx.lineTo(cx,cy); vctx.stroke();
+                }
+            }
+            vctx.restore();
+        }
+
+        drawViewerDistance();
+
+        vctx.save(); vctx.fillStyle='#fff'; vctx.font=`12px system-ui`;
+        const barW = 500 * vScale; vctx.fillRect(10, viewerCanvas.height-24, barW, 6); vctx.fillText('500 ly', 10, viewerCanvas.height-28);
+        vctx.restore();
+
+        updateInfoPosition();
+    }
+    function drawViewerDistance(){
+        if (viewerDistPts.length === 0) return;
+        vctx.save(); vctx.setTransform(vScale,0,0,vScale, vX, vY);
+        vctx.lineWidth = 2 / vScale; vctx.strokeStyle = 'rgba(255,255,255,.85)'; vctx.fillStyle = '#1ee3ff';
+        vctx.beginPath(); for (let i=0;i<viewerDistPts.length;i++){ const p = viewerDistPts[i]; if (i===0) vctx.moveTo(p.x, p.y); else vctx.lineTo(p.x, p.y); } vctx.stroke();
+        for (const p of viewerDistPts){ vctx.beginPath(); vctx.arc(p.x, p.y, 7 / vScale, 0, Math.PI*2); vctx.fill(); }
+        vctx.restore();
+
+        vctx.save(); vctx.fillStyle = '#fff'; vctx.strokeStyle = '#000'; vctx.lineWidth = 4; vctx.font = `12px system-ui`;
+        let total = 0;
+        for (let i=1;i<viewerDistPts.length;i++){
+            const a = viewerDistPts[i-1], b = viewerDistPts[i];
+            const seg = Math.hypot(b.x - a.x, b.y - a.y); total += seg;
+            const midx = (a.x + b.x)/2, midy = (a.y + b.y)/2; const {x:sx, y:sy} = W2S(midx, midy);
+            const txt = `${Math.round(seg).toLocaleString()} ly`; vctx.strokeText(txt, sx + 6, sy - 6); vctx.fillText(txt, sx + 6, sy - 6);
+        }
+        const last = viewerDistPts[viewerDistPts.length-1]; const {x:lsx, y:lsy} = W2S(last.x, last.y);
+        const totalTxt = `Total: ${Math.round(total).toLocaleString()} ly (${(total/1000).toFixed(2)} kly)`;
+        vctx.strokeText(totalTxt, lsx + 10, lsy - 12); vctx.fillText(totalTxt, lsx + 10, lsy - 12);
+        vctx.restore();
+    }
+    function layoutLabelsScreen(ctx, ptsScreen){
+        const U = uiSizes();
+        ctx.font=`600 ${U.fontObj}px system-ui,-apple-system,Segoe UI,Roboto,Arial`;
+        const placed=[]; const positions = ['E','NE','SE','W','NW','SW','N','S'];
+        const baseGap = 6 * UI_MULT * U.k;
+
+        function rectsIntersect(a,b){ return !(a.x+a.w<=b.x || b.x+b.w<=a.x || a.y+a.h<=b.y || b.y+b.h<=a.y); }
+        function circleRectIntersect(cx,cy,r,rect){
+            const nx = Math.max(rect.x, Math.min(cx, rect.x+rect.w));
+            const ny = Math.max(rect.y, Math.min(cy, rect.y+rect.h));
+            const dx = cx - nx, dy = cy - ny;
+            return (dx*dx + dy*dy) < r*r;
+        }
+        function labelRect(pt, w, h, pos, r, gap){
+            switch(pos){
+                case 'E':  return { x:pt.x + r + gap,     y:pt.y - h/2,       w,h };
+                case 'W':  return { x:pt.x - r - gap - w, y:pt.y - h/2,       w,h };
+                case 'N':  return { x:pt.x - w/2,         y:pt.y - r - gap - h, w,h };
+                case 'S':  return { x:pt.x - w/2,         y:pt.y + r + gap,   w,h };
+                case 'NE': return { x:pt.x + r + gap,     y:pt.y - r - gap - h, w,h };
+                case 'SE': return { x:pt.x + r + gap,     y:pt.y + r + gap,   w,h };
+                case 'NW': return { x:pt.x - r - gap - w, y:pt.y - r - gap - h, w,h };
+                case 'SW': return { x:pt.x - r - gap - w, y:pt.y + r + gap,   w,h };
+                default:   return { x:pt.x + r + gap,     y:pt.y - h/2,       w,h };
+            }
+        }
+
+        for(const ps of ptsScreen){
+            const w = ctx.measureText(ps.name).width + 8 * UI_MULT * U.k;
+            const h = U.fontObj + 6 * UI_MULT * U.k;
+            let found=null;
+            for(let ring=0; ring<4 && !found; ring++){
+                const gap = baseGap + ring * (8 * UI_MULT * U.k);
+                for(const pos of positions){
+                    const rect = labelRect(ps, w, h, pos, U.starR, gap);
+                    let collides = placed.some(p=> rectsIntersect(rect, p.rect));
+                    if(!collides){
+                        for(const o of ptsScreen){ if (circleRectIntersect(o.x,o.y, U.starR*0.9, rect)){ collides=true; break; } }
+                    }
+                    if(!collides){ found={rect,pos}; break; }
+                }
+            }
+            if(!found) continue;
+            placed.push({rect:found.rect, p:ps});
+        }
+        return placed;
+    }
+
+    function syncCanvasToCSS(keepCenter=true){
+        const rect = viewerCanvas.getBoundingClientRect();
+        const DPR = Math.max(1, Math.min(window.devicePixelRatio||1, 2));
+        const newW = Math.max(300, Math.floor(rect.width  * DPR));
+        const newH = Math.max(240, Math.floor(rect.height * DPR));
+
+        let cxw=0, cyw=0;
+        if (keepCenter){ cxw = (viewerCanvas.width/2  - vX) / vScale; cyw = (viewerCanvas.height/2 - vY) / vScale; }
+
+        viewerCanvas.width  = newW; viewerCanvas.height = newH;
+        viewerLS.width = rect.width * DPR; viewerLS.height = rect.height * DPR;
+
+        if (keepCenter){ vX = viewerCanvas.width/2  - cxw * vScale; vY = viewerCanvas.height/2 - cyw * vScale; } else { resetViewerTransform(); }
+        drawViewer();
+    }
+    const ro = new ResizeObserver(() => syncCanvasToCSS(true)); ro.observe(viewer);
+
+    
+    async function openCellViewer(cells){
+        await ensureObjectsLoaded();
+        const uniqueCells = Array.from(new Set(cells));
+        const isMulti = uniqueCells.length > 1;
+
+        viewer.style.display='block';
+        syncCanvasToCSS(false);
+
+      
+        let minC=Infinity, maxC=-Infinity, minR=Infinity, maxR=-Infinity;
+        const crs = uniqueCells.map(id => ({ id, ...cellToCR(id) }));
+        for (const {c,r} of crs){ minC=Math.min(minC,c); maxC=Math.max(maxC,c); minR=Math.min(minR,r); maxR=Math.max(maxR,r); }
+
+        const spanCols = (isFinite(minC)?(maxC-minC+1):1);
+        const spanRows = (isFinite(minR)?(maxR-minR+1):1);
+
+        CURRENT_WORLD_W = WORLD_W * spanCols;
+        CURRENT_WORLD_H = WORLD_H * spanRows;
+        CURRENT_CELL_RECTS = [];
+
+        const q = v => (v && String(v).trim()) ? String(v).trim() : '?';
+        const points = [];
+
+        for (const {id,c,r} of crs){
+            const colInShape = c - minC;
+            const rowInShape = r - minR;
+            const offX = colInShape * WORLD_W;
+            const offY = rowInShape * WORLD_H;
+
+            const cellRect = { x0: offX, y0: offY, x1: offX + WORLD_W, y1: offY + WORLD_H, cellId:id };
+            CURRENT_CELL_RECTS.push(cellRect);
+
+            const rowsCsv = OBJECT_ROWS
+                .filter(rw=> normCellId(rw.Grid||rw.grid||rw.Cell||rw.cell) === id)
+                .map((rw, i)=> {
+                    const name = pick(rw, ['Name','name','Label','label','Object','object','Title','title','ID','Id','id']) || `Object ${i+1}`;
+                    const sector = pick(rw, ['Sector','sector','Faction','faction','Region','region','Group','group']);
+                    return {
+                        name,
+                        sector,
+                        sectorKey: sector ? `${sector} @ ${id}` : '__none__',
+                        sectorLabel: sector ? `${sector} · ${id}` : '',
+                        affiliation: q(rw.Affiliation || rw.affiliation),
+                        suns:        q(rw.Suns || rw.suns),
+                        moons:       q(rw.Moons || rw.moons),
+                        population:  q(rw.Population || rw.population),
+                        climate:     q(rw.Climate || rw.climate),
+                        terrain:     q(rw.Terrain || rw.terrain),
+                        cellId: id
+                    };
+                });
+
+            const sectorsInThisCell = new Map();
+            for (const o of rowsCsv){
+                const key = o.sectorKey || '__none__';
+                if (!sectorsInThisCell.has(key)){
+                    const rng = hashRng(`${key}|${id}`);
+                    const K = Math.min(4, Math.max(1, Math.round(1 + 3 * rng())));
+                    const clusters = makeSectorClusters(`${key}|${id}`, cellRect, K);
+                    sectorsInThisCell.set(key, { rng, clusters, count: 0 });
+                }
+            }
+
+            rowsCsv.forEach((o)=>{
+                const key = o.sectorKey || '__none__';
+                const rec = sectorsInThisCell.get(key);
+                const rgen = rec.rng;
+                const cluster = rec.clusters[(rec.count++) % rec.clusters.length];
+
+                const baseX = (cellRect.x1 - cellRect.x0) * 0.06;
+                const baseY = (cellRect.y1 - cellRect.y0) * 0.06;
+                const {x,y} = sampleAroundCluster(cluster, cellRect, rgen, { x: baseX, y: baseY });
+
+                points.push({
+                    ...o, x, y,
+                    homeX0: cellRect.x0, homeY0: cellRect.y0,
+                    homeX1: cellRect.x1, homeY1: cellRect.y1
+                });
+            });
+        }
+
+        relaxAndShape(points, CURRENT_WORLD_W, CURRENT_WORLD_H);
+        CURRENT_POINTS = points;
+
+      
+        const sectorsMap = new Map();
+        const grouped = new Map();
+        for (const p of points){
+            if (!grouped.has(p.sectorKey)) grouped.set(p.sectorKey, []);
+            grouped.get(p.sectorKey).push(p);
+        }
+        for (const [key, arr] of grouped){
+            if (key === '__none__') continue;
+            let poly;
+            if (arr.length >= 3){
+                const hull = convexHull(arr.map(p=>[p.x,p.y]));
+                const inflated = inflate(hull, SECTOR_PAD);
+                poly = smoothClosed(inflated, SECTOR_SMOOTH_ITERS);
+            } else if (arr.length === 2){
+                poly = [[arr[0].x,arr[0].y],[arr[1].x,arr[1].y]];
+            } else {
+                poly = [[arr[0].x,arr[0].y]]; }
+            sectorsMap.set(key.replace(' @ ', ' · '), poly);
+        }
+
+        const sectorToPoints = new Map(
+            [...grouped.entries()]
+                .filter(([k]) => k !== '__none__')
+                .map(([k, arr]) => [k.replace(' @ ', ' · '), arr])
+        );
+
+        resolveSectorOverlaps(sectorsMap, sectorToPoints);
+        CURRENT_SECTOR_POLYS = sectorsMap;
+
+      
+        for (const p of points){
+            if (p.sectorKey && p.sectorKey !== '__none__'){
+                const poly = CURRENT_SECTOR_POLYS.get((p.sectorKey || '').replace(' @ ', ' · '));
+                if (poly && poly.length){ nudgeIntoPoly(p, poly); clampPointToHome(p, 8); }
+            }
+        }
+
+      
+        const orphansByCell = new Map();
+        for (const p of points){
+            if (!p.sectorKey || p.sectorKey === '__none__'){
+                const key = `${p.homeX0}|${p.homeY0}|${p.homeX1}|${p.homeY1}`;
+                if (!orphansByCell.has(key)) orphansByCell.set(key, []);
+                orphansByCell.get(key).push(p);
+            }
+        }
+        for (const [key, arr] of orphansByCell){
+            if (!arr.length) continue;
+            const [x0,y0,x1,y1] = key.split('|').map(Number);
+            const cellRect = { x0, y0, x1, y1 };
+            const spots = jitteredGridOutsideSectors(cellRect, CURRENT_SECTOR_POLYS, arr.length, 60);
+            for (let i=0;i<arr.length;i++){ arr[i].x = spots[i].x; arr[i].y = spots[i].y; }
+        }
+        for (const [sec, arr] of new Map([...grouped].filter(([k])=>k!=='__none__'))){
+            const poly = CURRENT_SECTOR_POLYS.get(sec.replace(' @ ', ' · ')) || CURRENT_SECTOR_POLYS.get(sec);
+            if (!arr || arr.length < 2 || !poly) continue;
+            const allowed = (x,y,idx) => pointInPoly(poly, x, y);
+            repelWithin(allowed, arr, 120, 28);
+            for (const p of arr){ if (!pointInPoly(poly, p.x, p.y)) nudgeIntoPoly(p, poly); clampPointToHome(p, 8); }
+        }
+        for (const [key, arr] of orphansByCell){
+            if (!arr || arr.length < 2) continue;
+            const [x0,y0,x1,y1] = key.split('|').map(Number);
+            const PAD = 60;
+            const allowed = (x,y,idx) => {
+                if (x < x0+PAD || x > x1-PAD || y < y0+PAD || y > y1-PAD) return false;
+                for (const poly of CURRENT_SECTOR_POLYS.values()){
+                    if (poly && poly.length>=3 && pointInPoly(poly, x, y)) return false;
+                }
+                return true;
+            };
+            repelWithin(allowed, arr, 130, 32);
+            for (const p of arr){
+                if (!allowed(p.x, p.y, 0)){
+                    const rp = randomPointOutsideSectors({x0,y0,x1,y1}, CURRENT_SECTOR_POLYS, PAD);
+                    p.x = rp.x; p.y = rp.y;
+                }
+                clampPointToHome(p, 8);
+            }
+        }
+        for (const p of points) clampPointToHome(p, 6);
+
+        selectedIdx = null; planetInfo.style.display = 'none';
+        viewerDistPts = []; viewerDistanceMode = false; viewerDistanceToggle.classList.remove('active');
+
+        viewerTitle.textContent = 'Each cell is 5,000 × 5,000 ly';
+
+        resetViewerTransform(); drawViewer();
+    }
+
+    
+    let SEARCH = { objects: [], sectors: new Map() };
+    function buildSearchIndex(){
+        const objs = []; const secMap = new Map();
+        for (const r of OBJECT_ROWS){
+            const name = (pick(r, ['Name','name','Label','label','Object','object','Title','title','ID','Id','id']) || '').trim();
+            const sector = (pick(r, ['Sector','sector','Faction','faction','Region','region','Group','group']) || '').trim();
+            const cell = normCellId(r.Grid||r.grid||r.Cell||r.cell); if (!cell) continue;
+            if (name){ objs.push({ type:'object', name, nameL: name.toLowerCase(), sector, cell }); }
+            if (sector){ if (!secMap.has(sector)) secMap.set(sector, []); secMap.get(sector).push({ name, cell }); }
+        }
+        SEARCH.objects = objs; SEARCH.sectors = secMap;
+    }
+
+    const toggleLightspeed = document.getElementById('toggleLightspeed');
+    let lightspeedEnabled = (localStorage.getItem('lightspeedEnabled') ?? '1') === '1';
+    toggleLightspeed.checked = lightspeedEnabled;
+    toggleLightspeed.addEventListener('change', ()=>{
+        lightspeedEnabled = toggleLightspeed.checked;
+        localStorage.setItem('lightspeedEnabled', lightspeedEnabled ? '1':'0');
+    });
+    function runViewerLightspeedThen(next){ next(); }
+
+    
+    async function handleResultSelect(item){
+        resultsEl.style.display='none'; searchBox.blur();
+        let cellId = (item.kind === 'object') ? item.cell : item.firstCell; if (!cellId) return;
+
+        const proceed = async ()=>{
+            setMode('select');
+            overlay.querySelectorAll('g.select-selected').forEach(el=>el.classList.remove('select-selected'));
+            const rect = overlay.querySelector(`rect[data-cell="${cellId}"]`);
+            if (rect && rect.parentElement){ rect.parentElement.classList.add('select-selected'); }
+            await openCellViewer([cellId]);
+
+            if (item.kind === 'object'){
+                const idx = CURRENT_POINTS.findIndex(p => (p.name||'').toLowerCase() === item.name.toLowerCase());
+                if (idx >= 0){
+                    selectedIdx = idx; const p = CURRENT_POINTS[idx]; setInfoContent(p);
+                    planetInfo.style.display = 'block'; const sp = W2S(p.x, p.y); placeInfoAt(sp.x, sp.y);
+                }
+            }
+        };
+
+        if (lightspeedEnabled && viewer.style.display === 'block'){
+            runViewerLightspeedThen(proceed);
+        } else {
+            await proceed();
+        }
+    }
+    searchBox.addEventListener('input', async (e)=>{ await ensureObjectsLoaded(); updateSearchResults(e.target.value); });
+    searchBox.addEventListener('focus', async (e)=>{ await ensureObjectsLoaded(); updateSearchResults(e.target.value); });
+    document.addEventListener('click', (e)=>{ if (!e.target.closest('#searchUI')) resultsEl.style.display='none'; });
+    searchBox.addEventListener('keydown', (e)=>{
+        if (e.key === 'Enter'){ const first = resultsEl.querySelector('.res-item'); if (first){ first.click(); } else { resultsEl.style.display='none'; } }
+        else if (e.key === 'Escape'){ resultsEl.style.display='none'; searchBox.blur(); }
+    });
+    function updateSearchResults(q){
+        const qL = q.trim().toLowerCase();
+        resultsEl.innerHTML = '';
+        if (!qL){ resultsEl.style.display='none'; return; }
+
+        const items = [];
+        for (const o of SEARCH.objects){ if (o.nameL.includes(qL)){ items.push({ kind:'object', name:o.name, sector:o.sector, cell:o.cell }); if (items.length >= 8) break; } }
+        for (const [sec, arr] of SEARCH.sectors){ if (sec.toLowerCase().includes(qL)){ items.push({ kind:'sector', sector:sec, count:arr.length, firstCell:arr[0]?.cell }); if (items.length >= 12) break; } }
+
+        if (!items.length){ resultsEl.style.display='none'; return; }
+
+        items.slice(0,12).forEach((it, idx)=>{
+            const div = document.createElement('div'); div.className = 'res-item'; div.setAttribute('role','option'); div.dataset.index = idx;
+            if (it.kind === 'object'){
+                div.innerHTML = `<span class="res-badge">OBJ</span>
+<div><div class="res-main">${it.name}</div>
+<div class="res-sub">Cell ${it.cell}${it.sector?` · ${it.sector}`:''}</div></div>`;
+            } else {
+                div.innerHTML = `<span class="res-badge">SECTOR</span>
+<div><div class="res-main">${it.sector}</div>
+<div class="res-sub">${it.count} object(s) · first: Cell ${it.firstCell||'?'}</div></div>`;
+            }
+            div.addEventListener('click', () => handleResultSelect(it));
+            resultsEl.appendChild(div);
+        });
+        resultsEl.style.display='block';
+    }
+
+    
+    const trailCanvas=document.getElementById('cursorLayer'), ctxTrail=trailCanvas.getContext('2d');
+    const DPR_UI=Math.max(1,Math.min(window.devicePixelRatio||1,2));
+    function resizeTrail(){ trailCanvas.style.width=innerWidth+'px'; trailCanvas.style.height=innerHeight+'px'; trailCanvas.width=Math.floor(innerWidth*DPR_UI); trailCanvas.height=Math.floor(innerHeight*DPR_UI); ctxTrail.setTransform(DPR_UI,0,0,DPR_UI,0,0);}
+    resizeTrail(); addEventListener('resize',resizeTrail);
+    let cursorX=innerWidth/2,cursorY=innerHeight/2; addEventListener('mousemove',e=>{ cursorX=e.clientX; cursorY=e.clientY; });
+
+    const DEFAULT_COLOR = '#78aaff';
+    const picker = document.getElementById('cursorColorPicker');
+    const resetBtn = document.getElementById('cursorReset');
+    let cursorColor = localStorage.getItem('cursorColor') || DEFAULT_COLOR;
+    function isHex(h){ return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test((h||'').trim()); }
+    function hexToRgb(h){ h=(h||'').replace('#',''); if(h.length===3) h=h.split('').map(x=>x+x).join(''); const n=parseInt(h,16); return {r:(n>>16)&255,g:(n>>8)&255,b:n&255}; }
+    function rgba(rgb,a){ return `rgba(${rgb.r},${rgb.g},${rgb.b},${a})`; }
+    if (picker) picker.value = cursorColor;
+    if (picker) picker.addEventListener('input', e=>{ const v=e.target.value; if(!isHex(v))return; cursorColor=v; localStorage.setItem('cursorColor',cursorColor); });
+    document.querySelectorAll('.swatch[data-color]').forEach(s=> s.addEventListener('click', ()=>{ cursorColor=s.dataset.color; if(picker) picker.value=cursorColor; localStorage.setItem('cursorColor',cursorColor); }));
+    if (resetBtn) resetBtn.addEventListener('click', ()=>{ cursorColor=DEFAULT_COLOR; if(picker) picker.value=cursorColor; localStorage.setItem('cursorColor',cursorColor); });
+
+    let trailEnabled = true;
+    document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === 'c') {
+            trailEnabled = !trailEnabled;
+            document.getElementById('cursorLayer').style.display = trailEnabled ? 'block' : 'none';
+            document.body.classList.toggle('show-native-cursor', !trailEnabled);
+        }
+    });
+
+    const trail=[]; const TRAIL_LIFE=380,MAX_POINTS=80,TRAILS_PER_STEP=6,SPREAD_PX=10;
+    (function drawTrail(){
+        if (trailEnabled){
+            trail.push({x:cursorX,y:cursorY,t:performance.now()}); if(trail.length>MAX_POINTS) trail.shift();
+            const now=performance.now(); ctxTrail.clearRect(0,0,trailCanvas.width,trailCanvas.height);
+            const rgb=hexToRgb(cursorColor);
+            ctxTrail.fillStyle='white'; ctxTrail.beginPath(); ctxTrail.arc(cursorX,cursorY,2,0,Math.PI*2); ctxTrail.fill();
+            for(let i=1;i<trail.length;i++){
+                const p0=trail[i-1],p1=trail[i]; const age=now-p1.t; if(age>TRAIL_LIFE) continue; const alpha=Math.max(0,1-age/TRAIL_LIFE);
+                for(let j=0;j<TRAILS_PER_STEP;j++){ const ox=(Math.random()-0.5)*SPREAD_PX, oy=(Math.random()-0.5)*SPREAD_PX;
+                    ctxTrail.strokeStyle=rgba(rgb,alpha); ctxTrail.lineWidth=3.5*alpha; ctxTrail.lineCap='round'; ctxTrail.beginPath(); ctxTrail.moveTo(p0.x+ox,p0.y+oy); ctxTrail.lineTo(p1.x+ox,p1.y+oy); ctxTrail.stroke(); }
+            }
+            const glow=ctxTrail.createRadialGradient(cursorX,cursorY,0,cursorX,cursorY,12); glow.addColorStop(0,rgba(rgb,1)); glow.addColorStop(1,rgba(rgb,0));
+            ctxTrail.fillStyle=glow; ctxTrail.beginPath(); ctxTrail.arc(cursorX,cursorY,12,0,Math.PI*2); ctxTrail.fill();
+            ctxTrail.fillStyle=rgba(rgb,1); ctxTrail.beginPath(); ctxTrail.arc(cursorX,cursorY,3,0,Math.PI*2); ctxTrail.fill();
+        }
+        requestAnimationFrame(drawTrail);
+    })();
+
+    const speedHUD=document.getElementById('speedHUD');
+    const EMA_ALPHA=0.2; let lastT=performance.now(), lastX=null,lastY=null, ema=0;
+    function fmt(n){ if(!isFinite(n))return'0'; if(n>=1e5)return n.toExponential(2); if(n>=1e3)return n.toFixed(0); return n.toFixed(2);}
+    addEventListener('mousemove',e=>{
+        const now=performance.now(), dt=(now-lastT)/1000; lastT=now; if(lastX===null){ lastX=e.clientX; lastY=e.clientY; return; }
+        const dx=(e.clientX-lastX)/scale, dy=(e.clientY-lastY)/scale; lastX=e.clientX; lastY=e.clientY; if(dt<=0)return;
+        const v=Math.hypot(dx,dy)/dt; ema=EMA_ALPHA*v+(1-EMA_ALPHA)*ema; const vly=ema*LY_PER_PX, k=vly/1000;
+        speedHUD.innerHTML=`<b>Speed</b> · ${fmt(ema)} px/s · ${fmt(k)} thousand light-years per second`;
+    });
+
+    
+    ensureObjectsLoaded().catch(()=>{});
+</script>
+</body>
+</html>
