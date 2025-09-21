@@ -9,21 +9,21 @@
 
         #container, #overlay, #viewerCanvas { touch-action:none; }
 
-        
+
         #container { width:100%; height:100%; position:relative; }
         #map { transform-origin:0 0; user-select:none; pointer-events:none; display:block; }
         #gridLayer { position:absolute; top:0; left:0; pointer-events:none; z-index:8; }
 
-        
+
         #overlay   { position:absolute; top:0; left:0; z-index:10; pointer-events:auto; }
         #cursorLayer{position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:30;}
 
-        
+
         #map, #gridLayer, #cursorLayer { cursor: none !important; }
         #settings, #settings * , #viewer, #viewer * , #searchUI, #searchUI * { cursor:auto !important; }
         .show-native-cursor * { cursor: auto !important; }
 
-        
+
         .cell{
             fill:rgba(255,255,255,0.001);
             stroke:rgba(255,255,255,0.25);
@@ -42,7 +42,7 @@
         .label{ font:800 15px/1 system-ui,-apple-system,Segoe UI,Roboto,Arial; fill:#fff; text-anchor:middle; dominant-baseline:middle; pointer-events:none; opacity:0; transition:opacity .15s, font-size .15s; }
         g.path-selected .label, g.select-selected .label{opacity:1; font-size:18px;}
 
-        
+
         #searchUI{ position:absolute; left:12px; top:12px; z-index:50; width:340px; max-width:82vw; color:#eef3ff; }
         #searchBox{ width:100%; box-sizing:border-box; padding:10px 36px 10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.18); background:rgba(16,16,22,.9); color:#fff; font:600 14px system-ui; outline:none; }
         #searchBox::placeholder{ color:#a9b8ff; }
@@ -55,7 +55,7 @@
         .res-main{ font:600 13px system-ui; }
         .res-sub{ font:12px system-ui; color:#b5c0ff; }
 
-        
+
         #settings{ position:absolute; bottom:10px; left:10px; z-index:40; user-select:none; }
         #cogButton{ width:44px; height:44px; border-radius:50%; display:grid; place-items:center; background:rgba(20,20,24,.92); border:1px solid rgba(120,120,150,.5); color:#cfe1ff; font-size:21px; transition:transform .18s, box-shadow .22s, border-color .22s, background .18s; position:relative; }
         #cogButton::before{ content:"⚙️"; }
@@ -75,7 +75,7 @@
         .swatch{ width:24px; height:24px; border-radius:6px; border:1px solid rgba(255,255,255,.25); cursor:pointer !important; }
         .reset-btn{ padding:6px 10px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.06); color:#fff; font:600 12px system-ui; cursor:pointer !important; }
 
-        
+
         #viewer{
             position:absolute; right:12px; top:12px; z-index:60;
             width:720px; height:520px;
@@ -91,10 +91,9 @@
         .pill.active{ background:rgba(100,180,255,.25); border-color:rgba(120,170,255,.9); }
         #viewerClose{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.2); color:#fff; border-radius:8px; padding:6px 10px; }
         #viewerWrap{ position:relative; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,.08); width:100%; height:calc(100% - 66px); }
-        #viewerCanvas{ width:100%; height:100%; display:block; background:#000; }
         #viewerLS{ position:absolute; inset:0; z-index:5; display:none; pointer-events:none; mix-blend-mode: screen; }
 
-        
+
         #planetInfo{
             position:absolute; z-index:65; display:none; background:rgba(12,12,18,.98);
             color:#eef3ff; border:1px solid rgba(255,255,255,.12); border-radius:10px; box-shadow:0 8px 22px rgba(0,0,0,.5);
@@ -112,12 +111,12 @@
         #planetInfoSearch{ right:38px; }
         #planetInfoSearch:disabled{ opacity:.45; cursor:not-allowed; }
 
-        
+
         .dist-main-line  { stroke:#ff59d8; stroke-width:6; opacity:.9; fill:none; stroke-linecap:round; stroke-linejoin:round; }
         .dist-main-point { fill:#1ee3ff; stroke:#93f1ff; stroke-width:2; filter:drop-shadow(0 0 6px rgba(80,200,255,.8)); }
         .dist-main-label { fill:#fff; font:700 14px system-ui; paint-order:stroke; stroke:#000; stroke-width:4; }
 
-        
+
         #pathHUD {
             position:absolute; left:50%; bottom:-120px; transform:translateX(-50%);
             z-index:55; width:min(560px, 94vw);
@@ -136,7 +135,7 @@
         }
         .path-btn.primary { border-color:rgba(120,170,255,.6); background:rgba(120,170,255,.25); }
 
-        
+
         #speedHUD{ position:absolute; right:12px; bottom:12px; z-index:25; background:rgba(18,18,24,.85); border:1px solid rgba(120,120,150,.5); color:#dfe7ff; font:12px system-ui; padding:6px 8px; border-radius:6px; pointer-events:none; white-space:nowrap; }
         #speedHUD b{ color:#9cf; }
 
@@ -220,13 +219,7 @@
                 </div>
             </div>
 
-            <div class="section">
-                <div class="section-title">Extras</div>
-                <label style="display:flex; gap:8px; align-items:center; font:600 12px system-ui;">
-                    <input id="toggleLightspeed" type="checkbox" />
-                    Lightspeed jump on search (viewer only)
-                </label>
-            </div>
+            <!-- Lightspeed setting removed -->
 
             <div class="section">
                 <div class="section-title">Cursor</div>
@@ -260,7 +253,7 @@
 </div>
 
 <script>
-    
+
     const UI_MULT   = 3.5;
     const SHRINK_A  = 0.85;
     const WORLD_W   = 5000;
@@ -273,7 +266,7 @@
     const FONT_MIN_PX = 9,   FONT_MAX_PX = 22;
     const SHOW_MAIN_FINE_GRID = false;
 
-    
+
     const container = document.getElementById('container');
     const map = document.getElementById('map');
     const overlay = document.getElementById('overlay');
@@ -312,23 +305,23 @@
         if (viewerDistanceMode){ selectedIdx = null; planetInfo.style.display = 'none'; }
     });
 
-    
+
     const GRID_LEFT=619, GRID_TOP=760;
     const CELL_W=145.5, CELL_H=145.5, COLS=19, ROWS=21;
     const COL_LETTERS='CDEFGHIJKLMNOPQRSTU'.split('');
     const LY_PER_CELL=5000;
     const LY_PER_PX = LY_PER_CELL/145.5;
 
-    
-    let CURRENT_WORLD_W = WORLD_W, CURRENT_WORLD_H = WORLD_H;
-    let CURRENT_CELL_RECTS = []; 
 
-    
+    let CURRENT_WORLD_W = WORLD_W, CURRENT_WORLD_H = WORLD_H;
+    let CURRENT_CELL_RECTS = [];
+
+
     let scale=1, originX=0, originY=0;
     let isDragging=false, startX=0, startY=0, dragMoved=false, downX=0, downY=0;
     const IS_TOUCH = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     const MIN_SCALE = 0.35;
-    const MAX_SCALE = IS_TOUCH ? 4 : 12;    
+    const MAX_SCALE = IS_TOUCH ? 4 : 12;
     const ZOOM_STEP = 0.12;
     const DRAG_THRESHOLD = 5;
 
@@ -338,7 +331,7 @@
     }
     function hitsUI(e){ return !!e.target.closest('#settings, #viewer, #searchUI'); }
 
-  
+
     const ptrs = new Map();
     function pointersArray(){ return Array.from(ptrs.values()); }
     function mid(a,b){ return {x:(a.x+b.x)/2, y:(a.y+b.y)/2}; }
@@ -366,7 +359,7 @@
         ptrs.set(e.pointerId, {x:e.clientX, y:e.clientY});
         const ps = pointersArray();
 
-      
+
         if (ps.length === 2 && !hitsUI(e)){
             const [p0,p1] = ps;
             if (!container._pinch){
@@ -389,7 +382,7 @@
             container._pinch = null;
         }
 
-      
+
         if (isDragging && ps.length === 1 && !hitsUI(e)){
             const dx = e.clientX - startX, dy = e.clientY - startY;
 
@@ -413,7 +406,7 @@
         ptrs.delete(e.pointerId); container._pinch = null; isDragging=false; dragMoved=false;
     });
 
-  
+
     container.addEventListener('wheel', (e)=>{
         if (hitsUI(e)) return;
         e.preventDefault();
@@ -430,7 +423,7 @@
     container.addEventListener('dblclick', (e)=>{ if (!hitsUI(e) && mode!=='distance'){ scale=1; originX=0; originY=0; applyTransform(); } });
     container.addEventListener('contextmenu', (e)=>{ if (mode==='distance' && !hitsUI(e)){ e.preventDefault(); clearMainDistance(); } });
 
-    
+
     function buildGrid(){
         overlay.innerHTML=''; overlay.appendChild(distGroup);
         const w=map.naturalWidth,h=map.naturalHeight;
@@ -477,7 +470,7 @@
         ctx.clearRect(0,0,w,h);
     }
 
-    
+
     const MODE_TIPS={
         path:'Path: click one cell to start, then only orthogonally adjacent cells. Use Complete to open a combined map.',
         select:'Select: click a cell to open its standalone map.',
@@ -528,7 +521,7 @@
         else if(e.key==='Escape' && mode==='distance') clearMainDistance();
     });
 
-    
+
     function idxFromCell(cell){
         const m = /^([A-Z]+)(\d+)$/.exec(cell);
         const c = COL_LETTERS.indexOf(m[1]);
@@ -573,7 +566,7 @@
         await openCellViewer(cells);
     });
 
-    
+
     let mainDistPts = [];
     function clientToMapXY(cx, cy){ const rect=container.getBoundingClientRect(); return { x:(cx - rect.left - originX)/scale, y:(cy - rect.top - originY)/scale }; }
     function clearMainDistance(){ mainDistPts = []; while (distGroup.firstChild) distGroup.removeChild(distGroup.firstChild); }
@@ -605,7 +598,7 @@
         tot.textContent = `Total: ${Math.round(total).toLocaleString()} ly (${(total/1000).toFixed(2)} kly)`; distGroup.appendChild(tot);
     }
 
-    
+
     let OBJECT_ROWS=null;
     async function ensureObjectsLoaded(){
         if(OBJECT_ROWS) return;
@@ -649,7 +642,7 @@
     }
     const pick = (obj, keys) => { for (const k of keys) { const v = (obj[k] ?? '').toString().trim(); if (v) return v; } return ''; };
 
-    
+
     let vScale=1, vMax=(('ontouchstart' in window) || (navigator.maxTouchPoints > 0)) ? 16 : 40, vX=0, vY=0;
     const vc = viewerCanvas;
     function fitScale(){ return Math.min(vc.width/CURRENT_WORLD_W, vc.height/CURRENT_WORLD_H); }
@@ -732,6 +725,7 @@
         } else { selectedIdx = null; planetInfo.style.display = 'none'; }
     }
 
+    /* === Viewer drag handlers (improved to avoid fighting pinch on touch) === */
     viewerCanvas.addEventListener('pointerdown', e=>{
         const { sx, sy } = clientToCanvas(e.clientX, e.clientY);
         const isRight = e.button === 2;
@@ -746,20 +740,36 @@
             return;
         }
 
-        dragging = true; startPX = sx; startPY = sy; startVX = vX; startVY = vY;
-        viewerCanvas.setPointerCapture(e.pointerId); viewerCanvas.style.cursor = 'grabbing';
+        // Only start a drag if this is the first pointer
+        if (vPtrs.size <= 1 && e.button === 0){
+            dragging = true;
+            startPX = sx; startPY = sy; startVX = vX; startVY = vY;
+            try { viewerCanvas.setPointerCapture(e.pointerId); } catch {}
+            viewerCanvas.style.cursor = 'grabbing';
+        }
     });
     viewerCanvas.addEventListener('pointermove', e=>{
-        if(!dragging) return;
+        // If 2+ pointers are down, pinch owns the interaction
+        if (vPtrs.size >= 2) { dragging = false; return; }
+        if (!dragging) return;
         const { sx, sy } = clientToCanvas(e.clientX, e.clientY);
         vX = startVX + (sx - startPX); vY = startVY + (sy - startPY); drawViewer();
     });
     viewerCanvas.addEventListener('pointerup', e=>{
+        try { viewerCanvas.releasePointerCapture(e.pointerId); } catch {}
+        viewerCanvas.style.cursor = 'grab';
+
+        // If we still have another pointer, treat it as pinch, not a tap
+        if (vPtrs.size >= 1) { dragging = false; return; }
+
         const { sx, sy } = clientToCanvas(e.clientX, e.clientY);
         const moved = Math.hypot(sx - startPX, sy - startPY);
-        viewerCanvas.releasePointerCapture(e.pointerId);
-        viewerCanvas.style.cursor = 'grab';
-        if (!viewerDistanceMode){ dragging = false; if (moved < 5){ handleViewerClick(e.clientX, e.clientY); } }
+        const wasDragging = dragging;
+        dragging = false;
+
+        if (wasDragging && moved < 5 && !viewerDistanceMode){
+            handleViewerClick(e.clientX, e.clientY);
+        }
     });
     viewerCanvas.addEventListener('wheel', e=>{
         e.preventDefault();
@@ -773,7 +783,7 @@
     viewerCanvas.addEventListener('contextmenu', (e)=>{ if (viewerDistanceMode){ e.preventDefault(); viewerDistPts = []; drawViewer(); } });
     document.addEventListener('keydown', e=>{ if (e.key === 'Escape'){ selectedIdx = null; planetInfo.style.display = 'none'; } });
 
-    
+
     const vPtrs = new Map();
     let vPinchStart = null;
     viewerCanvas.addEventListener('pointerdown', e => { vPtrs.set(e.pointerId, {x:e.clientX, y:e.clientY}); });
@@ -787,7 +797,8 @@
                 vPinchStart = {a, b, d: Math.hypot(a.x-b.x, a.y-b.y), mid:{x:(a.x+b.x)/2,y:(a.y+b.y)/2}, vScale, vX, vY};
             } else {
                 const dNow = Math.hypot(a.x-b.x, a.y-b.y);
-                const raw = dNow / Math.max(10, container._pinch.start.d);
+                // BUGFIX: reference vPinchStart.d (not container._pinch.start.d)
+                const raw = dNow / Math.max(10, vPinchStart.d);
                 const factor = Math.pow(raw, IS_TOUCH ? 0.85 : 1);
                 const rect = viewerCanvas.getBoundingClientRect();
                 const sx = vPinchStart.mid.x - rect.left, sy = vPinchStart.mid.y - rect.top;
@@ -803,7 +814,7 @@
     viewerCanvas.addEventListener('pointerup', e=>{ vPtrs.delete(e.pointerId); if (vPtrs.size < 2) clearVPinch(); });
     viewerCanvas.addEventListener('pointercancel', e=>{ vPtrs.delete(e.pointerId); clearVPinch(); });
 
-    
+
     function clamp(v, lo, hi){ return Math.max(lo, Math.min(hi, v)); }
     function posSeed(keyA,keyB){ const s = Array.from(String(keyA)+'|'+String(keyB)).reduce((a,ch)=> (a*131 + ch.charCodeAt(0))>>>0, 0); const u = (s & 0xffff)/0xffff, v = ((s>>>16)&0xffff)/0xffff; return [0.15+0.70*u, 0.15+0.70*v]; }
     function colorFromName(name){ let h=0; for(let i=0;i<name.length;i++) h=(h*31 + name.charCodeAt(i))%360; return {stroke:`hsl(${h} 70% 60%)`, fill:`hsla(${h} 70% 60% / .18)`}; }
@@ -821,19 +832,19 @@
         };
     }
 
-    
+
     function hashRng(key){
         let h = 2166136261 >>> 0;
-        for (let i=0;i<key.length;i++){ h ^= key.charCodeAt(i); h = Math.imul(h, 16777619); }
+        for (let i=0;i<key.length;i++){ h ^= key.charCodeAt(0); h = Math.imul(h, 16777619); }
         return () => ((h = Math.imul(h ^ (h>>>16), 2246822507) ^ Math.imul((h = Math.imul(h ^ (h>>>13), 3266489909)) ^ (h>>>16), 2246822507)) >>> 0) / 0xffffffff;
     }
-    
+
     function gauss01(r){
         let u=0,v=0; while(u===0) u=r(); while(v===0) v=r();
         return Math.sqrt(-2*Math.log(u)) * Math.cos(2*Math.PI*v);
     }
 
-    
+
     function pointInPoly(poly, x, y){
         let inside = false;
         for (let i=0, j=poly.length-1; i<poly.length; j=i++){
@@ -942,7 +953,7 @@
         for(let iter=0; iter<260; iter++){
             let moved=false;
 
-          
+
             for(let i=0;i<pts.length;i++){
                 const pi = pts[i], keyI = `${pi.homeX0}|${pi.homeY0}`;
                 for(let j=i+1;j<pts.length;j++){
@@ -957,14 +968,14 @@
                 }
             }
 
-          
+
             for (const p of pts){
                 const a = anchors.get(p.sectorKey || '__none__');
                 p.x += (a.x - p.x) * SECTOR_PULL;
                 p.y += (a.y - p.y) * SECTOR_PULL;
             }
 
-          
+
             for(const p of pts){
                 if (p.x < GLOBAL_EDGE) p.x += (GLOBAL_EDGE - p.x) * 0.2;
                 if (p.x > W - GLOBAL_EDGE) p.x -= (p.x - (W - GLOBAL_EDGE)) * 0.2;
@@ -986,7 +997,7 @@
     }
     function centroid(poly){ const n=poly.length; let x=0,y=0; for(const [px,py] of poly){ x+=px; y+=py; } return [x/n,y/n]; }
     function inflate(poly, pad){ const [cx,cy]=centroid(poly); return poly.map(([x,y])=>{ const dx=x-cx, dy=y-cy, m=Math.hypot(dx,dy)||1; return [x + pad*dx/m, y + pad*dy/m]; }); }
-    function deflate(poly, pad){ const [cx,cy] = centroid(poly); return poly.map(([x,y])=>{ const dx = x - cx, dy = y - cy, m = Math.hypot(dx,dy) || 1; return [x - pad*dx/m, y - pad*dy/m]; }); }
+    function deflate(poly, pad){ const [cx,cy] = centroid(poly); return poly.map(([x,y])=>{ const dx = x - cx, dy = y - cy, m = Math.hypot(dx,dy) || 1; return [x - pad*dx/m, y - pad*dy/m]; }) }
 
     function projectOntoAxis(poly, ax, ay){
         let min=Infinity, max=-Infinity;
@@ -1019,7 +1030,7 @@
 
         const entries = [...polysMap.entries()].map(([sec,poly])=>({sec,poly}));
 
-      
+
         for (let iter = 0; iter < NO_SECTOR_OVERLAP_ITERS; iter++){
             let touched = false;
             for (let i=0;i<entries.length;i++){
@@ -1045,12 +1056,12 @@
             if (!touched) break;
         }
 
-      
+
         for (const [sec, poly] of polysMap){
             if (poly.length >= 3) polysMap.set(sec, deflate(poly, 10));
         }
 
-      
+
         const PAD = 8;
         for (const [sec, pts] of sectorPointsMap){
             if (!pts || !pts.length) continue;
@@ -1071,7 +1082,7 @@
         }
     }
 
-    
+
     function repelWithin(fnAllowed, pts, minSep=120, iters=40){
         for (let iter=0; iter<iters; iter++){
             let moved = false;
@@ -1093,7 +1104,7 @@
         }
     }
 
-    
+
     function drawWorldGrid(){
         vctx.save(); vctx.setTransform(vScale,0,0,vScale, vX, vY);
         vctx.lineWidth = 1 / vScale; vctx.strokeStyle = 'rgba(255,255,255,0.25)';
@@ -1101,7 +1112,7 @@
         for(let j=250;j<CURRENT_WORLD_H;j+=250){ vctx.beginPath(); vctx.moveTo(0,j); vctx.lineTo(CURRENT_WORLD_W,j); vctx.stroke(); }
         vctx.lineWidth = 2 / vScale; vctx.strokeStyle = 'rgba(255,255,255,0.45)';
         vctx.beginPath(); vctx.moveTo(CURRENT_WORLD_W/2,0); vctx.lineTo(CURRENT_WORLD_W/2,CURRENT_WORLD_H); vctx.stroke();
-        vctx.beginPath(); vctx.moveTo(0,CURRENT_WORLD_H/2); vctx.lineTo(CURRENT_WORLD_W,CURRENT_WORLD_H/2); vctx.stroke();
+        vctx.beginPath(); vctx.moveTo(0,CURRENT_WORLD_H/2); vctx.lineTo(CURRENT_WORLD_H, CURRENT_WORLD_H/2); vctx.stroke();
         vctx.restore();
     }
     function smoothClosed(poly, iters){
@@ -1149,10 +1160,10 @@
         for (const [secKey, poly] of polysBySec){
             if (!poly || !poly.length) continue;
 
-          
+
             const sectorName = String(secKey).split(' · ')[0];
 
-          
+
             let cx, cy;
             if (poly.length >= 3){
                 [cx, cy] = centroid(poly);
@@ -1163,15 +1174,15 @@
                 cx = poly[0][0]; cy = poly[0][1];
             }
 
-          
+
             const sx = vScale*cx + vX, sy = vScale*cy + vY;
 
-          
+
             const base = Math.pow(Math.max(vScale, 1e-6), SHRINK_A);
             const fontPx = Math.round(Math.min(Math.max(14*UI_MULT*base, 11), 26));
             vctx.font = `700 ${fontPx}px system-ui,-apple-system,Segoe UI,Roboto,Arial`;
 
-          
+
             const padX = 8, padY = 4;
             const text = sectorName;
             const w = vctx.measureText(text).width;
@@ -1180,14 +1191,14 @@
             const rectW = w + padX*2;
             const rectH = fontPx + padY*2;
 
-          
+
             vctx.fillStyle = 'rgba(0,0,0,.72)';
             vctx.fillRect(rectX, rectY, rectW, rectH);
             vctx.strokeStyle = 'rgba(255,255,255,.15)';
             vctx.lineWidth = 1;
             vctx.strokeRect(rectX + 0.5, rectY + 0.5, rectW - 1, rectH - 1);
 
-          
+
             vctx.lineWidth = 4;
             vctx.strokeStyle = 'rgba(0,0,0,.85)';
             vctx.strokeText(text, sx - w/2, sy + 5);
@@ -1199,13 +1210,13 @@
     }
 
 
-    
+
     let CURRENT_POINTS=[]; let CURRENT_SECTOR_POLYS=new Map();
     function drawViewer(){
         vctx.setTransform(1,0,0,1,0,0);
         vctx.fillStyle='#000'; vctx.fillRect(0,0,viewerCanvas.width, viewerCanvas.height);
 
-        
+
         vctx.save();
         vctx.setTransform(vScale,0,0,vScale, vX, vY);
         vctx.beginPath();
@@ -1338,7 +1349,7 @@
     }
     const ro = new ResizeObserver(() => syncCanvasToCSS(true)); ro.observe(viewer);
 
-    
+
     async function openCellViewer(cells){
         await ensureObjectsLoaded();
         const uniqueCells = Array.from(new Set(cells));
@@ -1347,7 +1358,7 @@
         viewer.style.display='block';
         syncCanvasToCSS(false);
 
-      
+
         let minC=Infinity, maxC=-Infinity, minR=Infinity, maxR=-Infinity;
         const crs = uniqueCells.map(id => ({ id, ...cellToCR(id) }));
         for (const {c,r} of crs){ minC=Math.min(minC,c); maxC=Math.max(maxC,c); minR=Math.min(minR,r); maxR=Math.max(maxR,r); }
@@ -1423,7 +1434,7 @@
         relaxAndShape(points, CURRENT_WORLD_W, CURRENT_WORLD_H);
         CURRENT_POINTS = points;
 
-      
+
         const sectorsMap = new Map();
         const grouped = new Map();
         for (const p of points){
@@ -1453,7 +1464,7 @@
         resolveSectorOverlaps(sectorsMap, sectorToPoints);
         CURRENT_SECTOR_POLYS = sectorsMap;
 
-      
+
         for (const p of points){
             if (p.sectorKey && p.sectorKey !== '__none__'){
                 const poly = CURRENT_SECTOR_POLYS.get((p.sectorKey || '').replace(' @ ', ' · '));
@@ -1461,7 +1472,7 @@
             }
         }
 
-      
+
         const orphansByCell = new Map();
         for (const p of points){
             if (!p.sectorKey || p.sectorKey === '__none__'){
@@ -1514,7 +1525,7 @@
         resetViewerTransform(); drawViewer();
     }
 
-    
+
     let SEARCH = { objects: [], sectors: new Map() };
     function buildSearchIndex(){
         const objs = []; const secMap = new Map();
@@ -1528,16 +1539,8 @@
         SEARCH.objects = objs; SEARCH.sectors = secMap;
     }
 
-    const toggleLightspeed = document.getElementById('toggleLightspeed');
-    let lightspeedEnabled = (localStorage.getItem('lightspeedEnabled') ?? '1') === '1';
-    toggleLightspeed.checked = lightspeedEnabled;
-    toggleLightspeed.addEventListener('change', ()=>{
-        lightspeedEnabled = toggleLightspeed.checked;
-        localStorage.setItem('lightspeedEnabled', lightspeedEnabled ? '1':'0');
-    });
-    function runViewerLightspeedThen(next){ next(); }
+    // Lightspeed toggle and logic removed
 
-    
     async function handleResultSelect(item){
         resultsEl.style.display='none'; searchBox.blur();
         let cellId = (item.kind === 'object') ? item.cell : item.firstCell; if (!cellId) return;
@@ -1558,11 +1561,8 @@
             }
         };
 
-        if (lightspeedEnabled && viewer.style.display === 'block'){
-            runViewerLightspeedThen(proceed);
-        } else {
-            await proceed();
-        }
+        // Always proceed directly (no lightspeed animation)
+        await proceed();
     }
     searchBox.addEventListener('input', async (e)=>{ await ensureObjectsLoaded(); updateSearchResults(e.target.value); });
     searchBox.addEventListener('focus', async (e)=>{ await ensureObjectsLoaded(); updateSearchResults(e.target.value); });
@@ -1599,7 +1599,7 @@
         resultsEl.style.display='block';
     }
 
-    
+
     const trailCanvas=document.getElementById('cursorLayer'), ctxTrail=trailCanvas.getContext('2d');
     const DPR_UI=Math.max(1,Math.min(window.devicePixelRatio||1,2));
     function resizeTrail(){ trailCanvas.style.width=innerWidth+'px'; trailCanvas.style.height=innerHeight+'px'; trailCanvas.width=Math.floor(innerWidth*DPR_UI); trailCanvas.height=Math.floor(innerHeight*DPR_UI); ctxTrail.setTransform(DPR_UI,0,0,DPR_UI,0,0);}
@@ -1618,8 +1618,15 @@
     document.querySelectorAll('.swatch[data-color]').forEach(s=> s.addEventListener('click', ()=>{ cursorColor=s.dataset.color; if(picker) picker.value=cursorColor; localStorage.setItem('cursorColor',cursorColor); }));
     if (resetBtn) resetBtn.addEventListener('click', ()=>{ cursorColor=DEFAULT_COLOR; if(picker) picker.value=cursorColor; localStorage.setItem('cursorColor',cursorColor); });
 
-    let trailEnabled = true;
+    // Trail: DISABLE on touch devices and prevent toggling there
+    let trailEnabled = !IS_TOUCH; // never show on mobile/touch
+    if (IS_TOUCH) {
+        document.getElementById('cursorLayer').style.display = 'none';
+        document.body.classList.add('show-native-cursor');
+    }
+
     document.addEventListener('keydown', (e) => {
+        if (IS_TOUCH) return; // ignore toggle on mobile
         if (e.key.toLowerCase() === 'c') {
             trailEnabled = !trailEnabled;
             document.getElementById('cursorLayer').style.display = trailEnabled ? 'block' : 'none';
@@ -1656,8 +1663,9 @@
         speedHUD.innerHTML=`<b>Speed</b> · ${fmt(ema)} px/s · ${fmt(k)} thousand light-years per second`;
     });
 
-    
+
     ensureObjectsLoaded().catch(()=>{});
 </script>
 </body>
 </html>
+
