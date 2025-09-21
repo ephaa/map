@@ -55,11 +55,47 @@
         #cogButton::before{ content:"⚙️"; }
         #settings:hover #cogButton{ transform:translateY(-2px) scale(1.02) rotate(20deg); box-shadow:0 8px 24px rgba(120,170,255,.25),0 0 0 1px rgba(120,170,255,.35) inset; border-color:rgba(120,170,255,.8); background:rgba(24,24,30,.98);}
         #hoverBridge{ position:absolute; left:0; bottom:44px; width:336px; height:16px; pointer-events:auto; background:transparent;}
-        #settingsPanel{ position:absolute; left:0; bottom:58px; width:336px; max-width:72vw; background:rgba(16,16,22,.98); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:10px; opacity:0; transform:translateY(6px) scale(.992); transition:opacity .16s, transform .16s; pointer-events:none; box-shadow:0 6px 18px rgba(0,0,0,.45); color:#eef3ff; }
+
+
+        #settingsPanel{
+            position:absolute; left:0; bottom:58px; width:336px; max-width:72vw;
+            background:radial-gradient(1200px 800px at 20% 0%, rgba(18,24,42,.92), rgba(12,14,22,.96));
+            border:1px solid rgba(160,190,255,.22);
+            border-radius:12px; padding:10px;
+            opacity:0; transform:translateY(6px) scale(.992); transition:opacity .16s, transform .16s;
+            pointer-events:none; box-shadow:0 12px 28px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.04);
+            color:#eef3ff;
+        }
         #settings:hover #settingsPanel{ opacity:1; transform:translateY(0) scale(1); pointer-events:auto; }
         .section{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:10px; margin-bottom:8px; }
         .section-title{ font:700 13px/1.2 system-ui; color:#b8cfff; margin-bottom:8px; }
-        #modeTip{ font:11px system-ui; color:#b8cfff; background:rgba(16,20,30,.95); border:1px solid rgba(120,160,220,.35); padding:6px 8px; border-radius:8px; margin-bottom:8px;}
+        #modeTip{ font:12px/1.35 system-ui; color:#eaf0ff; background:rgba(16,20,30,.95); border:1px solid rgba(120,160,220,.35); padding:8px 10px; border-radius:10px; }
+
+
+        .mode-row{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+        .mode-item{
+            display:flex; align-items:center; justify-content:center; gap:8px;
+            padding:10px 12px;
+            border-radius:12px;
+            background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+            border:1px solid rgba(140,160,220,.35);
+            color:#eaf0ff; font:800 13px/1 system-ui; letter-spacing:.2px;
+            transition:transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+        }
+        .mode-item::before{ content:attr(data-icon); font-size:16px; line-height:1; }
+        .mode-item:hover{ transform:translateY(-1px); box-shadow:0 6px 18px rgba(80,120,255,.18); }
+        .mode-item.active{
+            background:linear-gradient(180deg, rgba(120,170,255,.28), rgba(120,170,255,.12));
+            border-color:rgba(150,190,255,.9);
+            box-shadow:0 10px 24px rgba(120,170,255,.25), inset 0 0 12px rgba(120,170,255,.15);
+        }
+
+
+        .cursor-controls{ display:grid; grid-template-columns:1fr; gap:8px; }
+        .swatches{ display:flex; gap:8px; }
+        .swatch{ width:24px; height:24px; border-radius:6px; border:1px solid rgba(255,255,255,.35); cursor:pointer; }
+        .reset-btn{ width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(140,160,220,.35); background:rgba(255,255,255,.06); color:#fff; font:700 12px system-ui; }
+
 
         #viewer{
             position:absolute; right:12px; top:12px; z-index:60;
@@ -77,6 +113,9 @@
         #viewerClose{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.2); color:#fff; border-radius:8px; padding:6px 10px; }
         #viewerWrap{ position:relative; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,.08); width:100%; height:calc(100% - 66px); }
         #viewerLS{ position:absolute; inset:0; z-index:5; display:none; pointer-events:none; mix-blend-mode: screen; }
+
+
+        #viewerCanvas{ width:100%; height:100%; display:block; }
 
         #planetInfo{
             position:absolute; z-index:65; display:none; background:rgba(12,12,18,.98);
@@ -121,20 +160,14 @@
         #speedHUD b{ color:#9cf; }
 
         @media (max-width: 640px) {
-            #pathHUD {
-                bottom: 18px;
-                padding-bottom: env(safe-area-inset-bottom, 0px);
-                opacity: 1;
-            }
+            #pathHUD { bottom: 18px; padding-bottom: env(safe-area-inset-bottom, 0px); opacity: 1; }
             .path-title { font-size: 13px; letter-spacing: .4px; }
             .path-btn { padding: 12px 16px; font: 800 13px system-ui; }
             .path-btn.primary { box-shadow: 0 6px 18px rgba(120,170,255,.25); }
 
             .pill, #viewerClose { padding: 10px 14px; font-size: 13px; }
 
-            #viewer {
-                width: 94vw; height: 56vh; right: 3vw; top: 10px;
-            }
+            #viewer { width: 94vw; height: 56vh; right: 3vw; top: 10px; }
         }
     </style>
 </head>
@@ -708,7 +741,7 @@
             return;
         }
 
-        // Only start a drag if this is the first pointer
+
         if (vPtrs.size <= 1 && e.button === 0){
             dragging = true;
             startPX = sx; startPY = sy; startVX = vX; startVY = vY;
@@ -952,7 +985,9 @@
     }
     function centroid(poly){ const n=poly.length; let x=0,y=0; for(const [px,py] of poly){ x+=px; y+=py; } return [x/n,y/n]; }
     function inflate(poly, pad){ const [cx,cy]=centroid(poly); return poly.map(([x,y])=>{ const dx=x-cx, dy=y-cy, m=Math.hypot(dx,dy)||1; return [x + pad*dx/m, y + pad*dy/m]; }); }
-    function deflate(poly, pad){ const [cx,cy] = centroid(poly); return poly.map(([x,y])=>{ const dx = x - cx, dy = y - cy, m = Math.hypot(dx,dy) || 1; return [x - pad*dx/m, y - pad*dy/m]; }); }
+    function deflate(poly, pad){ const [cx,cy] = centroid(poly); return poly.map(([x,y])=>{ const dx = x - cx, dy = y - cy, m = Math.hypot(dx,dy) || 1; return [x - pad*dx/m, y - pad*dy/m]; });
+
+    }
 
     function projectOntoAxis(poly, ax, ay){
         let min=Infinity, max=-Infinity;
@@ -1552,7 +1587,7 @@
     // Desktop-only gating
     let trailEnabled = !IS_TOUCH; // show trail only on desktop
     if (IS_TOUCH) {
-        // Hide cursor UI + trail + speed HUD on touch/mobile
+
         const cursorSection = document.getElementById('cursorSection');
         if (cursorSection) cursorSection.style.display = 'none';
         document.getElementById('cursorLayer').style.display = 'none';
