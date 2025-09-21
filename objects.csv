@@ -1,0 +1,6465 @@
+Grid,Name,Sector
+C-16,Ssi-ruuvi,Cluster
+D-7,Bardram Scoft,
+D-7,Vun'Hanna,
+D-7,Twilight Void,The
+E-8,Bogo Rai,
+F-13,Zakuul,
+F-4,Zosha,
+F-6,Exegol,
+F-7,Sunrise,
+F-7,Celwis,
+F-8,Dioya,
+F-8,Klasse Ephemora,
+F-9,Yashuvhu,
+F-9,Zyzek,
+F-9,Ahch-To,
+G-10,Ardis,
+G-11,Avernio,
+G-11,Iokath,
+G-11,Munlali Mafir,
+G-13,CZ-198,
+G-14,Demir,
+G-14,Vondoru,
+G-14,Hibrath,
+G-14,Ilum,
+G-14,Luprora,
+G-14,Maher,
+G-14,Obsidia,
+G-15,Massoss,
+G-15,Pesfavri,
+G-15,UR-6572-AK,
+G-15,UR41-284,
+G-16,Carrivar,
+G-16,Hoxim,
+G-16,Osseriton,
+G-16,Pleknok,
+G-16,Umaren'k,
+G-16,Crakull,
+G-16,Gyndorath,
+G-16,Odessen,
+G-16,Rakata,Prime
+G-16,Irkalla,
+G-16,Agaris,
+G-20,Magna,
+G-21,Quellus,
+G-3,Seeratter,
+G-5,Shikitari,
+G-5,Vexos,
+G-5,Gem,The
+G-6,Faket,
+G-6,Nishmar,
+G-6,Batuu,Trilon
+G-7,Umme,Trilon
+G-7,B'Knos,
+G-7,G'rho,
+G-7,Kammia,
+G-7,Bakura,Bakura
+G-8,Cattamascar,Bakura
+G-8,Gymelo,Bakura
+G-8,Timora,Bakura
+G-8,Mokivj,Pacanth Reach
+G-9,Ovanis,Pacanth Reach
+G-9,Plood,Pacanth Reach
+G-9,Yakorki,Pacanth Reach
+G-9,Lupal,
+G-9,Red,Nebula
+H-10,Rarlech,
+H-10,Durace,
+H-10,Flacharia,
+H-11,Lost Murvey,
+H-12,Parnassos,
+H-13,UR-2212-GR,
+H-13,Brask Oto,
+H-14,Dassal,
+H-14,Dromondar Beta,
+H-14,Fhost,
+H-14,Griq,
+H-14,Qoribu,
+H-14,Snevu,
+H-14,UR-5292-FH,
+H-15,Volik,
+H-15,Yoggoy,
+H-15,Redoubt,The
+H-15,Crustai,
+H-15,Forbelea,
+H-15,Kro Var,
+H-15,Kharmort's Miasma,
+H-15,Vagar Praxut,
+H-15,Endovar (Terrabe),
+H-15,Filata,
+H-15,Jedha (Terrabe),
+H-15,Ruhnuk,
+H-15,Queluhan,Nebula
+H-16,Freerock,
+H-16,O'reen,
+H-16,Bormter,
+H-16,Gabdor,
+H-16,Ikari,
+H-16,Iskallon,
+H-16,Luminous Magnificence,
+H-16,Pion,
+H-16,Xala,
+H-16,Adratharpe,
+H-16,Beixander,
+H-16,Codia,
+H-16,Descopose Farmark,
+H-16,Gwar,
+H-16,Klytus,
+H-16,Meria,
+H-16,Pam'ba,
+H-16,Argoba,Trilon
+H-16,GUHL-J03870,Trilon
+H-16,Gannaria,Trilon
+H-16,Zaddja,Trilon
+H-16,Zav Alox,Trilon
+H-16,Abbaji Zuma (Spar),
+H-16,Fusai Zuma (Fusai),
+H-16,Nibiru Zuma (Kakani),
+H-16,Ponemah Zuma (Spar),
+H-16,Shalm Zuma (Ikenomin),
+H-16,Xal Zuma (Ablajeck),
+H-16,Cermau,Bakura
+H-16,Bunduki,Pacanth Reach
+H-16,Fornow,Pacanth Reach
+H-16,Panatha,Pacanth Reach
+H-16,Ravaath,Pacanth Reach
+H-16,Sorimow,Pacanth Reach
+H-16,Aludia,Trilon
+H-16,Chardis,Trilon
+H-16,Rattatak,Trilon
+H-16,Annaj,Zuma (Moddell)
+H-16,Ast Kikorie,Zuma (Moddell)
+H-16,Din Nebula,Zuma (Moddell)
+H-16,Din Pulsar,Zuma (Moddell)
+H-16,Endor Gate,Zuma (Moddell)
+H-16,Endor,Zuma (Moddell)
+H-16,Kuna's Eye,Zuma (Moddell)
+H-16,Kuna's Fist,Zuma (Moddell)
+H-16,Kuna's Horn,Zuma (Moddell)
+H-16,Kuna's Tail,Zuma (Moddell)
+H-16,Kuna's Tooth,Zuma (Moddell)
+H-17,Maya Kovel,Zuma (Moddell)
+H-17,Monsua Nebula,Zuma (Moddell)
+H-17,Murk,Zuma (Moddell)
+H-17,Ovise,Zuma (Moddell)
+H-17,Qina,Zuma (Moddell)
+H-17,Sanyassa,Zuma (Moddell)
+H-17,Thonner,Zuma (Moddell)
+H-17,Trindello,Zuma (Moddell)
+H-18,UR-1060,Zuma (Moddell)
+H-18,UR-2650,Zuma (Moddell)
+H-18,UR-3741,Zuma (Moddell)
+H-18,UR-8827,Zuma (Moddell)
+H-18,UR-9353,Zuma (Moddell)
+H-19,Vasha,Zuma (Moddell)
+H-19,Vex,Zuma (Moddell)
+H-19,Zorbia,Zuma (Moddell)
+H-19,Firrerre,Zuma (Sugai)
+H-19,Houche,Zuma (Sugai)
+H-19,Karthon,Zuma (Sugai)
+H-19,Necropolis,Zuma (Sugai)
+H-19,Rodis,Zuma (Sugai)
+H-19,Tharl,Zuma (Sugai)
+H-20,Benkal,
+H-20,Bursoll,
+H-20,Salaniss,
+H-20,Spunchina,
+H-20,Tholon,
+H-5,Caaraz,Stensen
+H-6,Magar's World,Stensen
+H-6,Verkuyl,Stensen
+H-6,Morak,
+H-6,NCW-781,
+H-6,Vengler,
+H-7,Void of Aogros,
+H-7,Quintarad,The
+H-7,Mulita,
+H-7,Port Nowhere,
+H-7,Unnipar,
+H-7,Barraken,Varada
+H-7,Koboh Abyss,Varada
+H-7,Koboh,Varada
+H-7,Skye,Varada
+H-7,Talor,Varada
+H-7,Tanalorr,Varada
+H-8,Crytal Nest,
+H-8,Dosuun,
+H-8,Seoul,
+H-9,Weik,
+H-9,Baralou,Varada
+I-10,Obus,
+I-10,Teptixii,
+I-11,Braccio,
+I-13,GH-531,
+I-13,Gradilis Rift,
+I-13,Nirauan,
+I-14,Oristrom,
+I-14,Pashvi,
+I-14,Quethold,
+I-14,Tantsor,
+I-14,Asteph'skaff,
+I-14,Esfandia,
+I-14,Frunchettan,
+I-14,Kariek,
+I-14,Lakra,
+I-14,Taloron,
+I-15,Thuna,
+I-15,Veroleem,
+I-15,Ansion,Churnis
+I-15,Dbari,Churnis
+I-15,Malari,Churnis
+I-15,Namadii,Churnis
+I-15,Ankus,
+I-15,Benath,
+I-15,Bloxia,
+I-15,Burska,
+I-15,Koke Frost,
+I-16,Koshaga,
+I-16,Ledeve,
+I-16,Murgo,
+I-16,Regel,
+I-16,Reo (Maraqoo),
+I-16,Tehar,
+I-16,Trinith Mondress,
+I-16,Voniss,
+I-16,Yoturba,
+I-16,Evas,Belshar
+I-16,Gilatter,Churnis
+I-16,Masgen,Churnis
+I-16,Valashar,Churnis
+I-16,Crintlia,Outer Jalor
+I-16,Kril'Dor,Outer Jalor
+I-16,Marasaln,Outer Jalor
+I-16,Zelaba,Outer Jalor
+I-16,Ma'alkerr,Rago
+I-16,Moro,Rago
+I-16,Rago,Rago
+I-16,Sinton,Rago
+I-16,Vadran,Rago
+I-16,Vixnix,Rago
+I-16,Red Twins,The
+I-16,Celdaru,
+I-16,Dhandu,
+I-16,Escabar,
+I-16,Gargolyn,
+I-16,Geroon,
+I-16,Kilia,
+I-16,Lysatra,
+I-16,Mendicat,
+I-16,Pesitiin,
+I-16,Roxuli,
+I-17,Sarm,
+I-17,Tenupe,
+I-17,Thedavio,
+I-17,Tusken's Eye,
+I-17,Valtava Valtava,
+I-17,Valtos,
+I-17,Wizar,
+I-17,Woteba,
+I-17,Kur,Minor
+I-17,Utegetu,Nebula
+I-17,Horob,Vardoss
+I-17,Fentersohn,
+I-17,Seluket,
+I-17,Selvaris,
+I-17,Tonnis Tonnis,
+I-17,Ianane,
+I-17,Iol,
+I-17,Adrathorpe,
+I-17,Aostai,
+I-17,Jakku,
+I-17,Minfar,
+I-17,Aruza,
+I-17,Frewwil,
+I-17,Genetia,
+I-17,Jedd,
+I-17,Kakra,
+I-17,Lequabis,
+I-17,Malian,
+I-17,Mannius,
+I-17,Orroman,
+I-17,Vesla,Minor
+I-17,Aesolian,
+I-18,Critonia,
+I-18,Kayri,
+I-18,Nopsin,
+I-18,Sahbrontee,
+I-18,Sarq,
+I-18,Taloraan,
+I-18,Lower Flora,Cloud
+I-18,Delphidian,Cluster
+I-18,Tarolax,Jidlor Marches
+I-18,Gangxi,Station
+I-18,Aurimaus,
+I-18,Barabesh,
+I-18,Jaymir,
+I-18,Mhatma,
+I-18,Qaras (Minyavi),
+I-18,Cedonne,Dononter
+I-18,Dlor,Dononter
+I-19,Dononter Minor,Dononter
+I-19,Chankin,Jidlor Marches
+I-19,Farfax,Marzoon
+I-19,Marzoon,Marzoon
+I-19,Salstan,Marzoon
+I-19,Xoemefel,Marzoon
+I-19,Asterios,Narrant
+I-19,Kartoosh,Narrant
+I-19,Meruud,Narrant
+I-19,Toledian,Narrant
+I-19,Adinax Nebula,Semagi
+I-19,Cerea,Semagi
+I-19,Cheelit,Semagi
+I-19,Cousault,Semagi
+I-19,Dohnia,Semagi
+I-20,Dolva Prime,Semagi
+I-20,Duron,Semagi
+I-20,Hyborea,Semagi
+I-20,Semag,Semagi
+I-20,Ghothia,Stensen
+I-20,Stensen's Colony,Stensen
+I-20,Trenwyth,Stensen
+I-20,Castilon,Tashtor
+I-21,Chalcedon,Tashtor
+I-4,Manakron,Tashtor
+I-4,Nelgenam,Tashtor
+I-5,Neskar,Tashtor
+I-5,Bri'ahl,Bri'ahl
+I-5,Elphrona,Bri'ahl
+I-5,Kalzeron,Bri'ahl
+I-5,Lanteeb,Bri'ahl
+I-5,Mearalis,Bri'ahl
+I-5,New Valis,Bri'ahl
+I-5,Stygmarn,Bri'ahl
+I-6,Tenoo,Bri'ahl
+I-6,Wasco,Bri'ahl
+I-6,Corbett Cluster,Corbett
+I-6,Kaelinn,Corbett
+I-6,Reamma,Corbett
+I-6,Taronda,Corbett
+I-6,Bastooine,Graador
+I-6,Graador,Graador
+I-6,Hradreek,Graador
+I-6,Shosho,Graador
+I-6,Vorkaa,Graador
+I-6,Chibbier,Stensen
+I-7,Elatha,Stensen
+I-7,Federian,Stensen
+I-7,Hudalla,Stensen
+I-7,Molos,Stensen
+I-7,Rina Major,Stensen
+I-7,Sareet,Stensen
+I-7,Dorriella,Wazta
+I-7,Hassaria,Wazta
+I-7,Lotho Minor,Wazta
+I-7,Malpaz,Wazta
+I-7,Ryoone,Wazta
+I-7,Uro,Wazta
+I-7,Vassek,Wazta
+I-7,Radhii,
+I-7,Brint-wo,Koradin
+I-7,Coveway,Koradin
+I-7,Kobal's World,Koradin
+I-7,Kovor,Koradin
+I-7,Lipsec,Koradin
+I-7,Ostor,Koradin
+I-7,Samovar,Koradin
+I-7,Shuraden,Koradin
+I-7,Sump,Koradin
+I-7,Talpiddi,Koradin
+I-7,Virgillia,Koradin
+I-7,Lafete,Tunka
+I-7,Niran,Tunka
+I-7,Usean,Tunka
+I-7,Koda Space Station,Wazta
+I-8,Thune,Wazta
+I-8,Antine,
+I-8,Sakavi Tar,
+I-8,Absit,Tunka
+I-8,Orinca,Tunka
+I-8,Thakwaa,Tunka
+I-8,Veccacopia,Tunka
+I-8,Dalna,Tunka (Dalnan)
+I-8,Eiram,Tunka (Dalnan)
+I-8,Haileap,Tunka (Dalnan)
+I-8,Bestal,Varada
+I-8,Delantine,Varada
+I-8,Dentamma Nebula,Varada
+I-8,Rhamalai,Varada
+I-8,Varada,Varada
+I-8,Yamradi,Varada
+I-8,Genosha,
+I-8,Kalastar,
+I-8,Lost Clusters,
+I-8,Mareg,
+I-8,Needan,
+I-9,Unguule,Nebula
+I-9,Clar,The
+I-9,Dyspeth,Varada
+I-9,Yalara,
+J-10,Eckless,
+J-10,Lew'el,
+J-10,Orinackra,
+J-10,Qonto,
+J-10,Taspir Dynali,
+J-10,Xerton,
+J-10,Kindlabethia,Braxant
+J-10,Lokondo,Braxant
+J-10,Rimcee Station,Braxant
+J-12,Dolis,Obtrexta
+J-12,Huk,
+J-12,Kalee,
+J-12,Oben,
+J-12,Ord Thoden Dynali,
+J-12,Tovarskl,
+J-12,Baramorra,Carrion
+J-12,Delephr,Carrion
+J-12,Gelda,Carrion
+J-12,Sojourn,Carrion
+J-12,Vexta,Carrion
+J-13,Zin Taal,Carrion
+J-13,Dactruria,Clacis
+J-13,Brodo Asogi,Perinn
+J-13,Cantras Gola,Perinn
+J-13,G'haris,Perinn
+J-13,Gandrossi,Perinn
+J-13,New Parsh,Perinn
+J-13,Ottinger,Perinn
+J-13,Parshoone,Perinn
+J-13,Son-tuul,Perinn
+J-13,Valc,Perinn
+J-13,Bettok,Velcar
+J-13,Bextar,Velcar
+J-13,Alashan,
+J-13,Aynaboni,
+J-13,Betal,
+J-13,Carnelion,
+J-13,Derosha,
+J-13,Didyma,
+J-13,Kuratooine,
+J-13,Kynachi,
+J-13,Pkori,
+J-13,Poln (Candoras),
+J-13,Spillwater (Candoras),
+J-13,Bid'jerma,Prefsbelt
+J-13,Brunet,Prefsbelt
+J-13,Comra,Prefsbelt
+J-13,Khonji,Prefsbelt
+J-13,Marquarra,Prefsbelt
+J-13,Tevel,Prefsbelt
+J-13,Yan Korelda,Prefsbelt
+J-13,Marcelan,Prime
+J-14,Churruma,Velcar
+J-14,Endex,Velcar
+J-14,Lenahra,Velcar
+J-14,Routh,Velcar
+J-14,Ryloon,Velcar
+J-14,Adumar,
+J-14,Aeten,
+J-14,Diab,
+J-14,Kamil,
+J-14,Ariarch-17,Ariarch
+J-14,Dalron,Ariarch
+J-14,Keitum,Ariarch
+J-14,Parliock,Ariarch
+J-14,Bars Barka,Barsa
+J-14,Quadrant Seven,Barsa
+J-15,Trydara,Barsa
+J-15,Uba,Barsa
+J-15,Ubertica,Barsa
+J-15,Varvva,Barsa
+J-15,Alderbathe,Churnis
+J-15,Bardelberan,Churnis
+J-15,Great Forveen Nebula,Churnis
+J-15,Tsukimitsurin,Churnis
+J-15,Arah,Dantus
+J-15,Cirrus,Dantus
+J-15,Dontamo,Dantus
+J-15,Dreighton,Dantus
+J-15,Dreighton Nebula,Dantus
+J-15,Ganlihk,Dantus
+J-15,Harridan,Dantus
+J-15,Herrik,Dantus
+J-15,Hoogon,Dantus
+J-15,Imdaar,Dantus
+J-15,Jiran,Dantus
+J-15,Kobbahn,Dantus
+J-15,Oracaia,Dantus
+J-15,Sorl,Dantus
+J-15,Spalex,Dantus
+J-16,Troska,Dantus
+J-16,Drompani,Prefsbelt
+J-16,Hadros,Prefsbelt
+J-16,Nosken,Prefsbelt
+J-16,Carvandir Carvandir,
+J-16,Londor Londori,
+J-16,Mondress Mondress,
+J-16,Belshar Othacuu,Belshar
+J-16,Nora,Belshar
+J-16,Ord Varee,Belshar
+J-16,Darkon,Chaama
+J-16,Logal Ri,Chaama
+J-16,Shu-Torun,Chaama
+J-16,Kalaan,Churnis
+J-16,Rustibar,Churnis
+J-16,Myomar,Deadalis
+J-16,Altarrn,Glythe
+J-16,Fef,Glythe
+J-16,Feldrona,Glythe
+J-16,Fornax,Glythe
+J-16,Iridia,Glythe
+J-16,Iridonia,Glythe
+J-16,Laakonis,Glythe
+J-16,Lorista,Glythe
+J-16,Pugal,Glythe
+J-16,Valrar,Glythe
+J-16,Galmerah,Jalor
+J-17,Glee Anselm,Jalor
+J-17,Hallitron,Jalor
+J-17,Jaloria,Jalor
+J-17,Vaced,Jalor
+J-17,Bezim,Vorc
+J-17,Junction,Vorc
+J-17,Station 88,Vorc
+J-17,Vicondor,Vorc
+J-17,Aramal Ryborean,
+J-17,Arashar,
+J-17,Belassar Sarla,
+J-17,Bengat,
+J-17,Bilbringi,
+J-17,Fyrth,
+J-17,Loth,
+J-17,Meglumine,
+J-17,Neshei Neshei,
+J-17,Pheryon,
+J-17,Rafft,
+J-17,Reecee,
+J-17,Riosa,
+J-17,Rondai,
+J-17,Ryborea Ryborean,
+J-17,Soun,
+J-17,XT987,
+J-17,Coth Fuuras,Deadalis
+J-18,Dorin,Deadalis
+J-18,Oaka,Prime
+J-18,Hijo Hijoian,Space
+J-18,Ichalin Station Hijoian,Space
+J-18,Kashir,Vardoss
+J-18,Vardoss,Vardoss
+J-18,Batorine,
+J-18,Bestoon,
+J-18,Boiyuh,
+J-18,Dreffon,
+J-18,Galagolos,
+J-18,Gwongdeen,
+J-18,Horska,
+J-18,Lontar,
+J-18,Mangan,
+J-18,Muldore,
+J-18,Thrantin Ollonir Boundaries,
+J-18,Throffdon,
+J-18,Tzarib Mestani,
+J-18,Khadaji Singularity Corridan,
+J-18,Kokash Kokash,
+J-18,"Marais, The Hatawa",
+J-18,Morath Nebula Hatawa,
+J-18,Phracas,
+J-18,Pollillus Vannell,
+J-18,Praxlis Praxlis,
+J-18,Stovax,
+J-18,Vobes,
+J-18,Cartusio,
+J-18,Dowut,
+J-18,Inysh,
+J-18,Nathas Questal,
+J-18,Osssorck Nebulae,
+J-18,Questal Questal,
+J-18,Rakaa,
+J-18,Zemiah's Den,
+J-18,Frisal,Atrisian CW
+J-18,Kiliea,Atrisian CW
+J-19,Kitel Phard,Atrisian CW
+J-19,Argavat,
+J-19,Aur,
+J-19,Basath,
+J-19,Candoria,
+J-19,Chorra Bamula,
+J-19,Choss,
+J-19,Dahrtag,
+J-19,Dawinia Hynestian,
+J-19,Deymasoll,
+J-19,Donadus Bamula,
+J-19,Gandrun,
+J-19,Hjaff,
+J-19,Hynestia Hynestian,
+J-19,Ladro,
+J-19,Mephitis,
+J-19,Mindabaal Faultheen,
+J-19,Noctu,
+J-19,Ord Sabaok,
+J-19,Permondiri,
+J-19,Perthrillia,
+J-19,Phu,
+J-20,Protobranch,
+J-20,Rikadi,
+J-20,Rutal,
+J-20,Shotem,
+J-20,Simocadia,
+J-20,Trunska,
+J-20,Tyybann,
+J-20,Walalla,
+J-20,Zardossa Stix,
+J-21,Qalita,Prime
+J-21,Almagest,The
+J-21,Bos-Una,
+J-21,Buoyant,
+J-3,Chrenthoan Abyss Chrenthoa,
+J-3,Ephemera,
+J-3,Guagenia Guagenian,
+J-3,Jandur,
+J-3,K'taktaxka,
+J-3,Korbin,
+J-3,Kriekaal,
+J-3,Mathas,
+J-3,Polyneus,
+J-3,Poviduze,
+J-4,Shasfath,
+J-4,Taratos,
+J-4,Tasariq,
+J-4,Barabaras,
+J-4,Cel Amiin Cantons of Lahag,
+J-4,Lahag Erli Cantons of Lahag,
+J-4,Opitha Tren,
+J-4,Pacara,
+J-4,Sergia Kalakan,
+J-4,Theal,
+J-4,Bayora,Extorin
+J-4,Extorin Major,Extorin
+J-4,Extorin Minor,Extorin
+J-4,Cro-Akon Thuldin's,Grant
+J-4,Gandeid Trailing,Grant
+J-4,Garen Thuldin's,Grant
+J-4,Teriq Noi Trailing,Grant
+J-4,Canyon,Montitian Grant
+J-4,Montitia,Montitian Grant
+J-4,Muqular,Montitian Grant
+J-4,Quan-Shui,Montitian Grant
+J-4,Saraf Cobar,Montitian Grant
+J-4,TD-10036-EM-1271,Montitian Grant
+J-5,Ring of Kafrene,Thand
+J-5,Thandruss,Thand
+J-5,Zenezia,Thand
+J-5,Nilgaria Masla,
+J-5,D'janis,Halm
+J-5,Eeyyon,Halm
+J-5,Halm,Halm
+J-5,Petabys Station,Halm
+J-5,Siriamp,Halm
+J-5,"Black Delve, The",Har Worlds
+J-5,Chyron,Har Worlds
+J-5,Har Binande,Har Worlds
+J-5,Philaxia,Har Worlds
+J-5,Rellnas,Har Worlds
+J-5,Hendrix,Iska
+J-5,Threfal,Iska
+J-5,Jidlor,Jidlor Marches
+J-5,Praxat Sil,Jidlor Marches
+J-5,Koba,Narrant
+J-5,Riflor,Narrant
+J-5,Alun,Oriolan
+J-5,Drazkel,Oriolan
+J-5,Oriolanis,Oriolan
+J-5,Polomie,Oriolan
+J-6,Saracor,Oriolan
+J-6,Serelia,Oriolan
+J-6,Werta,Oriolan
+J-6,Serenity,Tashtor
+J-6,Takodana,Tashtor
+J-6,Tashtor Seneca,Tashtor
+J-6,Almak Almak,
+J-6,Jiaan Almak,
+J-6,Minoth Masla,
+J-6,Aldin,Aldino
+J-6,Dallenor,Aldino
+J-6,Dubrovia,Aldino
+J-6,Iast,Aldino
+J-6,Elbara,Elbaran
+J-6,Entropian Hive,Elbaran
+J-6,Hirsi,Elbaran
+J-6,Kholes,Elbaran
+J-6,Kirima,Elbaran
+J-6,Parkella,Elbaran
+J-6,Porchello,Elbaran
+J-6,Tay'ah'loo,Elbaran
+J-6,Gendius,Gendius
+J-6,Lorta,Gendius
+J-6,Paradise Station,Gendius
+J-6,Quaensan Prime,Gendius
+J-6,Switchmount,Gendius
+J-6,Urthak,Gendius
+J-6,Thaldo,Graador
+J-6,Winagrew,Graador
+J-6,Ravager's Rift,Iska
+J-6,Beltire,Narrant
+J-6,Narrant,Narrant
+J-6,Lutrillia,Javin (Yarith)
+J-6,Shuldene,Javin (Yarith)
+J-6,Trionak,Javin (Yarith)
+J-6,Yarith,Javin (Yarith)
+J-6,Abridon,Koradin
+J-7,Echerta,Koradin
+J-7,Errimin,Koradin
+J-7,Keskin,Koradin
+J-7,Merokia,Koradin
+J-7,Port Jerrell,Koradin
+J-7,Pulassas Minor,Koradin
+J-7,Tancon,Koradin
+J-7,Tegrat,Koradin
+J-7,Tiikae,Koradin
+J-7,Varlinaar,Koradin
+J-7,Winter's Edge,Koradin
+J-7,Banvhar Station,Kriz
+J-7,Gunthar,Kriz
+J-7,Plavonia,Kriz
+J-7,R'terleD'er,Kriz
+J-7,Serolonis,Kriz
+J-7,To'hok Neige,Kriz
+J-7,Lissam,Rayter
+J-7,Andraven,Wazta
+J-7,Bitmus Cloud,Wazta
+J-7,Cuthbern,Wazta
+J-7,Fermic,Wazta
+J-7,Greyman's Planet,Wazta
+J-7,Kaderin,Wazta
+J-7,Karinda,Wazta
+J-7,Nefitifi,Wazta
+J-7,Oko E,Wazta
+J-7,Remitik,Wazta
+J-7,Rex Strata,Wazta
+J-7,Shard,Wazta
+J-7,Slotern,Wazta
+J-8,Wazta,Wazta
+J-8,Zoph,Wazta
+J-8,Chespea Rayter (Berenge),
+J-8,Black Hole of Quintas,Kriz
+J-8,Abrihom,Rayter
+J-8,Bancar,Rayter
+J-8,Dahvil,Rayter
+J-8,Gastrula,Rayter
+J-8,Karra,Rayter
+J-8,Laim,Rayter
+J-8,Leoxo,Rayter
+J-8,Lurr,Rayter
+J-8,Najarka,Rayter
+J-8,Narg,Rayter
+J-8,Nova Garon,Rayter
+J-8,Pako Ramoon,Rayter
+J-8,Salteract,Rayter
+J-8,Shimmer,Rayter
+J-8,Solem,Rayter
+J-8,Verdi,Rayter
+J-8,Amaxine Station,Tunka
+J-8,Arath,Tunka
+J-8,Borlov,Tunka
+J-8,Rivoria,Tunka
+J-9,Anoth,
+J-9,Lust,
+J-9,Cantros,Saijo
+J-9,Chandar's Folly,Saijo
+J-9,Dannamore,Saijo
+J-9,Drup's Star,Saijo
+J-9,Ishram Nebula,Seitia
+J-9,Kellux,Seitia
+J-9,Olabria,Seitia
+J-9,Kinooine,
+J-9,Livno,
+J-9,Zonju,
+J-9,Imynusoph,Kallea
+K-10,Chrelythiumn,
+K-10,Zeta 0-9,
+K-10,Nharqis'l,Veragi
+K-10,Malanose,Veragi (Gree Enclave)
+K-10,Te Hasa,Veragi (Gree Enclave)
+K-10,Anorelga,Braxant
+K-10,Anthan,Braxant
+K-10,Bastion,Braxant
+K-10,Bnar,Braxant
+K-10,Ahakista,Myto
+K-10,Artorias,Myto
+K-10,Belladoon,Myto
+K-10,Criton's Point,Myto
+K-10,Dubrillion,Myto
+K-10,Bescane,Obtrexta
+K-10,Mulvar,Obtrexta
+K-10,Agoliba-Tu,Veragi
+K-10,Cilare,Veragi
+K-10,Equanus,Veragi
+K-10,Horizon Base,Veragi
+K-10,Tulatharri Junction,Veragi
+K-10,Asation,Veragi (Gree Enclave)
+K-10,Marmoth,Albarrio
+K-10,Bisellia,Clacis
+K-10,Cezith,Clacis
+K-10,Endoraan,Clacis
+K-10,Fodro,Clacis
+K-10,Gwori,Clacis
+K-10,Karka,Clacis
+K-10,Korrus,Clacis
+K-10,Kwevron,Clacis
+K-10,Ord Sedra,Clacis
+K-10,Praya,Clacis
+K-10,Shramar,Clacis
+K-10,Venestria,Clacis
+K-10,Angor,Myto
+K-10,Gabredor,Myto
+K-10,Jamiri,Myto
+K-10,Orowat,Myto
+K-10,Fegorosk,Obtrexta
+K-10,Jaemus,Obtrexta
+K-10,Karavis,Obtrexta
+K-10,Muunilinst,Obtrexta
+K-10,Quanton,Obtrexta
+K-10,"Twins, The",Obtrexta
+K-10,Varvrona,Obtrexta
+K-10,Ushmin,Relgim
+K-10,Capza,Velcar
+K-10,Entralla,Velcar
+K-10,Albarrio,Albarrio
+K-10,Ancathia,Albarrio
+K-10,Anemcoro,Albarrio
+K-10,Aris,Albarrio
+K-10,Bar Neth,Albarrio
+K-10,Dibrook,Albarrio
+K-10,Gheia,Albarrio
+K-10,Haverling,Albarrio
+K-10,Jhosh,Albarrio
+K-10,Morishim,Albarrio
+K-10,Moskk,Albarrio
+K-10,Mygeeto,Albarrio
+K-10,Quintus,Albarrio
+K-11,Reynon,Albarrio
+K-11,Scipio,Albarrio
+K-12,Sinjan,Albarrio
+K-12,Todola,Albarrio
+K-12,Altunna,Cassander
+K-12,Caraxl,Cassander
+K-12,Cassander,Cassander
+K-12,Forsen,Cassander
+K-12,Kaller,Cassander
+K-12,Ord Canfre,Cassander
+K-12,Sheh Soahi,Cassander
+K-12,Biitu,Cassander (Tadrin)
+K-12,Garqi,Cassander (Tadrin)
+K-12,Minashee,Cassander (Tadrin)
+K-12,Monhudle,Cassander (Tadrin)
+K-12,Uvoss,Cassander (Tadrin)
+K-12,New Bakstre,Cassander (Tendrannan)
+K-12,Bampa'k,Prefsbelt
+K-12,Borosk,Prefsbelt
+K-12,Carlac,Prefsbelt
+K-12,Kitaros Nebula,Prefsbelt
+K-12,Ompersan,Prefsbelt
+K-12,Prefsbelt,Prefsbelt
+K-12,Yaga Minor,Prefsbelt
+K-12,Yorgraxx,Prefsbelt
+K-13,Ywllandr,Prefsbelt
+K-13,Maelstrom Nebula,Relgim
+K-13,Lonnaw Droma,
+K-13,Smarck,Cademimu
+K-13,Deadon,Dantus
+K-13,Kemla,Dantus
+K-13,Poressi,Dantus
+K-13,Angrallia,Fath
+K-13,Ardennia,Fath
+K-13,Bittelari Cluster,Fath
+K-13,Gonmore,Fath
+K-13,JanFathal,Fath
+K-13,Merikon,Fath
+K-13,Miro,Fath
+K-13,Ord Cantrell,Fath
+K-13,Spaceport THX1138,Fath
+K-13,Tangar,Fath
+K-13,Wistril,Fath
+K-13,Yarille,Fath
+K-13,Elegasso,Irishi
+K-13,Great Zilk,Irishi
+K-13,Jaelen,Irishi
+K-13,Obredaan,Irishi
+K-13,Ord Tessebok,Irishi
+K-13,Orinda,Irishi
+K-13,Recluse's Nebula,Irishi
+K-13,Selnesh,Irishi
+K-13,Domgrin,Prefsbelt
+K-13,Kareas,Prefsbelt
+K-13,Magaveene,Prefsbelt
+K-13,Ord Mynock,Prefsbelt
+K-13,Otomok,Prefsbelt
+K-13,Sparth,Prefsbelt
+K-13,Abaarian Abaar,
+K-13,Dohu Dohu,
+K-14,Grehollo Manoe,
+K-14,Manoe Manoe,
+K-14,Paklarn Abaar,
+K-14,T'olan Tiala,
+K-14,Thory Prime Thory,
+K-14,Traval-Pacor Pacor,
+K-14,Tyan Tyan,
+K-14,Baltizaar,Corthenia
+K-14,Corthenia,Corthenia
+K-14,Ipsidon,Corthenia
+K-14,Maicombe,Corthenia
+K-14,Oteroa,Corthenia
+K-14,Ryarten,Corthenia
+K-14,Zohakka,Corthenia
+K-14,Frithia,Glythe
+K-14,Ipellrilla,Glythe
+K-14,Nentan,Glythe
+K-14,Vortex,Glythe
+K-14,Aphran,
+K-14,Black Bantha,
+K-14,Brightday,
+K-15,Carratos,
+K-15,Caursito,
+K-15,Dix'thaar,
+K-15,Gultanna Va di Gult,
+K-15,Kalarassi,
+K-15,M132L4,
+K-15,Marquinn,
+K-15,Meastrinnar,
+K-15,Mittoblade,
+K-15,Neshtab Quohag,
+K-15,Nithorni,
+K-15,Noryokon,
+K-15,Osara,
+K-15,Persaya,
+K-15,Protogeyser,
+K-15,Raltac,
+K-15,Sif-Uwana,
+K-16,Sooncanoo,
+K-16,Tantara,
+K-16,Voltare,
+K-16,Waymancy,
+K-16,Yetnis,
+K-16,Barenth,Drannik
+K-16,Doshan,Drannik
+K-16,Drannik,Drannik
+K-16,Hartaga,Drannik
+K-16,Paig,Drannik
+K-16,Anduvia,Immalia
+K-16,Arc of Eden,Immalia
+K-16,Calumdarian,Immalia
+K-16,Immalia,Immalia
+K-16,Meldazar,Immalia
+K-16,Vorian,Immalia
+K-16,Whirl,The
+K-16,Muzara,Trestis
+K-16,Sif-Alula,Trestis
+K-16,Upper Brightday,Trestis
+K-16,Aaeton,
+K-16,Bolenia,
+K-16,Borleias,
+K-16,Cheeyoom Matee,
+K-16,Coriallis,
+K-16,Cortella,
+K-16,Dachat,
+K-16,Darada,
+K-16,Denevar,
+K-16,Dolsan,
+K-16,Duran,
+K-17,Espinar,
+K-17,Gaios,
+K-17,Galvoni,
+K-17,Ghaina,
+K-17,Golkus,
+K-17,Halpat,
+K-17,Harix,
+K-17,Hyabb Krenher,
+K-17,Kar'a'katok,
+K-17,Kestavel,
+K-17,Melahna,
+K-17,Merakai,
+K-17,Mirit,
+K-17,Noquivzor,
+K-17,Prekaz,
+K-17,Ragoon,
+K-17,Serule,
+K-17,Svaaha,
+K-17,Tanjay,
+K-17,Trallan,
+K-17,Twith,
+K-17,Venjagga,
+K-17,Voon Krenher,
+K-17,Duneeden,Corusca
+K-17,Weerden,Corusca
+K-17,Balfron,Dolomar
+K-17,Caprioril,Dolomar
+K-17,Dolomar,Dolomar
+K-17,Kamparas,Dolomar
+K-17,Pantolomin,Dolomar
+K-17,Phorliss,Dolomar
+K-17,Wor Tandell,Dolomar
+K-17,Abonshee,Fakir
+K-17,Alabash,Fakir
+K-17,Callonia,Fakir
+K-17,Doneer'so,Fakir
+K-18,Fakir,Fakir
+K-18,Flankers,Fakir
+K-18,Halowan,Fakir
+K-18,Iyuta,Fakir
+K-18,Lorimax,Fakir
+K-18,Mrisst,Fakir
+K-18,Mycroft,Fakir
+K-18,Palanhi,Fakir
+K-18,Sarnikken,Fakir
+K-18,Sinkar,Fakir
+K-18,Tsukkia,Fakir
+K-18,Vakkar,Fakir
+K-18,Yirt-4138-Grek-12,Fakir
+K-18,Charmath,Farrfin
+K-18,Farrfin,Farrfin
+K-18,Firro,Farrfin
+K-18,Mamendin,Farrfin
+K-18,Phraetiss,Farrfin
+K-18,Teres Lutha Minor,Farrfin
+K-18,Davnar,Kanchen
+K-18,Pakrik,Kanchen
+K-18,Xa Fel,Kanchen
+K-18,Massiff,Nebula
+K-18,Hoszh Iszhir,Uoti
+K-18,Kvabja,Uoti
+K-18,Makksre,Uoti
+K-18,Torpris,Uoti
+K-18,Alland,
+K-18,Aradia,
+K-18,Bosch,
+K-18,Canastra,
+K-18,Coruschal,
+K-18,Endrolia,
+K-18,Ensolica,
+K-18,Granna,
+K-18,Jevelet,
+K-18,Norkronia,
+K-18,Norne,
+K-18,Ondos,
+K-18,Osadia,
+K-18,Pizkoss,
+K-18,Prakith,
+K-18,Ruan,
+K-18,Salliche,
+K-18,Tallia,
+K-18,Tamban,
+K-18,Tei-Untis,
+K-18,Ucret,
+K-18,Utharis,
+K-18,Volgax,
+K-18,Woqua,
+K-18,Metellos,Corusca
+K-18,Dandalas,Farlax
+K-18,Doornik-1142,Farlax
+K-18,Doornik-207,Farlax
+K-18,Elcorth,Farlax
+K-18,Faz,Farlax
+K-18,Galantos,Farlax
+K-18,Gotoma,Farlax
+K-18,J't'p'tan,Farlax
+K-18,Joruna,Farlax
+K-18,Kktkt,Farlax
+K-18,Kojash,Farlax
+K-18,Kutag,Farlax
+K-18,Morning's Bell,Farlax
+K-18,N'zoth,Farlax
+K-19,Nanta-Ri,Farlax
+K-19,New Brigia,Farlax
+K-19,Norat,Farlax
+K-19,Orooturoo,Farlax
+K-19,Pirol,Farlax
+K-19,Polneye,Farlax
+K-19,Prildaz,Farlax
+K-19,Thobek,Farlax
+K-19,Tholaz,Farlax
+K-19,Tizon,Farlax
+K-19,Tran Mariel,Farlax
+K-19,Wakiza,Farlax
+K-19,Wehttam,Farlax
+K-19,Widek,Farlax
+K-19,Z'fell,Farlax
+K-19,Zhina,Farlax
+K-19,Keeara Major,Koros
+K-19,Kuar,Koros
+K-19,Symbia,Koros
+K-19,Cal-Seti,Torranix
+K-19,Fresia,Torranix
+K-19,Galand,Torranix
+K-19,Worru'du,Torranix
+K-19,Byss,
+K-19,Odik,
+K-19,Adikaria,
+K-19,Badtibira,
+K-19,Botor Botor Enclave,
+K-19,Constancia,
+K-19,Cortina,
+K-19,Daupherm Daupherm States,
+K-19,Dulvoyinn,
+K-2,Gerrard,
+K-2,Gyosha,
+K-2,Iscno,
+K-2,Kalist,
+K-2,Kerensik Botor Enclave,
+K-20,Kler'terria,
+K-20,Lialic,
+K-20,Loedorvia Weemell,
+K-20,Mauphin,
+K-20,Pargaux,
+K-20,Piton,
+K-20,Siola,
+K-20,Thebeon,
+K-20,Thracior,
+K-20,Vagneria,
+K-20,Zamael,
+K-20,Abregado,
+K-20,Barbadel,
+K-20,Bardotta Shasos,
+K-20,Beledeen,
+K-20,Belgaroth,
+K-20,Clabron,
+K-20,Cobal,
+K-20,Cuvacia,
+K-20,Cydorria,
+K-20,Dentaal,
+K-21,Dihneral,
+K-21,Dordolum,
+K-21,Halcyon,
+K-21,Karltonia,
+K-21,Ketz,
+K-21,Kloodavia,
+K-21,Niele,
+K-3,Omar,
+K-3,Ophideraan,
+K-3,Pyros,
+K-3,Rena,
+K-3,Steelious,
+K-3,Tangrada-Nii,
+K-3,Vaykaaris,
+K-3,Voolukaria,
+K-3,Vrakolia,
+K-3,Wecacoe,
+K-3,Whelori,
+K-3,Yarrv,
+K-3,Zenox,Cluster
+K-3,Illodia,Illodia
+K-3,Sarpazia,Illodia
+K-3,Wellsia,Illodia
+K-3,Qixoni,Nebula
+K-4,Kooda Herglic,Space
+K-4,Biskar,
+K-4,Dhen-Moh,
+K-4,Dragon Void Gomar,
+K-4,Dulin,
+K-4,Fennesa,
+K-4,Fnessal,
+K-4,Ithica,
+K-4,Kudo Corvair,
+K-4,Kyrouac,
+K-4,Ord Pentala,
+K-4,Pa Tho,
+K-4,Praidaw,
+K-4,Slession,
+K-4,Station Zeta,
+K-4,Trevura,
+K-4,Tujiamoor,
+K-4,Vagadarr,
+K-4,Xerthia,
+K-4,Yn,
+K-4,Zaxxovia Gomar,
+K-4,Plin,Minor
+K-4,Billaron Chitargarh,
+K-4,Pioku Trans-Jardeen,
+K-4,Skree Chitargahr,
+K-4,Calabosh,Arc d'Stot
+K-4,Haneli,Arc d'Stot
+K-5,New Balosar,Arc d'Stot
+K-5,Rekelos,Arc d'Stot
+K-5,Silunes,Arc d'Stot
+K-5,Ghoba,Chitarghar
+K-5,Gholondreine,Chitarghar
+K-5,Solibus,Chitarghar
+K-5,Agash,Great Agash
+K-5,Maleinator,Great Agash
+K-5,Parau,Great Agash
+K-5,Azum,Itopol
+K-5,Gibraal,Itopol
+K-5,Llon Nebulae,Itopol
+K-5,Jardeen Trans-Jardeen,
+K-5,Stennaros Har Worlds (Stennes),
+K-5,Etorasp,Hakartha
+K-5,Hakartha,Hakartha
+K-5,Altano,Piryn Shar
+K-5,Bray,Piryn Shar
+K-5,Cianap,Piryn Shar
+K-5,Natalon,Piryn Shar
+K-5,Noe'ha'on,Piryn Shar
+K-5,Ohratuu,Piryn Shar
+K-5,Vincorba,Piryn Shar
+K-5,Balis-Baurgh,Sombure
+K-5,Barcaria,Sombure
+K-5,Ichtor,Sombure
+K-5,Mrinzebon,Sombure
+K-5,Copperline,Vatha
+K-5,Edatha,Vatha
+K-5,Nordis Prime,Vatha
+K-5,Vulpinus Nebula,Vatha
+K-5,Blutopia,Vensensor
+K-5,Calonica,Vensensor
+K-5,Goratak,Vensensor
+K-5,Ivarujar,Vensensor
+K-5,Pendari,Vensensor
+K-5,Sarrish,Vensensor
+K-5,Tar Morden,Vensensor
+K-5,Betthanie,Wornal
+K-5,Bomis Koori,Wornal
+K-6,Ghost Moon,Wornal
+K-6,Kriselist,Wornal
+K-6,Naratar,Wornal
+K-6,Feris,Agarix
+K-6,Ishbix,Agarix
+K-6,Ixzinia,Agarix
+K-6,Pyjridj,Agarix
+K-6,Kaump,Bruanii
+K-6,Quamar,Bruanii
+K-6,Chroman,D'Aelgoth
+K-6,Feenix,D'Aelgoth
+K-6,Tallaso,D'Aelgoth
+K-6,Geal,Gendius
+K-6,Cimarosa,Irnaj
+K-6,Ebenmal,Irnaj
+K-6,Feather Nebula,Irnaj
+K-6,Keltos,Irnaj
+K-6,Miztoc,Irnaj
+K-6,Onod,Irnaj
+K-6,Iska,Iska
+K-6,Chibias,Sombure
+K-6,D'rinba,Sombure
+K-6,Kaliska,Sombure
+K-6,Sibisime,Sombure
+K-6,Latza,Spirva
+K-6,Lopor Station,Spirva
+K-6,Yartiga,Spirva
+K-6,Killaniri,Wornal
+K-6,Abelor,Yushan
+K-6,Abraxas,Yushan
+K-6,Bhuna Sound,Yushan
+K-7,Dalisor,Yushan
+K-7,Japai,Yushan
+K-7,Jiroch,Yushan
+K-7,Kaal,Yushan
+K-7,Little Petrovi,Yushan
+K-7,Rrulinn,Yushan
+K-7,Sorotarr,Yushan
+K-7,Yev,Yushan
+K-7,Bowane Nebula Tungra (Fand),
+K-7,Cataract of Moons Tungra (Fand),
+K-7,Dasoor,Agarix
+K-7,Pellastrallas,Agarix
+K-7,Upell,Agarix
+K-7,Uthor,Agarix
+K-7,Cargamalis,Bruanii
+K-7,Doaskin,Bruanii
+K-7,Mugaar,Bruanii
+K-7,Tellanada,Bruanii
+K-7,Aztubek,Javin
+K-7,High Chunah,Javin
+K-8,Javin,Javin
+K-8,Kumru,Javin
+K-8,Twin Nebulae,Javin
+K-8,Allyuen,Javin (Anoat)
+K-8,Anoat,Javin (Anoat)
+K-8,Bavva,Javin (Anoat)
+K-8,Bendeluum,Javin (Anoat)
+K-8,Bespin,Javin (Anoat)
+K-8,Burnin Konn,Javin (Anoat)
+K-8,Council,Javin (Anoat)
+K-8,Darlyn Boda,Javin (Anoat)
+K-8,Delphon,Javin (Anoat)
+K-8,Ertegas,Javin (Anoat)
+K-8,Gerrenthum,Javin (Anoat)
+K-8,Gutretee,Javin (Anoat)
+K-8,Hoth,Javin (Anoat)
+K-8,Ione,Javin (Anoat)
+K-8,Ison,Javin (Anoat)
+K-8,Kirtarkin,Javin (Anoat)
+K-8,Mataou,Javin (Anoat)
+K-8,Mev,Javin (Anoat)
+K-8,Mexeluine,Javin (Anoat)
+K-8,Mijos,Javin (Anoat)
+K-8,Nothoiin,Javin (Anoat)
+K-8,Ozu,Javin (Anoat)
+K-8,Polmanar,Javin (Anoat)
+K-8,"Ring, The",Javin (Anoat)
+K-8,Saila Na,Javin (Anoat)
+K-8,Tinoon,Javin (Anoat)
+K-8,Tokmia,Javin (Anoat)
+K-8,Varonat,Javin (Anoat)
+K-8,Zephry,Javin (Anoat)
+K-8,Zhanox,Javin (Anoat)
+K-8,Anantapar,Javin (Yarith)
+K-8,Bettel,Javin (Yarith)
+K-8,Indellian,Javin (Yarith)
+K-8,Isde Naha,Javin (Yarith)
+K-8,Orn Kios,Javin (Yarith)
+K-8,Parlatal,Javin (Yarith)
+K-8,Shuxl,Javin (Yarith)
+K-9,Togominda,Javin (Yarith)
+K-9,Arporatal-Lanin,Juvex
+K-9,Farstone,Juvex
+K-9,Little Talhovi,Juvex
+K-9,Thull's Vault,Juvex
+K-9,Umthyg,Juvex
+K-9,Galjaero,Tungra
+K-9,Gam Tim'nisi,Tungra
+K-9,Ootoo Prime,Tungra
+K-9,Oovri,Tungra
+K-9,Tawl,Tungra
+K-9,Tungra,Tungra
+K-9,Vuundalla,Tungra
+K-9,Yerej,Tungra
+K-9,Bryndar,Dalicron
+K-9,Dalicron,Dalicron
+K-9,Mydasos,Dalicron
+K-9,Orrik,Dalicron
+K-9,Tallek,Dalicron
+K-9,Vryssa,Dalicron
+K-9,Actlyon,Jjannex
+K-9,Banchii,Jjannex
+K-9,Cathis,Jjannex
+K-9,Feenicks,Jjannex
+K-9,Pendaxa,Jjannex
+K-9,Rentean,Jjannex
+K-9,Yunkor,Jjannex
+K-9,Berrol's Donn,Kriz
+K-9,"Celestial Wake, The",Kriz
+K-9,Karthrexia,Kriz
+K-9,Ocktai,Kriz
+K-9,Trenchenovu,Kriz
+K-9,Tureen,Kriz
+K-9,Barkhesh,Seitia
+K-9,Bendii,Seitia
+K-9,Crothy,Seitia
+K-9,Doxxen,Seitia
+K-9,Fanha,Seitia
+K-9,Gal Milnor,Seitia
+K-9,Seitia Prime,Seitia
+K-9,Sil'Lume,Seitia
+K-9,Tharnaka,Seitia
+K-9,Tol Ado,Seitia
+K-9,Chateuse,Tungra
+K-9,Sontor,Tungra
+K-9,Tamboon,Tungra
+K-9,Nevarro,Dalicron
+K-9,Renforra,Dalicron
+K-9,Sappire,Dalicron
+K-9,Duhma,Kallea
+K-9,Grava,Kallea
+K-9,Katchan,Kallea
+K-9,Qualai,Kallea
+K-9,Terminus,Kallea
+K-9,Zastiga,Kallea
+K-9,Zi'Dek,Kallea
+K-9,Anto's Star,Saijo
+K-9,Faldos,Saijo
+K-9,Kondoraan,Saijo
+K-9,Loreth,Saijo
+K-9,Relkass,Saijo
+K-9,Saijo,Saijo
+K-9,Spee,Saijo
+K-9,Calior,Seitia
+K-9,Manpha,Seitia
+K-9,Fwatna,Subterrel
+K-9,Polis Massa,Subterrel
+K-9,Elkeenar,
+K-9,Daimla,Kallea
+K-9,Delrakkin,Kallea
+K-9,Falaston,Kallea
+K-9,Laecor,Kallea
+K-9,Long Shadow,Kallea
+K-9,Piu,Kallea
+L-1,Belkadan,Dalonbian
+L-10,Helska,Dalonbian
+L-10,Rychel,Dalonbian
+L-10,Zipthar,Dalonbian
+L-10,Revyia,Veragi
+L-10,Gree,Veragi (Gree Enclave)
+L-10,Licha In,Veragi (Gree Enclave)
+L-10,Lokud,Chopani
+L-10,Pabu,Chopani
+L-10,Altora,Dalonbian
+L-10,Arbiflux,Dalonbian
+L-10,Laerdocia,Dalonbian
+L-10,Sernpidal,Dalonbian
+L-10,Vonak,Dalonbian
+L-10,Lah'mu,Raioballo
+L-10,Kogan,Veragi
+L-10,Oru,Veragi
+L-10,Pits of Plooma,Veragi
+L-10,Plesstil,Veragi
+L-10,Trassitan,Veragi
+L-10,Veragi,Veragi
+L-10,Lonatro,Veragi (Gree Enclave)
+L-10,RZ7-6113-23,Chopani
+L-10,Void of Chopani,Chopani
+L-10,Alurion,Raioballo
+L-10,Anx Minor,Raioballo
+L-10,Awalia,Raioballo
+L-10,Dantooine,Raioballo
+L-10,Gravlex Med,Raioballo
+L-10,Kesmere Minor,Raioballo
+L-10,Kesmere,Raioballo
+L-10,Neka,Raioballo
+L-10,Shusugaunt,Raioballo
+L-10,Sinsang,Raioballo
+L-10,Tertiary Kesmere,Raioballo
+L-10,Verig,Raioballo
+L-10,Hero Twins,Relgim
+L-10,Morturia,Relgim
+L-10,Ord Trasi,Relgim
+L-10,Devon,Atrivis
+L-10,Fedje,Atrivis
+L-10,Fest,Atrivis
+L-10,Generis,Atrivis
+L-10,Gibbela,Atrivis
+L-10,Gree Baaker,Atrivis
+L-10,Hethar,Atrivis
+L-11,Horuz,Atrivis
+L-11,Iridium,Atrivis
+L-12,Kardoa,Atrivis
+L-12,Mantooine,Atrivis
+L-12,Markbee's Star,Atrivis
+L-12,Moltok,Atrivis
+L-12,Nam'ta,Atrivis
+L-12,Shar'Ack,Atrivis
+L-12,Spefik,Atrivis
+L-12,Squarr,Atrivis
+L-12,Vuchelle,Atrivis
+L-12,Ajan Kloss,Cademimu
+L-12,Arron Prime,Cassander
+L-12,Mamkoda,Cassander
+L-12,Peldon Minor,Cassander
+L-12,Isiring,Cassander (Tendrannan)
+L-12,Kalki Nebula,Cassander (Tendrannan)
+L-12,Ketaris,Oplovis
+L-12,Gurrisalia,Relgim
+L-12,Hrel,Relgim
+L-12,Noola,Relgim
+L-12,Ord Biniir,Relgim
+L-12,Rango Tan,Relgim
+L-12,Rhuvia,Relgim
+L-12,Sestooine,Relgim
+L-12,Vykos,Relgim
+L-12,Ebra Kesh,
+L-12,Osskorn Tyan,
+L-12,Kwannot,Alderath
+L-12,Burna,Cademimu
+L-13,Depatar,Cademimu
+L-13,Entana,Cademimu
+L-13,Escalan,Cademimu
+L-13,Lenico,Cademimu
+L-13,Lost Souls,Cademimu
+L-13,Phaeda,Cademimu
+L-13,Whendyll,Cademimu
+L-13,Drada,Halthor
+L-13,Halthor,Halthor
+L-13,Janguine,Halthor
+L-13,Magagran,Halthor
+L-13,Panisia,Halthor
+L-13,Tel,Halthor
+L-13,Trinta,Halthor
+L-13,Arthon,Ottega
+L-13,Entuur,Urce Space
+L-13,Fitca Prime,Urce Space
+L-13,Urce,Urce Space
+L-13,Luuq Luuq,
+L-13,Qiilura Qiilura,
+L-13,Tarchalia Luuq,
+L-13,VV-99-7JE-2N71 Shiwal,
+L-13,Yout Qiilura,
+L-13,Alderath,Alderath
+L-13,Atanu,Alderath
+L-13,Nilg,Alderath
+L-13,Wynkahthu,Alderath
+L-13,Aleen,Bright Jewel
+L-13,Anobis,Bright Jewel
+L-13,Balnab,Bright Jewel
+L-13,Dor Nameth,Bright Jewel
+L-13,Jarnollen,Bright Jewel
+L-13,Mengjini,Bright Jewel
+L-13,Numidian Prime,Bright Jewel
+L-13,Ord Mantell,Bright Jewel
+L-13,Patitite Pattuna,Bright Jewel
+L-13,Phelbos,Bright Jewel
+L-13,Pickerin,Bright Jewel
+L-13,Gelemeade,Kordu
+L-13,Kordu,Kordu
+L-13,Korvaii,Kordu
+L-13,Agriworld-2079,M'shinni
+L-13,Ilimardon,Nicandra
+L-13,Melus,Nicandra
+L-13,Yama'chen,Nicandra
+L-13,Pa'hir'al,Urce Space
+L-13,Arcura,
+L-13,Arsteni,
+L-13,Avedot,
+L-13,Balaidas,
+L-13,Baradas,
+L-13,Barlok Marcol,
+L-13,Bevell,
+L-13,Byrnum Maw,
+L-13,Champala,
+L-13,Datar,
+L-13,Drearia,
+L-13,Dressia,
+L-13,Giermos,
+L-13,Gilvaanen,
+L-13,Gulhadar,
+L-13,Hevurion,
+L-13,Julio Marcol,
+L-13,Karken,
+L-13,Koovis,
+L-13,Maun Digitalis,
+L-13,Mefti,
+L-13,Milvayne,
+L-13,Nierport,
+L-13,Norclune,
+L-13,Nyara,
+L-13,Ord Antalaha,
+L-13,Ord Lithone,
+L-13,Pamaradia,
+L-13,Paqualis,
+L-13,Per Lupelo,
+L-13,Pijal,
+L-13,Setor,
+L-13,Strata,
+L-13,Thrinittik,
+L-13,Tyberious,
+L-13,Vorrnti,
+L-13,Yir Tangee,
+L-13,Kiros,Ehosiq
+L-13,Meligin,Ehosiq
+L-13,Noctralis,Ehosiq
+L-13,Shili,Ehosiq
+L-13,Tedel,Ehosiq
+L-13,Affadar,Fellwe
+L-13,Golden Nyss,Fellwe
+L-13,Yinchorr,Fellwe
+L-13,Mayvitch,Immalia
+L-13,Dinwa,Prime
+L-13,Nieuth,Wyloff
+L-13,Wyloff,Wyloff
+L-13,Wynth,Wyloff
+L-13,Adamastor,
+L-13,Albecus,
+L-13,Alsakan Alsaka,
+L-13,Axtria,
+L-13,Basilisk,
+L-13,Bessimir,
+L-13,Calabar,
+L-13,Carpagia,
+L-13,Challon,
+L-13,Coronar,
+L-13,Coruscant Corusca (Coruscant),
+L-13,Dankayo,
+L-13,Darsie,
+L-13,Delle,
+L-13,Dervdis,
+L-13,Dexus,
+L-13,Dorax,
+L-13,Emurria,
+L-13,Erigorm,
+L-13,Filby,
+L-13,Grizmallt,
+L-13,Jatir,
+L-13,Keltria,
+L-13,Kes,
+L-13,Kidiet Olgo,
+L-13,Kiribi,
+L-13,Lovetus,
+L-13,Markon,
+L-13,Melinz,
+L-13,Miele Nova,
+L-13,Mirshaf,
+L-13,Myrenia,
+L-13,Nara,
+L-13,Neuvia,
+L-13,Opatajji Alsaka,
+L-13,Perilix,
+L-13,Perlemia,
+L-13,Plavin,
+L-13,Quian,
+L-13,Rekkana,
+L-13,Rine-cathe,
+L-13,Rubogea,
+L-13,Salgarus,
+L-13,Shawken,
+L-14,Sittana,
+L-14,Skako,
+L-14,Tarlandia,
+L-14,Tentator,
+L-14,TerraAsta,
+L-14,Thokos,
+L-14,Thorgeld,
+L-14,Tolan,
+L-14,Tristall,
+L-14,Utrost Corusca (Coruscant),
+L-14,Uviuy Exen Shwuy,
+L-14,Vardos,
+L-14,Velusia,
+L-14,Vento,
+L-14,Wakeelmui,
+L-14,Yerphonia,
+L-14,Bormea,Bormea
+L-14,Brentaal,Bormea
+L-14,Chandrila,Bormea
+L-14,Corulag,Bormea
+L-14,Galitan,Bormea
+L-14,Ganthel,Bormea
+L-14,Kebro,Bormea
+L-14,Nadiri,Bormea
+L-14,Nopces,Bormea
+L-14,Ringali Nebula,Bormea
+L-14,Quenk,Corusca
+L-14,Esseles,Darpa
+L-14,Ralltiir,Darpa
+L-14,Rhinnal,Darpa
+L-14,Harloff,Minor
+L-14,Prakith,Minor
+L-14,Witch,Nebula
+L-14,Itapi,Prime
+L-14,Tepasi Tagge,Space
+L-14,Aargau,
+L-14,Adana,
+L-14,Aloxl,
+L-14,Bandonia,
+L-15,Barbeen,
+L-15,Besero,
+L-15,Birsingrial,
+L-15,Boruga,
+L-15,Broest,
+L-15,Cambria,
+L-15,Cardua,
+L-15,Carlem,
+L-15,Cerberon,
+L-15,Coruscul,
+L-15,Darellia,
+L-15,Eremond,
+L-15,Foerost,
+L-15,Galdronia,
+L-15,Ginn Jump,
+L-15,Had Abbadon,
+L-15,Heliconia,
+L-15,Iope,
+L-15,Ixtlar Ixtlar,
+L-15,Jerrilek,
+L-15,Jonsior,
+L-15,Kaikielius,
+L-15,Kailor,
+L-15,Korfanus,
+L-15,Malpassia,
+L-15,Nacon,
+L-15,Palawa,
+L-15,Peshara,
+L-15,Spira Lytton,
+L-15,Stassia,
+L-15,Tython,
+L-15,Vulderania,
+L-15,Vulpter,
+L-15,Vultar,
+L-15,Wukkar,
+L-15,Xorth,
+L-15,Yulant,
+L-15,Empress Teta,Koros
+L-15,Starswarm Cluster,Koros
+L-15,Goluud,Minor
+L-15,Goluud,Prime
+L-15,Kampe,
+L-15,Tsoss Beacon,
+L-15,Azbrian,
+L-15,Baffia,
+L-15,Balosar,
+L-15,Cioran,
+L-15,Crystan,
+L-15,Dybrin,
+L-15,Enselon,
+L-15,Fex,
+L-15,Forntay,
+L-15,Gama,
+L-16,Ivera,
+L-16,Khomm,
+L-16,Koler,
+L-16,Lansono,
+L-16,Ledalau,
+L-16,Lujo,
+L-16,Mestare,
+L-16,Noult,
+L-16,Numatra,
+L-16,Oligtaz,
+L-16,Pkihantri,
+L-16,Rubinero,
+L-16,Shulxi,
+L-16,Sleedara,
+L-16,Soule,
+L-16,Thomork,
+L-16,Yanis,
+L-16,Diatia,Major
+L-17,Achillea,
+L-17,Aleron,
+L-17,Alisandor,
+L-17,Allandor,
+L-17,Andara,
+L-17,Barnaba,
+L-17,Bassadro,
+L-17,Bethal,
+L-17,Betolio,
+L-17,Bianas,
+L-17,Bilios,
+L-17,Bith,
+L-17,Bleuf,
+L-17,Blyte,
+L-17,Calipsa,
+L-17,Caloria,
+L-17,Camblia,
+L-17,Canti,
+L-17,Cauper,
+L-17,Cesya,
+L-17,Cilpar,
+L-17,Coorimbus,
+L-17,Cor I,
+L-17,Cor II,
+L-17,Cor III,
+L-17,Crella,
+L-17,Dampher,
+L-17,Degarian,
+L-17,Diamal,
+L-17,Don I,
+L-17,Don II,
+L-17,Dorella,
+L-17,Dorellia,
+L-17,Doris,
+L-17,Drophun,
+L-17,Eamus,
+L-17,Enaleh,
+L-17,Estaph,
+L-17,Ferrhast,
+L-17,Floubette,
+L-17,Fondor,
+L-17,Frego,
+L-17,Gania,
+L-17,Garobi,
+L-17,Gilliana,
+L-17,Gontzol,
+L-17,Grella,
+L-17,Hanofar,
+L-17,Hellios,
+L-17,Iphigin,
+L-17,Isht,
+L-17,Jappe,
+L-17,Javis,
+L-17,Jinda,
+L-17,Kamper,
+L-17,Kintarr,
+L-17,Laakteen Depot,
+L-17,Lali,
+L-17,Laman,
+L-17,Lamuir,
+L-17,Lastelle,
+L-17,Lasten,
+L-17,Letev,
+L-18,Listoria,
+L-18,Lorenz,
+L-18,Lupani,
+L-18,Lusk,
+L-18,Lynx,
+L-18,Mrlsst,
+L-18,Naator,
+L-18,Namore,
+L-18,Nella,
+L-18,Neona,
+L-18,Netolio,
+L-18,New Javis,
+L-18,New Shella,
+L-18,Nista,
+L-18,Nunce,
+L-18,Nyssa,
+L-18,Obelia,
+L-18,Obulette,
+L-18,Obumubo,
+L-18,Oreenda Fayett,
+L-18,Pavia,
+L-18,Pelagon,
+L-18,Pella,
+L-18,Pernella,
+L-18,Pervi,
+L-18,Plexis,
+L-18,Port Bianco,
+L-18,Pozzi,
+L-18,Procopia,
+L-18,Purcassia,
+L-18,Reena,
+L-18,Rellio,
+L-18,Reyna,
+L-18,Rianon,
+L-18,Ricaldi,
+L-18,Riesa,
+L-18,Rimma,
+L-18,Rurgavea,
+L-18,Scarl,
+L-18,Sefon,
+L-18,Setolio,
+L-18,Shella,
+L-18,Sheva,
+L-18,Shifa,
+L-18,Shindra,
+L-18,Shopani,
+L-18,Simra,
+L-18,Sorella,
+L-18,Soterios,
+L-18,Sparingia,
+L-18,Tallaan,
+L-18,Tamber,
+L-18,Tanda,
+L-18,Tanger,
+L-18,Tanya,
+L-18,Tanzis,
+L-18,Tavitz,
+L-18,Tavya,
+L-18,Teyr,
+L-18,Tiisheraan,
+L-18,Tillo,
+L-18,Tocco,
+L-18,Toorja,
+L-18,Transel,
+L-18,Treylon,
+L-18,Tumus,
+L-18,Valera,
+L-18,Vindalia,
+L-18,Vulvarch,
+L-18,Vycinyth,
+L-18,Weldii,
+L-18,Albrae-Don,Sern
+L-19,Claer,Sern
+L-19,Ghorman,Sern
+L-19,Nea Dajanam,Sern
+L-19,Sern Prime,Sern
+L-19,Giju Herglic,Space
+L-19,Alion,
+L-19,Bernilla,
+L-19,Caulbon,
+L-19,Dalastine,
+L-19,Denbar,
+L-19,Deryvia,
+L-19,Fimster,
+L-19,Gmar Askilon Krenhner,
+L-19,Graddus Rex,
+L-19,Horain,
+L-19,Iphar,
+L-19,Janara,
+L-19,Kedra,
+L-19,Ketal,
+L-19,Kiffex Kiffu,
+L-19,Krenhner Krenhner,
+L-19,Kuliquo,
+L-19,Laertos,
+L-19,Malsuum,
+L-19,Mantarran,
+L-19,Mechis,
+L-19,Norah,
+L-19,Oulanne,
+L-19,Patrolia,
+L-19,Penegelen,
+L-19,Rashfond,
+L-19,Renillis,
+L-19,Sewalia,
+L-19,Simik,
+L-19,Sukkult,
+L-19,Tauber Jaso,
+L-19,Teklos,
+L-2,Terrelia,
+L-2,Thyferra Jaso,
+L-2,Tomo-Reth,
+L-2,Vanik,
+L-2,Vetine Merrick,
+L-2,Yag'Dhul,
+L-20,Amethia,Prime
+L-20,Bivoli,
+L-20,Calus,
+L-20,Charissia Bartahn,
+L-20,Dybbron Nythlide,
+L-20,F'tzner Bartahn,
+L-20,Harrin Harrin,
+L-20,Keller's Void,
+L-20,Moorja,
+L-20,Qretu,
+L-20,Rodaj,
+L-20,Themis,
+L-20,Ukatis,
+L-20,Utor,
+L-20,Wroona,
+L-20,Yordain Core,
+L-20,Pendarr,Alchenaut
+L-20,Bodoria,Andirma
+L-20,Hetnagaro,Andirma
+L-20,Obas,Andirma
+L-20,Quesaya,Andirma
+L-20,Rushan,Andirma
+L-20,Annamar,Bes Ber Bikade
+L-20,Arquata Station,Bes Ber Bikade
+L-20,Borkyne,Bes Ber Bikade
+L-20,Cymoon,Bes Ber Bikade
+L-20,Dura-Kahn,Bes Ber Bikade
+L-20,Epica,Bes Ber Bikade
+L-20,Gherillia,Bes Ber Bikade
+L-21,Goa,Bes Ber Bikade
+L-21,Halyard,Bes Ber Bikade
+L-21,Kinyen,Bes Ber Bikade
+L-21,KyLessia,Bes Ber Bikade
+L-3,Lengil,Bes Ber Bikade
+L-3,Lozash,Bes Ber Bikade
+L-3,Megalox Beta,Bes Ber Bikade
+L-3,Ooloponi,Bes Ber Bikade
+L-3,Persis,Bes Ber Bikade
+L-3,Roona,Bes Ber Bikade
+L-3,Sibensko,Bes Ber Bikade
+L-3,Troxar,Bes Ber Bikade
+L-3,Validusia,Bes Ber Bikade
+L-3,Fenves,Boeus
+L-3,Mupin,Rocantor
+L-3,Ord Vaug,Rocantor
+L-3,Rainos Cluster,Rocantor
+L-3,Rocantor,Rocantor
+L-3,Rylorii Minor,Rocantor
+L-4,Serria,Rocantor
+L-4,Valron,Rocantor
+L-4,Yabosta,Rocantor
+L-4,Jindau,Station
+L-4,Gom,Tregillis
+L-4,Karatha,Tregillis
+L-4,Qat Chrystac Parnabe,
+L-4,Alchenaut,Alchenaut
+L-4,Nkllon,Alchenaut
+L-4,Rotoga,Alchenaut
+L-4,Ternin,Alchenaut
+L-4,Amorphiia,Eidoloni
+L-4,Malenko,Eidoloni
+L-4,Pirsen,Eidoloni
+L-4,Polaar,Eidoloni
+L-4,Wen'he'dinae,Eidoloni
+L-4,Jarsatt,Hakartha
+L-5,Ord Ivarn,Hakartha
+L-5,Haurgab,Spirva
+L-5,Krykas,Spirva
+L-5,Maxilia,Vulcusion
+L-5,Shurrupak,Vulcusion
+L-5,Urajab,Vulcusion
+L-5,Vulcusion,Vulcusion
+L-5,Eiattu,Ado
+L-5,Silvestri,Ado
+L-5,Yankirk,Ado
+L-5,Argul,D'Aelgoth
+L-5,Mima,D'Aelgoth
+L-5,New Cylimba,D'Aelgoth
+L-5,Ogem,D'Aelgoth
+L-5,Selenius,D'Aelgoth
+L-5,Sinded,D'Aelgoth
+L-5,Tarsa,D'Aelgoth
+L-5,Tiferep Major,D'Aelgoth
+L-5,Vandron,D'Aelgoth
+L-5,Z-LOQ,D'Aelgoth
+L-5,Echnos,Hadar
+L-5,Grizal,Hadar
+L-5,Gundravia,Hadar
+L-5,Parada,Hadar
+L-5,Rindao,Hadar
+L-5,Yagara,Hadar
+L-5,Anstares,Juvex
+L-5,Carsanza,Juvex
+L-5,Deminol,Juvex
+L-5,Dioll,Juvex
+L-5,Kardura,Juvex
+L-5,Kassido,Juvex
+L-5,Malador,Juvex
+L-6,Ossiathora,Juvex
+L-6,Thermon,Juvex
+L-6,Valorsi,Juvex
+L-6,Yhifar,Juvex
+L-6,Zaria,Juvex
+L-6,Zyluria,Juvex
+L-6,Joralla,Mektrun
+L-6,Maro Della,Mektrun
+L-6,Mektrun Cluster,Mektrun
+L-6,Sarina,Mektrun
+L-6,Veron Minor,Mektrun
+L-6,Adoris,Senex
+L-6,Aquella,Senex
+L-6,Asmeru,Senex
+L-6,Caltinia,Senex
+L-6,Crovna,Senex
+L-6,Cyimarra,Senex
+L-6,Hutlar,Senex
+L-6,Knores,Senex
+L-6,Manforgon,Senex
+L-6,Mussubir,Senex
+L-6,Nantama,Senex
+L-7,Nars,Senex
+L-7,Neelanon,Senex
+L-7,Nepoy,Senex
+L-7,Paramatan,Senex
+L-7,Presteen,Senex
+L-7,Rulaar,Senex
+L-7,Senex,Senex
+L-7,Skartis,Senex
+L-7,Thull's Shroud,Senex
+L-7,Veron,Senex
+L-7,Cyphar,Spirva
+L-7,Derricon,Spirva
+L-7,Lenthalis,Spirva
+L-7,Naalol,Spirva
+L-7,Snugano,Spirva
+L-7,Belsavis,Bozhnee
+L-7,Brodogon,Bozhnee
+L-7,Garnib,Bozhnee
+L-7,Greeb-Streebling Cluster,Bozhnee
+L-7,Jankok,Bozhnee
+L-7,Jereth,Bozhnee
+L-7,"Noopiths, The",Bozhnee
+L-7,Ossel,Bozhnee
+L-7,Sibilaar,Bozhnee
+L-7,Tibrin,Hadar
+L-7,Farfeld,Jjannex
+L-7,Hiffis,Jjannex
+L-7,Melasaton,Jjannex
+L-8,Sellasas,Jjannex
+L-8,Vavarna,Jjannex
+L-8,Dramassia,Juvex
+L-8,Juvex,Juvex
+L-8,K'ath,Juvex
+L-8,Kimm Aurek,Juvex
+L-8,Kimm Besh,Juvex
+L-8,Kimm Cresh,Juvex
+L-8,Loovria,Juvex
+L-8,Pieldi,Juvex
+L-8,Pirralor,Juvex
+L-8,Q'mara,Juvex
+L-8,Resti Kel,Juvex
+L-8,Talhovi,Juvex
+L-8,Tinallis,Juvex
+L-8,Tyluun,Juvex
+L-8,Velga,Juvex
+L-8,Vulcar,Juvex
+L-8,Angratha,Senex
+L-8,Antiquity,Senex
+L-8,Anturus,Senex
+L-8,Atron,Senex
+L-8,Bator Bai,Senex
+L-8,Boro-borosa,Senex
+L-8,Denebia,Senex
+L-8,Doreen,Senex
+L-8,Fengrine,Senex
+L-8,Hestria,Senex
+L-8,Hovan,Senex
+L-8,Jalarren,Senex
+L-8,Kalgo,Senex
+L-8,Kamur,Senex
+L-8,Karfeddion,Senex
+L-8,Kedorzha,Senex
+L-8,Osmani,Senex
+L-8,Port Evokk,Senex
+L-8,Serat,Senex
+L-8,Shoon,Senex
+L-8,Simoom,Senex
+L-8,Suliana,Senex
+L-8,Tekurr'k,Senex
+L-8,Tranthellix,Senex
+L-8,Usnia,Senex
+L-8,Varadan,Senex
+L-8,Voorsbain,Senex
+L-8,Yetoom,Senex
+L-8,Drong,Steniplis
+L-8,Kelrodo-Ai,Steniplis
+L-8,Dolla,Videnda
+L-8,Goibniu,Videnda
+L-9,Golh,Videnda
+L-9,Mooshie Cluster,Videnda
+L-9,Obran Cluster,Videnda
+L-9,Orko,Videnda
+L-9,Sunaj,Videnda
+L-9,Truwel,Videnda
+L-9,Urber,Videnda
+L-9,Velanaria,Videnda
+L-9,Wretch of Tayron,Videnda
+L-9,Tortali,Airam
+L-9,Atravis,Atravis
+L-9,Atterol,Atravis
+L-9,Buruunin,Atravis
+L-9,Carreras,Atravis
+L-9,Dorlo,Atravis
+L-9,Ghita,Atravis
+L-9,Gon Tiek,Atravis
+L-9,Gorbah,Atravis
+L-9,Heriston,Atravis
+L-9,Mhettghar,Atravis
+L-9,Mustafar,Atravis
+L-9,Ogoth Tiir,Atravis
+L-9,Ponolapo,Atravis
+L-9,Pursin,Atravis
+L-9,Shumavar,Atravis
+L-9,Siluria,Atravis
+L-9,Suba,Atravis
+L-9,Surd Nebula,Atravis
+L-9,Tanis,Atravis
+L-9,Tosste,Atravis
+L-9,Uru,Atravis
+L-9,Vale,Atravis
+L-9,Vanan,Atravis
+L-9,Vivonah,Atravis
+L-9,Yugami,Atravis
+L-9,ZXK-100346,Atravis
+L-9,Jjannex,Jjannex
+L-9,Rycep,Jjannex
+L-9,Seezar's Planet,Jjannex
+L-9,Aybaria,Steniplis
+L-9,Dwor,Steniplis
+L-9,Letaki,Steniplis
+L-9,Malaga Cluster,Steniplis
+L-9,Prexiar,Steniplis
+L-9,Rikmania,Steniplis
+L-9,Tarawa,Steniplis
+L-9,Aiqin,Airam
+L-9,Blair Cluster,Airam
+L-9,Elliirad,Airam
+L-9,Goff,Airam
+L-9,Hinda,Airam
+L-9,Klaatu,Airam
+L-9,Mylok,Airam
+L-9,Nocto,Airam
+L-9,Nodgra,Airam
+L-9,Ochotl,Airam
+L-9,"Pangarees, The",Airam
+L-9,Swellen,Airam
+L-9,Ather,Atravis
+L-9,Esyram,Atravis
+L-9,Phosphura Belt Nebula,Atravis
+L-9,Rutan,Atravis
+L-9,Tempes,Atravis
+L-9,Besberra,Cegul
+L-9,Chundu,Cegul
+L-9,Makthierse,Cegul
+L-9,Trosh,Cegul
+L-9,Vizcarra,Cegul
+L-9,Winsit,Cegul
+L-9,Dravin,Subterrel
+L-9,Jalucaz,Subterrel
+L-9,Kallidah,Subterrel
+L-9,Orax,Subterrel
+L-9,Subterrel,Subterrel
+L-9,Trymant,Subterrel
+L-9,Jahilid,
+L-9,Koltine,
+L-9,Pral,
+L-9,Shiva,
+M-1,Birukay (Gardaji),
+M-1,Gardaji Rift (Gardaji),
+M-10,Hettitite,Dalonbian
+M-10,Ezaraa,Spinward
+M-10,Felin,Spinward
+M-10,Vadnay,Spinward
+M-10,Aeos,Chopani
+M-10,Antmuel,Chopani
+M-10,Birgis,Dalonbian
+M-10,Carajam,Dalonbian
+M-10,Cole-Haddon,Dalonbian
+M-10,Danzik,Dalonbian
+M-10,Seline,Dalonbian
+M-10,Tantiss Station,Dalonbian
+M-10,Zeffo,Kanz
+M-10,Puloorn,Spinward
+M-10,Kaldar Trinary,Chopani
+M-10,Ktath'atn,Chopani
+M-10,Vernid,Kanz
+M-10,Aq Vetina,Relgim
+M-10,Agamar,Lahara
+M-10,Arcana,Lahara
+M-10,Begamor,Lahara
+M-10,Chabosh,Lahara
+M-10,Chrellis,Lahara
+M-10,Gandolo,Lahara
+M-10,Gondagali,Lahara
+M-10,Hazzard,Lahara
+M-10,Horn Station,Lahara
+M-10,Horox,Lahara
+M-10,Kebolar,Lahara
+M-10,OR-Kappa-2722,Lahara
+M-10,Oorn Tchis,Lahara
+M-10,Aakaash,Oplovis
+M-10,Akuria,Oplovis
+M-10,Harrod's Planet,Oplovis
+M-10,Oplovis,Oplovis
+M-10,Sronk,Oplovis
+M-10,Vosteltig,Oplovis
+M-10,Yuvern,Oplovis
+M-10,Cowl Crucible,Oricho
+M-10,Gaddria,Oricho
+M-10,Moraga,Oricho
+M-10,Pas'sic,Oricho
+M-10,Aldhani,Cademimu
+M-10,Bazarre,Cademimu
+M-10,Cademimu,Cademimu
+M-10,Frezno,Cademimu
+M-10,Hitaka,Cademimu
+M-10,Oznek,Cademimu
+M-10,Paarin Minor,Cademimu
+M-10,Patch,Cademimu
+M-10,Tsevuka,Cademimu
+M-10,Wilpiet,Cademimu
+M-10,Targarth,Corosi
+M-10,Bazaar,Halthor
+M-10,Doan,Halthor
+M-10,Essien,Halthor
+M-10,Idolia,Halthor
+M-10,Ottethan,Halthor
+M-10,Rimbaux,Halthor
+M-10,Viridia,Halthor
+M-10,Vorpal Nebula,Halthor
+M-10,Hewett,Hewett
+M-10,Mackar,Hewett
+M-10,Balanor,Noonian
+M-10,Baskarn,Noonian
+M-10,Er'Kit,Noonian
+M-10,Gobindi,Noonian
+M-10,Kaloom,Noonian
+M-10,Lahn,Noonian
+M-10,Mako-Ta,Noonian
+M-10,Movris,Noonian
+M-10,Noonar,Noonian
+M-10,Rial Kroon,Noonian
+M-10,Rol,Noonian
+M-10,Salobea,Noonian
+M-11,Tikath,Noonian
+M-11,Zongorlu,Noonian
+M-11,Azura,Oricho
+M-11,Cardovyte,Oricho
+M-11,Gandan,Oricho
+M-11,Noaxson,Oricho
+M-11,Oricho,Oricho
+M-11,Pleida,Oricho
+M-11,Polus,Oricho
+M-11,Pressylla,Oricho
+M-11,Sirdar,Oricho
+M-11,Starport Borgo,Oricho
+M-11,Tastiged,Oricho
+M-11,Veronia,Oricho
+M-11,Ithor,Ottega
+M-11,Toskhowwl,Ottega
+M-11,Vessitoar,Ottega
+M-11,Homana,Strabin
+M-11,Rijel Dalqan,
+M-11,Shalam,
+M-11,Walin'or Shiwal,
+M-11,Belukat,Corpheli
+M-11,Corphelion,Corpheli
+M-11,Jestan,Corpheli
+M-11,Blackfel,Greater Plooriod
+M-11,Chennis,Greater Plooriod
+M-11,Corsin,Greater Plooriod
+M-11,Denuhi,Greater Plooriod
+M-11,Leafar,Greater Plooriod
+M-11,Mikkia,Greater Plooriod
+M-11,Soul's Lament,Greater Plooriod
+M-11,Telkadis,Greater Plooriod
+M-11,Zarak,Greater Plooriod
+M-11,Athamar,Hewett
+M-11,Hofsgut,Hewett
+M-11,Moer,Hewett
+M-11,Vectinia,Hewett
+M-11,Bothsoliman,Hollan
+M-11,Ceti 597,Hollan
+M-11,Mapuzo,Hollan
+M-11,Nacronis,Hollan
+M-11,Otavon,Hollan
+M-11,Tartaglia,Hollan
+M-11,Theros Major,Hollan
+M-11,Vretha,Hollan
+M-11,Caphexdis,Homon
+M-11,Homon,Homon
+M-11,Pendal,Homon
+M-11,Triewahl,Homon
+M-11,Wyveral,Homon
+M-11,Adin,Lostar
+M-11,Draria,Lostar
+M-11,Sifuchi,Lostar
+M-11,Teya,Lostar
+M-11,Viga,Lostar
+M-11,Carnth,M'shinni
+M-11,Far Dostany,M'shinni
+M-11,Genassa,M'shinni
+M-11,Goelitz,M'shinni
+M-11,Sarkhai,M'shinni
+M-11,Thairwsthis,M'shinni
+M-11,Ylix,M'shinni
+M-11,Enferm,Mezeg
+M-11,Sif'kric,Mezeg
+M-11,Xorao,Mezeg
+M-11,Nicandra,Nicandra
+M-11,Octavia,Nicandra
+M-11,Yde,Nicandra
+M-11,Orocco,Ottega
+M-11,Asamin,Strabin
+M-11,Djurmo,Strabin
+M-11,Lavisar,Strabin
+M-11,Oordo,Strabin
+M-11,Qemia,Strabin
+M-11,Silla,Strabin
+M-11,Verossia,Strabin
+M-11,Warlentta,Strabin
+M-11,Almera,
+M-11,Arkania,
+M-11,Begali,
+M-11,Bogden,
+M-11,Caulus Tertius,
+M-11,Dubloviann,
+M-11,Ejolus,
+M-11,Gannymeda,
+M-11,Gorobei,
+M-11,Hanna,
+M-11,Kluistar,
+M-11,Megaria,
+M-11,Mil Velay,
+M-11,Mindor,
+M-12,Mitek-Por,
+M-12,Nadaav,
+M-12,Omonoth,
+M-12,Osisis Station Regani,
+M-12,Quint,
+M-12,Salmagodro,
+M-12,Silversisi,
+M-12,Soika,
+M-12,Thyrsus,
+M-12,Uphrades,
+M-12,Xend,
+M-12,Yaka,
+M-12,Hindasar,Corpheli
+M-12,Sljee,Ehosiq
+M-12,Jazbina,Lostar
+M-12,Kidriff,Lostar
+M-12,Nessem,Lostar
+M-12,Novar,Lostar
+M-12,Dagary,Minor
+M-12,Hijarna,Orus
+M-12,Joiol,Orus
+M-12,Kimanan,Orus
+M-12,Mantessa,Orus
+M-12,Poderis,Orus
+M-12,Pamina,Prime
+M-12,Acomber,
+M-12,Adari Adari,
+M-12,Adim Adari,
+M-12,Belnar Belnar,
+M-12,Ber de Val,
+M-12,Bramior,
+M-12,Caamas,
+M-12,Carida,
+M-12,Castell,
+M-12,Cherridan Belnar,
+M-12,Corann,
+M-12,Dalandae,
+M-12,Deneeli,
+M-12,Dorlon,
+M-12,Frommon,
+M-12,Grandine,
+M-12,Herego,
+M-12,Hok,
+M-12,Ifmix,
+M-13,Jenoport,
+M-13,Kaelen,
+M-13,Khramboa,
+M-13,Korfo,
+M-13,Loj,
+M-13,Manella,
+M-13,Menthusa,
+M-13,Nak Shimor,
+M-13,Palmatian Baronos,
+M-13,Pelemax,
+M-13,Raithal,
+M-13,Shoroni,
+M-13,Shulstine,
+M-13,Sochi,
+M-13,Tellivar,
+M-13,Thyron,
+M-13,Vasuuli Kliap,
+M-13,Vurdon Ka Darlonn,
+M-13,Yabol Opa,
+M-13,AX-456,Barma
+M-13,Brella Temior,Barma
+M-13,Dakshee,Barma
+M-13,Gobreton,Barma
+M-13,Orthellin Binarran,Cloud
+M-13,Argai Minor,Haldeen
+M-13,Findris,Haldeen
+M-13,Haldeen,Haldeen
+M-13,Ruoss,Minor
+M-13,Ashkas-kov,Shelsha
+M-13,Briston,Shelsha
+M-13,Chaastern,Shelsha
+M-13,Chekria,Shelsha
+M-13,Drunost,Shelsha
+M-13,Gepparin,Shelsha
+M-13,Minkring,Shelsha
+M-13,Purnham,Shelsha
+M-13,Ranklinge,Shelsha
+M-13,Shelkonwa,Shelsha
+M-13,Teardrop,Shelsha
+M-13,Aldraig,
+M-13,Ator,
+M-13,Balmorra,
+M-13,Bar'leth,
+M-13,Baylagon,
+M-13,Berrun,
+M-13,Birba,
+M-13,Bulano,
+M-13,Corutarn,
+M-13,Darwikia,
+M-13,Debray,
+M-13,Derella,
+M-14,Dremulae,
+M-14,Fedalle,
+M-14,Ferijia,
+M-14,Garwillia,
+M-14,Gatalenta,
+M-14,Gendoraan,
+M-14,Glithnos,
+M-14,Humbarine Humbarine,
+M-14,Jastro,
+M-14,Jaxus,
+M-14,Jumeria,
+M-14,Karnak Alpha,
+M-14,Kattada,
+M-14,Krintrino,
+M-14,Lenniera,
+M-14,Leria Kerlsil,
+M-14,Lespectus,
+M-14,Magmar,
+M-14,Manaxia,
+M-14,Marfa,
+M-14,Marngar,
+M-14,Morogia,
+M-14,Nopachi,
+M-14,Parkis,
+M-14,Pria,
+M-14,Raxxa,
+M-14,Relarr,
+M-14,Reopi,
+M-14,Ruul,
+M-14,Sarapin,
+M-14,Sarconia,
+M-14,Stewjon,
+M-14,Stribos,
+M-14,Talravin,
+M-14,Tensor,
+M-14,Tetso,
+M-14,Trantor,
+M-15,Trellen,
+M-15,Tyed Kant,
+M-15,Upper Etrega,
+M-15,Vannix,
+M-15,Vanooria,
+M-15,Vuma,
+M-15,Alderaan,Alderaan
+M-15,Lusdu,Alderaan
+M-15,Tartaria,Alderaan
+M-15,Thixia,Alderaan
+M-15,Demophon,Demophon
+M-15,Mowgle,Demophon
+M-15,Refgar,Demophon
+M-15,Drurish,Kuat
+M-15,Horthav,Kuat
+M-15,Kidir,Kuat
+M-15,Kuat,Kuat
+M-15,Monadin,Kuat
+M-15,Redrish,Kuat
+M-15,Renigg,Kuat
+M-15,Solloops,Kuat
+M-15,Tassio Moon,Kuat
+M-15,Ulion,Kuat
+M-15,Venir,Kuat
+M-15,Neimoidia Quellor,Neimoidia Quellor
+M-15,Badfellow,Station
+M-16,2GS-91E20,
+M-16,Ansata,
+M-16,Baraboo,
+M-16,Bellassa,
+M-16,Carconth,
+M-16,Columus,
+M-16,Cosia,
+M-16,Darakin,
+M-16,Declavia,
+M-16,Duro Duro,
+M-16,Ebaq,
+M-16,Fromish,
+M-16,Glavis,
+M-16,Hakassi,
+M-16,Ilthan,
+M-16,Jaciprus,
+M-16,Jalin,
+M-16,Johria,
+M-17,Kamori,
+M-17,Kurdavvia,
+M-17,Lamman,
+M-17,Lanz Carpo,
+M-17,Lettow,
+M-17,Liaq,
+M-17,Lolnar,
+M-17,Loretto,
+M-17,Mawan,
+M-17,Messia,
+M-17,Murakam,
+M-17,Ojom,
+M-17,Ottabesk,
+M-17,Perma,
+M-17,Phandas,
+M-17,Rantofar,
+M-17,Recopia,
+M-17,Rehemsa,
+M-17,Rendili,
+M-17,Samaria,
+M-17,Sardoran,
+M-17,Sedratis,
+M-17,Sestina,
+M-17,Seyugi,
+M-17,Solassus,
+M-17,Telepan,
+M-17,Thoadeye,
+M-17,Verdanaia,
+M-17,Verdoria,
+M-17,Voktunma,
+M-17,Xerxes,
+M-17,Zalso,
+M-17,Altawar,Corellian
+M-17,Altooni,Corellian
+M-17,Aurea,Corellian
+M-17,Bolbotarp,Corellian
+M-17,Cardekkia,Corellian
+M-17,Cinnabar,Corellian
+M-17,Clyne,Corellian
+M-17,Corellia,Corellian
+M-17,Corfai,Corellian
+M-17,Crash's Drift,Corellian
+M-17,Dorsis,Corellian
+M-17,Forvand,Corellian
+M-17,Froz,Corellian
+M-17,Goorla,Corellian
+M-17,Govia,Corellian
+M-17,Graland,Corellian
+M-17,Illmuth,Corellian
+M-17,Jumus,Corellian
+M-17,Keral,Corellian
+M-17,Khomr,Corellian
+M-17,Mollo Tanka,Corellian
+M-17,Montalsia,Corellian
+M-17,Neral,Corellian
+M-17,New Plympto,Corellian
+M-17,Nubia,Corellian
+M-17,Phemis,Corellian
+M-18,Plympto,Corellian
+M-18,Polanis,Corellian
+M-18,Raider's Point,Corellian
+M-18,Saberhing,Corellian
+M-18,Sacorria,Corellian
+M-18,Sileria,Corellian
+M-18,Talfaglio,Corellian
+M-18,Tanthior,Corellian
+M-18,Truuzdann,Corellian
+M-18,Vagran,Corellian
+M-18,Vasar,Corellian
+M-18,Velx-Shel,Corellian
+M-18,Xyquine,Corellian
+M-18,Eufornis,Major
+M-18,Rydonni,Prime
+M-18,Alkenak,
+M-18,Arat Fraca,
+M-18,Brield,
+M-18,Byblos,
+M-18,Caldoni,
+M-18,Chamm,
+M-18,Champat,
+M-18,Chasin,
+M-18,Cheedoa,
+M-18,Condular,
+M-18,Coxixia,
+M-18,Dreizan,
+M-18,Exodeen,
+M-18,Fiumar Quanta,
+M-18,Gailea,
+M-18,Gandeal,
+M-18,Hemei,
+M-18,Hindle,
+M-18,Hosnian Prime Hosnian,
+M-18,Karvoss Parmorak,
+M-18,Kexeeria,
+M-18,Loronar,
+M-18,Luduria,
+M-18,Maltorra,
+M-18,Padua,
+M-18,Panela,
+M-18,Pencael,
+M-18,Shumogi,
+M-18,Sontara,
+M-18,Tangenine Tangenine,
+M-18,Throova,
+M-18,Tilth,
+M-19,Tinnel Quanta,
+M-19,Torria,
+M-19,Valeria,
+M-19,Zarsteck,
+M-19,Bantu,Emmo
+M-19,Bethars,Emmo
+M-19,Cavaell,Emmo
+M-19,Cedrell,Emmo
+M-19,Danteel,Emmo
+M-19,Juntar,Emmo
+M-19,Kobaria,Emmo
+M-19,Black,Nebula
+M-19,23 Mere,
+M-19,Affa,
+M-19,Aridinia,
+M-19,Atzerri,
+M-19,Belazura,
+M-19,Bryexx Varvenna,
+M-19,Cabarria,
+M-19,Chemvau,
+M-19,Choi,
+M-19,Croyden,
+M-19,Darepp,
+M-19,Denusia,
+M-19,Enisca,
+M-19,Foless,
+M-19,Froswythe,
+M-19,Fwiis,
+M-19,Hendanyn,
+M-19,Hillindor Echo,
+M-19,Hydraxia,
+M-19,Jenenma,
+M-19,Lambaria,
+M-19,Las Lagon,
+M-19,Li-Toran,
+M-19,Motexx,
+M-19,Muuria,
+M-19,Nantoon,
+M-19,New Brampis,
+M-2,New Polokia,
+M-2,Onderia,
+M-2,Phorose,
+M-2,Primarin,
+M-20,Quarzite,
+M-20,Razia,
+M-20,Sanjin,
+M-20,Sestria Testarr,
+M-20,Seymarti,
+M-20,Tertiary Usaita,
+M-20,Trupellia,
+M-20,Uthura,
+M-20,Vantillia,
+M-20,Videll,
+M-20,Whiforla,
+M-20,Yisgga,
+M-20,Zhann,
+M-20,Zuggit,
+M-20,Devaron,Duluur
+M-20,Kelada,Duluur
+M-20,Krykis,Duluur
+M-20,Raysol Prime,Duluur
+M-20,Voorlach,Duluur
+M-20,Aleen,Minor
+M-20,Aldereen,
+M-20,Arkam,
+M-20,Arreyel,
+M-20,Bacia,
+M-20,Beltrix,
+M-20,Bestine,
+M-20,Borao,
+M-20,Credaan,
+M-20,Gowdawl,
+M-20,Granus,
+M-20,Hadlress,
+M-20,Helmaxa,
+M-20,Heptalia,
+M-20,Kayven,
+M-20,Kergans,
+M-20,Kooriva,
+M-20,Lechra Lixal,
+M-20,Luristan,
+M-20,Pasher,
+M-20,Prahvin,
+M-20,Qlothos,
+M-20,Ratit,
+M-20,Roundtree,
+M-20,Sarkania,
+M-20,Shahkir,
+M-20,Thabit,
+M-20,Tuttin,
+M-20,Vaklin,
+M-20,Xeron,
+M-20,Ciaox Venith,Croynar
+M-20,Fedevoi End,Croynar
+M-20,Ghonoath,Croynar
+M-20,Kortatka,Croynar
+M-20,Midgor,Croynar
+M-21,Red Yars,Croynar
+M-21,Mirak,Major
+M-21,Arkax,Station
+M-21,Athallia Athallia,
+M-21,Udine,
+M-21,Dragos,Boeus
+M-21,Droecil,Boeus
+M-21,Gandalla,Boeus
+M-21,Heap Nine,Boeus
+M-21,Lohopa,Boeus
+M-21,Stobar,Boeus
+M-21,Tamazall,Boeus
+M-21,Yathik,Boeus
+M-21,Epsi Nadir,Epsi Collective
+M-21,Epsi Zenith,Epsi Collective
+M-21,Old Barag,Epsi Collective
+M-21,Vandelhelm,Epsi Collective
+M-21,Aviles Prime,Hythrope
+M-21,Edan,Hythrope
+M-21,Hythrope,Hythrope
+M-21,Geniseria,Jurzan
+M-21,Hargeeva,Jurzan
+M-21,Jurzan,Jurzan
+M-21,Atrakus,Mikaster
+M-21,Gavens,Tregillis
+M-21,Leyaki,Tregillis
+M-21,Nakadia,Tregillis
+M-21,Ramodi,Tregillis
+M-21,Tregillis,Tregillis
+M-21,Parozha,Dustig
+M-21,Eidoloni,Eidoloni
+M-21,Hewl,Eidoloni
+M-21,Mesula,Eidoloni
+M-21,Asturias,Epsi Collective
+M-21,Gallapraxis,Hythrope
+M-21,Oolidi,Hythrope
+M-21,Alakatha,Var Hagen
+M-21,Lanthe,Var Hagen
+M-21,Miriatin,Var Hagen
+M-21,Opiteihr,Var Hagen
+M-3,Ventran,Var Hagen
+M-3,Vogel,Var Hagen
+M-3,Vondarc,Var Hagen
+M-3,Zusi,Var Hagen
+M-3,Corlus,Woostri
+M-3,Daemen,Woostri
+M-3,Woostri,Woostri
+M-3,Caldra Prime,Ado
+M-3,Caldra Tertius,Ado
+M-3,Ec Pand,Ado
+M-4,Garcornia,Ado
+M-4,Hapuntep,Ado
+M-4,Indupar,Ado
+M-4,Ithori,Ado
+M-5,Jabor,Ado
+M-5,Killisu,Ado
+M-5,Medth,Ado
+M-5,Ord Gimmel,Ado
+M-5,StarForge Nebula,Ado
+M-5,Starlyte Station,Ado
+M-5,Vosch Cluster,Ado
+M-5,Ankot Station,Brema
+M-5,Anthus,Brema
+M-5,Callos,Brema
+M-5,Cmaoli Di,Brema
+M-5,Drilbia,Brema
+M-5,Gad,Brema
+M-5,Ganoidi,Brema
+M-5,Gevarno Cluster,Brema
+M-5,Kerig'En,Brema
+M-5,Maldovea,Brema
+M-5,Najan-Rovi,Brema
+M-5,Ord Hout,Brema
+M-5,Ord Ibanna,Brema
+M-5,Ord Simres,Brema
+M-5,Orish,Brema
+M-5,Sullust,Brema
+M-5,Tuerto,Brema
+M-6,Chryya,Dustig
+M-6,Galzez,Dustig
+M-6,Haruun Kal,Dustig
+M-6,Kath,Dustig
+M-6,Loposi,Dustig
+M-6,Ansek,Eidoloni
+M-6,Nymalia,Eidoloni
+M-6,Alphoresis,Grumani
+M-6,Aquilaris Minor,Grumani
+M-6,Chelloa,Grumani
+M-6,Darkknell,Grumani
+M-6,Gazzari,Grumani
+M-6,Jutrand,Grumani
+M-6,Kamasto,Grumani
+M-6,Nilash,Grumani
+M-6,Obica,Grumani
+M-6,Oranessan,Grumani
+M-6,Qi Lozar,Grumani
+M-6,Tanta Aurek,Grumani
+M-6,Tanta Besh,Grumani
+M-6,Tergamenion,Grumani
+M-6,Vellas Pavo,Grumani
+M-6,Ventruun,Grumani
+M-6,Adras,Seswenna
+M-6,Dzass,Seswenna
+M-6,Someilk,Seswenna
+M-6,Ch'manss,Var Hagen
+M-6,Bortras Brema (Reithcas),
+M-6,Galdi Brema (Reithcas),
+M-6,Anchoron,Mayagil
+M-6,Clak'dor,Mayagil
+M-6,Dorenia,Mayagil
+M-6,H'nemthe,Mayagil
+M-6,Mayagil,Mayagil
+M-6,Mynock 7 Station,Mayagil
+M-6,Oetrago,Mayagil
+M-6,Squamat,Mayagil
+M-6,Taborin,Mayagil
+M-6,Triton,Mayagil
+M-6,Virmeude,Mayagil
+M-6,Xagobah,Mayagil
+M-6,Zhotta,Mayagil
+M-6,Agomar,Seswenna
+M-6,Averam,Seswenna
+M-6,Belloria,Seswenna
+M-6,Brintooin,Seswenna
+M-6,Chelleya,Seswenna
+M-6,Delmaas,Seswenna
+M-6,Dendada,Seswenna
+M-6,Eczar,Seswenna
+M-6,Eriadu,Seswenna
+M-7,Lucrusia,Seswenna
+M-7,Luptoom,Seswenna
+M-7,Mirnic,Seswenna
+M-7,Moshaw,Seswenna
+M-7,Orryxia,Seswenna
+M-7,Parwa,Seswenna
+M-7,Patriim,Seswenna
+M-7,Phelarion,Seswenna
+M-7,Pyolli,Seswenna
+M-7,Seswenna,Seswenna
+M-7,Spuma,Seswenna
+M-7,Todouhar,Seswenna
+M-7,Uvena,Seswenna
+M-7,Innton,Sluis
+M-7,Bofa,Steniplis
+M-7,Garrthinius,Steniplis
+M-7,Rogue Antar,Steniplis
+M-7,Boden,Videnda
+M-7,Dorvalla,Videnda
+M-7,Pipada,Videnda
+M-7,Safrifa,Videnda
+M-7,Swarquen,Videnda
+M-7,Vendrak,Videnda
+M-7,Eedoq Tantra (Methall'has),
+M-7,Lonjair Prime,Danjar
+M-7,Polordio,Danjar
+M-7,Queyta,Danjar
+M-7,Alluuvia,Elrood
+M-7,Almar,Elrood
+M-7,Berea,Elrood
+M-7,Derilyn,Elrood
+M-7,Korad,Elrood
+M-7,Kuras,Elrood
+M-7,Merisee,Elrood
+M-7,Tifnyl,Elrood
+M-7,Torina,Elrood
+M-7,Agora,Sluis
+M-7,Bpfassh,Sluis
+M-7,Canoliss,Sluis
+M-7,Dagobah,Sluis
+M-7,Derf,Sluis
+M-7,Hysalria,Sluis
+M-7,Kalab,Sluis
+M-7,Kerest,Sluis
+M-7,Malo,Sluis
+M-7,Orto,Sluis
+M-7,Praesitlyn,Sluis
+M-7,Seatos,Sluis
+M-7,Sluis Van,Sluis
+M-7,Kundu Minor,Steniplis
+M-7,Crushank Nebulae,Tantra
+M-7,Farboon,Tantra
+M-7,Farhava Beta,Tantra
+M-7,Metharian Nebula,Tantra
+M-7,Regor-Mada,Tantra
+M-7,Tantra,Tantra
+M-7,Ak-Hurst,Tarabba
+M-7,Arkonne,Tarabba
+M-7,Camaria,Tarabba
+M-8,Glova,Tarabba
+M-8,Hyder,Tarabba
+M-8,Tarabba Prime,Tarabba
+M-8,Rystan,
+M-8,Vo Tunbren Cegul (Tadra),
+M-8,Bes,Airam
+M-8,Elbra,Airam
+M-8,Essebra,Airam
+M-8,Mobetta,Airam
+M-8,Paradise,Airam
+M-8,Rocrin,Airam
+M-8,Skor,Airam
+M-8,Udnil,Airam
+M-8,Wadi Raffa,Airam
+M-8,Yoberra,Airam
+M-8,Ytha'ac Cluster,Airam
+M-8,Askaj,Cegul
+M-8,Cegul,Cegul
+M-8,Dubraib,Cegul
+M-8,Talcim Cluster,Cegul
+M-8,Bodrin,Elrood
+M-8,Caltrop Belt,Elrood
+M-8,Coyn,Elrood
+M-8,Dega,Elrood
+M-8,"Drift, The",Elrood
+M-8,Elrood,Elrood
+M-8,Gelgelar,Elrood
+M-8,Halbara,Elrood
+M-8,Kidron,Elrood
+M-8,Kur Nebula,Elrood
+M-8,Lanthrym,Elrood
+M-8,Nelfrus,Elrood
+M-8,Osirrag,Elrood
+M-8,Pinett,Elrood
+M-8,Worxer,Elrood
+M-8,Adarlon,Minos Cluster
+M-8,Corlaasi,Minos Cluster
+M-8,Delfii,Minos Cluster
+M-8,Dorcin,Minos Cluster
+M-9,Eliad,Minos Cluster
+M-9,Gesaril,Minos Cluster
+M-9,Hasskyn,Minos Cluster
+M-9,Haven,Minos Cluster
+M-9,Hivebase-1,Minos Cluster
+M-9,Jillsaaria,Minos Cluster
+M-9,Karideph,Minos Cluster
+M-9,Mestra,Minos Cluster
+M-9,Onadax,Minos Cluster
+M-9,Pergitor,Minos Cluster
+M-9,Pernam Minor,Minos Cluster
+M-9,Quockra,Minos Cluster
+M-9,Regellia,Minos Cluster
+M-9,Shesharile,Minos Cluster
+M-9,Teh'Jar,Minos Cluster
+M-9,Travnin,Minos Cluster
+M-9,Tyrellia,Minos Cluster
+M-9,Yelsain,Minos Cluster
+M-9,Vatta,
+M-9,Aaris,Kathol
+M-9,Brolsam,Kathol
+M-9,Charis,Kathol
+M-9,Corjain,Kathol
+M-9,Galtea,Kathol
+M-9,Gandle Ott,Kathol
+M-9,Ivatch,Kathol
+M-9,Kal'Shebbol,Kathol
+M-9,Kolatill,Kathol
+M-9,Mairne,Kathol
+M-9,Oon Tien,Kathol
+M-9,Peirs,Kathol
+M-9,Pembric,Kathol
+M-9,Sebiris,Kathol
+M-9,Shintel,Kathol
+M-9,Tanquilla Beach,Kathol
+M-9,Torize,Kathol
+M-9,Binaros,Kathol (Outback)
+M-9,Bresan,Kathol (Outback)
+M-9,Danoor,Kathol (Outback)
+M-9,Dayark,Kathol (Outback)
+M-9,Dolstan,Kathol (Outback)
+M-9,Ehjenla,Kathol (Outback)
+M-9,Exocron,Kathol (Outback)
+M-9,Galtea Binary,Kathol (Outback)
+M-9,Jangelle,Kathol (Outback)
+M-9,Marcol Void,Kathol (Outback)
+M-9,Pitann,Kathol (Outback)
+M-9,Qu'mock,Kathol (Outback)
+M-9,Sapella,Kathol (Outback)
+M-9,Shatuun,Kathol (Outback)
+M-9,Swedlan,Kathol (Outback)
+M-9,Timbra Ott,Kathol (Outback)
+M-9,Uukaablis,Kathol (Outback)
+M-9,Demonsgate,Kathol (Rift)
+M-9,Kathol,Kathol (Rift)
+M-9,Kathol Rift,Kathol (Rift)
+M-9,Q'Maere,Kathol (Rift)
+M-9,Yvara,Kathol (Rift)
+N-10,Plazir,
+N-10,Ord Janon,Spinward
+N-10,Xo,Spinward
+N-10,Foxar,
+N-10,Bogano,Mieru'kar
+N-10,Jentares,Mieru'kar
+N-10,Lobaoc,Mieru'kar
+N-10,Sartoy,Mieru'kar
+N-10,Tiragga,Mieru'kar
+N-10,Sh'ung-tesk,Ciutric
+N-10,Trif,Ciutric
+N-10,Alpinn,Kanz
+N-10,Amaltanna,Kanz
+N-10,Argazda,Kanz
+N-10,Atterra,Kanz
+N-10,Ayceezee,Kanz
+N-10,Bimmiel,Kanz
+N-10,Chanceuxi,Kanz
+N-10,Ereesus,Kanz
+N-10,Gortus,Kanz
+N-10,Japeal,Kanz
+N-10,Jerne,Kanz
+N-10,Kol Atorn,Kanz
+N-10,Kol Huro,Kanz
+N-10,Lorrd,Kanz
+N-10,MZX32905,Kanz
+N-10,Nord,Kanz
+N-10,Noremac,Kanz
+N-10,Sipsk,Kanz
+N-10,Thovinack,Kanz
+N-10,Zhadalene,Kanz
+N-10,Huru,Mieru'kar
+N-10,Ibanjji,Mieru'kar
+N-10,Malicar,Mieru'kar
+N-10,Sorgal,Mieru'kar
+N-10,Nichen,Morshdine
+N-10,Gamerong,Nijune
+N-10,Ethrani D'Astan (Valahari),
+N-10,Valahari D'Astan (Valahari),
+N-10,Ammon,Ciutric
+N-11,Ansett,Ciutric
+N-11,Binquaros,Ciutric
+N-11,Ciutric,Ciutric
+N-11,Corvis Minor,Ciutric
+N-11,Huro,Ciutric
+N-11,Liinade,Ciutric
+N-11,Liok,Ciutric
+N-11,Nefri,Ciutric
+N-11,New Holgha,Ciutric
+N-11,Aefao,Corosi
+N-11,Harko Station,D'Astan
+N-11,Isen,D'Astan
+N-11,Veil Nebula,D'Astan
+N-11,Aar,Nijune
+N-11,Nijune,Nijune
+N-11,Vrosynri,Nijune
+N-11,Yolthani,Nijune
+N-11,Zrak,Nijune
+N-11,Vinsoth,Quelii
+N-12,Asher,Sprizen
+N-12,Esooma,Sprizen
+N-12,Jargridia,Sprizen
+N-12,New Agamar,Sprizen
+N-12,Portminia,Sprizen
+N-12,Ramoa,Sprizen
+N-12,Refnu,Sprizen
+N-12,Salin,Sprizen
+N-12,Sprizen,Sprizen
+N-12,Thaylia,Sprizen
+N-12,Abar,Tragan Cluster
+N-12,Argo,Tragan Cluster
+N-12,Bakisian Drift,Tragan Cluster
+N-12,Ja-bess,Tragan Cluster
+N-12,M2934738,Tragan Cluster
+N-12,Maxet,Tragan Cluster
+N-12,Mistar,Tragan Cluster
+N-12,Ord Traga,Tragan Cluster
+N-12,Raspar,Tragan Cluster
+N-12,Sarjenn,Tragan Cluster
+N-12,Shaum Hii,Tragan Cluster
+N-12,Tinuvia,Tragan Cluster
+N-12,Corosi,Corosi
+N-12,Kor-Lahvan,Corosi
+N-12,Prolifera,Corosi
+N-12,Vesla,Corosi
+N-12,Marca,Meerian
+N-12,Delderaan,Noonian
+N-12,Ord Sigatt,Noonian
+N-12,Revery,Noonian
+N-12,Sintheti,Noonian
+N-12,Storinal,Noonian
+N-12,Takobo,Noonian
+N-12,Chandel,Ojoster
+N-12,Daro,Ojoster
+N-12,At Attin,Quelii
+N-12,Cathar,Quelii
+N-12,Halmad,Quelii
+N-12,Selaggis,Quelii
+N-12,Vahaba,Quelii
+N-12,Barpine,Weneen
+N-13,Borcorash,Weneen
+N-13,Exigar,Weneen
+N-13,G'wenee,Weneen
+N-13,Guuko,Weneen
+N-13,Jeosyn,Weneen
+N-13,Jussafet,Weneen
+N-13,Kurluvion,Weneen
+N-13,Balith,
+N-13,Black Hole of Nakat,
+N-13,Comkin,
+N-13,Dreve,
+N-13,Jondora Ojoster (Taris),
+N-13,Kroctar Shataum,
+N-13,Magataran Maelstrom,
+N-13,Myrkr,
+N-13,Taris Ojoster (Taris),
+N-13,Telerath,
+N-13,Tellik,
+N-13,Vastrip,
+N-13,Viamarr,
+N-13,Thorsgild,Meerian
+N-13,Mezeg,Mezeg
+N-13,Ossi,Mezeg
+N-13,Pleem's Nexus,Mezeg
+N-13,Rumil,Mezeg
+N-13,Odryn,Noonian
+N-13,Danoria,Nouane
+N-13,Bretta,Ojoster
+N-13,Calladus,Ojoster
+N-13,Cardellia,Ojoster
+N-13,Denova,Ojoster
+N-13,Ferros,Ojoster
+N-13,Firrhana,Ojoster
+N-14,Frong,Ojoster
+N-14,Hebekrr,Ojoster
+N-14,Jebble,Ojoster
+N-14,Liskan,Ojoster
+N-14,Loletia,Ojoster
+N-14,Okyaab,Ojoster
+N-14,Otor's Hub,Ojoster
+N-14,Pallaxides,Ojoster
+N-14,Port Lennax,Ojoster
+N-14,Sennoa,Ojoster
+N-14,Surdapan Station,Ojoster
+N-14,Suurja,Ojoster
+N-14,Talu,Ojoster
+N-14,Tarnith,Ojoster
+N-14,Vur,Ojoster
+N-14,Wayland,Ojoster
+N-14,Emoh,Ploo
+N-14,Ploo,Ploo
+N-14,Plooriod,Ploo
+N-14,Serroco,Ploo
+N-14,Alk'Lellish,Sumitra
+N-14,Aquaris,Sumitra
+N-14,Boordii,Sumitra
+N-14,Cvetaen,Sumitra
+N-14,Geedon,Sumitra
+N-14,Oolex Pulsar,Sumitra
+N-14,Sumitra,Sumitra
+N-14,Tocan,Sumitra
+N-14,Gerinia,Trans-Vulta
+N-14,Null,Trans-Vulta
+N-14,Nyriaan,Trans-Vulta
+N-14,Orto Norwe,Trans-Vulta
+N-14,Ryyk Nebula,Trans-Vulta
+N-14,Skorrupon,Trans-Vulta
+N-14,Vulta,Trans-Vulta
+N-14,Arakein,
+N-14,Asrat,
+N-14,Bathoris,
+N-14,Berchest Anthos,
+N-14,Boosodia,
+N-14,Carest,
+N-14,Dunnak,
+N-14,Eshan,
+N-14,Filordis Larrin,
+N-14,Gantonnerre,
+N-14,Juzzia,
+N-14,Kizan,
+N-15,Koaan,
+N-15,Levian,
+N-15,Lhosa,
+N-15,Little Atullus Anthos,
+N-15,Martaus,
+N-15,Matarri,
+N-15,Nolar,
+N-15,Obroa-skai,
+N-15,Orchis,
+N-15,Phateem,
+N-15,Relatta,
+N-15,Rigovia,
+N-15,Sab Rufo,
+N-15,Sauwecera,
+N-15,Tandis,
+N-15,Tisheraan,
+N-15,Tyrusia,
+N-15,Ubduria,
+N-15,Yantha,
+N-15,Andurkoss,Nouane
+N-15,Dwartii,Nouane
+N-15,Metlok,Nouane
+N-15,Nouane,Nouane
+N-15,Chazwa,Orus
+N-15,Ch'zimi'kho,Zeemacht Cluster
+N-15,Melchior,Zeemacht Cluster
+N-15,Tirahnn,Zeemacht Cluster
+N-15,Zekulae,Zeemacht Cluster
+N-15,Almakar,
+N-15,Bamasia,
+N-16,Berri,
+N-16,Charbodia,
+N-16,Charenthoth,
+N-16,Colla,
+N-16,Cordes,
+N-16,Corroth,
+N-16,Corvanni Neshig,
+N-16,Cyclorria,
+N-16,Eilnia,
+N-16,Glassferra,
+N-16,Gryphon,
+N-16,Harkrova,
+N-16,Iloh,
+N-16,Imroosia,
+N-16,Kloper,
+N-16,Korev Zaric,
+N-16,Manress,
+N-16,Manwess Kilbanis,
+N-16,Matterhelm,
+N-16,Pindra,
+N-16,Spanthaer,
+N-16,Tala,
+N-16,Tentraxis,
+N-16,Tevraki,
+N-16,Tibro Baronos,
+N-16,Tolfrania,
+N-16,Useria,
+N-16,Virkoi,
+N-16,Vorsia,
+N-16,Vundaria,
+N-16,Gelviddis,Cluster
+N-16,Daedalon,Ktilac Regions
+N-16,Ktil,Ktilac Regions
+N-17,Nahsu Minor,Ktilac Regions
+N-17,Tocoya,Ktilac Regions
+N-17,Tun Wala,Ktilac Regions
+N-17,Vob,Ktilac Regions
+N-17,Arvaka,Prime
+N-17,Acachla,
+N-17,Arcadi,
+N-17,Barcola,
+N-17,Bastatha,
+N-17,Bezha,
+N-17,Brix,
+N-17,Commenor,
+N-17,Dartessex,
+N-17,Falasia,
+N-17,Faro,
+N-17,Ferona Vivaros,
+N-17,Fillithar,
+N-17,Foundry,
+N-17,Gaxxa,
+N-17,Goliath Mal,
+N-17,Gravdinia,
+N-17,H'ratth,
+N-17,Halais,
+N-17,Hino,
+N-17,Ivis,
+N-17,Kaa,
+N-17,Konos,
+N-17,Llorkan,
+N-17,Lurania,
+N-17,Malano,
+N-17,Mindemir,
+N-17,Mokk,
+N-17,Ongella,
+N-17,Outer Mebarius,
+N-17,Penga,
+N-17,Resht,
+N-17,Seraphan,
+N-17,Tasrin,
+N-17,Tcoleet,
+N-17,Telti,
+N-17,Uquine,
+N-18,Vertseth,
+N-18,Visseon,
+N-18,Xobome,
+N-18,Pavo,Prime
+N-18,Damoria,
+N-18,Fadden,
+N-18,Halanit,
+N-18,Janako,
+N-18,Lankashiir,
+N-18,Mirran Morobe,
+N-18,Narq,
+N-18,Raed,
+N-18,Talasea Morobe,
+N-18,Vanjervalis,
+N-18,Cato,Neimoidia Quellor
+N-18,Deko,Neimoidia Quellor
+N-18,Koru,Neimoidia Quellor
+N-18,Alios,Rachuk
+N-18,Chorax,Rachuk
+N-18,Darek,Rachuk
+N-18,Hensara,Rachuk
+N-18,Rachuk,Rachuk
+N-18,Tri-Barr,Station
+N-18,Abednedo,
+N-18,Agridorn,
+N-18,Ailon,
+N-18,Alfestril,
+N-18,Antar,
+N-18,Antares,
+N-18,Aquilae,
+N-18,Atapap,
+N-18,Baklek,
+N-18,Besnia,
+N-18,Boledge,
+N-18,Boudolayz,
+N-18,Candovant,
+N-18,Caragon-Viner,
+N-18,Elin Roe,
+N-18,Espirion,
+N-18,Feddasyr Elus,
+N-18,Gantho,
+N-18,Gra Ploven,
+N-18,Havricus,
+N-19,Herstell,
+N-19,Herzob,
+N-19,Huulia,
+N-19,Kanzi,
+N-19,Koensayr,
+N-19,Korbori,
+N-19,Lansend,
+N-19,Off-Canau,
+N-19,Ondo,
+N-19,Pestoriv,
+N-19,Pondakree,
+N-19,Regolith,
+N-19,Shasa,
+N-19,Suntilla,
+N-19,Targappia,
+N-19,Tholoth,
+N-19,Ubardia,
+N-19,Venustria,
+N-19,Novoil,Cluster
+N-19,Churr,Quellor
+N-19,Quellor,Quellor
+N-19,Bassel,
+N-19,Chardaan,
+N-2,Erhynradd,
+N-2,Flandor,
+N-2,Gendrah-Narvin,
+N-20,Genon,
+N-20,Harbin-re,
+N-20,Helleguth,
+N-20,Mardona,
+N-20,Mavinia,
+N-20,Ord Vaxal Callia,
+N-20,Ronyards,
+N-20,Sagar Wentrion,
+N-20,Salagor,
+N-20,Sanej,
+N-20,Skaradosh,
+N-20,Spirana,
+N-20,Wielu,
+N-20,Zeitooine,
+N-21,Ardru,Iseno
+N-21,Denon,Iseno
+N-3,Iseno,Iseno
+N-3,Giddea,Merthian
+N-3,Merthia,Merthian
+N-3,Rhommamool,Merthian
+N-3,Tazan,Merthian
+N-3,Ulness Prime,Merthian
+N-4,Clerion,Palamut
+N-4,Crystal Web Station,Palamut
+N-4,Lockest,Palamut
+N-4,Voidfire Nebula,Palamut
+N-4,Eiloroseint,Tokamac
+N-4,Karvathia,Tokamac
+N-4,Babbadod,
+N-4,Boriin,
+N-4,Caska,
+N-4,Ceiran,
+N-4,Chaaktil,
+N-4,Chorin,
+N-4,Corips,
+N-4,Dancreti,
+N-4,Dardanellia,
+N-4,Dargulli,
+N-4,Erub,
+N-4,Farbinda,
+N-4,Fikzwaa,
+N-4,Fremond,
+N-4,Itani,
+N-4,Jaatovi,
+N-4,Kalandis Pallis,
+N-4,Marcadia,
+N-4,Netalych,
+N-4,Nordra,
+N-4,Perithal,
+N-4,Risso,
+N-5,Sandonia,
+N-5,Shibric,
+N-5,Yorn Skot,
+N-5,Baroli,Baroli
+N-5,Beroq,Baroli
+N-5,Fleyars,Baroli
+N-5,Mek'tradi,Baroli
+N-5,Shrokaan,Baroli
+N-5,Taldorrah,Baroli
+N-5,Vernet,Baroli
+N-5,Chadawa,Croynar
+N-5,G'Tep'Noi,Croynar
+N-5,Bogoa,Immerian Outback
+N-5,Ciratu,Immerian Outback
+N-5,Pamorjal,Immerian Outback
+N-5,Shaymore,Immerian Outback
+N-5,Arthuria,Merthian
+N-5,Musca,Merthian
+N-5,Itani,Nebula
+N-5,Grandeel,Tynna
+N-5,Kelarea,Tynna
+N-5,Kenosha,Tynna
+N-5,Klepthia,Tynna
+N-5,Tynna,Tynna
+N-5,Ashash,Zarracina
+N-5,Raamen Tacuni,
+N-5,Cridark,Baroli
+N-5,Gacerian,Baroli
+N-5,Garollia,Baroli
+N-5,Tentrix,Baroli
+N-5,Kerkoidia,Kira
+N-5,Langston,Kira
+N-5,Lazerian,Kira
+N-5,Oggustus Nebula,Kira
+N-5,Verullia,Kira
+N-5,Ansillivog,Majoor
+N-5,Bimin Three,Majoor
+N-5,Drashima,Majoor
+N-5,Gorma,Majoor
+N-5,Ikon,Majoor
+N-5,Insta,Majoor
+N-5,M'haeli,Majoor
+N-5,Majoor,Majoor
+N-5,Morton,Majoor
+N-6,Neijaia,Majoor
+N-6,Ragith,Majoor
+N-6,Ramordia,Majoor
+N-6,Aguarl,Mbandamonte
+N-6,Cerenia,Mbandamonte
+N-6,Cuirilla,Mbandamonte
+N-6,Moloskia,Mbandamonte
+N-6,Armath,Mikaster
+N-6,Derra,Mikaster
+N-6,Linasals,Mikaster
+N-6,Mikaster,Mikaster
+N-6,Adner Yataga,
+N-6,Zeolosia Mulgard (Hallu),
+N-6,Bormus,Dustig
+N-6,Burnsi,Dustig
+N-6,Davezra,Dustig
+N-6,Demos,Dustig
+N-6,Dustig,Dustig
+N-6,Karga,Dustig
+N-6,Malastare,Dustig
+N-6,Opari,Dustig
+N-6,Turclom,Dustig
+N-6,ZeHeth,Dustig
+N-6,Arrgaw,Kira
+N-6,Kira,Kira
+N-6,Nigel,Kira
+N-7,Pax,Kira
+N-7,Pormthulis,Kira
+N-7,Roldalna,Kira
+N-7,Ropagi,Kira
+N-7,Suria,Kira
+N-7,Midarr,Mulgard
+N-7,Seltos,Mulgard
+N-7,Thiafeña,Mulgard
+N-7,Umgul,Mulgard
+N-7,Yeshocq,Mulgard
+N-7,Sayblohn,Quess
+N-7,Nuralee,Tyus
+N-7,Sabanash,Tyus
+N-7,Tyus Cluster,Tyus
+N-7,Zelos,Tyus
+N-7,Conjenus,Vish
+N-7,Gammalin,Vish
+N-7,Vishay,Vish
+N-7,Cyclor,Alui
+N-7,Joh'Cire,Alui
+N-7,Ocahont,Alui
+N-7,Arbra,Bon'nyuw-Luq
+N-7,Crait,Bon'nyuw-Luq
+N-7,Oetchi,Bon'nyuw-Luq
+N-7,Verdanth,Bon'nyuw-Luq
+N-7,Yethra,Bon'nyuw-Luq
+N-7,Nuvar,Dustig
+N-7,Var-Shaa,Dustig
+N-7,Chal Hudda,Garis
+N-7,Gaaten,Garis
+N-7,Gazzari Minor,Garis
+N-7,Aplooine,Grumani
+N-7,Baraan-Fa,Grumani
+N-7,Byllura,Grumani
+N-7,Fiviune,Grumani
+N-7,Fostin,Grumani
+N-7,Gallion,Grumani
+N-7,Greeve,Grumani
+N-7,Heptooine,Grumani
+N-7,Jubalene,Grumani
+N-7,Maldroth,Grumani
+N-7,Nakrikal Singularity,Grumani
+N-7,Phaegon,Grumani
+N-7,Samhar,Grumani
+N-7,Sanrafsix,Grumani
+N-7,Sarrassia,Grumani
+N-7,Skarpos,Grumani
+N-7,Syned,Grumani
+N-7,Tramanos,Grumani
+N-7,Vanahame,Grumani
+N-7,Whinndor,Grumani
+N-7,Old Mankoo,Quess
+N-7,Tendo,Quess
+N-7,Trevi,Quess
+N-7,Baarstal,Sanbra
+N-7,Belial,Sanbra
+N-7,Azzameen,Station Garis
+N-7,Harlequin,Station Garis
+N-7,Twin Sun,Station Garis
+N-7,Beetle Nebula,Bon'nyuw-Luq
+N-7,Cerroban,Bon'nyuw-Luq
+N-8,Destreg,Bon'nyuw-Luq
+N-8,Gonda,Bon'nyuw-Luq
+N-8,Luxiar,Bon'nyuw-Luq
+N-8,Nellac Kram,Bon'nyuw-Luq
+N-8,Sharlissia,Bon'nyuw-Luq
+N-8,Speco,Bon'nyuw-Luq
+N-8,Zairona,Bon'nyuw-Luq
+N-8,Chagaria,Danjar
+N-8,Engebo,Danjar
+N-8,Entooine,Danjar
+N-8,Hurrim,Danjar
+N-8,Syboona,Danjar
+N-8,Malloran,Garis
+N-8,Omwat,Garis
+N-8,Athio,Mayagil
+N-8,Besn,Mayagil
+N-8,Blarrum,Mayagil
+N-8,Daxam,Mayagil
+N-8,Dunari's Rest,Mayagil
+N-8,Ihopek,Mayagil
+N-8,Kabal,Mayagil
+N-8,Muntro,Mayagil
+N-8,Narth,Mayagil
+N-8,Nezni,Mayagil
+N-8,Pamarthe,Mayagil
+N-8,Reyniu,Mayagil
+N-8,Tolig,Mayagil
+N-8,Vedis,Mayagil
+N-8,Alis Point,Tamarin
+N-8,Camen,Tamarin
+N-8,Denbo,Tamarin
+N-8,Dravian Starport,Tamarin
+N-8,Garis,Tamarin
+N-8,Langsha-Raang,Tamarin
+N-8,Paucris Major,Tamarin
+N-8,Rior,Tamarin
+N-8,Sag Kemper,Tamarin
+N-8,Saruwen Station,Tamarin
+N-8,Z'trop,Tamarin
+N-8,Zallo,Tamarin
+N-9,Yarnil,Toblain
+N-9,Qexis,Danjar
+N-9,Rhamsis Callo,Danjar
+N-9,Lanjer,Rseik
+N-9,Laria,Rseik
+N-9,Norsid,Rseik
+N-9,Rindoon,Rseik
+N-9,Sloogaria,Rseik
+N-9,Valo,Rseik
+N-9,Quintil,Svivreni
+N-9,Bartokan,Tamarin
+N-9,Bengely,Tamarin
+N-9,DeGerrillion,Tamarin
+N-9,Kirdo,Tamarin
+N-9,Luj,Tamarin
+N-9,Rantine Space Station,Tamarin
+N-9,Ringlite,Tamarin
+N-9,Sevarcos,Tamarin
+N-9,Tertiary Fujar,Tamarin
+N-9,Utrica,Tamarin
+N-9,Yrrna,Tamarin
+N-9,Deretta,Tarabba
+N-9,Skustell Cluster,Tarabba
+N-9,Utapau,Tarabba
+N-9,Chortose,Rseik
+N-9,Corva Yag,Rseik
+N-9,Cotellier,Rseik
+N-9,Delemede,Rseik
+N-9,Iakar,Rseik
+N-9,Ma'ar Shaddam,Rseik
+N-9,Nalrith,Rseik
+N-9,Rseik,Rseik
+N-9,Spindrift,Rseik
+N-9,Sunshi,Rseik
+N-9,Taroon,Rseik
+N-9,Tyne Albamon,Rseik
+N-9,Vanaria,Rseik
+N-9,Vestar,Rseik
+N-9,DNX-N1,
+N-9,Ertrax,
+O-10,Devil's Asteroid,
+O-10,Bubble of the Lost,
+O-10,Chiloon Rift,
+O-10,Gorsh,
+O-10,Nagoa,
+O-10,Ramook,
+O-10,Sarnus,
+O-10,Yntrann,
+O-10,Murninkam,Corva
+O-10,Breta Yaga,Mieru'kar
+O-10,Kellgar,Mieru'kar
+O-10,Maltha Obex,Mieru'kar
+O-10,Pitrillistia,Mieru'kar
+O-10,Seltaya Major,Mieru'kar
+O-10,Brink,Station
+O-10,Rentalles,D'Astan
+O-10,Cryon,Meram
+O-10,Daranc,Meram
+O-10,Gaalt,Meram
+O-10,Kauron,Meram
+O-10,Lusaanda,Meram
+O-10,Misnor,Meram
+O-10,Regalia,Meram
+O-10,Simento-Threk,Meram
+O-10,Valfin,Meram
+O-10,Zorb,Meram
+O-10,I'vorcia Prime,Mieru'kar
+O-10,Di'wor,Morshdine
+O-10,Miglar,Morshdine
+O-10,Skaross,Morshdine
+O-10,Tangrene,Morshdine
+O-10,Kabieroun,Nijune
+O-10,Mentanar Vosk,Nijune
+O-10,Meserian,Nijune
+O-10,Vannan,Nijune
+O-11,Samarine D'Astan (Samarine),
+O-11,Axxila,D'Astan
+O-11,Clysm,D'Astan
+O-11,Crossing Lanes Station,D'Astan
+O-11,Galloa,D'Astan
+O-11,Hexus,D'Astan
+O-11,Jorgan,D'Astan
+O-11,Nez Peron,D'Astan
+O-11,Orra,D'Astan
+O-11,Raada,D'Astan
+O-11,Rivvidu,D'Astan
+O-11,Simpla,Kalamith
+O-11,Sorrus,Kalamith
+O-11,Altyr,Morshdine
+O-11,Camden,Morshdine
+O-11,Desinta,Morshdine
+O-11,Dur Sabon,Morshdine
+O-11,Edusa,Morshdine
+O-11,Ootoola,Morshdine
+O-11,Thabeska,Morshdine
+O-11,Valnoos,Morshdine
+O-12,Vandyne,Morshdine
+O-12,Priole Danna,Sprizen
+O-12,Junction,Thesme
+O-12,Katalia,Thesme
+O-12,Thesme,Thesme
+O-12,Portocari Belmsuth,
+O-12,Alba,Belsmuth
+O-12,Belsmuth,Belsmuth
+O-12,Borkeen,Belsmuth
+O-12,Botajef,Belsmuth
+O-12,Crombach Nebula,Belsmuth
+O-12,Dermos,Belsmuth
+O-12,Galator,Belsmuth
+O-12,Harloen,Belsmuth
+O-12,Irmenu,Belsmuth
+O-12,Katraasii,Belsmuth
+O-12,Mepha'as Prime,Belsmuth
+O-12,Narigus,Belsmuth
+O-12,New Bornalex,Belsmuth
+O-12,Qualthrough,Belsmuth
+O-12,Raydonia,Belsmuth
+O-12,Rirsack,Belsmuth
+O-12,Shadren,Belsmuth
+O-13,Sheris,Belsmuth
+O-13,Solaest,Belsmuth
+O-13,Verroth,Belsmuth
+O-13,Antillion,D'Astan
+O-13,Carruthia,D'Astan
+O-13,Celanon,D'Astan
+O-13,Doli,D'Astan
+O-13,Flyntaria,D'Astan
+O-13,Hakotei,D'Astan
+O-13,Lorardia,D'Astan
+O-13,Ord Cestus,D'Astan
+O-13,Pedd,D'Astan
+O-13,Akiva,Meerian
+O-13,Bandomeer,Meerian
+O-13,Cardo Minor,Meerian
+O-13,Gorm,Meerian
+O-13,Spellhaus,Meerian
+O-13,Thomquizzar,Meerian
+O-13,Vanquo,Meerian
+O-13,Wrodi,Meerian
+O-13,Abafar,Quelii
+O-13,Amorris,Quelii
+O-13,Cedre,Quelii
+O-13,Corstris,Quelii
+O-14,Dathomir,Quelii
+O-14,Drackmar,Quelii
+O-14,Fere,Quelii
+O-14,Morseer,Quelii
+O-14,Orimanther,Quelii
+O-14,Ova,Quelii
+O-14,Paecia,Quelii
+O-14,Pil Diller,Quelii
+O-14,Praven Prime,Quelii
+O-14,Quelii,Quelii
+O-14,Romik,Quelii
+O-14,Varkana,Quelii
+O-14,Varn,Quelii
+O-14,Wol Cabassh,Quelii
+O-14,Bahlah,Thesme
+O-14,Daxan Beta,Thesme
+O-14,Druulgotha,Thesme
+O-14,Ferrous Aurora Nebula,Thesme
+O-14,Galltine,Thesme
+O-14,Hijado,Thesme
+O-14,Hinari,Thesme
+O-14,Landor,Thesme
+O-14,Mennar-Daye,Thesme
+O-14,Merj,Thesme
+O-14,Moseum,Thesme
+O-14,New Drev'starn,Thesme
+O-14,Quyste,Thesme
+O-14,Sawaya,Thesme
+O-14,Steergard,Thesme
+O-14,Tierell,Thesme
+O-14,Ventrux,Thesme
+O-14,Ramorea,
+O-14,Belthu,Demetras
+O-14,Fenel,Demetras
+O-14,Kral'to,Demetras
+O-14,Dooma,Dentari
+O-14,Breshig,Mandalore
+O-14,Cheravh,Mandalore
+O-14,Concord Dawn,Mandalore
+O-14,Draboon,Mandalore
+O-14,Gargon,Mandalore
+O-14,Gefthaine,Mandalore
+O-14,Harswee,Mandalore
+O-14,Hrthging,Mandalore
+O-14,Jakelia,Mandalore
+O-14,Krownest,Mandalore
+O-14,Mandalore,Mandalore
+O-14,Ordo,Mandalore
+O-14,Vorpa'ya,Mandalore
+O-14,Zanbar,Mandalore
+O-14,Flashpoint,Meerian
+O-14,Ord Fanthal,Ojoster
+O-14,Xartun,Ojoster
+O-14,Flax,Sumitra
+O-15,Reegian,Sumitra
+O-15,Thustra,Sumitra
+O-15,Tierfon,Sumitra
+O-15,Winnikk,Sumitra
+O-15,Bedlam Pulsar,Thusa
+O-15,Bedlam,Thusa
+O-15,Daghee,Thusa
+O-15,Gorvinia,Thusa
+O-15,Praktin,Thusa
+O-15,Geris,Trans-Vulta
+O-15,Hortolo,Trans-Vulta
+O-15,Surcaris,Trans-Vulta
+O-15,Biravia,Venaarian
+O-15,Fait d'Fait,Venaarian
+O-15,Gairm,Venaarian
+O-15,Keteeria,Venaarian
+O-15,Kiva,Venaarian
+O-15,Mes Cavoli,Venaarian
+O-15,Omphalos,Venaarian
+O-15,Amfar,
+O-15,Avenel,
+O-15,Chrona,
+O-15,Clendor,
+O-15,Dalcretti,
+O-15,Eislo Eislomi,
+O-15,Garr'lst,
+O-15,Gravan,
+O-15,Hapor,
+O-16,Hasiki,
+O-16,Hoven,
+O-16,Korda,
+O-16,Majoros,
+O-16,Medoslea,
+O-16,Mizra,
+O-16,Paonid,
+O-16,Pathandr,
+O-16,Pengalan,
+O-16,Rentaxius,
+O-16,Sorca Retreat,
+O-16,Sorfina,
+O-16,Taanab,
+O-16,Borloria,Dentari
+O-16,Delriss,Dentari
+O-16,Dentaria,Dentari
+O-16,Alpheridies,Farstey
+O-16,Anelsana,Farstey
+O-16,Farsellah,Farstey
+O-16,Farstey,Farstey
+O-16,Jendorn,Farstey
+O-16,Quooria,Farstey
+O-16,Ratamesh,Farstey
+O-16,Thisspias,Farstey
+O-16,"Veil, The",Farstey
+O-16,Carcel,Locris
+O-16,Jweab,Locris
+O-16,Kajim,Locris
+O-16,Pirin,Locris
+O-16,Sermeria,Locris
+O-16,Ter Abbes,Locris
+O-16,Velex,Locris
+O-16,Von-Alai,Locris
+O-16,Xandros,Locris
+O-17,Anukara,Prackla
+O-17,Boxer Point Station,Prackla
+O-17,Cartao,Prackla
+O-17,Gavriza,Prackla
+O-17,Lerct,Prackla
+O-17,Nexer,Prackla
+O-17,Tormin,Prackla
+O-17,Contruum,Truum
+O-17,Angeria,Venaarian
+O-17,Venaari,Venaarian
+O-17,Katarr,Vensori
+O-17,Anadeen,
+O-17,Asmall Ara Dyelle,
+O-17,Bravais,
+O-17,Delrian,
+O-17,Grand Tharkand,
+O-17,Haariden,
+O-17,Hylaia,
+O-17,Ixilix Japrael,
+O-17,Loped,
+O-17,Lorell,
+O-17,M4-78,
+O-17,Marotan,
+O-17,Norulac,
+O-17,Onderon Japrael,
+O-17,Porus Vida,
+O-17,Roqoo Depot,
+O-17,Shalankie,
+O-18,Xibariz,
+O-18,Donovia,Hali
+O-18,Hali,Hali
+O-18,Illoud,Hali
+O-18,Algnadesh,Hapes Cluster
+O-18,Andalia,Hapes Cluster
+O-18,Arabanth,Hapes Cluster
+O-18,Archais,Hapes Cluster
+O-18,Baldavia,Hapes Cluster
+O-18,Calfa,Hapes Cluster
+O-18,Carlania,Hapes Cluster
+O-18,Charubah,Hapes Cluster
+O-18,Cheruba,Hapes Cluster
+O-18,Chosper,Hapes Cluster
+O-18,Daruvvia,Hapes Cluster
+O-18,Divora,Hapes Cluster
+O-18,Dreena,Hapes Cluster
+O-18,Ediorung,Hapes Cluster
+O-18,Farnica,Hapes Cluster
+O-18,Febrini,Hapes Cluster
+O-18,Gallinore,Hapes Cluster
+O-18,Hapes,Hapes Cluster
+O-18,Harterra,Hapes Cluster
+O-18,Jodaka,Hapes Cluster
+O-18,Jovaria,Hapes Cluster
+O-18,Ket,Hapes Cluster
+O-18,Knot Holes,Hapes Cluster
+O-18,Lalmy'ash,Hapes Cluster
+O-18,Lemmi,Hapes Cluster
+O-18,Lovola,Hapes Cluster
+O-18,Luuhar,Hapes Cluster
+O-18,Maires,Hapes Cluster
+O-18,Millinar,Hapes Cluster
+O-18,Modus,Hapes Cluster
+O-18,Nantuker,Hapes Cluster
+O-18,Novi,Hapes Cluster
+O-18,Olanji,Hapes Cluster
+O-18,Orelon,Hapes Cluster
+O-19,Phelope,Hapes Cluster
+O-19,Rainboh,Hapes Cluster
+O-19,Rbollea,Hapes Cluster
+O-19,Reboam,Hapes Cluster
+O-19,Relephon,Hapes Cluster
+O-19,Rynmar,Hapes Cluster
+O-19,Sargon,Hapes Cluster
+O-19,Selab,Hapes Cluster
+O-19,Sennex,Hapes Cluster
+O-19,Shedu Maad,Hapes Cluster
+O-19,Sivoria,Hapes Cluster
+O-19,Stalsinek,Hapes Cluster
+O-19,Talcharaim,Hapes Cluster
+O-19,Telkur Station,Hapes Cluster
+O-19,Terephon,Hapes Cluster
+O-2,Theselon,Hapes Cluster
+O-20,Thrakia,Hapes Cluster
+O-20,Tinta,Hapes Cluster
+O-20,Tumani,Hapes Cluster
+O-20,Ut,Hapes Cluster
+O-20,Vergill,Hapes Cluster
+O-20,Wodan,Hapes Cluster
+O-20,Zadaria,Hapes Cluster
+O-20,Zalori,Hapes Cluster
+O-20,k'Farri,Hapes Cluster
+O-3,Nojic,Nojic
+O-3,Aria,Prime
+O-3,Bactriasa,
+O-3,Beckoning Call Starr,
+O-3,Birren,
+O-3,Calcoraan,
+O-3,Celegia Noori,
+O-3,Chasmeene,
+O-3,Damualer Triac,
+O-3,Deltron,
+O-3,Emorus,
+O-3,Eyar,
+O-3,Gorse,
+O-3,Gotida,
+O-4,Koolach,
+O-4,Maateen,
+O-4,Mattri,
+O-4,Merson,
+O-4,Nexator,
+O-4,Noori Noori,
+O-4,Rasterous,
+O-4,Rowacki,
+O-4,Salaktori Anchorage,
+O-4,Senthrodys,
+O-4,Tyegin,
+O-4,Vandelae,
+O-4,Vesari,
+O-4,Virujansi,
+O-4,Zeltros,
+O-4,Zlarbv,
+O-4,Amar,Airon
+O-4,Ambria,Airon
+O-4,Ithull,Airon
+O-4,Stenness,Airon
+O-5,Taboon,Airon
+O-5,Marasai Marasa,Nebula
+O-5,Ai'ken,Prime
+O-5,Banasthau,
+O-5,Kossa Prime Kossa (Kossa Prime),
+O-5,Manaan,
+O-5,Petrakis,
+O-5,Truuine,
+O-5,Belasco,Belasco
+O-5,Gavana,Belasco
+O-5,Urun,Belasco
+O-5,Cona Inner,Cluster
+O-5,Burundang,Harron
+O-5,Chanosant,Harron
+O-5,Chrome Citadel,Harron
+O-5,Daroon,Harron
+O-5,Tarhassan,Harron
+O-5,Trammen,Harron
+O-5,Basarais,Kossa
+O-5,Geldoll,Kossa
+O-5,Hrasskis,Kossa
+O-5,Lonania,Kossa
+O-5,Teljkon,Kossa
+O-5,Britaxis,Minor
+O-5,Lonera,
+O-5,Maladi Maladi,
+O-6,Parcelus Major Parcelus,
+O-6,Parcelus Minor Parcelus,
+O-6,Knooda,Askarian
+O-6,Circarpous,Circarpous
+O-6,Fabrin,Circarpous
+O-6,Gyndine,Circarpous
+O-6,Ishanna,Circarpous
+O-6,Kerev Doi,Circarpous
+O-6,Niro,Circarpous
+O-6,Thousand Moons,Circarpous
+O-6,Abersyn,Cyrillian Protectorate
+O-6,Cyrillia,Cyrillian Protectorate
+O-6,Palek,Cyrillian Protectorate
+O-6,Prazhi,Cyrillian Protectorate
+O-6,Sarrahban,Cyrillian Protectorate
+O-6,Kamgeddon,Harron
+O-6,Reytha,Harron
+O-6,Sarko,Venzeiia
+O-6,Terrijo,Venzeiia
+O-6,Venzeiia,Venzeiia
+O-6,Zenn-La,Venzeiia
+O-6,Pasaana Altier (Ombakand),
+O-6,Altier,Altier
+O-6,Devalok,Altier
+O-6,Gerhalt,Altier
+O-6,Ruugia,Altier
+O-6,Trebela,Altier
+O-6,Ushruu,Altier
+O-6,Apgar,Hilo
+O-6,Hilo,Hilo
+O-6,Bovo Yagen,Kailion
+O-6,Czerialus,Kailion
+O-6,Kailion,Kailion
+O-6,Tarmidia,Kailion
+O-6,Tlactehon,Kailion
+O-6,Carto,Surron
+O-6,Hallrin,Surron
+O-6,Mek va Uil,Surron
+O-6,Quintar Nebula,Surron
+O-6,Rend,Surron
+O-6,Surron,Surron
+O-6,Taraloon,Surron
+O-6,Drgi,Tokamac
+O-6,Y'nybeth,Tokamac
+O-6,Vinth,Venzeiia
+O-6,Ryvellia Treffani,
+O-6,Treffani Treffani,
+O-6,Aramand,Brak
+O-6,Asran,Brak
+O-6,Bacrana,Brak
+O-6,Cirra,Brak
+O-6,De'nel,Brak
+O-6,Demar,Brak
+O-6,Enet,Brak
+O-6,Fytoun,Brak
+O-6,Garia,Brak
+O-6,Genesia,Brak
+O-6,Hagar Secundus,Brak
+O-6,Intran,Brak
+O-6,Jinet,Brak
+O-6,Latoma,Brak
+O-6,Laud,Brak
+O-6,Lota,Brak
+O-6,Mangez,Brak
+O-6,Maxca,Brak
+O-6,Mila,Brak
+O-6,Orma,Brak
+O-6,Ralme,Brak
+O-6,Rehn,Brak
+O-6,Skone,Brak
+O-6,Tel Minor,Brak
+O-6,Torve,Brak
+O-6,Welsl,Brak
+O-7,Archae Teuthis,Brevost
+O-7,Chaykin,Chaykin
+O-7,Corbantis,Chaykin
+O-7,Gamor,Chaykin
+O-7,Merren,Chaykin
+O-7,Milagro,Chaykin
+O-7,Shackel,Chaykin
+O-7,Vendaxa,Chaykin
+O-7,Volta,Chaykin
+O-7,Citlik,Citlik
+O-7,Nivek,Citlik
+O-7,Garfin,Immeria
+O-7,Imerria,Immeria
+O-7,Terra Sool,Immeria
+O-7,Zeenada,Immerian Outback
+O-7,Aridus,Narvath
+O-7,Iktotch,Narvath
+O-7,Narvath,Narvath
+O-7,Dinlo,Thaere
+O-7,Kaboryth Cluster,Thaere
+O-7,Mol'leaj,Thaere
+O-7,Niian,Thaere
+O-7,Thaere,Thaere
+O-7,Allanteen,Tynna
+O-7,Selsor,Zarracina
+O-7,Zarracina,Zarracina
+O-7,Naran-Shiv Tacuni,
+O-7,Brevost,Brevost
+O-7,Cheku,Brevost
+O-7,Coonee,Brevost
+O-7,Krann,Brevost
+O-7,Kuratow,Brevost
+O-7,Manari,Brevost
+O-7,Momansi,Brevost
+O-7,Sarranket,Brevost
+O-7,Sarrelon,Brevost
+O-7,Sika,Brevost
+O-7,Zissh,Brevost
+O-7,Bomodon,Churba
+O-7,Chargona,Citlik
+O-7,Kragis,Citlik
+O-7,Muzzli,Citlik
+O-8,Ank Kit'aar,Druess
+O-8,Etai,Druess
+O-8,Fendry,Druess
+O-8,Harpori,Druess
+O-8,Klaymor,Druess
+O-8,Bannistar Station,Hevvrol
+O-8,Corrdair,Hevvrol
+O-8,Dilestri,Hevvrol
+O-8,Glom Tho,Hevvrol
+O-8,Kaspas,Hevvrol
+O-8,Starlag,Hevvrol
+O-8,Triffis,Hevvrol
+O-8,Jafan,Chommell
+O-8,Karlinus,Chommell
+O-8,Kreeling,Chommell
+O-8,Necr'ygor,Chommell
+O-8,Sedapard,Cluster
+O-8,Sedesia,Druess
+O-8,Eschaton,Far Xandil
+O-8,Yungbrii,Far Xandil
+O-8,Ansarra,Iskin
+O-8,Centori,Iskin
+O-8,Deersheba,Iskin
+O-8,Geister,Iskin
+O-8,Iskin,Iskin
+O-8,Kishpaugh,Iskin
+O-8,Nelvana Gas Cluster,Iskin
+O-8,Ord Dorlass,Iskin
+O-8,Remmon Nebula,Iskin
+O-8,Sivad,Iskin
+O-8,Tansyl,Iskin
+O-8,Teirasa,Iskin
+O-8,Alassa Major,Vilonis
+O-8,Belat,Vilonis
+O-8,Golus Station,Vilonis
+O-8,Hyell,Vilonis
+O-8,Inusagi,Vilonis
+O-8,Kalinda,Vilonis
+O-8,Krnay,Vilonis
+O-8,Nerrif,Vilonis
+O-8,Nomlis,Vilonis
+O-8,Ord Zeuol,Vilonis
+O-8,Oshira,Vilonis
+O-8,Prine,Vilonis
+O-8,Theron,Vilonis
+O-8,Bromlarch,Vish
+O-8,Alui,Alui
+O-8,Cirtappa,Alui
+O-8,Draik,Alui
+O-8,Duzay,Alui
+O-8,Enarc,Alui
+O-8,Tanto Winn,Alui
+O-8,Tovash Tchii,Alui
+O-8,Chommell Minor,Chommell
+O-9,Lofquar,Chommell
+O-9,Naboo,Chommell
+O-9,Celsor,Hook Nebula
+O-9,Metharg,Hook Nebula
+O-9,Huvveck,Juris
+O-9,Kaliida Nebula,Juris
+O-9,Ryndellia,Ryndellian
+O-9,Thannt,Ryndellian
+O-9,Aquilaris,Sanbra
+O-9,Banas,Sanbra
+O-9,Beheboth,Sanbra
+O-9,D'Qar,Sanbra
+O-9,De'etta,Sanbra
+O-9,Dol'har Hyde,Sanbra
+O-9,Golrath,Sanbra
+O-9,Loratus,Sanbra
+O-9,Rugosa,Sanbra
+O-9,Sanbra,Sanbra
+O-9,Yuga,Sanbra
+O-9,Shafr,Toblain
+O-9,Aturi Cluster,Hook Nebula
+O-9,Empartheca,Hook Nebula
+O-9,Lan Barell,Hook Nebula
+O-9,Nulan,Hook Nebula
+O-9,Santarine,Hook Nebula
+O-9,U'Dray,Hook Nebula
+O-9,Kheedar,Khuiumin
+O-9,Khuiumin,Khuiumin
+O-9,Ord Grovner,Khuiumin
+O-9,Soola,Khuiumin
+O-9,Tedonia,Khuiumin
+O-9,Aris Minor,Parmel
+O-9,Fobaris,Parmel
+O-9,Gosho,Parmel
+O-9,Kallistas,Parmel
+O-9,Parmel,Parmel
+O-9,Revkinn,Parmel
+O-9,Shumari,Parmel
+O-9,Tassahondee Station,Parmel
+O-9,Turak,Parmel
+O-9,Turcan,Parmel
+O-9,Vohai,Parmel
+O-9,Baes Logia,Quence
+O-9,Berullia,Quence
+O-9,Elshandruu Pica,Quence
+O-9,Eva-T,Quence
+O-9,Godo,Quence
+O-9,Shogun,Quence
+O-9,"Spur, The",Quence
+O-9,Yityl,Quence
+O-9,Idaflor,Sarin
+O-9,Kerroc,Sarin
+O-9,Pandori,Sarin
+O-9,Parein,Sarin
+O-9,Altikar,Toblain
+O-9,Quesna,Toblain
+O-9,Shadda Nebula,Toblain
+O-9,Warchigade,Toblain
+O-9,Breshkall,Khuiumin
+O-9,Chagar,Khuiumin
+O-9,Drexel Minor,Khuiumin
+O-9,Suarbi,Quence
+O-9,Ab'Bshingh,Sujimis
+O-9,Maryx Minor,Sujimis
+O-9,Vrogas Vas,Sujimis
+O-9,Andelm,Svivreni
+O-9,Bront,Svivreni
+O-9,Egaria,Svivreni
+O-9,Kiilimaar,Svivreni
+O-9,Sulloria,Svivreni
+O-9,Svivren,Svivreni
+O-9,Telanka,Svivreni
+O-9,Baffop,Tamarin
+O-9,Corg,
+O-9,Gottlegoob,
+O-9,Kalidorn,
+O-9,Lira San,
+O-9,Neoli,
+O-9,Silken,
+O-9,StarStation 12,
+O-9,Xirl,
+O-9,Carz,Svivreni
+P-10,Serianan,
+P-10,Gulma,
+P-10,Insk,
+P-10,Soullex,
+P-10,Babali,Corva
+P-10,Basteel,Corva
+P-10,Eol Sha,Corva
+P-10,Hakara,Corva
+P-10,Hanod,Corva
+P-10,Kaisa,Corva
+P-10,Oricon,Corva
+P-10,Peppel,Corva
+P-10,Pervick,Corva
+P-10,Sormahil,Corva
+P-10,Sva'leer,Corva
+P-10,Touksingal,Corva
+P-10,Trascor,Corva
+P-10,Ventooine,Corva
+P-10,Cauldron,Nebula Corva
+P-10,Betha,Corva
+P-10,Corva,Corva
+P-10,Delari,Corva
+P-10,Galaan,Corva
+P-10,H'ken,Corva
+P-10,Jandoon,Corva
+P-10,Jaresh,Corva
+P-10,Jurio,Corva
+P-10,Kavith,Corva
+P-10,Ligna,Corva
+P-10,Sesid,Corva
+P-10,Triitus,Corva
+P-10,Xantar,Corva
+P-10,Bizikia,Kwymar
+P-11,Doniphon,Kwymar
+P-11,Gralack,Kwymar
+P-11,Haaridin,Kwymar
+P-11,Korlings,Kwymar
+P-11,Rya,Kwymar
+P-11,Tandhor,Kwymar
+P-11,Demesel,Meram
+P-11,Guavian Drift,Meram
+P-11,Langhesa,Meram
+P-11,Nebula Forso,Meram
+P-11,Thalassia,Meram
+P-11,Tholian,Meram
+P-11,Spawn,Nebula Corva
+P-11,Stylar,Nebula Corva
+P-11,Carosi,Nembus
+P-11,Chromovon,Nembus
+P-11,Direllia,Nembus
+P-12,Jendar,Nembus
+P-12,Kirtania,Nembus
+P-12,Ontotho,Nembus
+P-12,Otranto,Nembus
+P-12,Praadost,Nembus
+P-12,Q'nithian,Nembus
+P-12,Rindia,Nembus
+P-12,Seikosha,Nembus
+P-12,Shi'kar Straits,Nembus
+P-12,Mirrin Prime Kalamith (Mirrin),
+P-12,Suraz Kalamith (Mirrin),
+P-12,Serenno,D'Astan
+P-12,Tal Pi,D'Astan
+P-12,Tassar,D'Astan
+P-12,Daluba,Esstran
+P-12,Marranis,Esstran
+P-12,Saarn,Esstran
+P-12,Asusto,Gordian Reach
+P-12,Betshish,Gordian Reach
+P-12,Feswe Minor,Gordian Reach
+P-12,Feswe Prime,Gordian Reach
+P-12,Glade,Gordian Reach
+P-12,Kli'aar,Gordian Reach
+P-13,Krylon,Gordian Reach
+P-13,Kushibah,Gordian Reach
+P-13,Ladarra,Gordian Reach
+P-13,Marrovia,Gordian Reach
+P-13,Mogoshyn,Gordian Reach
+P-13,Vaal,Gordian Reach
+P-13,Arrakan,Kalamith
+P-13,Athus Klee,Kalamith
+P-13,Durollia,Kalamith
+P-13,Endymion,Kalamith
+P-13,Gaftikar,Kalamith
+P-13,Hadi,Kalamith
+P-13,Hreeshi,Kalamith
+P-13,Hynah,Kalamith
+P-13,Kho Nai,Kalamith
+P-13,M'Bardi,Kalamith
+P-13,Nela-Ray,Kalamith
+P-13,Pho Ph'eah,Kalamith
+P-13,Shenio,Kalamith
+P-13,Tandun,Kalamith
+P-14,Teevan,Kalamith
+P-14,Toprawa,Kalamith
+P-14,Tyshapahl,Kalamith
+P-14,Faos Station,Belsmuth
+P-14,Hettsk,Belsmuth
+P-14,Azna,Demetras
+P-14,Phindar,Demetras
+P-14,Bronsoon,Gordian Reach
+P-14,Denarii Nebula,Gordian Reach
+P-14,Durgen's Star,Gordian Reach
+P-14,Far Indosa,Gordian Reach
+P-14,Gesaral Beta,Gordian Reach
+P-14,Jalindi,Gordian Reach
+P-14,Jovan,Gordian Reach
+P-14,Kravos,Gordian Reach
+P-14,Near Indosa,Gordian Reach
+P-14,Pinoora,Gordian Reach
+P-14,Povanaria,Gordian Reach
+P-14,Presbalin,Gordian Reach
+P-14,Selitan,Gordian Reach
+P-14,Tertiary Feswe,Gordian Reach
+P-15,Torque,Gordian Reach
+P-15,Trinovat,Gordian Reach
+P-15,Xochtl,Gordian Reach
+P-15,Yavin,Gordian Reach
+P-15,Althir,Rolion
+P-15,Algarra,Thrasybule
+P-15,Altair,Thrasybule
+P-15,Bakkah,Thrasybule
+P-15,Dronseen,Thrasybule
+P-15,Edonaaris,Thrasybule
+P-15,H'Grathi Nebulae,Thrasybule
+P-15,Hei,Thrasybule
+P-15,Keros,Thrasybule
+P-15,Lexus,Thrasybule
+P-15,Malrev,Thrasybule
+P-15,Mestun,Thrasybule
+P-15,Pandem Nai,Thrasybule
+P-15,Phatrong,Thrasybule
+P-15,Syndaar,Thrasybule
+P-15,Traptoforia,Thrasybule
+P-15,Uhltenden,Thrasybule
+P-15,Vispil,Thrasybule
+P-15,Zona Miki,Thrasybule
+P-15,Aestilan,Demetras
+P-15,Bellis,Demetras
+P-15,Bompreil,Demetras
+P-15,Demigue,Demetras
+P-15,Keresia,Demetras
+P-15,Krake's Planet,Demetras
+P-15,Liul,Demetras
+P-15,Nag Ubdur,Demetras
+P-15,New Canistel,Demetras
+P-15,Obinipor,Demetras
+P-15,Reega,Demetras
+P-15,Sigma Station,Demetras
+P-15,Tlönia,Demetras
+P-15,Todirium,Demetras
+P-15,Tokuut,Demetras
+P-15,Ahn Krantarium,Esuain
+P-15,Anteevy,Esuain
+P-15,Dagro,Esuain
+P-16,Kankalo,Esuain
+P-16,Kromus,Esuain
+P-16,Namzor,Esuain
+P-16,Phelzepham,Esuain
+P-16,Tanaria,Esuain
+P-16,Blood Nest,Halori
+P-16,Tantajo,Halori
+P-16,Velmor,Halori
+P-16,Bseto,Msst
+P-16,Cadannia,Msst
+P-16,Dinzo,Msst
+P-16,Farseen,Msst
+P-16,Garos,Msst
+P-16,Mon Torri,Msst
+P-16,Msst,Msst
+P-16,Nyarikan Nebula,Msst
+P-16,Skangravi,Msst
+P-16,Fenion,Rolion
+P-17,Jiruus,Rolion
+P-17,Joran Station,Rolion
+P-17,Oridol Cluster,Rolion
+P-17,Quila,Rolion
+P-17,Yalbec Prime,Rolion
+P-17,Nuala,Trans-Gascon
+P-17,Khorm,Halori
+P-17,Bynarria,Lantillian
+P-17,Cordota,Lantillian
+P-17,Dulathia,Lantillian
+P-17,Gizer,Lantillian
+P-17,Lantillies,Lantillian
+P-17,New Ralltiir,Lantillian
+P-17,Ondara,Lantillian
+P-17,Phaseera,Lantillian
+P-17,Zero Drift,Lantillian
+P-17,Mahranee,Taldot
+P-17,Rearqu Cluster,Taldot
+P-17,Fodurant,Trans-Gascon
+P-17,Gascon,Trans-Gascon
+P-17,Azure,Truum
+P-17,Daltarri,Truum
+P-17,Gazian,Truum
+P-17,Grimwald,Truum
+P-17,Montross,Truum
+P-17,Beauchen,Vensori
+P-17,Vensor,Vensori
+P-17,Biivren Biivren,
+P-17,New Raithal Annecy,
+P-17,Werania Biivren,
+P-17,Dona Laza,Dona Laza
+P-17,Mairenhelm,Dona Laza
+P-18,Rajtiri,Dona Laza
+P-18,Viraanntesse,Dona Laza
+P-18,Avenelle,Lantillian
+P-18,Bracca,Lantillian
+P-18,Nazzri,Lantillian
+P-18,Tarivo,Lantillian
+P-18,Temesher,Lantillian
+P-18,Unzel,Lantillian
+P-18,Uyter,Lantillian
+P-18,Eberon,Mytaranor
+P-18,Kashyyyk,Mytaranor
+P-18,Kwookrrr,Mytaranor
+P-18,Lessa,Mytaranor
+P-18,Vr'gedia,Mytaranor
+P-18,Baldur,Nojic
+P-18,Valgauth,Nojic
+P-18,Vena,Nojic
+P-18,Togoria,Taldot
+P-18,Dreivus Oeiros,
+P-18,Neutra Oeiros,
+P-18,Arkinnea,Axion
+P-18,Axion,Axion
+P-18,Grimdock,Axion
+P-18,Nuja,Axion
+P-18,Couronne,Couronne
+P-18,Irff,Couronne
+P-18,Warrin Station,Couronne
+P-18,Atoa,Ghost Nebula
+P-18,Ghost Nebula,Ghost Nebula
+P-18,Herakal,Ghost Nebula
+P-18,Jocal,Ghost Nebula
+P-18,Malathon,Ghost Nebula
+P-18,Umbara,Ghost Nebula
+P-18,Venerable Stirta,Ghost Nebula
+P-18,Zavian Abyss,Ghost Nebula
+P-18,Ankori,Kossa
+P-18,Mytaranor,Mytaranor
+P-18,Tholatin,Mytaranor
+P-19,Torn Station,Mytaranor
+P-19,Coachelle,Terr'skiar
+P-19,Kellis,Terr'skiar
+P-19,Kordoku,Terr'skiar
+P-19,New Apsolon,Terr'skiar
+P-19,Pizilis,Terr'skiar
+P-19,Quas Killam,Terr'skiar
+P-19,Surrakea,Terr'skiar
+P-19,Terr'skiar,Terr'skiar
+P-19,Thornhedge Nebula,Terr'skiar
+P-19,Genian,Trax
+P-19,PDC3141-02,Trax
+P-2,Xenxiar,Trax
+P-20,Batravia Serathrace,
+P-20,Dica Tolemses,
+P-3,Jarbanov Serathrace,
+P-3,Xandonia,Askarian
+P-3,Khemerion,Belasco
+P-3,Ordo Tera,Belasco
+P-3,Tambor Station,Belasco
+P-3,Tintel,Belasco
+P-3,Zirulast,Belasco
+P-3,Artesia,Hangshan
+P-3,Erai,Hangshan
+P-3,Kethmandi,Hangshan
+P-3,Ulda Frav,Hangshan
+P-3,Bruvia Harron,Marches
+P-3,Averill,Teraab
+P-3,Danalbeth,Teraab
+P-3,Ruusan,Teraab
+P-3,Farfalla Indra-su-Mar,
+P-3,Space Station Scardia Null Zone,
+P-3,Askaria,Askarian
+P-4,Batuv,Askarian
+P-4,Hasaq,Askarian
+P-4,Zaloriis,Askarian
+P-4,Arieli,Authala
+P-4,Emberlene,Authala
+P-4,Kallakea,Authala
+P-4,Kullgroon,Authala
+P-4,Mordagon,Authala
+P-4,Attahox,Hocatar
+P-4,Daiyu,Hocatar
+P-4,"Hellhoop, The",Hocatar
+P-4,Ko-Longava,Hocatar
+P-4,Loac,Hocatar
+P-4,Artom,Nuon e Safyd
+P-4,Karee,Nuon e Safyd
+P-4,Petrusia,Nuon e Safyd
+P-4,T'surr,Nuon e Safyd
+P-4,Belovia,Ombakond
+P-4,Ferrok Pax,Ombakond
+P-4,Yutan,Ombakond
+P-4,Dimea,Dimean
+P-4,Gregonia,Dimean
+P-4,Kessur,Dimean
+P-4,Rigoron,Dimean
+P-4,Veros,Dimean
+P-4,Aikhibba,Fei Hu
+P-4,Denebrilla,Fei Hu
+P-4,Hoylin,Fei Hu
+P-4,Mendacia,Fei Hu
+P-4,Phr'sha,Fei Hu
+P-4,Pyra,Fei Hu
+P-4,Gruvia,Hilo
+P-4,Silorna,Imberlin
+P-4,Tu'oon,Juris
+P-4,Cuyacan,Sepan
+P-4,Hovun,Sepan
+P-4,Kayuk,Sepan
+P-4,Raskane,Sepan
+P-4,Sepan,Sepan
+P-4,Wann Tsir,Sepan
+P-5,Caviness,Charra
+P-5,Charra,Charra
+P-5,Great Aglamerti,Charra
+P-5,Holageus,Charra
+P-5,Lelmra,Churba
+P-5,New Cov,Churba
+P-5,Imberlin,Imberlin
+P-5,Manali,Imberlin
+P-5,Trillia,Imberlin
+P-5,Zaraksander,Imberlin
+P-5,Ividal,Ividal
+P-5,Ongary,Ividal
+P-5,Kardava,Sevastol
+P-5,Lesser Sloo Gas Cloud,Sloo
+P-5,Lorahns Cavity,Sloo
+P-5,Lorahns,Sloo
+P-5,Muntuur,Sloo
+P-5,Sanza,Sloo
+P-5,Vandor,Sloo
+P-5,Cularin,Thaere
+P-5,LFA-509,Thaere
+P-5,Basan,Churba
+P-5,Dairka,Churba
+P-5,Erian,Churba
+P-5,Froffl,Churba
+P-5,Storthus,Churba
+P-5,Belvaria,Corweillian
+P-5,Corweillia,Corweillian
+P-5,Kabray,Corweillian
+P-5,Andulia,Doldur
+P-5,Boranall,Doldur
+P-5,Cavamina,Doldur
+P-5,Doldur,Doldur
+P-5,Dragonflower Nebula,Doldur
+P-5,Druckenwell,Doldur
+P-5,Eroudac,Doldur
+P-5,Falleen,Doldur
+P-6,Geridard,Doldur
+P-6,Linuri,Doldur
+P-6,Monor,Doldur
+P-6,Notak,Doldur
+P-6,Queel,Doldur
+P-6,Silver Station,Doldur
+P-6,Tarn,Doldur
+P-6,Therenor,Doldur
+P-6,Unroola Dawn,Doldur
+P-6,Haseria,Haserian
+P-6,Kalarba,Hevvrol
+P-6,Kyrska,Hevvrol
+P-6,Tirac Munda,Hevvrol
+P-6,Tyria,Hevvrol
+P-6,Uvadala,Ividal
+P-6,Algara,Lambda
+P-6,Andosha,Lambda
+P-6,Matacorn,Lambda
+P-6,Medepiest,Lambda
+P-6,Byrsym,Paqwepori
+P-6,Kolos,Paqwepori
+P-6,Paqwepor Major,Paqwepori
+P-6,Fashinder Prime,Primtara
+P-6,Gerres Gule,Primtara
+P-6,Primtara,Primtara
+P-6,Arnot Station,Far Xandil
+P-6,Demnadi,Far Xandil
+P-6,Ozri,Far Xandil
+P-6,Rethel Point,Far Xandil
+P-6,Argus,Lambda
+P-6,Desstious,Lambda
+P-6,Mordis,Lambda
+P-6,Niorven,Lambda
+P-6,Ord Zynthar,Lambda
+P-6,Ridlay,Lambda
+P-6,Rintonne,Lambda
+P-6,Ro-Loo Triangle,Lambda
+P-6,Xandil,Lambda
+P-6,Zolan,Lambda
+P-6,Elessia,Vendusii
+P-6,Haluria,Vendusii
+P-7,Thorum,Vendusii
+P-7,Vendusii,Vendusii
+P-7,Hazun,Astal
+P-7,Jarvanam,Astal
+P-7,Y'Dar,Astal
+P-7,Kabaira,Bajic
+P-7,Rezi,Bajic
+P-7,Sperin,Bajic
+P-7,Staggec,Bajic
+P-7,Verisin,Bajic
+P-7,Wranag,Bajic
+P-7,Yasilor,Bajic
+P-7,Breeka,Cadavine
+P-7,Eos,Cadavine
+P-7,Fellio,Cadavine
+P-7,Gall,Cadavine
+P-7,Lowik,Cadavine
+P-7,Maill,Cadavine
+P-7,Melida/Daan,Cadavine
+P-7,Nooroyo,Cadavine
+P-7,Regalia Station,Cadavine
+P-7,Pastoria,Juris
+P-7,Qeimet,Juris
+P-7,Stend,Juris
+P-7,Tebru,Juris
+P-7,Trigalis,Juris
+P-7,Vallt,Juris
+P-7,Vorusku,Juris
+P-7,Adelphi,Kibilini
+P-7,Farstine,Ryndellian
+P-7,Ikkrukk,Ryndellian
+P-7,Ninzam,Ryndellian
+P-7,Regulgo,Ryndellian
+P-7,Sterdic,Ryndellian
+P-7,Andasala Cor'ric,
+P-7,Qiaxx Cor'ric,
+P-7,Bahalian,Astal
+P-7,Eredin,Astal
+P-7,Unox,Astal
+P-7,Bajic,Bajic
+P-7,Lybeya,Bajic
+P-7,Talofan,Bajic
+P-8,Friijillis,Dail
+P-8,Dryorkeen Cluster,Parmic
+P-8,Ealor,Parmic
+P-8,Laramus,Parmic
+P-8,Nixus,Parmic
+P-8,Spice Terminus,Parmic
+P-8,Tralgaria,Parmic
+P-8,Vinzen Neela,Parmic
+P-8,Bridin Anchorage,Portmoak
+P-8,Carrandar Secundus,Portmoak
+P-8,Hyrol Preen Beta,Portmoak
+P-8,Jermac,Portmoak
+P-8,Octero,Portmoak
+P-8,Reuss,Portmoak
+P-8,5251977,Quence
+P-8,Eirrauus,Quence
+P-8,Suhuurmin,Quence
+P-8,Tresidiss,Quence
+P-8,Twon Ketee,Quence
+P-8,Xiunsrus,Quence
+P-8,Ebiwaan,Sarin
+P-9,Seylott,Sarin
+P-9,Y'Trella,Sarin
+P-9,Yar Togna,Sarin
+P-9,Moraysi,Skine
+P-9,Ifron,Thuris
+P-9,Midani,Thuris
+P-9,Sixela,Thuris
+P-9,Vorlag,Thuris
+P-9,Judakann,Torch Nebula
+P-9,Askkto-Fen,
+P-9,Syni,
+P-9,Parmic,Parmic
+P-9,Shownar,Parmic
+P-9,Skynara,Skine
+P-9,Alzoc,Sujimis
+P-9,Fallowan,Sujimis
+P-9,Karazak,Sujimis
+P-9,Pantora,Sujimis
+P-9,Guat'a,Torch Nebula
+P-9,Piluvia,Torch Nebula
+P-9,Torch Nebula,Torch Nebula
+P-9,Culroon,
+P-9,Lasan,
+Q-10,Chestrashus,
+Q-10,Ferrix Xappyh (Morlana),
+Q-10,Proxima Dibal,
+Q-10,Bosph,Bosph
+Q-10,Harrandarr,Bosph
+Q-10,Jandolhoon,Bosph
+Q-10,Otunia,Bosph
+Q-10,Hintivan,Corva
+Q-10,Cerilia,Xappyh
+Q-10,Kyoloria,Xappyh
+Q-10,Neelgaimon,Xappyh
+Q-10,Ruuria,Xappyh
+Q-10,Sortuvia,Xappyh
+Q-10,Stic,Xappyh
+Q-10,Thanta Zilbra,Xappyh
+Q-10,Tralfin,Xappyh
+Q-10,Werma,Xappyh
+Q-10,Antared,Esstran
+Q-10,Asog,Esstran
+Q-10,Buamlon Central,Esstran
+Q-10,Critoki,Esstran
+Q-10,Haffrin,Esstran
+Q-10,Melldia,Esstran
+Q-10,Aldivy,Illisurevimurasi
+Q-10,Bunka,Illisurevimurasi
+Q-10,Camus,Illisurevimurasi
+Q-10,CeSai,Illisurevimurasi
+Q-10,Ferro,Illisurevimurasi
+Q-10,Grumwall,Illisurevimurasi
+Q-10,Lubang Minor,Illisurevimurasi
+Q-10,Mirial,Illisurevimurasi
+Q-10,Mordal,Illisurevimurasi
+Q-10,Notonia,Illisurevimurasi
+Q-10,Pippip,Illisurevimurasi
+Q-11,Sagma,Illisurevimurasi
+Q-11,Sathiemon,Illisurevimurasi
+Q-11,Serpine,Illisurevimurasi
+Q-11,Sidi,Illisurevimurasi
+Q-11,Thila,Illisurevimurasi
+Q-11,Artus Prime,Kwymar
+Q-11,Jelucan,Kwymar
+Q-11,Kestos Minor,Kwymar
+Q-11,Listehol,Kwymar
+Q-11,Lyjdaa,Kwymar
+Q-11,Picutorion,Kwymar
+Q-11,Protazk,Kwymar
+Q-11,Rakrir,Kwymar
+Q-11,Seelos,Kwymar
+Q-11,Sipo,Kwymar
+Q-11,Tantive,Kwymar
+Q-11,Teagan,Kwymar
+Q-11,Telos,Kwymar
+Q-11,Vendara,Kwymar
+Q-11,Werncin,Kwymar
+Q-11,Gathus,Tynquay
+Q-11,Javarica,Tynquay
+Q-12,N'ildwab,Tynquay
+Q-12,Rokaria,Tynquay
+Q-12,Sikurd,Tynquay
+Q-12,Peragus,Xappyh
+Q-12,Soco-Jarel,Xappyh
+Q-12,Corbos,Esstran
+Q-12,Droxine,Esstran
+Q-12,Jaga's Cluster,Esstran
+Q-12,Jagomir,Esstran
+Q-12,Lapez,Esstran
+Q-12,Lorattick Nebula,Esstran
+Q-12,Ord Radama,Esstran
+Q-12,Radama Void,Esstran
+Q-12,Ralgos,Esstran
+Q-12,Thule,Esstran
+Q-12,Tirn,Esstran
+Q-12,XV-344H,Esstran
+Q-12,Drezzi,Esstran (Sith Worlds)
+Q-12,Kursid,Esstran (Sith Worlds)
+Q-13,Odacer-Faustin,Esstran (Sith Worlds)
+Q-13,Atorra,Gordian Reach
+Q-13,B'trilla,Gordian Reach
+Q-13,Chenowei,Gordian Reach
+Q-13,Elamposnia,Gordian Reach
+Q-13,Feena,Gordian Reach
+Q-13,Mannova,Gordian Reach
+Q-13,"Roil, The",Gordian Reach
+Q-13,Troos,Gordian Reach
+Q-13,Wetyin's Colony,Gordian Reach
+Q-13,Arcopola,Spadja
+Q-13,Paklan Niuri,
+Q-13,Damanos,Belderone
+Q-13,Randorn,Belderone
+Q-13,Arda,Gordian Reach
+Q-13,Arkuda,Gordian Reach
+Q-13,Barison,Gordian Reach
+Q-13,Capella,Gordian Reach
+Q-13,"Cometwash, The",Gordian Reach
+Q-13,Feldwes,Gordian Reach
+Q-13,Gulvitch,Gordian Reach
+Q-13,Kalishik,Gordian Reach
+Q-14,Karsten's World,Gordian Reach
+Q-14,Korphir,Gordian Reach
+Q-14,Little Capella,Gordian Reach
+Q-14,Pygorix,Gordian Reach
+Q-14,Quanducial,Gordian Reach
+Q-14,Tenara,Gordian Reach
+Q-14,Usta,Gordian Reach
+Q-14,Vallusk Cluster,Gordian Reach
+Q-14,Vnex,Gordian Reach
+Q-14,Ceriun,Nuiri
+Q-14,Divac,Nuiri
+Q-14,Lucazec,Nuiri
+Q-14,Mazuma,Nuiri
+Q-14,Noryath,Nuiri
+Q-14,Quell,Nuiri
+Q-14,Resh 9376,Nuiri
+Q-14,Stygeon,Nuiri
+Q-14,Taw Provode,Nuiri
+Q-14,Trivar,Nuiri
+Q-14,Vjun,Nuiri
+Q-14,Chirrion,Rolion
+Q-14,Fara's Belt,Rolion
+Q-14,Maridun,Rolion
+Q-14,Nadhe,Rolion
+Q-15,Spintir,Spadja
+Q-15,Delphania,Esuain
+Q-15,Eres,Esuain
+Q-15,Ggy-ynt,Esuain
+Q-15,Santheria,Esuain
+Q-15,Cortilium Major,Eucer
+Q-15,Euceron,Eucer
+Q-15,Hleua,Eucer
+Q-15,Ilamna,Eucer
+Q-15,Jolia,Eucer
+Q-15,Matabre,Eucer
+Q-15,Okator,Eucer
+Q-15,Italbos,Halori
+Q-15,Ubuuga,Halori
+Q-15,Gala,Nuiri
+Q-15,Gormen,Nuiri
+Q-15,Mandellia,Nuiri
+Q-15,Vandos,Nuiri
+Q-15,Aargonar,Perkell
+Q-15,Asyrphus,Perkell
+Q-15,Daminia,Perkell
+Q-15,Diorda,Perkell
+Q-15,Gromas,Perkell
+Q-15,Kenari,Perkell
+Q-15,Maarka,Perkell
+Q-15,Mooga,Perkell
+Q-15,Tabiid,Perkell
+Q-15,Thodia,Perkell
+Q-16,Trancret,Perkell
+Q-16,Wells,Perkell
+Q-16,Atraken,Rolion
+Q-16,Carpastor,Rolion
+Q-16,Epidimi,Rolion
+Q-16,Indu San,Rolion
+Q-16,Llewebum,Rolion
+Q-16,Lobaq Station,Rolion
+Q-16,Pinurquia,Rolion
+Q-16,Pouffra,Rolion
+Q-16,Alagon,Tennuutta
+Q-16,Casfield,Tennuutta
+Q-16,Gestron,Tennuutta
+Q-16,Ivexia,Tennuutta
+Q-16,Jabone,Tennuutta
+Q-16,Kem Stor Ai,Tennuutta
+Q-16,Nath Goordi,Tennuutta
+Q-16,Ord Tiddell,Tennuutta
+Q-16,Salvara,Tennuutta
+Q-16,Geska Prime,Lifh
+Q-16,Carbos,Roche
+Q-16,Fradian,Roche
+Q-16,Galara,Roche
+Q-16,Jeyell,Roche
+Q-16,Pothor,Roche
+Q-16,Quilan,Roche
+Q-16,Shantipole,Roche
+Q-16,Torphlus,Roche
+Q-16,Va'art,Roche
+Q-16,Vanguerre,Roche
+Q-16,Gavryn,Romintine
+Q-16,Kostra,Romintine
+Q-17,Low'n,Romintine
+Q-17,Romin,Romintine
+Q-17,Anga,Sarka
+Q-17,Antolus,Sarka
+Q-17,Endovan,Sarka
+Q-17,Lisal,Sarka
+Q-17,Sarka,Sarka
+Q-17,Talesia,Sarka
+Q-17,Thennqor,Sarka
+Q-17,Trasse,Sarka
+Q-17,Turco Prime,Sarka
+Q-17,Zoh,Sarka
+Q-17,Lateron,Talcene
+Q-17,Magnus Horn,Talcene
+Q-17,Orleon,Talcene
+Q-17,Talcene,Talcene
+Q-17,Torrad,Talcene
+Q-17,Allst Prime,Taldot
+Q-17,Hylobi,Taldot
+Q-17,Ord Gustald,Mytaranor
+Q-17,Skuumaa,Mytaranor
+Q-17,Balamak,Taldot
+Q-17,Escander,Taldot
+Q-17,Masposhani,Taldot
+Q-17,Nal Kapok,Taldot
+Q-17,Nauton,Taldot
+Q-17,Persavi,Taldot
+Q-17,Taldot,Taldot
+Q-17,Blimph,Kastolar
+Q-17,Cols,Kastolar
+Q-17,Durkteel,Kastolar
+Q-17,Gavos,Kastolar
+Q-17,Ookbat,Kastolar
+Q-17,Sneeve,Kastolar
+Q-17,Ubrikkia,Kastolar
+Q-18,Yitabo,Kastolar
+Q-18,Adalog,Mytaranor
+Q-18,Chamble,Mytaranor
+Q-18,Messert,Mytaranor
+Q-18,Nameel,Mytaranor
+Q-18,Ota,Mytaranor
+Q-18,Rakhuuun,Mytaranor
+Q-18,Randon,Mytaranor
+Q-18,Rorgam,Terr'skiar
+Q-18,Algunnis,Trax
+Q-18,Baskron,Trax
+Q-18,Bissillirus,Trax
+Q-18,Bundim,Trax
+Q-18,Deysum,Trax
+Q-18,Dresscol,Trax
+Q-18,Entrus,Trax
+Q-19,Essowyn,Trax
+Q-19,Fehern,Trax
+Q-19,Jhensrus,Trax
+Q-19,Lexrul,Trax
+Q-19,Longwind,Trax
+Q-19,Red Hand Cluster,Trax
+Q-3,Space Station Trenchant,Trax
+Q-3,Uogo'cor,Trax
+Q-3,Vellity,Trax
+Q-3,Ventil,Trax
+Q-3,Wellte-ir,Trax
+Q-3,Sebaddon,
+Q-3,Freda,Esaga
+Q-3,Jante,Esaga
+Q-3,Miko,Esaga
+Q-3,Ord Yndar,Esaga
+Q-3,Peridon's Folly,Esaga
+Q-3,Rettna,Esaga
+Q-3,Morado,Hune
+Q-3,Farquar,Kurost
+Q-3,Grange,Kurost
+Q-3,Kurost,Kurost
+Q-3,Peluchia,Kurost
+Q-4,Prospera Jang,Kurost
+Q-4,Sev Tok,Kurost
+Q-4,Varnak,Kurost
+Q-4,Vyron,Kurost
+Q-4,Nirellia,Oktos
+Q-4,Drogheda,Teraab
+Q-4,Istic,Teraab
+Q-4,Pesmenben,Teraab
+Q-4,Tyne's Horky,Teraab
+Q-4,Typhonic Nebula,Trax
+Q-4,Balowa,Daalang
+Q-4,Daalang,Daalang
+Q-4,Korrilan,Daalang
+Q-4,Arveesh Station,Eclorar
+Q-4,Berason,Eclorar
+Q-4,Nixor,Eclorar
+Q-4,Teloc Ol-sen,Eclorar
+Q-4,Vidicx,Eclorar
+Q-4,Al'doleem,Hune
+Q-4,D'faria,Hune
+Q-4,Parcovey Minor,Hune
+Q-4,Sinta,Hune
+Q-4,Nanth'ri,Kurost
+Q-4,Thulia,Kurost
+Q-4,Dorajan,Lannik Space
+Q-4,Chroma Zed,Maerdocian
+Q-4,Ogden Minor,Maerdocian
+Q-4,Tarshan,Maerdocian
+Q-4,Dakaret,Oktos
+Q-4,Aida,Aida
+Q-4,Lomabu,Aida
+Q-4,Makeb,Aida
+Q-4,Tovio,Aida
+Q-4,Torolis,Bothan
+Q-4,Beris,Fei Hu
+Q-4,Chorgad,Fei Hu
+Q-4,Munt Ontdal,Fei Hu
+Q-4,Dractu,Lannik Space
+Q-4,Chokan,Maerdocian
+Q-4,Dalonia,Maerdocian
+Q-4,Deneba,Maerdocian
+Q-4,Maerdocia,Maerdocian
+Q-4,Shador,Maerdocian
+Q-4,Thokosia,Maerdocian
+Q-5,Abecederia,Noolian
+Q-5,Dressel,Noolian
+Q-5,Feraleech,Noolian
+Q-5,Gattering,Noolian
+Q-5,Nooli,Noolian
+Q-5,Ursellin,Noolian
+Q-5,Meedis Minor,Tandon
+Q-5,Eriscot,Haserian
+Q-5,Hope Station,Haserian
+Q-5,Lolet,Haserian
+Q-5,Monastery,Haserian
+Q-5,Tah'Nuhna,Haserian
+Q-5,Aridka,Hertae
+Q-5,D'Nile,Hertae
+Q-5,Galboron,Hertae
+Q-5,Imvur,Hertae
+Q-5,Masterra,Hertae
+Q-5,Nexus Ortai,Hertae
+Q-5,Tomark,Ividal
+Q-5,Darie,Likasha
+Q-5,Denubba,Likasha
+Q-5,Likasha,Likasha
+Q-5,Meshakia,Likasha
+Q-5,Benja-Rihn,Sevastol
+Q-5,Koshi,Sevastol
+Q-6,Opop Hibbedit,Sevastol
+Q-6,Bresnia,Tandon
+Q-6,Lanos,Tandon
+Q-6,Malthor,Tandon
+Q-6,Spirador,Tandon
+Q-6,Talrezan,Tandon
+Q-6,Algarian,Dufilvian
+Q-6,Blenjeel,Dufilvian
+Q-6,Mytar,Dufilvian
+Q-6,Ord Segra,Dufilvian
+Q-6,Womrik,Dufilvian
+Q-6,Orkellia,Haserian
+Q-6,Orsis,Haserian
+Q-6,Phibia,Haserian
+Q-6,Ando,Lambda
+Q-6,Arbular,Lambda
+Q-6,Horos,Lambda
+Q-6,Raquish,Lambda
+Q-6,Secundus Ando,Lambda
+Q-6,Thape,Lambda
+Q-6,Kiamurr,Likasha
+Q-6,Melagawni,Likasha
+Q-6,Ezran,Onatos
+Q-6,Anic,Xan
+Q-6,Forrn,Xan
+Q-6,Gan Moradir,Xan
+Q-6,Hellenah,Xan
+Q-6,Katanos,Xan
+Q-6,Trundalki,Xan
+Q-6,Xanas,Xan
+Q-6,Xaza,Xan
+Q-6,Ksiczzic,Yucrales
+Q-6,Leritor,Yucrales
+Q-6,Reigalius,Yucrales
+Q-6,Arantara Dalmar,
+Q-6,Daimar,Daimar
+Q-7,Ghishi,Daimar
+Q-7,Monta,Daimar
+Q-7,Nyonpur,Daimar
+Q-7,Ooo-sek,Daimar
+Q-7,Radnor,Daimar
+Q-7,Ragna,Daimar
+Q-7,Retep,Daimar
+Q-7,Talay,Dufilvian
+Q-7,Celes,Herdessa
+Q-7,Cificap,Herdessa
+Q-7,Habassa,Herdessa
+Q-7,Herdessa,Herdessa
+Q-7,Yuw,Herdessa
+Q-7,Hismaul,Karthakk
+Q-7,Llanic,Karthakk
+Q-7,Lokori,Karthakk
+Q-7,Musson,Karthakk
+Q-7,Ningoth,Karthakk
+Q-7,Ord Celbus,Karthakk
+Q-7,Mon Gazza,Lambda
+Q-7,Moravia,Lambda
+Q-7,Apatros,Savareen
+Q-7,Christophsis,Savareen
+Q-7,Fordon,Savareen
+Q-7,Gellefon,Savareen
+Q-7,Hetzal,Savareen
+Q-7,Nelvaan,Savareen
+Q-7,Savareen,Savareen
+Q-7,Tythe,Savareen
+Q-7,U-Tendik,Trans-Nebular
+Q-7,Slivia,Astal
+Q-7,Zyzar,Astal
+Q-7,Daivak,Karthakk
+Q-7,Fair Hollis,Karthakk
+Q-7,Gorgaria,Karthakk
+Q-7,Magravia,Karthakk
+Q-7,Maramere,Karthakk
+Q-7,Ragmar,Karthakk
+Q-7,Sorgan,Karthakk
+Q-7,Tarkenia,Karthakk
+Q-7,Zobbera,Karthakk
+Q-7,Cordaxia,Kibilini
+Q-7,Duunir,Kibilini
+Q-7,Fligger,Kibilini
+Q-7,Iyred,Kibilini
+Q-7,Jostaar,Kibilini
+Q-8,Korteen,Kibilini
+Q-8,Narragader,Kibilini
+Q-8,Neelabi,Kibilini
+Q-8,Omman Minor,Kibilini
+Q-8,Purala,Kibilini
+Q-8,Rim,Kibilini
+Q-8,Siveria,Kibilini
+Q-8,Socorro,Kibilini
+Q-8,Thrugii,Kibilini
+Q-8,Vashka,Kibilini
+Q-8,Caliban,Savareen
+Q-8,Redcap,Savareen
+Q-8,Ruhe,Savareen
+Q-8,Yerbana,Savareen
+Q-8,Branteez,Tolonda
+Q-8,Julsujod,Tolonda
+Q-8,Odona,Tolonda
+Q-8,Oshora,Tolonda
+Q-8,Tamra,Tolonda
+Q-8,Ragnar Merel,
+Q-8,Ennth,Astal
+Q-8,Skann,Astal
+Q-8,Calline,Dail
+Q-8,Danadine,Dail
+Q-8,Danchian Prime,Dail
+Q-8,Fryiaa,Dail
+Q-8,Lesu,Dail
+Q-8,Dom-Bradden,Lol
+Q-8,Drexel,Lol
+Q-8,Kendamar,Lol
+Q-8,Lol,Lol
+Q-8,Majilop,Lol
+Q-9,Sil Gohtta,Lol
+Q-9,Changa,Tolonda
+Q-9,Goshyn,Tolonda
+Q-9,Bentora,Samix
+Q-9,Nedij,Samix
+Q-9,Sabrixin,Samix
+Q-9,Lucrenn,Skine
+Q-9,Skine,Skine
+Q-9,Wodenstam,Skine
+R-10,Cadomai Aparo (Catarlo),
+R-10,Hydra Aparo (Catarlo),
+R-10,Koboth,
+R-10,Kwapi,
+R-10,Beshka,Aparo
+R-10,Boztrok,Aparo
+R-10,Cassidode,Aparo
+R-10,Glite-Ven,Aparo
+R-10,H'relac,Aparo
+R-10,Lo'Uran,Aparo
+R-10,Mavva,Aparo
+R-10,Oshetti,Aparo
+R-11,Salient,Aparo
+R-11,Wenderal,Aparo
+R-11,Bendone,Bosph
+R-11,Davirien,Corporate Sector
+R-11,Kail,Corporate Sector
+R-11,Knolstee,Corporate Sector
+R-11,Mall'ordian,Corporate Sector
+R-11,Ninn,Corporate Sector
+R-12,Reltooine,Corporate Sector
+R-12,Iceni,
+R-12,Lur,Aparo
+R-12,Thela,Aparo
+R-12,Tahina,Chorlian
+R-12,Craci,Corporate Sector
+R-12,Drog,Corporate Sector
+R-12,Athiss,Esstran (Sith Worlds)
+R-12,Begeren,Esstran (Sith Worlds)
+R-13,Bhargebba,Esstran (Sith Worlds)
+R-13,Ch'hodos,Esstran (Sith Worlds)
+R-13,Kalsunor,Esstran (Sith Worlds)
+R-13,Korriz,Esstran (Sith Worlds)
+R-13,Nfolgai,Esstran (Sith Worlds)
+R-13,Savek,Esstran (Sith Worlds)
+R-13,Svolten,Esstran (Sith Worlds)
+R-13,Ziost,Esstran (Sith Worlds)
+R-13,Fislan,Mortex
+R-13,Iliabath,Mortex
+R-13,Kharzet,Mortex
+R-13,Lynos,Mortex
+R-13,Pal Goral,Mortex
+R-13,Gigor,Tynquay
+R-13,Lorpfan,Tynquay
+R-14,Naplousea,Tynquay
+R-14,Pegg,Tynquay
+R-14,Thurhanna Minor,Tynquay
+R-14,Anarak,Wyl
+R-14,Basta Core,Wyl
+R-14,Dra,Wyl
+R-14,Glakka,Wyl
+R-14,Kormoran,Wyl
+R-14,Lafra,Wyl
+R-14,Thosa,Wyl
+R-14,Tiss'sharl,Xappyh
+R-14,Ashas Ree,Esstran (Sith Worlds)
+R-14,Bosthirda,Esstran (Sith Worlds)
+R-14,Dromund Kaas,Esstran (Sith Worlds)
+R-14,Hallion,Esstran (Sith Worlds)
+R-14,Jaguada,Esstran (Sith Worlds)
+R-14,Khar Delba,Esstran (Sith Worlds)
+R-14,Krayiss,Esstran (Sith Worlds)
+R-14,Moraband,Esstran (Sith Worlds)
+R-14,Nicht Ka,Esstran (Sith Worlds)
+R-14,Rhelg,Esstran (Sith Worlds)
+R-14,Stygian Caldera,Esstran (Sith Worlds)
+R-14,Upekzar,Esstran (Sith Worlds)
+R-14,Ashas Rine,Mortex
+R-14,Dakot,Mortex
+R-14,Fluwhaka,Mortex
+R-14,Fromiria,Mortex
+R-14,Kestel,Mortex
+R-14,Mendenbatt,Mortex
+R-15,Ranroon,Mortex
+R-15,Refrax,Mortex
+R-15,Simoth,Mortex
+R-15,Vargos,Mortex
+R-15,Vestral,Mortex
+R-15,Yalln,Mortex
+R-15,Yutusk,Mortex
+R-15,Arorua,Sertar
+R-15,Brachi,Sertar
+R-15,Curreck,Sertar
+R-15,Draflago,Sertar
+R-15,Drayberia,Sertar
+R-15,Elom,Sertar
+R-15,Ermi,Sertar
+R-15,Florrum,Sertar
+R-15,Kejim,Sertar
+R-15,Lamus,Sertar
+R-15,Nightside,Sertar
+R-15,Ord Dalet,Sertar
+R-15,Qalydon,Sertar
+R-15,Sondarr,Sertar
+R-15,Syngia,Sertar
+R-15,Tandgor,Sertar
+R-15,Tervissis,Sertar
+R-15,Vanqor,Sertar
+R-15,Bravis,Spadja
+R-15,Hermos,Spadja
+R-15,Skuhl,Spadja
+R-15,Stenos,Spadja
+R-15,Torrenoteer,Spadja
+R-15,Tahlboor,Thanium
+R-15,Tamsye Prime,Thanium
+R-15,Auril,Auril
+R-16,Cron Drift,Auril
+R-16,Kronk,Auril
+R-16,Ossus,Auril
+R-16,Urkupp,Auril
+R-16,Avery,Belderone
+R-16,Belderone,Belderone
+R-16,Bragkis,Belderone
+R-16,Fallex,Belderone
+R-16,Galsol,Belderone
+R-16,Keyorin,Belderone
+R-16,Kodai,Belderone
+R-16,Livorno,Belderone
+R-16,Lola Sayu,Belderone
+R-16,Mek-Sha,Belderone
+R-16,Ord Marsax,Belderone
+R-16,Tiems,Belderone
+R-16,Tranchar,Belderone
+R-16,Troglofa,Belderone
+R-16,Ychthyton,Belderone
+R-16,Nam,Chorios Meridian
+R-16,Till,Chorios Meridian
+R-16,Antamont,Meridian
+R-16,Helix,Meridian
+R-16,Mohsenia,Meridian
+R-16,Nyemari,Meridian
+R-16,Solu,Meridian
+R-16,Graal'diin,Spadja
+R-16,Hissrich,Spadja
+R-16,Mazhar,Spadja
+R-16,N'dian,Spadja
+R-16,Tandankin,Spadja
+R-16,Alzar,Thanium
+R-16,Benetage,Thanium
+R-16,Draukyze,Thanium
+R-16,Elerion,Thanium
+R-16,Falang Minor,Thanium
+R-16,Felucia,Thanium
+R-16,Fikari,Thanium
+R-16,Galidraan,Thanium
+R-16,Kadril,Thanium
+R-16,Mossak,Thanium
+R-17,Phoebus,Thanium
+R-17,Rhen Var,Thanium
+R-17,Sikkem,Thanium
+R-17,Sooma,Thanium
+R-17,Thanium,Thanium
+R-17,Tharkos,Thanium
+R-17,Auratera,Vorzyd
+R-17,Columex,Vorzyd
+R-17,Farbog,Vorzyd
+R-17,Hraki,Vorzyd
+R-17,Kilmauls,Vorzyd
+R-17,Niamos,Vorzyd
+R-17,Paigu,Vorzyd
+R-17,Seftek,Vorzyd
+R-17,Vorzyd,Vorzyd
+R-17,Yablari,Vorzyd
+R-17,Anaxes,Antemeridian
+R-17,Antemeridias,Antemeridian
+R-17,Aralia,Antemeridian
+R-17,Krevas,Antemeridian
+R-17,Prishardia,Antemeridian
+R-17,Rydar,Antemeridian
+R-17,Septevorres,Antemeridian
+R-17,Temako,Antemeridian
+R-17,Xxan,Antemeridian
+R-17,Yeksom,Antemeridian
+R-17,Bal'demnic,Auril
+R-17,Forscan,Auril
+R-17,Keedad,Auril
+R-17,Phinel's Folly,Auril
+R-17,Repea,Auril
+R-17,Teedio,Auril
+R-17,Dandrian,Belderone
+R-17,Anzat,Bryx
+R-17,Anzell,Bryx
+R-17,Jekara,Bryx
+R-17,Loken,Bryx
+R-17,No-ad,Bryx
+R-17,Odynnia Gavo,Bryx
+R-17,Torost,Bryx
+R-18,Tydane,Bryx
+R-18,Viidaav,Bryx
+R-18,Brachnis,Chorios Meridian
+R-18,Pedducis,Chorios Meridian
+R-18,Darlon,Eucer
+R-18,Del Zennis,Eucer
+R-18,Deris-plata,Eucer
+R-18,Farwell Station,Eucer
+R-18,Ringo Vinda,Eucer
+R-19,Romossobar,Eucer
+R-19,Uthtara,Eucer
+R-3,Zuliria,Eucer
+R-3,Cardooine,Jospro
+R-3,Cerosha,Jospro
+R-3,Chad,Jospro
+R-3,Colsassa,Jospro
+R-3,Dar'Or,Jospro
+R-3,Engira,Jospro
+R-3,Gnithia,Jospro
+R-3,Grathus,Jospro
+R-3,Jomark,Jospro
+R-3,Moorjhone,Jospro
+R-3,Segra Milo,Jospro
+R-3,Triellus,Jospro
+R-3,Trogan,Jospro
+R-3,Waskiro,Jospro
+R-3,Yhuli,Jospro
+R-3,Abhean,Maldrood
+R-3,Bamayar,Maldrood
+R-3,Centares,Maldrood
+R-3,Elgamor,Maldrood
+R-3,Entiia,Maldrood
+R-4,Esseveya,Maldrood
+R-4,Ganzik,Maldrood
+R-4,J'doytzin,Maldrood
+R-4,Jendiria,Maldrood
+R-4,Madurs,Maldrood
+R-4,Mileva,Maldrood
+R-4,New Holstice,Maldrood
+R-4,Synjax,Maldrood
+R-4,"Wheel, The",Maldrood
+R-4,Ampliquen,Meridian
+R-4,Budpock,Meridian
+R-4,Caarimon,Meridian
+R-4,Calgon,Meridian
+R-4,Cybloc,Meridian
+R-4,Damonite Yors B,Meridian
+R-4,Durren,Meridian
+R-4,Exodo,Meridian
+R-4,King's Galquek,Meridian
+R-4,Meridian,Meridian
+R-4,Nim Drovis,Meridian
+R-4,Odos,Meridian
+R-4,Ord Adinorr,Meridian
+R-4,Ryvester,Meridian
+R-4,Sorjus,Meridian
+R-4,Spangled Veil Nebula,Meridian
+R-4,Bontormia,Bortele
+R-4,Bortele Cluster,Bortele
+R-4,Chasidron Shoals,Bortele
+R-4,Dithanune,Bortele
+R-4,Hurd's Moon,Bortele
+R-4,Ingo,Bortele
+R-4,Ordo Moon,Bortele
+R-4,Ultaar,Bortele
+R-4,Zchtek,Bortele
+R-5,Birix,Bryx
+R-5,Bryx,Bryx
+R-5,Calderos Station,Bryx
+R-5,Ceitia,Bryx
+R-5,Du Mai,Bryx
+R-5,Kijimi,Bryx
+R-5,Pedoria,Bryx
+R-5,Wobani,Bryx
+R-5,Entruvia,Halla
+R-5,Peg Shar,Halla
+R-5,Pusat Station,Halla
+R-5,Saffa,Halla
+R-5,Artemesium,Lifh
+R-5,Diado,Lifh
+R-5,Gosfambling,Lifh
+R-5,Maltorian,Lifh
+R-5,Taria,Lifh
+R-5,Vilosoria,Lifh
+R-5,Caramm,Talcene
+R-5,Deylerax,Talcene
+R-5,Metalorn,Talcene
+R-5,Alee,
+R-5,Ankhural,
+R-5,Charros Numesira,
+R-5,Dandoran,
+R-5,Tal Nami,
+R-5,Ardroxia,Elochar
+R-5,Celen,Elochar
+R-5,Ord Thabl,Elochar
+R-5,Bimmisaari,Halla
+R-5,Cejansij,Halla
+R-5,Nativum,Halla
+R-5,Sabata,Halla
+R-5,Chonsetta,Metatessu
+R-5,Enrivi,Metatessu
+R-5,Mauk,Metatessu
+R-5,Redhurne,Metatessu
+R-5,Sabrash,Metatessu
+R-5,Rathalay,Taldot
+R-5,Ilos,
+R-5,Keldooine,
+R-5,Nar Bo Sholla,
+R-5,Hathrox,Halla
+R-5,Haidoral Prime,Kastolar
+R-5,Katalla,Kastolar
+R-5,Kwenn,Kastolar
+R-5,Moobia,Kastolar
+R-5,Ordnandell,Kastolar
+R-5,Archenar,Metatessu
+R-5,Chalacta,Metatessu
+R-6,Ilos,Minor
+R-6,Kleeva,
+R-6,Runaway Prince,
+R-6,Tol Amn,
+R-6,Toydaria,
+R-6,Esaga,Esaga
+R-6,Aloxor,Kontahr
+R-6,Cygnus,Kontahr
+R-6,Rudun,Kontahr
+R-6,Ganath,
+R-6,Jilrua,
+R-6,Oktos,Nebula
+R-6,Blacktar Cyst,Oktos
+R-6,Maraken,Oktos
+R-6,Mhalanduin,Oktos
+R-6,Ord Wylan,Oktos
+R-6,Redspace Reefs,Oktos
+R-6,Ruloosia,Oktos
+R-6,Dohlban,Dohlbani
+R-6,Kupoh,Dohlbani
+R-6,Phorsa Gedd,Dohlbani
+R-6,Cirilia,Lannik Space
+R-6,Croluthe Zenj,Lannik Space
+R-6,Demiloch,Lannik Space
+R-6,Imram,Lannik Space
+R-6,Lannik,Lannik Space
+R-6,Oktaro,Lannik Space
+R-6,Caarsin Station,Lannik Wilds
+R-6,Crul,Lannik Wilds
+R-6,Ketzali,Lannik Wilds
+R-6,Leresen,Lannik Wilds
+R-6,Ord Dycoll,Lannik Wilds
+R-6,Udrin Cara,Lannik Wilds
+R-6,Antakaria,Bothan
+R-6,Bothawui,Bothan
+R-6,Di'tai'ni,Bothan
+R-6,Kant,Bothan
+R-6,Kothlis,Bothan
+R-6,Krant,Bothan
+R-6,Mandell,Bothan
+R-6,Moonus Mandel,Bothan
+R-6,Ragnook,Bothan
+R-6,Reena Minor,Bothan
+R-6,Ruweln,Bothan
+R-6,Sennatt,Bothan
+R-6,Tarsunt,Bothan
+R-6,Thoran,Bothan
+R-6,Void Station,Bothan
+R-6,Yllotat,Bothan
+R-6,Apoka,Dohlbani
+R-6,Smarab,Dohlbani
+R-6,Thrynka,Dohlbani
+R-6,Nux,Endocray
+R-6,Pantrosian Eye,Endocray
+R-6,Boranda,Manda
+R-6,Cornesia,Manda
+R-6,Holess,Manda
+R-6,Krystar,Manda
+R-7,Novka,Manda
+R-7,Ovissi,Manda
+R-7,Zygia,Manda
+R-7,Uridia,Yucrales
+R-7,Quilken,Abrion
+R-7,Crondre,Dufilvian
+R-7,F'Dann,Dufilvian
+R-7,Fenn,Dufilvian
+R-7,Filve,Dufilvian
+R-7,Ord Pardron,Dufilvian
+R-7,Denudia,Grohl
+R-7,Felacat,Grohl
+R-7,Fjor,Grohl
+R-7,Ostega,Grohl
+R-7,Sucharme,Grohl
+R-7,Dennaskar,Manda
+R-7,Devros,Manda
+R-7,Gansett,Manda
+R-7,Manda,Manda
+R-7,Tao-Grant,Manda
+R-7,Velossia,Manda
+R-7,Vintrus,Manda
+R-7,Baltro,Onatos
+R-7,Benglor,Onatos
+R-7,Cataalda,Onatos
+R-7,Elriss,Onatos
+R-7,Grakouine,Onatos
+R-7,Kinrah,Onatos
+R-7,Lahsbane,Onatos
+R-7,Onatos,Onatos
+R-7,Pasa Novo,Onatos
+R-7,Somov Rit,Onatos
+R-7,Tharados,Onatos
+R-7,Blathar,Yucrales
+R-7,Hisseen,Yucrales
+R-7,Quarmendy,Yucrales
+R-7,Tourani,Yucrales
+R-7,A-Foroon,Arkanis
+R-7,Andooweel,Arkanis
+R-7,Austan,Arkanis
+R-7,B-Foroon,Arkanis
+R-7,C-Foroon,Arkanis
+R-7,Cranan,Arkanis
+R-7,D'Anjon Nebula,Arkanis
+R-7,Gedi,Arkanis
+R-7,Geonosis,Arkanis
+R-7,Gulf of Tatooine,Arkanis
+R-7,Kemal Station,Arkanis
+R-7,Kol Iben,Arkanis
+R-7,Maldo Kreis,Arkanis
+R-7,Melnea's World,Arkanis
+R-7,New Ator,Arkanis
+R-7,Obana,Arkanis
+R-7,Ooo-temiuk,Arkanis
+R-7,Pii,Arkanis
+R-7,Piroket,Arkanis
+R-7,Tatooine,Arkanis
+R-7,Utaruun,Arkanis
+R-7,Vactooine,Arkanis
+R-7,Vuzsa,Arkanis
+R-7,Calast,Grohl
+R-7,Cosmatanic Steppes,Grohl
+R-7,Hikil,Grohl
+R-7,Hyperkarn,Grohl
+R-7,Koiogra,Grohl
+R-7,Korseg,Grohl
+R-7,Ferrelia,Hunnoverrs
+R-7,Rainbow Nebulae,Hunnoverrs
+R-7,Stellan,Hunnoverrs
+R-7,Tozeer,Hunnoverrs
+R-7,Trendivar,Hunnoverrs
+R-7,Rodia,Savareen
+R-7,Zaadja,Savareen
+R-7,Baylin Cluster,Trans-Nebular
+R-7,Goroth,Trans-Nebular
+R-7,Iskalon,Trans-Nebular
+R-7,Milarian,Trans-Nebular
+R-7,Vestor Nebula,Trans-Nebular
+R-7,Ryloth Gaulus (Ryloth),
+R-7,Arkanis,Arkanis
+R-7,Cirus,Arkanis
+R-8,Gorno,Arkanis
+R-8,Heffrin,Arkanis
+R-8,Huldamun,Arkanis
+R-8,Issor,Arkanis
+R-8,Khubeaie,Arkanis
+R-8,Mika,Arkanis
+R-8,Najiba,Arkanis
+R-8,Sirpar,Arkanis
+R-8,Tarnoonga,Arkanis
+R-8,Vasch,Arkanis
+R-8,Vor Deo,Arkanis
+R-8,Beta Rhama,Dalchon
+R-8,Birjis,Dalchon
+R-8,Dalchon,Dalchon
+R-8,Iscera,Dalchon
+R-8,Juma,Dalchon
+R-8,Kolaador,Dalchon
+R-8,Lorn,Dalchon
+R-8,Luudria,Dalchon
+R-8,Mirshilan,Dalchon
+R-8,Nysza,Dalchon
+R-8,Omaka,Dalchon
+R-8,Orvax,Dalchon
+R-8,Shimia,Dalchon
+R-8,Zequardia,Dalchon
+R-8,Ab Dalis,Gaulus
+R-8,Liintaar,Gaulus
+R-8,Miv'rah,Gaulus
+R-8,Wxtm,Gaulus
+R-8,Nishr,Hunnoverrs
+R-9,Siskeen,Hunnoverrs
+R-9,Daslkehnt,Pelgrin
+R-9,Lessuris,Pelgrin
+R-9,Pelgrin,Pelgrin
+R-9,Perilious,Pelgrin
+R-9,Rordak,Pelgrin
+R-9,Krmar,Tolonda
+R-9,Tyaonon,
+R-9,Arapia,Dalchon
+R-9,Gerzob,Hunnoverrs
+R-9,Draay,Pelgrin
+R-9,Kasiol,Pelgrin
+R-9,Kinun Depot,Pelgrin
+R-9,Pagodon,Pelgrin
+R-9,Port Yonder,Pelgrin
+R-9,Sakuub,Pelgrin
+R-9,Guudria,
+R-9,Yanibar,
+S-10,Crispin,
+S-10,Kamar,
+S-10,Mircapala,
+S-10,Mytus,
+S-10,Vinnax,
+S-10,Abo Dreth,Corporate Sector
+S-10,Atchorb,Corporate Sector
+S-10,Bonadan,Corporate Sector
+S-10,Brosi,Corporate Sector
+S-10,D'ian,Corporate Sector
+S-10,Daermor,Corporate Sector
+S-10,Deltooine,Corporate Sector
+S-10,Fether,Corporate Sector
+S-10,Galleefryn,Corporate Sector
+S-10,Hiit,Corporate Sector
+S-10,Kir,Corporate Sector
+S-10,Lythos,Corporate Sector
+S-10,Ocsin,Corporate Sector
+S-10,R'alla,Corporate Sector
+S-10,Rinagom,Corporate Sector
+S-11,Thandon Nebula,Corporate Sector
+S-11,Tothis,Corporate Sector
+S-11,Ulicia,Corporate Sector
+S-11,Toria-vic,Nebula
+S-11,Joodrudda,
+S-11,Kadavo,
+S-11,Loce,
+S-11,Natinati,
+S-11,Sarlucif,
+S-11,Th'irus,
+S-11,Valtha Divide,
+S-11,X3-299-11,
+S-11,Baltimn,Chorlian
+S-11,Kip,Chorlian
+S-11,Malachor,Chorlian
+S-11,Nathema,Chorlian
+S-11,Ordo Eris,Chorlian
+S-11,Rekkiad,Chorlian
+S-11,Sevari,Chorlian
+S-11,Sigil,Chorlian
+S-11,Sluudren,Chorlian
+S-11,Talivar,Chorlian
+S-11,Varic,Chorlian
+S-11,Vaynai,Chorlian
+S-11,Vyndal,Chorlian
+S-11,Zygerria,Chorlian
+S-11,Drahgor,Colundra
+S-12,Ammuud,Corporate Sector
+S-12,Ban-Satir,Corporate Sector
+S-12,Biewa,Corporate Sector
+S-12,Cantonica,Corporate Sector
+S-12,Duroon,Corporate Sector
+S-12,Erysthes,Corporate Sector
+S-12,Ession,Corporate Sector
+S-12,Etti,Corporate Sector
+S-12,Gaurick,Corporate Sector
+S-12,Issagra,Corporate Sector
+S-13,Jerrist,Corporate Sector
+S-13,Kalla,Corporate Sector
+S-13,Maryo,Corporate Sector
+S-13,Matra,Corporate Sector
+S-13,Media,Corporate Sector
+S-13,Orron,Corporate Sector
+S-13,Oslumpex,Corporate Sector
+S-13,Pondut Station,Corporate Sector
+S-13,Rampa,Corporate Sector
+S-13,Saclas,Corporate Sector
+S-14,Saffalore,Corporate Sector
+S-14,Tirsa,Corporate Sector
+S-14,Urdur,Corporate Sector
+S-14,Vexar,Corporate Sector
+S-14,Beta Olikark,Wyl
+S-14,Corus,Wyl
+S-14,Irudiru,Wyl
+S-14,Melm,Wyl
+S-14,Xanlanner,Wyl
+S-14,Almania Mortex (Almanian),
+S-14,Kazarak Sertar (Mahrusha),
+S-14,Sembla Sertar (Mahrusha),
+S-14,Barton,Colundra
+S-14,Dinutu,Colundra
+S-14,Kashoon,Colundra
+S-14,Kruskan,Colundra
+S-14,Muskree,Colundra
+S-14,Qotile,Colundra
+S-14,Sonn Vilmari,Colundra
+S-15,Tooma,Colundra
+S-15,Troika,Colundra
+S-15,Troiken,Colundra
+S-15,Ank Ki'Shor,Indrexu
+S-15,Endregaad,Indrexu
+S-15,Estaria,Indrexu
+S-15,Janodral Mizar,Indrexu
+S-15,Kolkur,Indrexu
+S-15,Martle Station,Indrexu
+S-15,Rhilithan,Indrexu
+S-15,Shalyvane,Indrexu
+S-15,Choah,Mortex
+S-15,Fangol,Mortex
+S-15,Lotide,Mortex
+S-15,Malkii,Mortex
+S-15,Shallow March,Mortex
+S-15,Dalos,Nilgaard
+S-15,Emmer,Nilgaard
+S-15,Galshebbis Prime,Nilgaard
+S-15,Karkaris,Nilgaard
+S-15,Makem Te,Nilgaard
+S-15,Minntaa,Nilgaard
+S-15,Nam Priax,Nilgaard
+S-15,Ord Bueri,Nilgaard
+S-15,Quermia,Nilgaard
+S-15,Reaper's World,Nilgaard
+S-15,Toola,Nilgaard
+S-15,Ord Torrenze,Sertar
+S-15,Barundi,Thanium
+S-15,Khuteb,Thanium
+S-15,Promencius,Thanium
+S-15,Vornax,Thanium
+S-15,Folende,Tion Hegemony
+S-15,Kanaver,Tion Hegemony
+S-15,Livien,Tion Hegemony
+S-15,Raxus Prime,Tion Hegemony
+S-15,Risban,Tion Hegemony
+S-16,Tion,Tion Hegemony
+S-16,Absanz,Allied Tion
+S-16,Amarin,Allied Tion
+S-16,Barseg,Allied Tion
+S-16,Cadinth,Allied Tion
+S-16,Corlax,Allied Tion
+S-16,Desargorr,Allied Tion
+S-16,Dravione,Allied Tion
+S-16,Embaril,Allied Tion
+S-16,Gallus,Allied Tion
+S-16,Jaminere,Allied Tion
+S-16,Jhantoria,Allied Tion
+S-16,Lianna,Allied Tion
+S-17,Lorrad,Allied Tion
+S-17,Primus Cabru,Allied Tion
+S-17,Spinax,Allied Tion
+S-17,Voss,Allied Tion
+S-17,Xifal,Allied Tion
+S-17,Kintoni,Ash Worlds
+S-17,Chashima,Auril
+S-17,Fial,Auril
+S-17,Murkhana,Auril
+S-18,Weytta,Auril
+S-18,Algor,Cronese Mandate
+S-18,Arcan,Cronese Mandate
+S-18,Argai,Cronese Mandate
+S-18,Arramanx,Cronese Mandate
+S-18,Barancar,Cronese Mandate
+S-18,Chandaar,Cronese Mandate
+S-18,Corlass,Cronese Mandate
+S-3,Corvus,Cronese Mandate
+S-3,Derellium,Cronese Mandate
+S-3,Duinarbulon,Cronese Mandate
+S-3,Eibon,Cronese Mandate
+S-3,Foran Tutha,Cronese Mandate
+S-3,Gadon,Cronese Mandate
+S-3,Galdria,Cronese Mandate
+S-3,Janilis,Cronese Mandate
+S-3,Kismaano,Cronese Mandate
+S-3,Nuswatta,Cronese Mandate
+S-3,Oor,Cronese Mandate
+S-3,Panna,Cronese Mandate
+S-3,Pasmin,Cronese Mandate
+S-3,Soruus,Cronese Mandate
+S-3,Five Points,Thanium
+S-3,Shaltin,Thanium
+S-3,Abraxin,Tion Hegemony
+S-3,Argoon,Tion Hegemony
+S-3,Clariv,Tion Hegemony
+S-3,Crucival,Tion Hegemony
+S-3,Desevro,Tion Hegemony
+S-3,Eredenn,Tion Hegemony
+S-3,Kaon,Tion Hegemony
+S-3,Omman,Tion Hegemony
+S-4,Rudrig,Tion Hegemony
+S-4,Saheelindeel,Tion Hegemony
+S-4,Stalimur,Tion Hegemony
+S-4,Colunda Prime Phelleem (Colunda),
+S-4,Nyasko Phelleem (Colunda),
+S-4,Abyss,Ash Worlds
+S-4,Altratonne,Ash Worlds
+S-4,Distilon,Ash Worlds
+S-4,Gligger,Ash Worlds
+S-4,Haashimut,Ash Worlds
+S-4,Nummunr,Ash Worlds
+S-4,Perimako Major,Ash Worlds
+S-4,Sakreen,Ash Worlds
+S-4,Voxx Cluster,Ash Worlds
+S-4,Wyndigal,Ash Worlds
+S-4,Xuaquarres,Ash Worlds
+S-4,Pzandias,Bryx
+S-4,Aldo Spach,Jospro
+S-4,Kile,Jospro
+S-4,Ord Zat,Jospro
+S-4,Parabaw Station,Jospro
+S-4,Ramsir,Jospro
+S-4,Sy Myrth,Jospro
+S-4,Alliga,Phelleem
+S-4,Daronak,Phelleem
+S-4,Elkkasinn,Phelleem
+S-4,Handooine,Phelleem
+S-4,Harda,Phelleem
+S-4,Hologram Fun World,Phelleem
+S-4,Jabiim,Phelleem
+S-4,Khoan,Phelleem
+S-4,Klonoid,Phelleem
+S-4,Kyryll's World,Phelleem
+S-4,Maccent,Phelleem
+S-4,Naldar,Phelleem
+S-4,Naraka,Phelleem
+S-4,Nightsend,Phelleem
+S-4,Orixon Nebula,Phelleem
+S-4,"Sundered Veil, The",Phelleem
+S-4,Talvaria,Phelleem
+S-4,Tessen,Phelleem
+S-4,Thrad,Phelleem
+S-4,Thumbsnapper's Bridge,Phelleem
+S-4,Trasemene,Phelleem
+S-4,Vunakia,Phelleem
+S-4,Zabian,Phelleem
+S-4,Sulorine,Suolriep
+S-4,Keldimar,Tharin
+S-4,Nalyd,Tharin
+S-4,Oro Sankeria,Tharin
+S-4,Taskeed,Tharin
+S-4,Arrochar,
+S-5,Iotra Suolriep (Iotran Expanse),
+S-5,Port Ferrule Suolriep (Iotran Expanse),
+S-5,Ques,
+S-5,Reibrin Suolriep (Ansuroer),
+S-5,Coyerti,Bortele
+S-5,Hypotria,Bortele
+S-5,Kalkovak,Bortele
+S-5,Resilon,Bortele
+S-5,Thession,Bortele
+S-5,Alaspin,Suolriep
+S-5,Boonta,Suolriep
+S-5,Domancion,Suolriep
+S-5,Jurzuu,Suolriep
+S-5,Kazlin,Suolriep
+S-5,Komnor,Suolriep
+S-5,Laboi,Suolriep
+S-5,Lythia,Suolriep
+S-5,Nomaria,Suolriep
+S-5,Ord Tellarom,Suolriep
+S-5,Saleucami,Suolriep
+S-5,Solarine,Suolriep
+S-5,Suolriep,Suolriep
+S-5,Timja,Suolriep
+S-5,Vanzeist,Suolriep
+S-5,Vespaara,Suolriep
+S-5,Aaron,Tharin
+S-5,Annoo,Tharin
+S-5,B'nish,Tharin
+S-5,Bolad,Tharin
+S-5,Carlix's Folly,Tharin
+S-5,Cog Hive Seven,Tharin
+S-5,Dennogra,Tharin
+S-5,Forlonis Minor,Tharin
+S-5,Heterkus,Tharin
+S-5,Kuthic,Tharin
+S-5,Moog Mot,Tharin
+S-5,Novor,Tharin
+S-5,Oovo,Tharin
+S-5,Ord Namurt,Tharin
+S-5,Ponton,Tharin
+S-5,Raddan,Tharin
+S-5,Sargesso,Tharin
+S-5,Sunin,Tharin
+S-5,Taka Shier,Tharin
+S-5,Ulkantha,Tharin
+S-5,Vandin,Tharin
+S-5,Vartos,Tharin
+S-5,Vir Aphshire,Tharin
+S-6,Yoribuunt,Tharin
+S-6,Pirik,Tharin (Divis Arm)
+S-6,Sechar,Tharin (Divis Arm)
+S-6,Somavva,Tharin (Divis Arm)
+S-6,Ghorn,Tharin (Karstaxon)
+S-6,Karnst,Tharin (Karstaxon)
+S-6,Talir,Tharin (Karstaxon)
+S-6,Corson Prime,Tharin (Periphery)
+S-6,Dles,Tharin (Periphery)
+S-6,Egips,Tharin (Periphery)
+S-6,Genhu,Tharin (Periphery)
+S-6,Jofoger,Tharin (Periphery)
+S-6,Ka'Dedus,Tharin (Periphery)
+S-6,Lant,Tharin (Periphery)
+S-6,Novolek Beacon,Tharin (Periphery)
+S-6,Nwarcol,Tharin (Periphery)
+S-6,Sedri,Tharin (Periphery)
+S-6,Solacton,Tharin (Periphery)
+S-6,Sriluur,Tharin (Periphery)
+S-6,Terman,Tharin (Periphery)
+S-6,Tragrud,Tharin (Periphery)
+S-6,Vaathkree,Tharin (Periphery)
+S-6,Verde,Tharin (Periphery)
+S-6,Cyborrea,
+S-6,Dirha,
+S-6,Gozgo,
+S-6,Kafane,
+S-6,Khorya,
+S-6,Kintan,
+S-6,Klatooine,
+S-6,M'dweshuu Nova,
+S-6,Nimia,
+S-6,Quaggia,
+S-6,Shawti,
+S-6,Tas-La,
+S-6,Vodran,
+S-6,Vontor,
+S-6,Boz Pity,Halla
+S-6,Danuta,Halla
+S-6,Omiddelon,Halla
+S-6,Vadooria,Halla
+S-6,Xoman,Halla
+S-6,Gagrew,Station
+S-6,Desix,Suolriep
+S-6,Nar Kanji,Suolriep
+S-6,Neree,Suolriep
+S-6,Nerria,Suolriep
+S-6,Sorderia,Suolriep
+S-6,Tefau,Suolriep
+S-6,Zarkis,Suolriep
+S-6,Sespe,Tharin (Periphery)
+S-6,Bootana Shagplan,
+S-6,Kor Besadii,
+S-6,Kor Gorensla,
+S-6,Kor Hestilic,
+S-6,Kor Nasirii,
+S-7,Kor Nijiladii,
+S-7,Kor Vosadii,
+S-7,Langoona,
+S-7,Mulatan,
+S-7,Nar Chunna,
+S-7,Nar Kreeta,
+S-7,Nimban,
+S-7,Quesh,
+S-7,Sionia,
+S-7,Sleheyron,
+S-7,Ulmatra,
+S-7,Zisia,
+S-7,Mantilorr,Suolriep
+S-7,Selavia,Suolriep
+S-7,Yurb,Suolriep
+S-7,Asuin,
+S-7,Cyax,
+S-7,Groth,
+S-7,Hosko,
+S-7,Huloon,
+S-7,Irith,
+S-7,Kor Anjiliac,
+S-7,Kor Bareesh,
+S-7,Kor Desilijic,
+S-7,Kor Gejalli,
+S-7,Kor Hunamma,
+S-7,Kor Jiramma,
+S-7,Kor Oktanivii,
+S-7,Kor Qunaalac,
+S-7,Kor Trinivii,
+S-7,Kor Usilic,
+S-7,Kor Utoradii,
+S-7,Kor Vanderijar,
+S-7,Orondia,
+S-7,Pybus,
+S-7,Saki,
+S-7,Sakidopa,
+S-7,Sakiduba,
+S-7,Valsedian,
+S-7,Varl,
+S-7,Du,Hutta
+S-7,Gos,Hutta
+S-7,Affavan,
+S-7,Aylayl,
+S-7,Carnovia,
+S-7,Circumtore,
+S-7,Diyu,
+S-7,Dotharian,
+S-8,Hollastin,
+S-8,Rorak,
+S-8,Sha'rellia,
+S-8,Nal,Hutta
+S-8,Far Pando,
+S-8,Nar Kaaga,
+S-8,Ord Ortag,
+S-8,Xolu,
+S-8,Deluvia,Klina
+S-8,Fokask,Klina
+S-8,Gravane,Klina
+S-8,Ord Klina,Klina
+S-8,Penhalla,Klina
+S-8,Ssori,Klina
+S-8,Near Pando,
+S-8,Argovia,Endocray
+S-8,Alvorine,Yminis
+S-8,Barnahof,Yminis
+S-8,Borga,Yminis
+S-8,Croce,Yminis
+S-8,Dene Gois Cluster,Yminis
+S-8,Derso,Yminis
+S-8,Drash-So,Yminis
+S-8,Kemix,Yminis
+S-8,Kolanda Station,Yminis
+S-8,Morgania,Yminis
+S-8,Nimgorrhea,Yminis
+S-8,Noomis Riga,Yminis
+S-8,RTK111,Yminis
+S-8,Rocun Cluster,Yminis
+S-8,Rotas,Yminis
+S-8,Xais,Yminis
+S-8,Zznza,Yminis
+S-8,Abrion Major,Abrion
+S-8,Boothi,Abrion
+S-8,Camson,Abrion
+S-8,"Cloak of the Sith, The",Abrion
+S-8,Galpos,Abrion
+S-8,Garban,Abrion
+S-8,Gibad,Abrion
+S-8,Hefi,Abrion
+S-8,Hishyim,Abrion
+S-8,Intuci,Abrion
+S-8,Molavar,Abrion
+S-8,Narkina,Abrion
+S-8,Nurasenti,Abrion
+S-8,Pastil,Abrion
+S-8,Phattro,Abrion
+S-8,Rishi,Abrion
+S-8,Roon,Abrion
+S-8,Scarif,Abrion
+S-8,Sheela,Abrion
+S-8,Sumarin,Abrion
+S-8,Tascollan Nebula,Abrion
+S-8,Tieos,Abrion
+S-8,Ukio,Abrion
+S-8,Varristad,Abrion
+S-8,Mis-Tenek,Manda
+S-8,Arvina,Quiberon
+S-8,Diophos,Quiberon
+S-8,Epsom,Quiberon
+S-8,Inat Prime,Quiberon
+S-8,Lyran,Quiberon
+S-8,Xu'hu,Quiberon
+S-8,Arvala,Sevetta
+S-8,Dozoisia,Sevetta
+S-8,Greater Marianas,Sevetta
+S-8,Hrill,Yminis
+S-8,Threndria,Yminis
+S-8,Xilxash,Yminis
+S-8,Squan Station (Arboo),
+S-8,Bundil,Ferra
+S-9,Hypori,Ferra
+S-9,Mendavi,Ferra
+S-9,Naps Fral Cluster,Ferra
+S-9,Xorrn,Ferra
+S-9,Porpor,Grohl
+S-9,Dagu,Instrop
+S-9,Venedlia,Instrop
+S-9,Vlemoth Port,Instrop
+S-9,Wick,Instrop
+S-9,Heva,Sevetta
+S-9,Kowak,Sevetta
+S-9,Aaloth,Gaulus
+S-9,Alarevi,Gaulus
+S-9,Gaulus,Gaulus
+S-9,Malus,Gaulus
+S-9,Tellanroaeg,Gaulus
+S-9,Unavartan,Gaulus
+S-9,Wrea,Gaulus
+S-9,Dothnia,Hunnoverrs
+S-9,Zoma,Hunnoverrs
+S-9,Derenzil,
+S-9,Freya,
+S-9,Gertafuu,
+S-9,Indoumodo,
+S-9,Lamaredd,
+S-9,Naos,
+S-9,Velabri,
+S-9,Smuggler's Run,Gaulus
+T-10,Faarlsun,
+T-10,Parthovian,Cluster
+T-10,Apiliria,
+T-10,Cholganna,
+T-10,Dianth,
+T-10,Drongar,
+T-10,Salissia,
+T-10,Seidhkona,
+T-10,Yaronn,
+T-10,Chol,Nebula
+T-10,Zandrax,Nilgaard
+T-10,Cujicor,Pakuuni
+T-10,Daltarra,Pakuuni
+T-10,Florn,Pakuuni
+T-10,Syruss,Pakuuni
+T-10,Ton-Falk,Pakuuni
+T-10,Hiorin,Ash Worlds
+T-10,New Alderaan,Ash Worlds
+T-10,Sran,Ash Worlds
+T-10,Teralov,Ash Worlds
+T-10,Eridicon,Calamari
+T-10,Minntooine,Calamari
+T-10,Escarte,Keldrath
+T-11,Gbu,Keldrath
+T-11,Geillia,Keldrath
+T-11,Junobia,Keldrath
+T-11,Mullan,Keldrath
+T-11,Crseih,Pakuuni
+T-11,Killun Station,Pakuuni
+T-11,Munto Codru,Pakuuni
+T-11,Pakuuni,Pakuuni
+T-12,Refnar,Pakuuni
+T-12,Reginard,Pakuuni
+T-12,Shaylin,Pakuuni
+T-12,Telaris,Pakuuni
+T-12,Turkana,Pakuuni
+T-12,Vaenrood,Pakuuni
+T-12,Brigia,Tion Hegemony
+T-12,Caluula,Tion Hegemony
+T-13,Dellalt,Tion Hegemony
+T-13,Golus Pheyar,Tion Hegemony
+T-13,Orion,Tion Hegemony
+T-13,Ash Moon 1 Jubilar (Kartovian),
+T-13,Agon,Ash Worlds
+T-13,Chiron,Ash Worlds
+T-13,Cophrigin,Ash Worlds
+T-13,Criigo,Ash Worlds
+T-13,Extrictarium Nebula,Ash Worlds
+T-13,Iego,Ash Worlds
+T-13,Mykapo,Ash Worlds
+T-14,Nyny,Ash Worlds
+T-14,OHS1782-03,Ash Worlds
+T-14,OHS2132-04,Ash Worlds
+T-14,OHS3842-03,Ash Worlds
+T-14,OHS4140-02,Ash Worlds
+T-14,Sereeda,Ash Worlds
+T-14,Uriek,Ash Worlds
+T-14,Batonn,Ash Worlds (Batonn)
+T-14,Denash,Ash Worlds (Batonn)
+T-14,Sammun,Ash Worlds (Batonn)
+T-14,Encrust,Jubilar
+T-15,Hardex,Jubilar
+T-15,Jubilar,Jubilar
+T-15,Meor Ain,Jubilar
+T-15,Oliu,Jubilar
+T-15,"Orgri, The",Jubilar
+T-15,Toong'l,Jubilar
+T-15,Yaled,Jubilar
+T-15,Archeon Nebula,Lothal
+T-15,Atollon,Lothal
+T-16,Bresallis,Cadma
+T-16,Dagelin Minor,Cadma
+T-16,Garn,Cadma
+T-16,Karnac,Cadma
+T-16,Konkiv,Cadma
+T-16,Maphus Tria,Cadma
+T-16,Orranana,Cadma
+T-16,Rullag,Cadma
+T-17,Simbarc,Cadma
+T-17,Skeressa,Cadma
+T-17,Toshara,Cadma
+T-17,Arleen,Centrality
+T-17,Cadma,Centrality
+T-17,Dela,Centrality
+T-17,Erilnar,Centrality
+T-4,Lekua,Centrality
+T-4,Oseon,Centrality
+T-5,Rafa,Centrality
+T-5,Ringneldia,Centrality
+T-5,Scillal,Centrality
+T-5,Zebitrope,Centrality
+T-5,Ibaar,Jubilar
+T-5,Sufezz,Jubilar
+T-5,Gand,Shadola
+T-5,Solubria,Shadola
+T-5,Jexeria,Tharin
+T-5,Junkfort Station,Tharin
+T-5,Kara-bin,Tharin
+T-5,Marleyvane,Tharin
+T-5,Nimat,Tharin
+T-5,Qhulosk,Tharin
+T-6,Tammar,Tharin
+T-6,Yarma,Tharin
+T-6,Ac'fren,Calaron
+T-6,Akrit'tar,Calaron
+T-6,Alamass,Calaron
+T-6,Arzid,Calaron
+T-6,Baroonda,Calaron
+T-6,Black Widow Nebula,Calaron
+T-6,Bnach,Calaron
+T-6,Darvannis,Calaron
+T-6,Delacrix,Calaron
+T-6,Delassin,Calaron
+T-6,Dweem,Calaron
+T-6,F'tral,Calaron
+T-6,Geran,Calaron
+T-6,Gestrex,Calaron
+T-6,Jerijador,Calaron
+T-6,Kegan,Calaron
+T-6,Koozebane,Calaron
+T-6,Kubindi,Calaron
+T-6,Morvogodine,Calaron
+T-6,Neary,Calaron
+T-6,Nepotis,Calaron
+T-6,Norval,Calaron
+T-6,Rangorah,Calaron
+T-6,Stieg,Calaron
+T-7,Vatleria,Calaron
+T-7,Xendek,Calaron
+T-7,Zircon,Calaron
+T-7,Elgit,
+T-7,Moralan,
+T-7,Usk,
+T-7,Fwillsving,Calaron
+T-7,Aeneid,Kessel
+T-7,Akkadese Maelstrom,Kessel
+T-7,Ashteri's Cloud,Kessel
+T-7,Drualkiin,Kessel
+T-7,Formos,Kessel
+T-7,Forome,Kessel
+T-7,Gloon,Kessel
+T-7,Honoghr,Kessel
+T-7,Injopan,Kessel
+T-7,Kessel,Kessel
+T-7,Little Kessel,Kessel
+T-7,Mandrine,Kessel
+T-7,Maw Cluster,Kessel
+T-7,Oba Diah,Kessel
+T-7,Prishella,Kessel
+T-7,Randa,Kessel
+T-7,Rion,Kessel
+T-7,Tilurus,Kessel
+T-7,Zerm,Kessel
+T-7,M'Hanna,
+T-7,Nar Haaska,
+T-8,Sakifwanna,
+T-8,Saqqar,
+T-8,Tisht,
+T-8,Droxu,Bheriz
+T-8,Zabba,Bheriz
+T-8,"Godsheart,",The
+T-8,Poytta,
+T-8,Riileb,
+T-8,Ylesia,
+T-8,Ziugen,
+T-8,Hidden Tegoor,Albanin
+T-8,Ord Lonesome,Albanin
+T-8,Riddellia,Albanin
+T-8,Outland Station,Baxel
+T-8,Tsyk,
+T-8,Cyrkon,Al'Nasrl
+T-8,Ferton,Al'Nasrl
+T-8,Karambola,Al'Nasrl
+T-8,Syvris,Al'Nasrl
+T-8,Unagin,Al'Nasrl
+T-8,Dubrava,Albanin
+T-8,Karalle,Albanin
+T-8,Arami,Galov
+T-8,Durgeon,Galov
+T-8,Romar,Galov
+T-8,Fuacha,Galov
+T-8,Galov,Galov
+T-8,Gamorr,Galov
+T-8,Thorat,Galov
+T-8,Chuzalla,Tammuz
+T-8,Dandelo,Tammuz
+T-8,Dersonn,Tammuz
+T-8,Endrias Minor,Tammuz
+T-9,Iti,Tammuz
+T-9,Kaddak,Tammuz
+T-9,Tammuz-an,Tammuz
+T-9,Pzob,Herios
+T-9,Zybahhod,Herios
+T-9,Beznaz,Quiberon
+T-9,Dorande,Quiberon
+T-9,Quiberon,Quiberon
+T-9,R-Duba,Quiberon
+T-9,Rothana,Quiberon
+T-9,Deralia,Tammuz
+T-9,Shiffrin,Tammuz
+T-9,Excarga,Herios
+T-9,Herios,Herios
+T-9,Holador,Herios
+T-9,Illarreen,Herios
+T-9,Rokirex,Herios
+T-9,Sevetta,Sevetta
+T-9,Vint,Sevetta
+T-9,Woldona,Sevetta
+T-9,Arbooine (Arboo),
+T-9,Nimba,
+T-9,Roost Bitrose,
+T-9,Shinbone,
+T-9,Stoga Bitrose,
+T-9,Partold,Instrop
+T-9,Rannon,Instrop
+U-10,Giryulan,
+U-10,Hast,
+U-10,Pyrr,
+U-10,Zigoola,
+U-10,Buchich,Calamari
+U-10,Damendine,Calamari
+U-10,Enoth,Calamari
+U-10,Hinakuu,Calamari
+U-10,Icindra,Calamari
+U-10,Krinemonen,Calamari
+U-10,Mantan,Calamari
+U-10,Mon Cala,Calamari
+U-11,New Heurkea,Calamari
+U-11,Pammant,Calamari
+U-11,Pinperu,Calamari
+U-11,Ruisto,Calamari
+U-11,Strokill Prime,Calamari
+U-11,Dizon Fray,
+U-11,Dominus Lothal (Dominus),
+U-11,Targonn,
+U-11,Kamdon,Calamari
+U-12,Poseidenna,Calamari
+U-12,Taral,Calamari
+U-12,Baros,Lothal
+U-12,Bri'n,Lothal
+U-12,Dark Nebula,Lothal
+U-12,Dornea,Lothal
+U-12,Garel,Lothal
+U-12,Lothal,Lothal
+U-12,Moldour,Lothal
+U-12,Oon,Lothal
+U-12,Ruac,Lothal
+U-12,Solanus,Lothal
+U-12,Solay,Lothal
+U-13,Synistahg,Lothal
+U-13,Trailia,Lothal
+U-13,Benwabula,Shadola
+U-13,Berzite,
+U-13,Pluthan,
+U-13,Retta,
+U-14,Kaski,Calaron
+U-14,Antipose,Centrality
+U-14,Dilonexa,Centrality
+U-15,Douglas,Centrality
+U-16,Falko,Centrality
+U-6,Hosrel,Centrality
+U-6,Open Sea,Centrality
+U-6,Paulking,Centrality
+U-6,Renatasia,Centrality
+U-6,Snowdn,Centrality
+U-6,ThonBoka Nebula,Centrality
+U-6,Trammis,Centrality
+U-6,Tund,Centrality
+U-6,Uaua,Centrality
+U-6,Baummu,Shadola
+U-6,Danos,Shadola
+U-6,Eufornis Minor,Shadola
+U-6,Fekunda,Shadola
+U-6,Krozurbia,Shadola
+U-6,Maldra,Shadola
+U-6,Skeebo,Shadola
+U-6,Tais Brabbo,Shadola
+U-7,Gotar,
+U-7,Thraisai,
+U-7,Freliq,Calaron
+U-7,Lowick,Calaron
+U-7,Seregar,Calaron
+U-7,Sisk,Calaron
+U-7,Vvaw,Calaron
+U-7,Zimara,Calaron
+U-7,Kesh,
+U-7,Aramanoo,Bheriz
+U-7,Bheriz,Bheriz
+U-7,Eadu,Bheriz
+U-7,"Inamorata, The",Bheriz
+U-7,Keshi,Bheriz
+U-7,Minavar,Bheriz
+U-7,P'frorin,Bheriz
+U-7,Port Lasgo,Bheriz
+U-7,Reesaria,Bheriz
+U-7,Lexas Prime,Kessel
+U-7,Rennokk,Kessel
+U-8,Crandel,
+U-8,Boltrunia,Baxel
+U-8,Glottal,Baxel
+U-8,Nadiem,Baxel
+U-8,Styx,Baxel
+U-8,Aduba,Bheriz
+U-8,Klytonia,Bheriz
+U-8,Rigel,Bheriz
+U-8,Turrani,Bheriz
+U-8,Bilzen,
+U-8,Palliduva,
+U-8,Barab,Albanin
+U-8,Clantaano,Albanin
+U-8,Regulan,Albanin
+U-8,Sim'char'ser,Albanin
+U-8,Thassalia,Albanin
+U-8,Dilbana,Baxel
+U-8,Lirra,Baxel
+U-8,Oosalon,Baxel
+U-8,Rampa Minor,Baxel
+U-8,Rinn,Baxel
+U-8,Teth,Baxel
+U-8,Clear View,
+U-8,Daluuj,Albanin
+U-8,Omereth,Albanin
+U-9,Altor,Zoraster
+U-9,Dodz,Zoraster
+U-9,Zoraster,Zoraster
+U-9,Smarteel,
+U-9,Fyodos,Tammuz
+U-9,Shola,Tammuz
+U-9,V'shar,
+U-9,Moonflower,Nebula
+V-8,Malagarr,
+V-9,Er'stacia,
+V-9,Hurikane,
+V-9,Yoon,Cloud
+W-10,Trigaskian Blur,
