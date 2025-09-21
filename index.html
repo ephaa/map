@@ -285,6 +285,10 @@
     const SECTOR_PAD = 220;
     const SECTOR_SMOOTH_ITERS = 3;
     let NO_SECTOR_OVERLAP_ITERS = 260;
+    let lastTouchDownAt = 0;
+    let lastTapTimeContainer = 0;
+    let squelchTapUntil = 0;
+    let distanceHadPinch = false;
 
     const STAR_MIN_PX = 1.5, STAR_MAX_PX = 9;
     const FONT_MIN_PX = 9,   FONT_MAX_PX = 22;
@@ -324,7 +328,10 @@
         });
 
         document.addEventListener('click', (e)=>{
-            if (!e.target.closest('#settings')) setSettingsOpen(false);
+            if (!e.target.closest('#settings')) {
+                setSettingsOpen(false);
+                squelchTapUntil = performance.now() + 350;
+            }
         });
     }
 
@@ -402,7 +409,18 @@
         if (pointersArray().length === 1){
             isDragging = true;
             startX = e.clientX; startY = e.clientY; downX = originX; downY = originY; dragMoved = false;
-            if (mode === 'distance'){ addDistancePointFromClient(e.clientX, e.clientY); }
+
+            if (mode === 'distance' && e.pointerType === 'touch') {
+                const now = performance.now();
+                if (now - lastTapTimeContainer < 300) {
+                    clearMainDistance();
+                    e.preventDefault();
+                    return;
+                }
+                lastTapTimeContainer = now;
+            }
+
+            distanceHadPinch = false;
         }
         e.preventDefault();
     });
@@ -413,6 +431,7 @@
         const ps = pointersArray();
 
         if (ps.length === 2 && !hitsUI(e)){
+            distanceHadPinch = true;
             const [p0,p1] = ps;
             if (!container._pinch){
                 container._pinch = { start:{p0, p1, d:dist2(p0,p1), m:mid(p0,p1)}, originX, originY, scale };
@@ -451,11 +470,24 @@
         ptrs.delete(e.pointerId);
         if (pointersArray().length < 2) container._pinch = null;
         try { container.releasePointerCapture(e.pointerId); } catch {}
+
+        if (mode === 'distance' && !hitsUI(e)) {
+            const now = performance.now();
+            const cleanTap = !dragMoved && !distanceHadPinch && (now >= squelchTapUntil);
+            if (cleanTap) {
+                addDistancePointFromClient(e.clientX, e.clientY);
+            }
+        }
+
         isDragging=false; setTimeout(()=>{dragMoved=false;},0);
     });
+
     container.addEventListener('pointercancel', (e)=>{
-        ptrs.delete(e.pointerId); container._pinch = null; isDragging=false; dragMoved=false;
+        ptrs.delete(e.pointerId);
+        container._pinch = null;
+        isDragging=false; dragMoved=false;
     });
+
 
     container.addEventListener('wheel', (e)=>{
         if (hitsUI(e)) return;
@@ -470,7 +502,11 @@
         scale = newScale; originX = mx - wx * scale; originY = my - wy * scale; applyTransform();
     }, { passive:false });
 
-    container.addEventListener('dblclick', (e)=>{ if (!hitsUI(e) && mode!=='distance'){ scale=1; originX=0; originY=0; applyTransform(); } });
+    container.addEventListener('dblclick', (e)=>{
+        if (hitsUI(e)) return;
+        if (mode === 'distance'){ clearMainDistance(); }
+        else { scale=1; originX=0; originY=0; applyTransform(); }
+    });
     container.addEventListener('contextmenu', (e)=>{ if (mode==='distance' && !hitsUI(e)){ e.preventDefault(); clearMainDistance(); } });
 
     function buildGrid(){
@@ -771,21 +807,18 @@
         } else { selectedIdx = null; planetInfo.style.display = 'none'; }
     }
 
-    /* === Viewer drag handlers (improved) === */
     viewerCanvas.addEventListener('pointerdown', e=>{
+        vPtrs.set(e.pointerId, {x:e.clientX, y:e.clientY});
+
+        if (e.pointerType === 'touch') { lastTouchDownAt = performance.now(); }
+
         const { sx, sy } = clientToCanvas(e.clientX, e.clientY);
         const isRight = e.button === 2;
 
         if (viewerDistanceMode){
             if (isRight){ viewerDistPts = []; drawViewer(); return; }
-            if (e.button === 0){
-                const wx = (sx - vX)/vScale, wy = (sy - vY)/vScale;
-                viewerDistPts.push({x: wx, y: wy});
-                drawViewer();
-            }
             return;
         }
-
 
         if (vPtrs.size <= 1 && e.button === 0){
             dragging = true;
@@ -803,12 +836,35 @@
     viewerCanvas.addEventListener('pointerup', e=>{
         try { viewerCanvas.releasePointerCapture(e.pointerId); } catch {}
         viewerCanvas.style.cursor = 'grab';
-        if (vPtrs.size >= 1) { dragging = false; return; }
+
+        vPtrs.delete(e.pointerId);
+        if (vPtrs.size < 2) clearVPinch();
+
+        if (vPtrs.size >= 2) { dragging = false; return; }
+
         const { sx, sy } = clientToCanvas(e.clientX, e.clientY);
         const moved = Math.hypot(sx - startPX, sy - startPY);
         const wasDragging = dragging;
         dragging = false;
-        if (wasDragging && moved < 5 && !viewerDistanceMode){
+
+        if (viewerDistanceMode && e.pointerType === 'touch') {
+            const now = performance.now();
+            if (now - lastTouchDownAt < 300) {
+                viewerDistPts = []; drawViewer();
+                return;
+            }
+        }
+
+        if (viewerDistanceMode) {
+            if (moved < 5) {
+                const wx = (sx - vX)/vScale, wy = (sy - vY)/vScale;
+                viewerDistPts.push({x: wx, y: wy});
+                drawViewer();
+            }
+            return;
+        }
+
+        if (wasDragging && moved < 5){
             handleViewerClick(e.clientX, e.clientY);
         }
     });
@@ -820,7 +876,14 @@
         const newScale = Math.max(fitScale()*0.2, Math.min(vMax, vScale*step));
         vScale = newScale; vX = sx - preX * vScale; vY = sy - preY * vScale; drawViewer();
     },{passive:false});
-    viewerCanvas.addEventListener('dblclick', ()=>{ resetViewerTransform(); drawViewer(); });
+    viewerCanvas.addEventListener('dblclick', ()=>{
+        if (viewerDistanceMode){
+            viewerDistPts = []; drawViewer();
+        } else {
+            resetViewerTransform(); drawViewer();
+        }
+    });
+
     viewerCanvas.addEventListener('contextmenu', (e)=>{ if (viewerDistanceMode){ e.preventDefault(); viewerDistPts = []; drawViewer(); } });
     document.addEventListener('keydown', e=>{ if (e.key === 'Escape'){ selectedIdx = null; planetInfo.style.display = 'none'; } });
 
