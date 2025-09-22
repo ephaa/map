@@ -180,6 +180,36 @@
 
             #viewer { width: 94vw; height: 56vh; right: 3vw; top: 10px; }
         }
+
+        g.trade-selected .cell{
+            fill: rgba(255, 60, 60, 0.22);
+            stroke: #ff3b3b;
+            stroke-width: 2.5;
+            filter:
+                    drop-shadow(0 0 6px rgba(255, 60, 60, .55))
+                    drop-shadow(0 0 18px rgba(255, 0, 0, .35));
+        }
+        g.trade-selected{
+            transform: none;
+            animation: none;
+        }
+        
+        #tradeHUD {
+            position:absolute; left:50%; bottom:-120px; transform:translateX(-50%);
+            z-index:55; width:min(560px, 94vw);
+            display:flex; flex-direction:column; align-items:center; gap:10px;
+            transition: bottom .25s ease, opacity .25s ease;
+            opacity:0; pointer-events:none;
+        }
+        #tradeHUD.show { bottom:24px; opacity:1; pointer-events:auto; }
+
+        #tradeStats{
+            position:absolute; left:12px; bottom:12px; z-index:26;
+            background:rgba(18,18,24,.85); border:1px solid rgba(120,120,150,.5);
+            color:#dfe7ff; font:12px system-ui; padding:6px 8px; border-radius:6px; pointer-events:none;
+            white-space:nowrap;
+        }
+
     </style>
 </head>
 <body>
@@ -189,7 +219,7 @@
     <svg id="overlay"></svg>
     <canvas id="cursorLayer"></canvas>
 
-    <!-- TOP-LEFT SEARCH -->
+    
     <div id="searchUI">
         <div style="position:relative">
             <input id="searchBox" type="search" placeholder="Search object or sector…" autocomplete="off" />
@@ -198,7 +228,7 @@
         <div id="results" role="listbox" aria-label="Search results"></div>
     </div>
 
-    <!-- Viewer -->
+    
     <div id="viewer" aria-label="Cell viewer">
         <div id="viewerHeader">
             <div>
@@ -215,7 +245,7 @@
             <canvas id="viewerCanvas" width="1200" height="1200"></canvas>
         </div>
 
-        <!-- Planet info card -->
+
         <div id="planetInfo" role="dialog" aria-modal="false">
             <button id="planetInfoClose" aria-label="Close planet info">✕</button>
             <button id="planetInfoSearch" title="Search on Wookieepedia" aria-label="Search on Wookieepedia">🔎︎</button>
@@ -224,7 +254,7 @@
         </div>
     </div>
 
-    <!-- Settings -->
+    
     <div id="settings">
         <div id="cogButton" title="Settings"></div>
         <div id="hoverBridge" aria-hidden="true"></div>
@@ -237,6 +267,7 @@
                     <div class="mode-item active" data-mode="path" role="tab" aria-selected="true" tabindex="0">Path (1)</div>
                     <div class="mode-item" data-mode="select" role="tab" aria-selected="false" tabindex="0">Select (2)</div>
                     <div class="mode-item" data-mode="distance" role="tab" aria-selected="false" tabindex="0">Distance (3)</div>
+                    <div class="mode-item" data-mode="trade" role="tab" aria-selected="false" tabindex="0">Trade (4)</div>
                 </div>
 
                 <div id="pathActions" style="display:none">
@@ -245,7 +276,7 @@
                 </div>
             </div>
 
-            <!-- Cursor section: will be hidden on touch -->
+    
             <div id="cursorSection" class="section">
                 <div class="section-title">Cursor</div>
                 <div class="cursor-controls">
@@ -264,7 +295,6 @@
         </div>
     </div>
 
-    <!-- Bottom-center Path HUD -->
     <div id="pathHUD" aria-hidden="true">
         <div class="path-title">Path Mode</div>
         <div class="path-divider"></div>
@@ -274,7 +304,17 @@
         </div>
     </div>
 
+    <div id="tradeHUD" aria-hidden="true">
+        <div class="path-title">Trade Mode</div>
+        <div class="path-divider"></div>
+        <div class="path-buttons">
+            <button id="tradeSwap" class="path-btn">Swap</button>
+            <button id="tradeClear" class="path-btn">Clear</button>
+        </div>
+    </div>
+
     <div id="speedHUD"><b>Speed</b> · 0 px/s · 0 thousand light-years per second</div>
+    <div id="tradeStats" aria-live="polite">Pick two cells</div>
 </div>
 
 <script>
@@ -536,7 +576,7 @@
                     }else if(mode==='select'){
                         overlay.querySelectorAll('g.select-selected').forEach(el=>el.classList.remove('select-selected'));
                         g.classList.add('select-selected');
-                        openCellViewer([cellId]); // single cell
+                        openCellViewer([cellId]); 
                     }
                 });
 
@@ -558,7 +598,8 @@
     const MODE_TIPS = {
         path: 'Plan routes by chaining adjacent cells (no diagonals). Click to start, then add up/down/left/right neighbors. “Complete” opens a map of your chain.',
         select: 'Open a single cell instantly. Click any cell to view its standalone map.',
-        distance: 'Measure on the main galaxy map. Tap/click to drop points and build a polyline. Right-click / Esc clears.'
+        distance: 'Measure on the main galaxy map. Tap/click to drop points and build a polyline. Right-click / Esc clears.',
+        trade: 'Pick two cells. I’ll find the shortest hyperlane route between them. “Swap” flips direction; “Clear” resets.'
     };
 
     document.getElementById('modeTip').textContent = MODE_TIPS['path'];
@@ -900,7 +941,7 @@
                 vPinchStart = {a, b, d: Math.hypot(a.x-b.x, a.y-b.y), mid:{x:(a.x+b.x)/2,y:(a.y+b.y)/2}, vScale, vX, vY};
             } else {
                 const dNow = Math.hypot(a.x-b.x, a.y-b.y);
-                const raw = dNow / Math.max(10, vPinchStart.d); // bugfix
+                const raw = dNow / Math.max(10, vPinchStart.d); 
                 const factor = Math.pow(raw, IS_TOUCH ? 0.85 : 1);
                 const rect = viewerCanvas.getBoundingClientRect();
                 const sx = vPinchStart.mid.x - rect.left, sy = vPinchStart.mid.y - rect.top;
@@ -1673,7 +1714,7 @@
         resultsEl.style.display='block';
     }
 
-    // ===== Cursor trail & options — Desktop only =====
+    
     const trailCanvas=document.getElementById('cursorLayer'), ctxTrail=trailCanvas.getContext('2d');
     const DPR_UI=Math.max(1,Math.min(window.devicePixelRatio||1,2));
     function resizeTrail(){ trailCanvas.style.width=innerWidth+'px'; trailCanvas.style.height=innerHeight+'px'; trailCanvas.width=Math.floor(innerWidth*DPR_UI); trailCanvas.height=Math.floor(innerHeight*DPR_UI); ctxTrail.setTransform(DPR_UI,0,0,DPR_UI,0,0);}
@@ -1692,8 +1733,8 @@
     document.querySelectorAll('.swatch[data-color]').forEach(s=> s.addEventListener('click', ()=>{ cursorColor=s.dataset.color; if(picker) picker.value=cursorColor; localStorage.setItem('cursorColor',cursorColor); }));
     if (resetBtn) resetBtn.addEventListener('click', ()=>{ cursorColor=DEFAULT_COLOR; if(picker) picker.value=cursorColor; localStorage.setItem('cursorColor',cursorColor); });
 
-    // Desktop-only gating
-    let trailEnabled = !IS_TOUCH; // show trail only on desktop
+    
+    let trailEnabled = !IS_TOUCH; 
     if (IS_TOUCH) {
 
         const cursorSection = document.getElementById('cursorSection');
@@ -1705,7 +1746,7 @@
     }
 
     document.addEventListener('keydown', (e) => {
-        if (IS_TOUCH) return; // ignore toggle on mobile
+        if (IS_TOUCH) return; 
         if (e.key.toLowerCase() === 'c') {
             trailEnabled = !trailEnabled;
             document.getElementById('cursorLayer').style.display = trailEnabled ? 'block' : 'none';
@@ -1732,7 +1773,7 @@
         requestAnimationFrame(drawTrail);
     })();
 
-    // ===== Speed HUD — Desktop only =====
+    
     const speedHUD=document.getElementById('speedHUD');
     const EMA_ALPHA=0.2; let lastT=performance.now(), lastX=null,lastY=null, ema=0;
     function fmt(n){ if(!isFinite(n))return'0'; if(n>=1e5)return n.toExponential(2); if(n>=1e3)return n.toFixed(0); return n.toFixed(2);}
@@ -1744,6 +1785,440 @@
             speedHUD.innerHTML=`<b>Speed</b> · ${fmt(ema)} px/s · ${fmt(k)} thousand light-years per second`;
         });
     }
+
+   
+    (() => {
+        
+        const tradeHUD      = document.getElementById('tradeHUD');
+        const tradeClearBtn = document.getElementById('tradeClear');
+        const tradeSwapBtn  = document.getElementById('tradeSwap');
+        const tradeStatsEl  = document.getElementById('tradeStats');
+
+        let routeGroup = null;
+        let routeDots  = null;
+
+        
+        const LINE_COLOR = '#ff3b3b';
+        const DOT_FILL   = '#ff6b6b';
+        const DOT_STROKE = '#ffd0d0';
+        const NODE_R     = 9;
+
+        function hud(on){ tradeHUD?.classList.toggle('show', !!on); }
+        function setStats(s){ if (tradeStatsEl) tradeStatsEl.textContent = s || 'Pick two cells'; }
+
+        function ensureGlow(){
+            if (overlay.querySelector('#tradeGlow')) return;
+            const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');
+            defs.innerHTML = `
+      <filter id="tradeGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="3" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>`;
+            overlay.appendChild(defs);
+        }
+        function ensureLayers(){
+            ensureGlow();
+            routeGroup = overlay.querySelector('#tradeRoute') || document.createElementNS('http://www.w3.org/2000/svg','g');
+            routeGroup.id='tradeRoute';
+            routeDots  = overlay.querySelector('#tradeRouteNodes') || document.createElementNS('http://www.w3.org/2000/svg','g');
+            routeDots.id='tradeRouteNodes';
+            if (routeGroup.parentNode !== overlay) overlay.appendChild(routeGroup);
+            if (routeDots.parentNode  !== overlay) overlay.appendChild(routeDots);
+        }
+        const mo = new MutationObserver(() => ensureLayers());
+        mo.observe(overlay, { childList: true });
+
+        
+        const ATTACH_STEPS_PX = [0.35, 0.55, 0.85, 1.25].map(f => Math.round(f * CELL_W));
+        const NEIGHBOR_RING   = 2;
+        const CANDIDATE_PAD   = 14;
+        const SMOOTH          = 0.14;
+
+        
+        const FILE_NODES = 'nodes.csv';
+        const FILE_EDGES = 'edges.csv';
+
+        let NODES = {}, ADJ = new Map(), EDGES = [], DEG = {};
+        let CELL_NODES = new Map();
+
+        
+        function splitCSV(line){
+            const out=[]; let cur='',q=false;
+            for (let i=0;i<line.length;i++){
+                const ch=line[i];
+                if (q){ if(ch === '"'){ if(line[i+1] === '"'){ cur+='"'; i++; } else q=false; } else cur+=ch; }
+                else { if(ch === '"') q=true; else if(ch === ','){ out.push(cur); cur=''; } else cur+=ch; }
+            }
+            out.push(cur); return out.map(s=>s.trim());
+        }
+        function parseCSV(txt){
+            const lines = String(txt).replace(/\r\n?/g,'\n').split('\n').filter(Boolean);
+            if (!lines.length) return [];
+            const head = splitCSV(lines[0]).map(h=>h.trim());
+            return lines.slice(1).map(l=>{
+                const cols = splitCSV(l); const r={};
+                for (let i=0;i<head.length;i++) r[head[i]] = (cols[i] ?? '').trim();
+                return r;
+            });
+        }
+        function parsePolyPoints(s){
+            if (!s) return [];
+            return String(s).split('|').map(seg => seg.trim()).filter(Boolean).map(seg=>{
+                const m = seg.match(/(-?\d+(?:\.\d+)?)\s*,?\s*(-?\d+(?:\.\d+)?)/);
+                if (!m) return null;
+                const x = Number(m[1]), y = Number(m[2]);
+                return (Number.isFinite(x)&&Number.isFinite(y))?{x,y}:null;
+            }).filter(Boolean);
+        }
+
+        
+        function ptToCellId(x, y){
+            const c = Math.floor((x - GRID_LEFT) / CELL_W);
+            const r = Math.floor((y - GRID_TOP)  / CELL_H);
+            if (c < 0 || c >= COLS || r < 0 || r >= ROWS) return null;
+            return `${COL_LETTERS[c]}${r+1}`;
+        }
+        function cellRect(cellId){
+            const m = /^([A-Z]+)(\d+)$/.exec(cellId);
+            const c = COL_LETTERS.indexOf(m[1]); const r = (+m[2])-1;
+            const x = GRID_LEFT + c*CELL_W, y = GRID_TOP + r*CELL_H;
+            return {x0:x,y0:y,x1:x+CELL_W,y1:y+CELL_H};
+        }
+        function clampPointToRect(px,py,rect){
+            const x = Math.max(rect.x0, Math.min(rect.x1, px));
+            const y = Math.max(rect.y0, Math.min(rect.y1, py));
+            return {x,y,dist:Math.hypot(px-x,py-y)};
+        }
+
+        
+        const d2 = (ax,ay,bx,by)=>{ const dx=ax-bx, dy=ay-by; return dx*dx+dy*dy; };
+        function polyLengthPx(poly){ let s=0; for (let i=1;i<poly.length;i++){ const a=poly[i-1], b=poly[i]; s+=Math.hypot(b.x-a.x,b.y-a.y);} return s; }
+        function closestOnSegmentToRect(ax,ay,bx,by,rect){
+            const vx=bx-ax, vy=by-ay, L2=vx*vx+vy*vy || 1;
+            const cx=(rect.x0+rect.x1)/2, cy=(rect.y0+rect.y1)/2;
+            let t=((cx-ax)*vx + (cy-ay)*vy)/L2; t=Math.max(0,Math.min(1,t));
+            const px=ax+vx*t, py=ay+vy*t; const q=clampPointToRect(px,py,rect);
+            return { px, py, t, dist:q.dist };
+        }
+        function closestOnPolyToRect(poly, rect){
+            if (!poly || poly.length<2) return null;
+            let best=null, cum=0;
+            for (let i=1;i<poly.length;i++){
+                const a=poly[i-1], b=poly[i];
+                const segLen=Math.hypot(b.x-a.x,b.y-a.y)||1;
+                const res=closestOnSegmentToRect(a.x,a.y,b.x,b.y,rect);
+                const along=cum + res.t*segLen;
+                if (!best || res.dist<best.dist) best={ x:res.px,y:res.py, segIndex:i-1, t:res.t, dist:res.dist, alongPx:along };
+                cum+=segLen;
+            }
+            best.totalPx=polyLengthPx(poly);
+            return best;
+        }
+        function slicePolyFromSnap(poly, segIndex, t, toEnd){
+            const pts=[]; const A=poly[segIndex], B=poly[segIndex+1];
+            const sx=A.x+(B.x-A.x)*t, sy=A.y+(B.y-A.y)*t;
+            if (toEnd===-1){ pts.push({x:sx,y:sy}); for (let i=segIndex; i>=0; i--) pts.push(poly[i]); }
+            else           { pts.push({x:sx,y:sy}); for (let i=segIndex+1; i<poly.length; i++) pts.push(poly[i]); }
+            return pts;
+        }
+        function pathD(pts, k=0.14){
+            if (!pts || pts.length<2) return '';
+            if (pts.length===2) return `M${pts[0].x},${pts[1].y} L${pts[1].x},${pts[1].y}`;
+            let d=`M${pts[0].x},${pts[0].y}`;
+            for (let i=1;i<pts.length-1;i++){
+                const c=pts[i], n=pts[i+1];
+                const mx=(c.x+n.x)/2, my=(c.y+n.y)/2;
+                const tx=mx*(1-k)+n.x*k, ty=my*(1-k)+n.y*k;
+                d+=` Q${c.x},${c.y} ${tx},${ty}`;
+            }
+            const L=pts[pts.length-1]; d+=` T${L.x},${L.y}`; return d;
+        }
+
+        
+        async function loadGraph(){
+            if (loadGraph._done) return;
+            const [nr, er] = await Promise.all([ fetch(FILE_NODES), fetch(FILE_EDGES) ]);
+            const [nt, et] = await Promise.all([ nr.text(), er.text() ]);
+            const N = parseCSV(nt), E = parseCSV(et);
+
+            NODES = {}; CELL_NODES = new Map(); DEG={};
+            for (const r of N){
+                const id=(r.id||r.ID||r.node||r.Node||'').trim();
+                const x=Number(r.x||r.X), y=Number(r.y||r.Y);
+                if (!id || !Number.isFinite(x) || !Number.isFinite(y)) continue;
+                const cell=ptToCellId(x,y);
+                NODES[id]={id,x,y,cell};
+                if (cell){ if(!CELL_NODES.has(cell)) CELL_NODES.set(cell, []); CELL_NODES.get(cell).push(id); }
+            }
+
+            ADJ=new Map(); EDGES=[]; let eid=0;
+            for (const r of E){
+                const u=(r.u||r.U||r.from||r.From||'').trim();
+                const v=(r.v||r.V||r.to  ||r.To  ||'').trim();
+                if(!u||!v) continue;
+                let poly=parsePolyPoints(r.poly||r.POLY||r.route||r.Route||r.path||'');
+                if (!poly.length && NODES[u] && NODES[v]) poly=[{x:NODES[u].x,y:NODES[u].y},{x:NODES[v].x,y:NODES[v].y}];
+                const lenPxField=Number(r.length||r.len||r.w||r.W||r.distance||r.px||NaN);
+                const pxLen=Number.isFinite(lenPxField)?lenPxField:polyLengthPx(poly);
+                const wLy = pxLen * LY_PER_PX;
+                const edge={u,v,wLy,poly,_id:`E${eid++}`};
+                EDGES.push(edge);
+                if(!ADJ.has(u)) ADJ.set(u,[]);
+                if(!ADJ.has(v)) ADJ.set(v,[]);
+                ADJ.get(u).push({to:v,wLy,poly,edgeId:edge._id});
+                ADJ.get(v).push({to:u,wLy,poly:[...poly].reverse(),edgeId:edge._id});
+                DEG[u]=(DEG[u]||0)+1; DEG[v]=(DEG[v]||0)+1;
+            }
+            loadGraph._done=true;
+        }
+
+        
+        function nodeCandidates(cellId, attachPx, maxK=48){
+            const rect=cellRect(cellId);
+            const m=/^([A-Z]+)(\d+)$/.exec(cellId);
+            const c=COL_LETTERS.indexOf(m[1]), r=(+m[2])-1;
+
+            const near={x0:rect.x0-attachPx-CANDIDATE_PAD, y0:rect.y0-attachPx-CANDIDATE_PAD,
+                x1:rect.x1+attachPx+CANDIDATE_PAD, y1:rect.y1+attachPx+CANDIDATE_PAD};
+            const pool=[];
+            for(let dr=-NEIGHBOR_RING;dr<=NEIGHBOR_RING;dr++){
+                for(let dc=-NEIGHBOR_RING;dc<=NEIGHBOR_RING;dc++){
+                    const cc=c+dc, rr=r+dr;
+                    if(cc>=0&&cc<COLS&&rr>=0&&rr<ROWS){
+                        const cid=`${COL_LETTERS[cc]}${rr+1}`;
+                        const ids=CELL_NODES.get(cid); if(ids) pool.push(...ids);
+                    }
+                }
+            }
+            const cx=(rect.x0+rect.x1)/2, cy=(rect.y0+rect.y1)/2;
+            return pool
+                .map(id=>({id,p:NODES[id]}))
+                .filter(o=>o.p && o.p.x>=near.x0 && o.p.x<=near.x1 && o.p.y>=near.y0 && o.p.y<=near.y1)
+                .map(o=>{ const q=clampPointToRect(o.p.x,o.p.y,rect); return {id:o.id, dist:q.dist, score:-(DEG[o.id]||0)*1e6 - d2(o.p.x,o.p.y,cx,cy)}; })
+                .filter(o=>o.dist<=attachPx)
+                .sort((a,b)=> b.score-a.score)
+                .slice(0,maxK)
+                .map(s=>s.id);
+        }
+        function edgeCandidates(cellId, attachPx){
+            const rect=cellRect(cellId); const hits=[];
+            for (const e of EDGES){
+                if (!e.poly || e.poly.length<2) continue;
+                const snap=closestOnPolyToRect(e.poly,rect);
+                if (snap && snap.dist<=attachPx) hits.push({edge:e, snap});
+            }
+            return hits;
+        }
+
+        
+        function buildAugmented(startCell,endCell,attachPx){
+            const sRect=cellRect(startCell), eRect=cellRect(endCell);
+            const Aadj=new Map(); const add=(u,v,wLy,poly,edgeId)=>{ if(!Aadj.has(u)) Aadj.set(u,[]); Aadj.get(u).push({to:v,wLy,poly,edgeId}); };
+            for (const [u,arr] of ADJ.entries()) Aadj.set(u, arr.map(e=>({to:e.to,wLy:e.wLy,poly:e.poly,edgeId:e.edgeId})));
+
+            
+            for (const id of nodeCandidates(startCell, attachPx, 64)){
+                const p=NODES[id]; const s=clampPointToRect(p.x,p.y,sRect);
+                add('SRC', id, s.dist*LY_PER_PX, [{x:s.x,y:s.y},{x:p.x,y:p.y}], null);
+            }
+            let sCounter=0;
+            for (const {edge,snap} of edgeCandidates(startCell, attachPx)){
+                const vId=`SRCV${sCounter++}`;
+                const sClamp=clampPointToRect(snap.x,snap.y,sRect);
+                add('SRC', vId, sClamp.dist*LY_PER_PX, [{x:sClamp.x,y:sClamp.y},{x:snap.x,y:snap.y}], null);
+                const frac=snap.alongPx/Math.max(1,snap.totalPx);
+                const wA=edge.wLy*frac, wB=edge.wLy*(1-frac);
+                add(vId, edge.u, wA, slicePolyFromSnap(edge.poly,snap.segIndex,snap.t,-1), edge._id);
+                add(vId, edge.v, wB, slicePolyFromSnap(edge.poly,snap.segIndex,snap.t,+1), edge._id);
+            }
+
+            
+            for (const id of nodeCandidates(endCell, attachPx, 64)){
+                const p=NODES[id]; const s=clampPointToRect(p.x,p.y,eRect);
+                add(id, 'DST', s.dist*LY_PER_PX, [{x:p.x,y:p.y},{x:s.x,y:s.y}], null);
+            }
+            let eCounter=0;
+            for (const {edge,snap} of edgeCandidates(endCell, attachPx)){
+                const vId=`EDSTV${eCounter++}`;
+                const frac=snap.alongPx/Math.max(1,snap.totalPx);
+                const wA=edge.wLy*frac, wB=edge.wLy*(1-frac);
+                add(edge.u, vId, wA, [...slicePolyFromSnap(edge.poly,snap.segIndex,snap.t,-1)].reverse(), edge._id);
+                add(edge.v, vId, wB, [...slicePolyFromSnap(edge.poly,snap.segIndex,snap.t,+1)].reverse(), edge._id);
+                const eClamp=clampPointToRect(snap.x,snap.y,eRect);
+                add(vId,'DST', eClamp.dist*LY_PER_PX, [{x:snap.x,y:snap.y},{x:eClamp.x,y:eClamp.y}], null);
+            }
+            return Aadj;
+        }
+
+        
+        function dijkstra(adj){
+            const heap=[]; const up=i=>{while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}};
+            const down=i=>{for(;;){const l=i*2+1,r=l+1;let m=i;if(l<heap.length&&heap[l][0]<heap[m][0])m=l;if(r<heap.length&&heap[r][0]<heap[m][0])m=r;if(m===i)break;[heap[i],heap[m]]=[heap[m],heap[i]];i=m;}};
+            const push=(k,id)=>{heap.push([k,id]);up(heap.length-1);};
+            const pop=()=>{ if(!heap.length) return null; const t=heap[0]; const last=heap.pop(); if(heap.length){heap[0]=last;down(0);} return t; };
+            const dist=new Map(), prev=new Map();
+            dist.set('SRC',0); push(0,'SRC');
+            while(heap.length){
+                const top=pop(); if(!top) break; const [d,u]=top;
+                if(d!==dist.get(u)) continue;
+                if(u==='DST'){
+                    const edges=[]; let cur='DST';
+                    while(prev.has(cur)){ const pr=prev.get(cur); edges.push({u:pr.from,v:cur,wLy:pr.wLy,poly:pr.poly,_virtual:(pr.edgeId?false:true)}); cur=pr.from; }
+                    edges.reverse(); return {distLy:d, edges};
+                }
+                for(const e of (adj.get(u)||[])){
+                    const nd=d+e.wLy;
+                    if(nd < (dist.get(e.to) ?? Infinity)){
+                        dist.set(e.to, nd);
+                        prev.set(e.to, {from:u, wLy:e.wLy, poly:e.poly, edgeId:e.edgeId});
+                        push(nd, e.to);
+                    }
+                }
+            }
+            return null;
+        }
+
+        
+        function clearRoute(){
+            ensureLayers();
+            while (routeGroup.firstChild) routeGroup.removeChild(routeGroup.firstChild);
+            while (routeDots.firstChild)  routeDots.removeChild(routeDots.firstChild);
+        }
+        function drawDot(x,y,r=NODE_R){
+            ensureLayers();
+            const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+            c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r',r);
+            c.setAttribute('fill',DOT_FILL); c.setAttribute('stroke',DOT_STROKE); c.setAttribute('stroke-width','2');
+            c.setAttribute('filter','url(#tradeGlow)'); routeDots.appendChild(c);
+        }
+        function drawRoute(res){
+            ensureLayers(); clearRoute();
+            if (!res || !res.edges || !res.edges.length) return;
+            const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+            g.setAttribute('filter','url(#tradeGlow)');
+
+            const realNodeIds=new Set();
+            for (const e of res.edges){
+                const pts=(e.poly&&e.poly.length>=2)?e.poly:[NODES[e.u],NODES[e.v]].filter(Boolean).map(p=>({x:p.x,y:p.y}));
+                if (!pts || pts.length<2) continue;
+                const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+                p.setAttribute('d', pathD(pts, SMOOTH));
+                p.setAttribute('fill','none');
+                p.setAttribute('stroke', LINE_COLOR);
+                p.setAttribute('stroke-width','5');
+                p.setAttribute('stroke-linecap','round');
+                p.setAttribute('stroke-linejoin','round');
+                p.setAttribute('opacity','0.95');
+                if (e._virtual) p.setAttribute('stroke-dasharray','8 8');
+                g.appendChild(p);
+                if (NODES[e.u]) realNodeIds.add(e.u);
+                if (NODES[e.v]) realNodeIds.add(e.v);
+            }
+            routeGroup.appendChild(g);
+            realNodeIds.forEach(id=>{ const p=NODES[id]; if (p) drawDot(p.x,p.y,NODE_R); });
+        }
+
+        
+        let startSel=null, endSel=null;
+
+        function highlightCell(cellId, on){
+            const rect = overlay.querySelector(`rect[data-cell="${cellId}"]`);
+            const g = rect?.parentElement;
+            if (g) g.classList.toggle('trade-selected', !!on);
+        }
+        function refreshHighlights(){
+            
+            overlay.querySelectorAll('g.trade-selected').forEach(el=>el.classList.remove('trade-selected'));
+            
+            if (startSel) highlightCell(startSel, true);
+            if (endSel && endSel !== startSel) highlightCell(endSel, true);
+        }
+
+        async function computeDraw(){
+            ensureLayers();
+            refreshHighlights();
+            if (!startSel || !endSel){ clearRoute(); setStats('Pick two cells'); return; }
+            setStats('Finding route…');
+            try{
+                await loadGraph();
+                let found=null;
+                for (const attach of ATTACH_STEPS_PX){
+                    const adj=buildAugmented(startSel,endSel,attach);
+                    const res=dijkstra(adj);
+                    if (res){ found=res; break; }
+                }
+                if (found){ drawRoute(found); setStats(`Route: ${Math.round(found.distLy).toLocaleString()} ly · ${startSel} → ${endSel}`); }
+                else { clearRoute(); setStats('No route found (no nearby lane)'); }
+            }catch(err){ console.warn('[Trade] fail', err); clearRoute(); setStats('No route found'); }
+        }
+
+        function resetSel(){
+            startSel=null; endSel=null;
+            refreshHighlights();
+            clearRoute();
+            setStats('Pick two cells');
+        }
+
+        function onCellClick(cellId){
+            if (!startSel){
+                startSel = cellId;
+            } else if (!endSel && cellId !== startSel){
+                endSel = cellId;
+            } else {
+                
+                startSel = endSel;
+                endSel   = cellId;
+                if (startSel === endSel) endSel = null; 
+            }
+            refreshHighlights();
+            computeDraw();
+        }
+
+        tradeClearBtn?.addEventListener('click', resetSel);
+        tradeSwapBtn?.addEventListener('click', ()=>{ if (startSel && endSel){ [startSel,endSel]=[endSel,startSel]; refreshHighlights(); computeDraw(); setStats(`Swapped: ${startSel} ↔ ${endSel}`); } });
+
+        
+        overlay.addEventListener('contextmenu', (e)=>{
+            if (mode==='trade'){ e.preventDefault(); resetSel(); }
+        });
+
+        
+        let lastTapTrade = 0;
+        overlay.addEventListener('pointerdown', (e)=>{
+            if (mode!=='trade') return;
+            if (e.pointerType==='touch'){
+                const now = performance.now();
+                if (now - lastTapTrade < 300){
+                    resetSel(); e.preventDefault(); e.stopPropagation();
+                }
+                lastTapTrade = now;
+            }
+        }, true);
+
+        
+        const _setMode = setMode;
+        setMode = function(m){
+            _setMode(m);
+            const on = (m==='trade');
+            hud(on);
+            if (on){ ensureLayers(); refreshHighlights(); loadGraph().catch(()=>{}); setStats(startSel&&endSel?`${startSel} → ${endSel}`:'Pick two cells'); }
+            else { resetSel(); }
+        };
+
+        
+        overlay.addEventListener('click', (ev)=>{
+            const r=ev.target.closest('rect.cell'); if (!r) return;
+            if (dragMoved) return; if (mode!=='trade') return;
+            onCellClick(r.dataset.cell); ev.stopPropagation();
+        }, true);
+
+        document.addEventListener('keydown', (e)=>{ if (e.key==='4') setMode('trade'); });
+
+        
+        ensureLayers();
+        hud(false);
+        setStats('Pick two cells');
+    })();
 
     ensureObjectsLoaded().catch(()=>{});
 </script>
