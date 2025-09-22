@@ -193,7 +193,7 @@
             transform: none;
             animation: none;
         }
-        
+
         #tradeHUD {
             position:absolute; left:50%; bottom:-120px; transform:translateX(-50%);
             z-index:55; width:min(560px, 94vw);
@@ -210,6 +210,62 @@
             white-space:nowrap;
         }
 
+        /* --- New: Multi-stop Route UI styles --- */
+        #routeUI{
+            margin-top:8px;
+            background:rgba(12,12,18,.96);
+            border:1px solid rgba(255,255,255,.12);
+            border-radius:10px;
+            padding:8px;
+            box-shadow:0 10px 24px rgba(0,0,0,.45);
+            display:none;
+        }
+        .route-row{
+            display:grid;
+            grid-template-columns: 1fr auto;
+            gap:8px;
+            align-items:center;
+            padding:6px;
+            border-radius:8px;
+            border:1px solid rgba(255,255,255,.08);
+            background:rgba(255,255,255,.03);
+            margin-bottom:6px;
+        }
+        .route-input{
+            width:100%;
+            box-sizing:border-box;
+            padding:8px 10px;
+            border-radius:8px;
+            border:1px solid rgba(255,255,255,.18);
+            background:rgba(16,16,22,.9);
+            color:#fff;
+            font:600 13px system-ui;
+            outline:none;
+        }
+        .route-input::placeholder{ color:#a9b8ff; }
+        .route-actions{
+            display:flex;
+            align-items:center;
+            gap:6px;
+        }
+        .route-remove{
+            padding:6px 8px;
+            border-radius:8px;
+            border:1px solid rgba(255,255,255,.18);
+            background:rgba(255,255,255,.06);
+            color:#fff;
+            font:700 12px system-ui;
+            cursor:pointer;
+        }
+        .route-status{
+            grid-column: 1 / -1;
+            font:12px system-ui;
+            color:#b5c0ff;
+            margin-top:2px;
+        }
+        .route-badge-ok{ color:#9cffc6; }
+        .route-badge-warn{ color:#ffd37a; }
+        .route-badge-err{ color:#ff9a9a; }
     </style>
 </head>
 <body>
@@ -219,16 +275,28 @@
     <svg id="overlay"></svg>
     <canvas id="cursorLayer"></canvas>
 
-    
+
     <div id="searchUI">
         <div style="position:relative">
-            <input id="searchBox" type="search" placeholder="Search object or sector…" autocomplete="off" />
+            <input id="searchBox" type="search" placeholder="Search object or sector..." autocomplete="off" />
             <div id="searchIcon">🔎︎</div>
         </div>
         <div id="results" role="listbox" aria-label="Search results"></div>
+
+        <!-- New: Multi-stop route planner (shown in Trade mode) -->
+        <div id="routeUI" aria-label="Route planner">
+            <div id="routeRows" role="list" aria-label="Route stops"></div>
+            <div style="display:flex; gap:8px; margin-top:8px;">
+                <button id="routeAdd" class="pill" title="Add another stop">＋ Add stop</button>
+                <button id="routeClear" class="pill" title="Clear all stops">Clear</button>
+            </div>
+            <div id="routeMsg" style="margin-top:8px; font:12px system-ui; color:#b5c0ff;">
+                Type planet names. Paths are drawn from each stop to the next.
+            </div>
+        </div>
     </div>
 
-    
+
     <div id="viewer" aria-label="Cell viewer">
         <div id="viewerHeader">
             <div>
@@ -254,7 +322,7 @@
         </div>
     </div>
 
-    
+
     <div id="settings">
         <div id="cogButton" title="Settings"></div>
         <div id="hoverBridge" aria-hidden="true"></div>
@@ -264,10 +332,10 @@
             <div class="section">
                 <div class="section-title">Mode</div>
                 <div class="mode-row" role="tablist" aria-label="Interaction mode">
-                    <div class="mode-item active" data-mode="path" role="tab" aria-selected="true" tabindex="0">Path</div>
-                    <div class="mode-item" data-mode="select" role="tab" aria-selected="false" tabindex="0">Select</div>
-                    <div class="mode-item" data-mode="distance" role="tab" aria-selected="false" tabindex="0">Distance</div>
-                    <div class="mode-item" data-mode="trade" role="tab" aria-selected="false" tabindex="0">Trade</div>
+                    <div class="mode-item active" data-mode="path" role="tab" aria-selected="true" tabindex="0">Path (1)</div>
+                    <div class="mode-item" data-mode="select" role="tab" aria-selected="false" tabindex="0">Select (2)</div>
+                    <div class="mode-item" data-mode="distance" role="tab" aria-selected="false" tabindex="0">Distance (3)</div>
+                    <div class="mode-item" data-mode="trade" role="tab" aria-selected="false" tabindex="0">Trade (4)</div>
                 </div>
 
                 <div id="pathActions" style="display:none">
@@ -276,7 +344,7 @@
                 </div>
             </div>
 
-    
+
             <div id="cursorSection" class="section">
                 <div class="section-title">Cursor</div>
                 <div class="cursor-controls">
@@ -580,7 +648,7 @@
                     }else if(mode==='select'){
                         overlay.querySelectorAll('g.select-selected').forEach(el=>el.classList.remove('select-selected'));
                         g.classList.add('select-selected');
-                        openCellViewer([cellId]); 
+                        openCellViewer([cellId]);
                     }
                 });
 
@@ -770,6 +838,26 @@
     }
     const pick = (obj, keys) => { for (const k of keys) { const v = (obj[k] ?? '').toString().trim(); if (v) return v; } return ''; };
 
+    /* ---------- NEW: tolerant CSV field access helpers ---------- */
+    function normHeaderKey(k){
+        return String(k || '')
+            .toLowerCase()
+            .replace(/\s+/g, '')
+            .replace(/[\u00A0\(\)\[\]\{\}:;,_\-\/\\\.]/g, '');
+    }
+    function getField(rw, aliases){
+        if (!rw.__norm) {
+            rw.__norm = {};
+            for (const k of Object.keys(rw)) rw.__norm[normHeaderKey(k)] = rw[k];
+        }
+        for (const alias of aliases) {
+            const v = rw.__norm[normHeaderKey(alias)];
+            if (v != null && String(v).trim() !== '') return String(v).trim();
+        }
+        return '';
+    }
+    /* ------------------------------------------------------------ */
+
     let vScale=1, vMax=(('ontouchstart' in window) || (navigator.maxTouchPoints > 0)) ? 16 : 40, vX=0, vY=0;
     const vc = viewerCanvas;
     function fitScale(){ return Math.min(vc.width/CURRENT_WORLD_W, vc.height/CURRENT_WORLD_H); }
@@ -930,7 +1018,7 @@
     });
 
     viewerCanvas.addEventListener('contextmenu', (e)=>{ if (viewerDistanceMode){ e.preventDefault(); viewerDistPts = []; drawViewer(); } });
-    document.addEventListener('keydown', e=>{ if (e.key === 'Escape'){ selectedIdx = null; planetInfo.style.display = 'none'; } });
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape'){ selectedIdx = null; planetInfo.style.display = 'none'; } });
 
     const vPtrs = new Map();
     let vPinchStart = null;
@@ -945,7 +1033,7 @@
                 vPinchStart = {a, b, d: Math.hypot(a.x-b.x, a.y-b.y), mid:{x:(a.x+b.x)/2,y:(a.y+b.y)/2}, vScale, vX, vY};
             } else {
                 const dNow = Math.hypot(a.x-b.x, a.y-b.y);
-                const raw = dNow / Math.max(10, vPinchStart.d); 
+                const raw = dNow / Math.max(10, vPinchStart.d);
                 const factor = Math.pow(raw, IS_TOUCH ? 0.85 : 1);
                 const rect = viewerCanvas.getBoundingClientRect();
                 const sx = vPinchStart.mid.x - rect.left, sy = vPinchStart.mid.y - rect.top;
@@ -980,7 +1068,7 @@
 
     function hashRng(key){
         let h = 2166136261 >>> 0;
-        for (let i=0;i<key.length;i++){ h ^= key.charCodeAt(i); h = Math.imul(h, 16777619); }
+        for (let i=0;i<key.length;i++){ h ^= key.charCodeAt(0); h = Math.imul(h, 16777619); }
         return () => ((h = Math.imul(h ^ (h>>>16), 2246822507) ^ Math.imul((h = Math.imul(h ^ (h>>>13), 3266489909)) ^ (h>>>16), 2246822507)) >>> 0) / 0xffffffff;
     }
 
@@ -1121,7 +1209,7 @@
                 if (p.x < GLOBAL_EDGE) p.x += (GLOBAL_EDGE - p.x) * 0.2;
                 if (p.x > W - GLOBAL_EDGE) p.x -= (p.x - (W - GLOBAL_EDGE)) * 0.2;
                 if (p.y < GLOBAL_EDGE) p.y += (GLOBAL_EDGE - p.y) * 0.2;
-                if (p.y > H - GLOBAL_EDGE) p.y -= (p.y - (H - GLOBAL_EDGE)) * 0.2;
+                if (p.y > H - GLOBAL_EDGE) p.y -= (p.y - (W - GLOBAL_EDGE)) * 0.2;
                 clampPointToHome(p, 6);
             }
 
@@ -1395,7 +1483,8 @@
         if (viewerDistPts.length === 0) return;
         vctx.save(); vctx.setTransform(vScale,0,0,vScale, vX, vY);
         vctx.lineWidth = 2 / vScale; vctx.strokeStyle = 'rgba(255,255,255,.85)'; vctx.fillStyle = '#1ee3ff';
-        vctx.beginPath(); for (let i=0;i<viewerDistPts.length;i++){ const p = viewerDistPts[i]; if (i===0) vctx.moveTo(p.x, p.y); else vctx.lineTo(p.x, p.y); } vctx.stroke();
+        vctx.beginPath(); for (let i=0;i<viewerDistPts.length;i++){
+            const p = viewerDistPts[i]; if (i===0) vctx.moveTo(p.x, p.y); else vctx.lineTo(p.x, p.y); } vctx.stroke();
         for (const p of viewerDistPts){ vctx.beginPath(); vctx.arc(p.x, p.y, 7 / vScale, 0, Math.PI*2); vctx.fill(); }
         vctx.restore();
 
@@ -1513,17 +1602,25 @@
                 .map((rw, i)=> {
                     const name = pick(rw, ['Name','name','Label','label','Object','object','Title','title','ID','Id','id']) || `Object ${i+1}`;
                     const sector = pick(rw, ['Sector','sector','Faction','faction','Region','region','Group','group']);
+
+                    const affiliation = getField(rw, ['Affiliation']);
+                    const suns        = getField(rw, ['Suns','Stars']);
+                    const moons       = getField(rw, ['Moons']);
+                    const population  = getField(rw, ['Population']);
+                    const climate     = getField(rw, ['Climate']);
+                    const terrain     = getField(rw, ['Terrain']);
+
                     return {
                         name,
                         sector,
                         sectorKey: sector ? `${sector} @ ${id}` : '__none__',
                         sectorLabel: sector ? `${sector} · ${id}` : '',
-                        affiliation: q(rw.Affiliation || rw.affiliation),
-                        suns:        q(rw.Suns || rw.suns),
-                        moons:       q(rw.Moons || rw.moons),
-                        population:  q(rw.Population || rw.population),
-                        climate:     q(rw.Climate || rw.climate),
-                        terrain:     q(rw.Terrain || rw.terrain),
+                        affiliation: q(affiliation),
+                        suns:        q(suns),
+                        moons:       q(moons),
+                        population:  q(population),
+                        climate:     q(climate),
+                        terrain:     q(terrain),
                         cellId: id
                     };
                 });
@@ -1718,7 +1815,177 @@
         resultsEl.style.display='block';
     }
 
-    
+    (function setupRoutePlanner(){
+        const routeUI   = document.getElementById('routeUI');
+        const rowsEl    = document.getElementById('routeRows');
+        const addBtn    = document.getElementById('routeAdd');
+        const clearBtn  = document.getElementById('routeClear');
+        const routeMsg  = document.getElementById('routeMsg');
+
+        const debounce = (fn, ms=180) => { let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a),ms); }; };
+
+        function findPlanetCellByName(nameRaw){
+            if (!nameRaw) return null;
+            const name = String(nameRaw).trim().toLowerCase();
+            if (!name) return null;
+            const exact = SEARCH.objects.find(o => o.nameL === name);
+            if (exact) return { name: exact.name, cell: exact.cell };
+            const hit = SEARCH.objects.find(o => o.nameL.includes(name));
+            if (hit) return { name: hit.name, cell: hit.cell };
+            return null;
+        }
+
+        function makeRow(value=''){
+            const row = document.createElement('div');
+            row.className = 'route-row';
+
+            const input = document.createElement('input');
+            input.className = 'route-input';
+            input.type = 'search';
+            input.placeholder = 'Enter planet…';
+            input.value = value;
+
+            const actions = document.createElement('div');
+            actions.className = 'route-actions';
+
+            const remove = document.createElement('button');
+            remove.className = 'route-remove';
+            remove.textContent = 'Remove';
+
+            const status = document.createElement('div');
+            status.className = 'route-status';
+            status.textContent = '';
+
+            actions.appendChild(remove);
+            row.appendChild(input);
+            row.appendChild(actions);
+            row.appendChild(status);
+            rowsEl.appendChild(row);
+
+            const updateRow = () => {
+                const res = findPlanetCellByName(input.value);
+                if (!input.value.trim()){
+                    status.innerHTML = '';
+                } else if (res){
+                    status.innerHTML = `<span class="route-badge-ok">→ ${res.name} · Cell ${res.cell}</span>`;
+                    row.dataset.cell = res.cell;
+                    row.dataset.pretty = res.name;
+                } else {
+                    status.innerHTML = `<span class="route-badge-err">✖ Not found</span>`;
+                    delete row.dataset.cell;
+                    delete row.dataset.pretty;
+                }
+                debouncedRecompute();
+            };
+
+            input.addEventListener('input', updateRow);
+            input.addEventListener('change', updateRow);
+            remove.addEventListener('click', () => {
+                row.remove();
+                debouncedRecompute();
+            });
+
+            updateRow();
+            return row;
+        }
+
+        function getCellsSequence(){
+            const seq = [];
+            rowsEl.querySelectorAll('.route-row').forEach(r => {
+                const cell = r.dataset.cell;
+                const name = r.dataset.pretty || r.querySelector('.route-input')?.value || '';
+                if (cell) seq.push({ name, cell });
+            });
+            return seq;
+        }
+
+        async function computeSegment(startCell, endCell){
+            await window.TradeRouting.loadGraph();
+            let best = null;
+            for (const attach of window.TradeRouting.ATTACH_STEPS_PX){
+                const adj = window.TradeRouting.buildAugmented(startCell, endCell, attach);
+                const res = window.TradeRouting.dijkstra(adj);
+                if (res){ best = res; break; }
+            }
+            return best;
+        }
+
+        async function recompute(){
+            window.TradeRouting.ensureLayers();
+            window.TradeRouting.clearRoute();
+
+            const seq = getCellsSequence();
+            if (seq.length < 2){
+                routeMsg.textContent = 'Add at least two planets.';
+                return;
+            }
+
+            routeMsg.textContent = 'Finding routes…';
+            let totalLy = 0;
+            let failures = 0;
+
+            for (let i = 0; i < seq.length - 1; i++){
+                const a = seq[i].cell, b = seq[i+1].cell;
+                try {
+                    const seg = await computeSegment(a, b);
+                    if (seg){
+                        totalLy += seg.distLy || 0;
+                        window.TradeRouting.drawRouteAppend(seg);
+                    } else {
+                        failures++;
+                    }
+                } catch {
+                    failures++;
+                }
+            }
+
+            if (failures && totalLy === 0){
+                routeMsg.innerHTML = `<span class="route-badge-err">No route found between some stops.</span>`;
+            } else if (failures){
+                routeMsg.innerHTML = `<span class="route-badge-warn">Partial: ${Math.round(totalLy).toLocaleString()} ly (some legs missing)</span>`;
+            } else {
+                routeMsg.innerHTML = `<span class="route-badge-ok">Total: ${Math.round(totalLy).toLocaleString()} ly</span>`;
+            }
+        }
+
+        const debouncedRecompute = debounce(recompute, 120);
+
+        addBtn?.addEventListener('click', () => {
+            makeRow('');
+            const last = rowsEl.querySelector('.route-row:last-child input');
+            last?.focus();
+        });
+        clearBtn?.addEventListener('click', () => {
+            rowsEl.innerHTML = '';
+            window.TradeRouting.clearRoute();
+            routeMsg.textContent = 'Type planet names. Paths are drawn from each stop to the next.';
+        });
+
+        // Seed with two rows
+        makeRow('');
+        makeRow('');
+
+        const _setModeRP = setMode;
+        setMode = function(m){
+            _setModeRP(m);
+            const on = (m === 'trade');
+            // hide legacy trade HUD and stats; show planner
+            document.getElementById('tradeHUD')?.classList.toggle('show', false);
+            const stats = document.getElementById('tradeStats'); if (stats) stats.style.display = 'none';
+
+            if (on){
+                routeUI.style.display = 'block';
+                overlay.querySelectorAll('g.trade-selected').forEach(el=>el.classList.remove('trade-selected'));
+                debouncedRecompute();
+            } else {
+                routeUI.style.display = 'none';
+                window.TradeRouting.clearRoute();
+            }
+        };
+    })();
+    /* ---- End: Route Planner ---- */
+
+
     const trailCanvas=document.getElementById('cursorLayer'), ctxTrail=trailCanvas.getContext('2d');
     const DPR_UI=Math.max(1,Math.min(window.devicePixelRatio||1,2));
     function resizeTrail(){ trailCanvas.style.width=innerWidth+'px'; trailCanvas.style.height=innerHeight+'px'; trailCanvas.width=Math.floor(innerWidth*DPR_UI); trailCanvas.height=Math.floor(innerHeight*DPR_UI); ctxTrail.setTransform(DPR_UI,0,0,DPR_UI,0,0);}
@@ -1737,8 +2004,8 @@
     document.querySelectorAll('.swatch[data-color]').forEach(s=> s.addEventListener('click', ()=>{ cursorColor=s.dataset.color; if(picker) picker.value=cursorColor; localStorage.setItem('cursorColor',cursorColor); }));
     if (resetBtn) resetBtn.addEventListener('click', ()=>{ cursorColor=DEFAULT_COLOR; if(picker) picker.value=cursorColor; localStorage.setItem('cursorColor',cursorColor); });
 
-    
-    let trailEnabled = !IS_TOUCH; 
+
+    let trailEnabled = !IS_TOUCH;
     if (IS_TOUCH) {
 
         const cursorSection = document.getElementById('cursorSection');
@@ -1750,7 +2017,7 @@
     }
 
     document.addEventListener('keydown', (e) => {
-        if (IS_TOUCH) return; 
+        if (IS_TOUCH) return;
         if (e.key.toLowerCase() === 'c') {
             trailEnabled = !trailEnabled;
             document.getElementById('cursorLayer').style.display = trailEnabled ? 'block' : 'none';
@@ -1777,7 +2044,7 @@
         requestAnimationFrame(drawTrail);
     })();
 
-    
+
     const speedHUD=document.getElementById('speedHUD');
     const EMA_ALPHA=0.2; let lastT=performance.now(), lastX=null,lastY=null, ema=0;
     function fmt(n){ if(!isFinite(n))return'0'; if(n>=1e5)return n.toExponential(2); if(n>=1e3)return n.toFixed(0); return n.toFixed(2);}
@@ -1805,6 +2072,10 @@
         const DOT_STROKE = '#ffd0d0';
         const NODE_R     = 9;
 
+        const ARRIVE_FILL   = '#a060ff';
+        const ARRIVE_STROKE = '#e3ccff';
+        const ARRIVE_R      = 16;
+
         function hud(on){ tradeHUD?.classList.toggle('show', !!on); }
         function setStats(s){ if (tradeStatsEl) tradeStatsEl.textContent = s || 'Pick two cells'; }
 
@@ -1812,10 +2083,10 @@
             if (overlay.querySelector('#tradeGlow')) return;
             const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');
             defs.innerHTML = `
-      <filter id="tradeGlow" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="3" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>`;
+  <filter id="tradeGlow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>`;
             overlay.appendChild(defs);
         }
         function ensureLayers(){
@@ -2081,23 +2352,40 @@
             while (routeGroup.firstChild) routeGroup.removeChild(routeGroup.firstChild);
             while (routeDots.firstChild)  routeDots.removeChild(routeDots.firstChild);
         }
-        function drawDot(x,y,r=NODE_R){
+        function drawArrival(x, y, r = ARRIVE_R) {
             ensureLayers();
-            const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+            const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            c.setAttribute('cx', x);
+            c.setAttribute('cy', y);
+            c.setAttribute('r', r);
+            c.setAttribute('fill', ARRIVE_FILL);
+            c.setAttribute('stroke', ARRIVE_STROKE);
+            c.setAttribute('stroke-width', '3');
+            c.setAttribute('filter', 'url(#tradeGlow)');
+            routeDots.appendChild(c);
+        }
+
+        function drawDot(x, y, r = NODE_R) {
+            ensureLayers();
+            const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
             c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r',r);
             c.setAttribute('fill',DOT_FILL); c.setAttribute('stroke',DOT_STROKE); c.setAttribute('stroke-width','2');
             c.setAttribute('filter','url(#tradeGlow)'); routeDots.appendChild(c);
         }
-        function drawRoute(res){
+
+        function drawRoute(res, opts = { arrival:false }){
             ensureLayers(); clearRoute();
             if (!res || !res.edges || !res.edges.length) return;
             const g=document.createElementNS('http://www.w3.org/2000/svg','g');
             g.setAttribute('filter','url(#tradeGlow)');
 
             const realNodeIds=new Set();
+            let lastPt = null;
+
             for (const e of res.edges){
                 const pts=(e.poly&&e.poly.length>=2)?e.poly:[NODES[e.u],NODES[e.v]].filter(Boolean).map(p=>({x:p.x,y:p.y}));
                 if (!pts || pts.length<2) continue;
+                lastPt = pts[pts.length - 1];
                 const p=document.createElementNS('http://www.w3.org/2000/svg','path');
                 p.setAttribute('d', pathD(pts, SMOOTH));
                 p.setAttribute('fill','none');
@@ -2113,6 +2401,43 @@
             }
             routeGroup.appendChild(g);
             realNodeIds.forEach(id=>{ const p=NODES[id]; if (p) drawDot(p.x,p.y,NODE_R); });
+
+            if (opts.arrival && lastPt) drawArrival(lastPt.x, lastPt.y, ARRIVE_R);
+        }
+
+        function drawRouteAppend(segment, opts = { arrival:true }){
+            ensureLayers();
+            if (!segment || !segment.edges || !segment.edges.length) return;
+
+            const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+            g.setAttribute('filter','url(#tradeGlow)');
+            routeGroup.appendChild(g);
+
+            const realNodeIds = new Set();
+            let lastPt = null;
+
+            for (const e of segment.edges){
+                const pts = (e.poly && e.poly.length>=2) ? e.poly : [NODES[e.u], NODES[e.v]].filter(Boolean).map(p => ({x:p.x,y:p.y}));
+                if (!pts || pts.length < 2) continue;
+                lastPt = pts[pts.length - 1];
+
+                const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+                p.setAttribute('d', pathD(pts, SMOOTH));
+                p.setAttribute('fill','none');
+                p.setAttribute('stroke', LINE_COLOR);
+                p.setAttribute('stroke-width','5');
+                p.setAttribute('stroke-linecap','round');
+                p.setAttribute('stroke-linejoin','round');
+                p.setAttribute('opacity','0.95');
+                if (e._virtual) p.setAttribute('stroke-dasharray','8 8');
+                g.appendChild(p);
+
+                if (NODES[e.u]) realNodeIds.add(e.u);
+                if (NODES[e.v]) realNodeIds.add(e.v);
+            }
+
+            realNodeIds.forEach(id => { const p=NODES[id]; if (p) drawDot(p.x, p.y, NODE_R); });
+            if (opts.arrival && lastPt) drawArrival(lastPt.x, lastPt.y, ARRIVE_R);
         }
 
         let startSel=null, endSel=null;
@@ -2141,8 +2466,10 @@
                     const res=dijkstra(adj);
                     if (res){ found=res; break; }
                 }
-                if (found){ drawRoute(found); setStats(`Route: ${Math.round(found.distLy).toLocaleString()} ly · ${startSel} → ${endSel}`); }
-                else { clearRoute(); setStats('No route found (no nearby lane)'); }
+                if (found){
+                    drawRoute(found, { arrival:false });
+                    setStats(`Route: ${Math.round(found.distLy).toLocaleString()} ly · ${startSel} → ${endSel}`);
+                } else { clearRoute(); setStats('No route found (no nearby lane)'); }
             }catch(err){ console.warn('[Trade] fail', err); clearRoute(); setStats('No route found'); }
         }
 
@@ -2213,6 +2540,7 @@
                 refreshHighlights();
                 loadGraph().catch(()=>{});
                 setStats(startSel&&endSel?`${startSel} → ${endSel}`:'Pick two cells');
+                requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
             } else {
                 resetSel();
             }
@@ -2229,101 +2557,19 @@
         ensureLayers();
         hud(false);
         setStats('Pick two cells');
-    })();
 
-    (function dockTradeStatsAboveSettings(){
-        const stats    = document.getElementById('tradeStats');
-        const settings = document.getElementById('settings');
-        const cog      = document.getElementById('cogButton');
-        const panel    = document.getElementById('settingsPanel');
-        if (!stats || !settings || !cog) return;
-
-        stats.style.display = 'none';
-
-        const getContRect = () => document.getElementById('container').getBoundingClientRect();
-
-        function isShown(el){
-            if (!el) return false;
-            const cs = getComputedStyle(el);
-            return cs.display !== 'none' && cs.visibility !== 'hidden' && cs.opacity !== '0';
-        }
-
-        function place(){
-            if (stats.style.display === 'none') return;
-            const cont = getContRect();
-            const settingsRect = settings.getBoundingClientRect();
-            let topMost = settingsRect.top;
-
-            if (panel && isShown(panel)) {
-                const panelRect = panel.getBoundingClientRect();
-                topMost = Math.min(topMost, panelRect.top);
-            }
-
-            const cogRect = cog.getBoundingClientRect();
-            topMost = Math.min(topMost, cogRect.top);
-
-            const gap  = 10;
-            const leftPx   = settingsRect.left - cont.left;
-            const bottomPx = (cont.bottom - topMost) + gap;
-            stats.style.left   = `${leftPx}px`;
-            stats.style.bottom = `${bottomPx}px`;
-        }
-
-        function showStats(on){
-            stats.style.display = on ? 'block' : 'none';
-            if (on) place();
-        }
-
-        place();
-        window.addEventListener('resize', place);
-        cog.addEventListener('click', () => setTimeout(place, 0));
-        settings.addEventListener('mouseenter', place);
-        settings.addEventListener('mouseleave', () => setTimeout(place, 0));
-        panel?.addEventListener('transitionend', place);
-        const ro = new ResizeObserver(() => place());
-        ro.observe(settings); panel && ro.observe(panel);
-        const mo = new MutationObserver(() => place());
-        mo.observe(settings, { attributes: true, attributeFilter: ['class','style'] });
-        if (panel) mo.observe(panel, { attributes: true, attributeFilter: ['class','style'] });
-
-        const _setModeForStats = setMode;
-        setMode = function(m){
-            _setModeForStats(m);
-            const on = (m === 'trade');
-            showStats(on);
+        window.TradeRouting = {
+            loadGraph,
+            ATTACH_STEPS_PX,
+            buildAugmented,
+            dijkstra,
+            ensureLayers,
+            clearRoute,
+            drawRoute,
+            drawRouteAppend
         };
     })();
 
-    (function distanceDoubleTapSafe(){
-        let lastTap = 0;
-        let lastPos = null;
-
-        container.addEventListener('pointerdown', (e) => {
-            if (mode !== 'distance') return;
-            if (e.pointerType !== 'touch') return;
-            if (!e.isPrimary) return;
-
-            const now = performance.now();
-            const dt  = now - lastTap;
-            const MAX_MOVE = 18;
-
-            if (lastPos && dt < 320) {
-                const dx = e.clientX - lastPos.x;
-                const dy = e.clientY - lastPos.y;
-                if (Math.hypot(dx, dy) <= MAX_MOVE) {
-                    clearMainDistance?.();
-                    e.preventDefault();
-                    e.stopPropagation();
-                    lastTap = 0;
-                    lastPos = null;
-                    return;
-                }
-            }
-
-            lastTap = now;
-            lastPos = { x: e.clientX, y: e.clientY };
-        }, { capture: true, passive: false });
-    })();
 
     ensureObjectsLoaded().catch(()=>{});
 </script>
