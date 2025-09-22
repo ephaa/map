@@ -437,6 +437,10 @@
     function mid(a,b){ return {x:(a.x+b.x)/2, y:(a.y+b.y)/2}; }
     function dist2(a,b){ return Math.hypot(a.x-b.x, a.y-b.y); }
 
+    function clearPathSelections(){
+        overlay.querySelectorAll('g.path-selected').forEach(el => el.classList.remove('path-selected'));
+    }
+
     function clientToWorld(cx, cy){
         const rect = container.getBoundingClientRect();
         const mx = cx - rect.left, my = cy - rect.top;
@@ -1786,9 +1790,8 @@
         });
     }
 
-   
+
     (() => {
-        
         const tradeHUD      = document.getElementById('tradeHUD');
         const tradeClearBtn = document.getElementById('tradeClear');
         const tradeSwapBtn  = document.getElementById('tradeSwap');
@@ -1797,7 +1800,6 @@
         let routeGroup = null;
         let routeDots  = null;
 
-        
         const LINE_COLOR = '#ff3b3b';
         const DOT_FILL   = '#ff6b6b';
         const DOT_STROKE = '#ffd0d0';
@@ -1828,20 +1830,17 @@
         const mo = new MutationObserver(() => ensureLayers());
         mo.observe(overlay, { childList: true });
 
-        
         const ATTACH_STEPS_PX = [0.35, 0.55, 0.85, 1.25].map(f => Math.round(f * CELL_W));
         const NEIGHBOR_RING   = 2;
         const CANDIDATE_PAD   = 14;
         const SMOOTH          = 0.14;
 
-        
         const FILE_NODES = 'nodes.csv';
         const FILE_EDGES = 'edges.csv';
 
         let NODES = {}, ADJ = new Map(), EDGES = [], DEG = {};
         let CELL_NODES = new Map();
 
-        
         function splitCSV(line){
             const out=[]; let cur='',q=false;
             for (let i=0;i<line.length;i++){
@@ -1861,17 +1860,22 @@
                 return r;
             });
         }
+
         function parsePolyPoints(s){
             if (!s) return [];
-            return String(s).split('|').map(seg => seg.trim()).filter(Boolean).map(seg=>{
-                const m = seg.match(/(-?\d+(?:\.\d+)?)\s*,?\s*(-?\d+(?:\.\d+)?)/);
-                if (!m) return null;
-                const x = Number(m[1]), y = Number(m[2]);
-                return (Number.isFinite(x)&&Number.isFinite(y))?{x,y}:null;
-            }).filter(Boolean);
+            return String(s)
+                .split('|')
+                .map(seg => seg.trim())
+                .filter(Boolean)
+                .map(seg => {
+                    const m = seg.match(/(-?\d+(?:\.\d+)?)\s*,?\s*(-?\d+(?:\.\d+)?)/);
+                    if (!m) return null;
+                    const x = Number(m[1]), y = Number(m[2]);
+                    return (Number.isFinite(x)&&Number.isFinite(y))?{x,y}:null;
+                })
+                .filter(Boolean);
         }
 
-        
         function ptToCellId(x, y){
             const c = Math.floor((x - GRID_LEFT) / CELL_W);
             const r = Math.floor((y - GRID_TOP)  / CELL_H);
@@ -1890,7 +1894,6 @@
             return {x,y,dist:Math.hypot(px-x,py-y)};
         }
 
-        
         const d2 = (ax,ay,bx,by)=>{ const dx=ax-bx, dy=ay-by; return dx*dx+dy*dy; };
         function polyLengthPx(poly){ let s=0; for (let i=1;i<poly.length;i++){ const a=poly[i-1], b=poly[i]; s+=Math.hypot(b.x-a.x,b.y-a.y);} return s; }
         function closestOnSegmentToRect(ax,ay,bx,by,rect){
@@ -1923,7 +1926,7 @@
         }
         function pathD(pts, k=0.14){
             if (!pts || pts.length<2) return '';
-            if (pts.length===2) return `M${pts[0].x},${pts[1].y} L${pts[1].x},${pts[1].y}`;
+            if (pts.length===2) return `M${pts[0].x},${pts[0].y} L${pts[1].x},${pts[1].y}`;
             let d=`M${pts[0].x},${pts[0].y}`;
             for (let i=1;i<pts.length-1;i++){
                 const c=pts[i], n=pts[i+1];
@@ -1934,7 +1937,6 @@
             const L=pts[pts.length-1]; d+=` T${L.x},${L.y}`; return d;
         }
 
-        
         async function loadGraph(){
             if (loadGraph._done) return;
             const [nr, er] = await Promise.all([ fetch(FILE_NODES), fetch(FILE_EDGES) ]);
@@ -1972,7 +1974,6 @@
             loadGraph._done=true;
         }
 
-        
         function nodeCandidates(cellId, attachPx, maxK=48){
             const rect=cellRect(cellId);
             const m=/^([A-Z]+)(\d+)$/.exec(cellId);
@@ -2010,13 +2011,12 @@
             return hits;
         }
 
-        
         function buildAugmented(startCell,endCell,attachPx){
             const sRect=cellRect(startCell), eRect=cellRect(endCell);
             const Aadj=new Map(); const add=(u,v,wLy,poly,edgeId)=>{ if(!Aadj.has(u)) Aadj.set(u,[]); Aadj.get(u).push({to:v,wLy,poly,edgeId}); };
             for (const [u,arr] of ADJ.entries()) Aadj.set(u, arr.map(e=>({to:e.to,wLy:e.wLy,poly:e.poly,edgeId:e.edgeId})));
 
-            
+            // start snaps
             for (const id of nodeCandidates(startCell, attachPx, 64)){
                 const p=NODES[id]; const s=clampPointToRect(p.x,p.y,sRect);
                 add('SRC', id, s.dist*LY_PER_PX, [{x:s.x,y:s.y},{x:p.x,y:p.y}], null);
@@ -2032,7 +2032,6 @@
                 add(vId, edge.v, wB, slicePolyFromSnap(edge.poly,snap.segIndex,snap.t,+1), edge._id);
             }
 
-            
             for (const id of nodeCandidates(endCell, attachPx, 64)){
                 const p=NODES[id]; const s=clampPointToRect(p.x,p.y,eRect);
                 add(id, 'DST', s.dist*LY_PER_PX, [{x:p.x,y:p.y},{x:s.x,y:s.y}], null);
@@ -2050,7 +2049,6 @@
             return Aadj;
         }
 
-        
         function dijkstra(adj){
             const heap=[]; const up=i=>{while(i>0){const p=(i-1)>>1;if(heap[p][0]<=heap[i][0])break;[heap[p],heap[i]]=[heap[i],heap[p]];i=p;}};
             const down=i=>{for(;;){const l=i*2+1,r=l+1;let m=i;if(l<heap.length&&heap[l][0]<heap[m][0])m=l;if(r<heap.length&&heap[r][0]<heap[m][0])m=r;if(m===i)break;[heap[i],heap[m]]=[heap[m],heap[i]];i=m;}};
@@ -2078,7 +2076,6 @@
             return null;
         }
 
-        
         function clearRoute(){
             ensureLayers();
             while (routeGroup.firstChild) routeGroup.removeChild(routeGroup.firstChild);
@@ -2118,7 +2115,6 @@
             realNodeIds.forEach(id=>{ const p=NODES[id]; if (p) drawDot(p.x,p.y,NODE_R); });
         }
 
-        
         let startSel=null, endSel=null;
 
         function highlightCell(cellId, on){
@@ -2127,9 +2123,7 @@
             if (g) g.classList.toggle('trade-selected', !!on);
         }
         function refreshHighlights(){
-            
             overlay.querySelectorAll('g.trade-selected').forEach(el=>el.classList.remove('trade-selected'));
-            
             if (startSel) highlightCell(startSel, true);
             if (endSel && endSel !== startSel) highlightCell(endSel, true);
         }
@@ -2165,10 +2159,9 @@
             } else if (!endSel && cellId !== startSel){
                 endSel = cellId;
             } else {
-                
                 startSel = endSel;
                 endSel   = cellId;
-                if (startSel === endSel) endSel = null; 
+                if (startSel === endSel) endSel = null;
             }
             refreshHighlights();
             computeDraw();
@@ -2177,35 +2170,54 @@
         tradeClearBtn?.addEventListener('click', resetSel);
         tradeSwapBtn?.addEventListener('click', ()=>{ if (startSel && endSel){ [startSel,endSel]=[endSel,startSel]; refreshHighlights(); computeDraw(); setStats(`Swapped: ${startSel} ↔ ${endSel}`); } });
 
-        
         overlay.addEventListener('contextmenu', (e)=>{
             if (mode==='trade'){ e.preventDefault(); resetSel(); }
         });
 
-        
         let lastTapTrade = 0;
-        overlay.addEventListener('pointerdown', (e)=>{
-            if (mode!=='trade') return;
-            if (e.pointerType==='touch'){
-                const now = performance.now();
-                if (now - lastTapTrade < 300){
-                    resetSel(); e.preventDefault(); e.stopPropagation();
-                }
-                lastTapTrade = now;
-            }
-        }, true);
+        let lastTapPos   = null;
+        overlay.addEventListener('pointerdown', (e) => {
+            if (mode !== 'trade') return;
+            if (e.pointerType !== 'touch') return;
+            if (!e.isPrimary) return;
 
-        
+            const now = performance.now();
+            const dt  = now - lastTapTrade;
+
+            const MAX_MOVE = 18;
+            if (lastTapPos && dt < 320) {
+                const dx = e.clientX - lastTapPos.x;
+                const dy = e.clientY - lastTapPos.y;
+                if (Math.hypot(dx, dy) <= MAX_MOVE) {
+                    resetSel();
+                    e.preventDefault();
+                    e.stopPropagation();
+                    lastTapTrade = 0;
+                    lastTapPos = null;
+                    return;
+                }
+            }
+
+            lastTapTrade = now;
+            lastTapPos = { x: e.clientX, y: e.clientY };
+        }, { capture: true, passive: false });
+
         const _setMode = setMode;
         setMode = function(m){
             _setMode(m);
             const on = (m==='trade');
             hud(on);
-            if (on){ ensureLayers(); refreshHighlights(); loadGraph().catch(()=>{}); setStats(startSel&&endSel?`${startSel} → ${endSel}`:'Pick two cells'); }
-            else { resetSel(); }
+            if (on){
+                clearPathSelections();
+                ensureLayers();
+                refreshHighlights();
+                loadGraph().catch(()=>{});
+                setStats(startSel&&endSel?`${startSel} → ${endSel}`:'Pick two cells');
+            } else {
+                resetSel();
+            }
         };
 
-        
         overlay.addEventListener('click', (ev)=>{
             const r=ev.target.closest('rect.cell'); if (!r) return;
             if (dragMoved) return; if (mode!=='trade') return;
@@ -2214,14 +2226,106 @@
 
         document.addEventListener('keydown', (e)=>{ if (e.key==='4') setMode('trade'); });
 
-        
         ensureLayers();
         hud(false);
         setStats('Pick two cells');
+    })();
+
+    (function dockTradeStatsAboveSettings(){
+        const stats    = document.getElementById('tradeStats');
+        const settings = document.getElementById('settings');
+        const cog      = document.getElementById('cogButton');
+        const panel    = document.getElementById('settingsPanel');
+        if (!stats || !settings || !cog) return;
+
+        stats.style.display = 'none';
+
+        const getContRect = () => document.getElementById('container').getBoundingClientRect();
+
+        function isShown(el){
+            if (!el) return false;
+            const cs = getComputedStyle(el);
+            return cs.display !== 'none' && cs.visibility !== 'hidden' && cs.opacity !== '0';
+        }
+
+        function place(){
+            if (stats.style.display === 'none') return;
+            const cont = getContRect();
+            const settingsRect = settings.getBoundingClientRect();
+            let topMost = settingsRect.top;
+
+            if (panel && isShown(panel)) {
+                const panelRect = panel.getBoundingClientRect();
+                topMost = Math.min(topMost, panelRect.top);
+            }
+
+            const cogRect = cog.getBoundingClientRect();
+            topMost = Math.min(topMost, cogRect.top);
+
+            const gap  = 10;
+            const leftPx   = settingsRect.left - cont.left;
+            const bottomPx = (cont.bottom - topMost) + gap;
+            stats.style.left   = `${leftPx}px`;
+            stats.style.bottom = `${bottomPx}px`;
+        }
+
+        function showStats(on){
+            stats.style.display = on ? 'block' : 'none';
+            if (on) place();
+        }
+
+        place();
+        window.addEventListener('resize', place);
+        cog.addEventListener('click', () => setTimeout(place, 0));
+        settings.addEventListener('mouseenter', place);
+        settings.addEventListener('mouseleave', () => setTimeout(place, 0));
+        panel?.addEventListener('transitionend', place);
+        const ro = new ResizeObserver(() => place());
+        ro.observe(settings); panel && ro.observe(panel);
+        const mo = new MutationObserver(() => place());
+        mo.observe(settings, { attributes: true, attributeFilter: ['class','style'] });
+        if (panel) mo.observe(panel, { attributes: true, attributeFilter: ['class','style'] });
+
+        const _setModeForStats = setMode;
+        setMode = function(m){
+            _setModeForStats(m);
+            const on = (m === 'trade');
+            showStats(on);
+        };
+    })();
+
+    (function distanceDoubleTapSafe(){
+        let lastTap = 0;
+        let lastPos = null;
+
+        container.addEventListener('pointerdown', (e) => {
+            if (mode !== 'distance') return;
+            if (e.pointerType !== 'touch') return;
+            if (!e.isPrimary) return;
+
+            const now = performance.now();
+            const dt  = now - lastTap;
+            const MAX_MOVE = 18;
+
+            if (lastPos && dt < 320) {
+                const dx = e.clientX - lastPos.x;
+                const dy = e.clientY - lastPos.y;
+                if (Math.hypot(dx, dy) <= MAX_MOVE) {
+                    clearMainDistance?.();
+                    e.preventDefault();
+                    e.stopPropagation();
+                    lastTap = 0;
+                    lastPos = null;
+                    return;
+                }
+            }
+
+            lastTap = now;
+            lastPos = { x: e.clientX, y: e.clientY };
+        }, { capture: true, passive: false });
     })();
 
     ensureObjectsLoaded().catch(()=>{});
 </script>
 </body>
 </html>
-
