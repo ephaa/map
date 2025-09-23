@@ -385,8 +385,7 @@
     <div id="tradeStats" aria-live="polite">Pick two cells</div>
 </div>
 
-<script>
-    const UI_MULT   = 3.5;
+    <script>    const UI_MULT   = 3.5;
     const SHRINK_A  = 0.85;
     const WORLD_W   = 5000;
     const WORLD_H   = 5000;
@@ -498,12 +497,22 @@
         const t=`translate(${originX}px, ${originY}px) scale(${scale})`;
         [map, overlay, gridCanvas].forEach(el=>{ el.style.transform=t; el.style.transformOrigin='0 0'; });
     }
+    function centerMain(scaleVal = 1){
+        scale = scaleVal;
+        const cw = container.clientWidth;
+        const ch = container.clientHeight;
+        const mw = map.naturalWidth;
+        const mh = map.naturalHeight;
+        originX = (cw - mw * scale) / 2;
+        originY = (ch - mh * scale) / 2;
+        applyTransform();
+    }
     function hitsUI(e){ return !!e.target.closest('#settings, #viewer, #searchUI'); }
 
     const ptrs = new Map();
     function pointersArray(){ return Array.from(ptrs.values()); }
     function mid(a,b){ return {x:(a.x+b.x)/2, y:(a.y+b.y)/2}; }
-    function dist2(a,b){ return Math.hypot(a.x-b.x, a.y-b.y); }
+    function dist2(a,b){ return Math.hypot(a.x-a.x, a.y-b.y); } // (unused but kept)
 
     function clearPathSelections(){
         overlay.querySelectorAll('g.path-selected').forEach(el => el.classList.remove('path-selected'));
@@ -546,9 +555,9 @@
             distanceHadPinch = true;
             const [p0,p1] = ps;
             if (!container._pinch){
-                container._pinch = { start:{p0, p1, d:dist2(p0,p1), m:mid(p0,p1)}, originX, originY, scale };
+                container._pinch = { start:{p0, p1, d:Math.hypot(p0.x-p1.x,p0.y-p1.y), m:mid(p0,p1)}, originX, originY, scale };
             } else {
-                const dNow = dist2(p0,p1);
+                const dNow = Math.hypot(p0.x-p1.x,p0.y-p1.y);
                 const mNow = mid(p0,p1);
                 const factor = dNow / Math.max(10, container._pinch.start.d);
                 const prevScale = container._pinch.scale;
@@ -617,7 +626,7 @@
     container.addEventListener('dblclick', (e)=>{
         if (hitsUI(e)) return;
         if (mode === 'distance'){ clearMainDistance(); }
-        else { scale=1; originX=0; originY=0; applyTransform(); }
+        else { centerMain(1); }
     });
     container.addEventListener('contextmenu', (e)=>{ if (mode==='distance' && !hitsUI(e)){ e.preventDefault(); clearMainDistance(); } });
 
@@ -659,7 +668,7 @@
         }
         drawFineGrid(); applyTransform();
     }
-    map.onload=()=>buildGrid();
+    map.onload=()=>{ buildGrid(); centerMain(1); };
     function drawFineGrid(){
         const w = map.naturalWidth, h = map.naturalHeight;
         gridCanvas.width = w; gridCanvas.height = h;
@@ -830,15 +839,24 @@
         }
         cells.push(cur.trim()); return cells;
     }
+
+    /* ---------- Hardened cell-id normalization + tolerant field access ---------- */
     function normCellId(s){
-        const m = /^([A-Z]+)\s*-?\s*(\d+)$/.exec(String(s||'').trim().toUpperCase());
-        if(!m) return null; const col=m[1], r=+m[2];
+        s = String(s ?? '')
+            .toUpperCase()
+            .replace(/\u00A0/g, ' ')      // NBSP → space
+            .replace(/\u200B/g, '')       // zero-width space
+            .replace(/\uFEFF/g, '')       // BOM
+            .replace(/[‐-‒–—―]/g, '-')    // all hyphen variants → hyphen-minus
+            .trim();
+        const m = /^([A-Z]+)\s*-?\s*(\d+)$/.exec(s);
+        if(!m) return null;
+        const col=m[1], r=+m[2];
         if(!COL_LETTERS.includes(col) || r<1 || r>ROWS) return null;
         return col+r;
     }
     const pick = (obj, keys) => { for (const k of keys) { const v = (obj[k] ?? '').toString().trim(); if (v) return v; } return ''; };
 
-    /* ---------- NEW: tolerant CSV field access helpers ---------- */
     function normHeaderKey(k){
         return String(k || '')
             .toLowerCase()
@@ -856,7 +874,11 @@
         }
         return '';
     }
-    /* ------------------------------------------------------------ */
+    function getCellId(rw){
+        const raw = getField(rw, ['Grid','grid','Cell','cell','Grid ID','Cell ID','GridID','CellID','grid id','cell id']);
+        return normCellId(raw);
+    }
+    /* --------------------------------------------------------------------------- */
 
     let vScale=1, vMax=(('ontouchstart' in window) || (navigator.maxTouchPoints > 0)) ? 16 : 40, vX=0, vY=0;
     const vc = viewerCanvas;
@@ -1598,11 +1620,12 @@
             CURRENT_CELL_RECTS.push(cellRect);
 
             const rowsCsv = OBJECT_ROWS
-                .filter(rw=> normCellId(rw.Grid||rw.grid||rw.Cell||rw.cell) === id)
+                .filter(rw=> getCellId(rw) === id)   // <-- tolerant + normalized
                 .map((rw, i)=> {
                     const name = pick(rw, ['Name','name','Label','label','Object','object','Title','title','ID','Id','id']) || `Object ${i+1}`;
                     const sector = pick(rw, ['Sector','sector','Faction','faction','Region','region','Group','group']);
 
+                    // tolerant lookups (handles header whitespace/casing/BOM, etc.)
                     const affiliation = getField(rw, ['Affiliation']);
                     const suns        = getField(rw, ['Suns','Stars']);
                     const moons       = getField(rw, ['Moons']);
@@ -1747,11 +1770,17 @@
 
     let SEARCH = { objects: [], sectors: new Map() };
     function buildSearchIndex(){
+        // One-time validation for bad cell ids
+        try {
+            const bad = (OBJECT_ROWS||[]).filter(r => !getCellId(r));
+            if (bad.length) console.warn('[objects.csv] rows with invalid/missing cell ids (showing up to 25):', bad.slice(0,25));
+        } catch {}
+
         const objs = []; const secMap = new Map();
         for (const r of OBJECT_ROWS){
             const name = (pick(r, ['Name','name','Label','label','Object','object','Title','title','ID','Id','id']) || '').trim();
             const sector = (pick(r, ['Sector','sector','Faction','faction','Region','region','Group','group']) || '').trim();
-            const cell = normCellId(r.Grid||r.grid||r.Cell||r.cell); if (!cell) continue;
+            const cell = getCellId(r); if (!cell) continue;
             if (name){ objs.push({ type:'object', name, nameL: name.toLowerCase(), sector, cell }); }
             if (sector){ if (!secMap.has(sector)) secMap.set(sector, []); secMap.get(sector).push({ name, cell }); }
         }
@@ -1983,7 +2012,6 @@
             }
         };
     })();
-    /* ---- End: Route Planner ---- */
 
 
     const trailCanvas=document.getElementById('cursorLayer'), ctxTrail=trailCanvas.getContext('2d');
