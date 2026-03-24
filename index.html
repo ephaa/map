@@ -331,8 +331,8 @@
             <div class="section">
                 <div class="section-title">Mode</div>
                 <div class="mode-row" role="tablist" aria-label="Interaction mode">
-                    <div class="mode-item active" data-mode="path" role="tab" aria-selected="true" tabindex="0">Path</div>
-                    <div class="mode-item" data-mode="select" role="tab" aria-selected="false" tabindex="0">Select</div>
+                    <div class="mode-item" data-mode="path" role="tab" aria-selected="false" tabindex="0">Path</div>
+                    <div class="mode-item active" data-mode="select" role="tab" aria-selected="true" tabindex="0">Select</div>
                     <div class="mode-item" data-mode="distance" role="tab" aria-selected="false" tabindex="0">Distance</div>
                     <div class="mode-item" data-mode="trade" role="tab" aria-selected="false" tabindex="0">Trade</div>
                 </div>
@@ -682,9 +682,9 @@
         trade: 'Pick two cells to view the ideal traderoute between them.'
     };
 
-    document.getElementById('modeTip').textContent = MODE_TIPS['path'];
+    document.getElementById('modeTip').textContent = MODE_TIPS['select'];
 
-    let mode='path';
+    let mode='select';
 
     const pathHUD = document.getElementById('pathHUD');
     const pathHUDComplete = document.getElementById('pathHUDComplete');
