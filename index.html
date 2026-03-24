@@ -812,16 +812,45 @@
         buildSearchIndex();
     }
     function parseCSVSmart(text){
-        const out = [];
-        const lines = text.replace(/\r\n?/g, '\n').split('\n').filter(l=>l.length>0);
-        if (!lines.length) return out;
-        const header = splitCSVLine(lines[0]);
-        for (let i=1;i<lines.length;i++){
-            const cols = splitCSVLine(lines[i]);
-            const row = {}; for (let j=0;j<header.length;j++){ row[header[j]] = (cols[j] ?? '').trim(); }
-            out.push(row);
+    const rows = [];
+    let inQ = false;
+    let cur = '';
+    let row = [];
+
+    for (let i=0; i<text.length; i++) {
+        const ch = text[i];
+        if (inQ) {
+            if (ch === '"') {
+                if (i+1 < text.length && text[i+1] === '"') { cur += '"'; i++; } 
+                else { inQ = false; }
+            } else { cur += ch; }
+        } else {
+            if (ch === '"') { inQ = true; }
+            else if (ch === ',') { row.push(cur.trim()); cur=''; }
+            else if (ch === '\n' || ch === '\r') {
+                if (ch === '\r' && i+1 < text.length && text[i+1] === '\n') i++;
+                row.push(cur.trim());
+                if (row.length > 1 || row[0] !== '') rows.push(row);
+                row = []; cur = '';
+            } else { cur += ch; }
         }
-        return out;
+    }
+    if (cur !== '' || row.length > 0) { 
+        row.push(cur.trim()); 
+        rows.push(row); 
+    }
+
+    const out = [];
+    if (rows.length === 0) return out;
+    const header = rows[0];
+    
+    for (let i=1; i<rows.length; i++) {
+        const cols = rows[i];
+        const rowObj = {};
+        for (let j=0; j<header.length; j++) { rowObj[header[j]] = (cols[j] ?? '').trim(); }
+        out.push(rowObj);
+    }
+    return out;
     }
     function splitCSVLine(line){
         const cells = []; let cur = '', inQ = false;
