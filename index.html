@@ -283,7 +283,6 @@
         </div>
         <div id="results" role="listbox" aria-label="Search results"></div>
 
-        <!-- New: Multi-stop route planner (shown in Trade mode) -->
         <div id="routeUI" aria-label="Route planner">
             <div id="routeRows" role="list" aria-label="Route stops"></div>
             <div style="display:flex; gap:8px; margin-top:8px;">
@@ -900,14 +899,46 @@
     }
     function setInfoContent(p){
         planetInfoTitle.textContent = p.name || 'Planet';
+        
+        let html = '';
+        
+        // Always show the sector first if it exists
+        if (p.sectorLabel || p.sector) {
+            html += `<tr><td>Sector</td><td>${p.sectorLabel || p.sector}</td></tr>`;
+        }
+
+        // Add all dynamic stats found for this specific object
+        if (p.details && p.details.length > 0) {
+            for (const stat of p.details) {
+                html += `<tr><td>${stat.key}</td><td>${stat.value}</td></tr>`;
+            }
+        } else if (!p.sector) {
+            html += `<tr><td colspan="2" style="color:#666;">No stats available.</td></tr>`;
+        }
+
+        // Add the Lore block at the bottom
+        if (p.lore && !p.lore.startsWith("Error:") && !p.lore.includes("No matching")) {
+            html += `
+            <tr>
+                <td colspan="2" style="padding-top:12px; padding-bottom:4px;">
+                    <div style="font-size:11.5px; line-height:1.45; color:#b5c0ff; max-height:160px; overflow-y:auto; padding-right:4px; text-align:justify; white-space:pre-wrap; border-top:1px solid rgba(255,255,255,0.1); padding-top:8px;">
+                        ${p.lore}
+                    </div>
+                </td>
+            </tr>`;
+        }
+
         planetInfoBody.innerHTML = `
-<tr><td>Sector</td><td>${p.sectorLabel || p.sector || '?'}</td></tr>
-<tr><td>Affiliation</td><td>${p.affiliation}</td></tr>
-<tr><td>Suns</td><td>${p.suns}</td></tr>
-<tr><td>Moons</td><td>${p.moons}</td></tr>
-<tr><td>Population</td><td>${p.population}</td></tr>
-<tr><td>Climate</td><td>${p.climate}</td></tr>
-<tr><td>Terrain</td><td>${p.terrain}</td></tr>`;
+            <tr>
+                <td colspan="2" style="padding:0;">
+                    <div style="max-height: 180px; overflow-y: auto; padding-right: 4px;">
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tbody>${html}</tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>`;
+            
         planetInfoSearch.disabled = !p.name;
         planetInfoSearch.setAttribute('aria-label', p.name ? `Search Wookieepedia for ${p.name}` : 'Search on Wookieepedia');
         planetInfoSearch.onclick = () => openWookieeSearch(p.name);
@@ -1538,15 +1569,15 @@
         }
         function labelRect(pt, w, h, pos, r, gap){
             switch(pos){
-                case 'E':  return { x:pt.x + r + gap,     y:pt.y - h/2,       w,h };
-                case 'W':  return { x:pt.x - r - gap - w, y:pt.y - h/2,       w,h };
+                case 'E':  return { x:pt.x + r + gap,     y:pt.y - h/2,        w,h };
+                case 'W':  return { x:pt.x - r - gap - w, y:pt.y - h/2,        w,h };
                 case 'N':  return { x:pt.x - w/2,         y:pt.y - r - gap - h, w,h };
                 case 'S':  return { x:pt.x - w/2,         y:pt.y + r + gap,   w,h };
                 case 'NE': return { x:pt.x + r + gap,     y:pt.y - r - gap - h, w,h };
                 case 'SE': return { x:pt.x + r + gap,     y:pt.y + r + gap,   w,h };
                 case 'NW': return { x:pt.x - r - gap - w, y:pt.y - r - gap - h, w,h };
                 case 'SW': return { x:pt.x - r - gap - w, y:pt.y + r + gap,   w,h };
-                default:   return { x:pt.x + r + gap,     y:pt.y - h/2,       w,h };
+                default:   return { x:pt.x + r + gap,     y:pt.y - h/2,        w,h };
             }
         }
 
@@ -1622,28 +1653,37 @@
             const rowsCsv = OBJECT_ROWS
                 .filter(rw=> getCellId(rw) === id)   // <-- tolerant + normalized
                 .map((rw, i)=> {
+                    // 1. Grab the core fields we need for the map mechanics
                     const name = pick(rw, ['Name','name','Label','label','Object','object','Title','title','ID','Id','id']) || `Object ${i+1}`;
                     const sector = pick(rw, ['Sector','sector','Faction','faction','Region','region','Group','group']);
+                    const lore = getField(rw, ['Lore', 'lore', 'Description']);
 
-                    // tolerant lookups (handles header whitespace/casing/BOM, etc.)
-                    const affiliation = getField(rw, ['Affiliation']);
-                    const suns        = getField(rw, ['Suns','Stars']);
-                    const moons       = getField(rw, ['Moons']);
-                    const population  = getField(rw, ['Population']);
-                    const climate     = getField(rw, ['Climate']);
-                    const terrain     = getField(rw, ['Terrain']);
+                    // 2. DYNAMICALLY GRAB ALL OTHER STATS
+                    // We define the column names we want to skip because they are handled elsewhere or are metadata
+                    const skipKeys = ['name','label','object','title','id','sector','faction','region','group','grid','cell','lore','description', '__norm'];
+                    
+                    const details = [];
+                    for (const key of Object.keys(rw)) {
+                        if (key === '__norm') continue;
+                        
+                        const normKey = key.toLowerCase().trim();
+                        // If the key isn't one of our core fields, check if it has a value
+                        if (!skipKeys.some(sk => normKey === sk || normKey.includes(sk+' id'))) {
+                            const val = rw[key];
+                            // Only add it if it actually has text (ignore blanks and NaNs)
+                            if (val && String(val).trim() !== '' && String(val).trim().toLowerCase() !== 'nan') {
+                                details.push({ key: key.trim(), value: String(val).trim() });
+                            }
+                        }
+                    }
 
                     return {
                         name,
                         sector,
                         sectorKey: sector ? `${sector} @ ${id}` : '__none__',
                         sectorLabel: sector ? `${sector} · ${id}` : '',
-                        affiliation: q(affiliation),
-                        suns:        q(suns),
-                        moons:       q(moons),
-                        population:  q(population),
-                        climate:     q(climate),
-                        terrain:     q(terrain),
+                        lore: lore || '',
+                        details: details, // <--- We pass the dynamic stats array here!
                         cellId: id
                     };
                 });
@@ -2606,4 +2646,3 @@
 </body>
 
 </html>
-
